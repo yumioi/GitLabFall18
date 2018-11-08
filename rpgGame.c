@@ -1,9 +1,19 @@
 //Contributors
+
+
+//Ivan Khaffaji Room #19 
+
+
+
 //kseeram
+
+
+
 #include <stdlib.h>
 #include <ctype.h>
 #include <string.h>
 #include <time.h>
+#include <stdio.h>
 
 
 
@@ -88,11 +98,55 @@ void main(void)
 			}
 			case 8:
 			{
-					while(choice != 99)
-					{
-							puts("you open the door and find ........");
-							scanf("%d",&choice);
+
+				int choice;
+		
+
+				while(choice != 99){
+					puts("you open the door and find ........");
+					puts("\n\nYou're instantly teleported into the STAR WARS Universe");
+					puts("Select your class:\n");
+					puts("1. jedi");
+					puts("2. sith");
+					puts("3. Smuggler");
+					puts("4. Wookie");
+					puts("5. yoda");
+					printf("type 50 for help\n");
+					scanf("%d",&choice);
+
+					if(choice == 1){
+						printf("You have chosen the %s","jedi");
 					}
+
+					if(choice == 2){
+						printf("You have chosen the %s","sith");
+					}
+
+					if(choice == 3){
+						printf("You have chosen the %s","smuggler");
+					}
+					
+					if(choice == 4){
+						printf("You have chosen the %s","wookie");
+					}
+
+					if(choice == 5){
+						printf("You have chosen the %s","yoda");
+					}
+
+					if(choice == 50){
+						printf("You have chosen help, but i will not help you\n\n");
+						puts("just kidding");
+						puts("option 1: The Jedi are the main protagonists in the Star Wars universe. They are depicted as an ancient monastic, academic, meritocratic and paramilitary organization whose origin dates back approximately 25,000 years before the events of the first film released in the franchise. ");
+						
+
+					}
+	
+			
+					scanf("%d",&choice);
+				}
+						
+					
 					break;
 			}
 			case 9:
@@ -151,7 +205,9 @@ void main(void)
 			{
 					while(choice != 99)
 					{
-							puts("you open the door and find ........");
+							puts("you open the door, but something prevents you from entering. ");
+							puts("Through the door you hear someone shouting \"HOLD THE DOOR\"");
+							puts("Despite your effort, the mass opposite from you keeps the door closed.");
 							scanf("%d",&choice);
 					}
 					break;
@@ -176,6 +232,32 @@ void main(void)
 			{
 					while(choice != 99)
 					{
+						puts("You open the door and find ...... ");
+						puts("An s2000 that is currently fixed wiht airbag suspension");
+						puts("An s2000 completely modified with all authentic JDM parts");
+						puts("An that is just completely bone stock andlow miles, but is an AP1");
+						puts("But now you have 3 choices...");
+						puts("Choice 1: throw away the bagged s2000 but then the modified s2000 is reverted to OEM");
+						puts("Choice 2: throw away all of these cars and save your money for a worse car");
+						puts("Choice 3: Make these cars all bone stock");
+						scanf("%d", &choice);
+						switch(choice)
+						{
+							case 1:
+								puts("Okay so this was a pretty good choice, but i can tell you're a purist. Yuck");
+								break;
+
+							case 2:
+								puts("Why the heck would you make this choice? Literally this is the best car you can ever drive. Pleb");
+								break;
+							
+							case 3:
+								puts("Okay this is probably the safest choice you can make, but you are still no fun");
+								break;
+
+							default:
+								break;
+
 					}
 					break;
 			}
@@ -184,7 +266,47 @@ void main(void)
 					while(choice != 99)
 					{
 							puts("you open the door and find ........");
+							puts("a box full of kittens!!! ..........");
+							puts("what do you do? ...................");
+							puts("1 for taking one kitten............");
+							puts("2 for taking two kittens...........");
+							puts("3 for taking three kittens.........");
+							puts("99 for leaving the room............");
 							scanf("%d",&choice);
+							switch(choice)
+							{
+								case 1:
+									puts("You only took one kitten??? How heartless!");
+									break;
+								case 2:
+									puts("Ok, not bad. 2 kittens could be worse.");
+									break;
+								case 3:
+									puts("Wow, look at you. Big man. You took 3 kittens. How do you plan on taking care of them?");
+									puts("Look, one of them is already crying. Damn, theres a bottle somewhere here, right?");
+									puts("1 to pick up the bottle from the table............");
+									puts("2 to ignore the kitten............................");
+									puts("99 to leave the room..............................");
+									scanf("%d",&choice);
+									switch(choice)
+									{
+										case 1:
+											puts("The kitten stopped crying. Good job! Now leaving room.");
+											choice = 19;
+											break;
+										case 2:
+											puts("You heartless fool! Game over.");
+											choice = 99;
+											break;
+										case 99:
+											puts("Now leaving room.");
+											choice = 19;
+											break;
+									}
+									break;
+							}
+							
+							
 					}
 					break;
 			}
@@ -278,4 +400,4 @@ void main(void)
 		}	
 	}
     }
-
+}
