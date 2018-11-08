@@ -61,6 +61,7 @@ void main(void)
 						if(choice == 1)
 						{
 							puts("You approach the cactus creatures cautiously. The creatures notice your presense again and circle around you.\n");
+							puts("They don't attack, instead they continue to dance.");
 						}
 						break;
 					}
