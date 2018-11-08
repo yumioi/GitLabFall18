@@ -1,4 +1,5 @@
 //Contributors
+#include <stdio.h>
 #include <stdlib.h>
 #include <ctype.h>
 #include <string.h>
@@ -35,12 +36,23 @@ void main(void)
 				}
 				break;
 			}
-			case 2:
+			case 2: // Justin Do Room 2
 			{
 					while(choice != 99)
 					{
-							puts("you open the door and find ........");
-							scanf("%d",&choice);
+						puts("Welcome to room 2. Glad you didn't drown. \n");
+						puts("You open the door and find a wolf that looks intimidating.\n");
+						puts("You need to stay alive and there are three choices to choose from.\n");
+						puts("1. Run back to the door.\n");
+						puts("2. Pick up the knife on the floor and throw it at the wolf.\n");
+						puts("3. Drop and play dead on the floor.\n");
+						scanf("%d",&choice);
+
+						if(choice == 1)
+						{
+							puts("You start running to the door but you are slower than the wolf.\n");
+							puts("The wolf catches up and eats you alive.");
+						}
 					}
 					break;
 			}
@@ -272,5 +284,5 @@ void main(void)
 			}
 		}	
 	}
-    }
+}
 
