@@ -1,11 +1,18 @@
 //Contributors
+
 //Ivan Khaffaji Room #19 
+
+
+
+//kseeram
+
 
 #include <stdlib.h>
 #include <ctype.h>
 #include <string.h>
 #include <time.h>
 #include <stdio.h>
+
 
 
 void main(void)
@@ -141,6 +148,10 @@ void main(void)
 			{
 					while(choice != 99)
 					{
+						puts("You enter and close the door behind you.");
+						puts("A door on your left");
+						puts("A tunnel straight ahead with a small circle of light at the very end");
+						scanf("%d",&choice);
 					}
 					break;
 			}
@@ -148,7 +159,9 @@ void main(void)
 			{
 					while(choice != 99)
 					{
-							puts("you open the door and find ........");
+							puts("you open the door, but something prevents you from entering. ");
+							puts("Through the door you hear someone shouting \"HOLD THE DOOR\"");
+							puts("Despite your effort, the mass opposite from you keeps the door closed.");
 							scanf("%d",&choice);
 					}
 					break;
@@ -173,6 +186,32 @@ void main(void)
 			{
 					while(choice != 99)
 					{
+						puts("You open the door and find ...... ");
+						puts("An s2000 that is currently fixed wiht airbag suspension");
+						puts("An s2000 completely modified with all authentic JDM parts");
+						puts("An that is just completely bone stock andlow miles, but is an AP1");
+						puts("But now you have 3 choices...");
+						puts("Choice 1: throw away the bagged s2000 but then the modified s2000 is reverted to OEM");
+						puts("Choice 2: throw away all of these cars and save your money for a worse car");
+						puts("Choice 3: Make these cars all bone stock");
+						scanf("%d", &choice);
+						switch(choice)
+						{
+							case 1:
+								puts("Okay so this was a pretty good choice, but i can tell you're a purist. Yuck");
+								break;
+
+							case 2:
+								puts("Why the heck would you make this choice? Literally this is the best car you can ever drive. Pleb");
+								break;
+							
+							case 3:
+								puts("Okay this is probably the safest choice you can make, but you are still no fun");
+								break;
+
+							default:
+								break;
+
 					}
 					break;
 			}
@@ -315,4 +354,4 @@ void main(void)
 		}	
 	}
     }
-
+}
