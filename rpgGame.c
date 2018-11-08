@@ -1,5 +1,9 @@
 //Contributors
+
+
+
 //kseeram
+
 #include <stdlib.h>
 #include <ctype.h>
 #include <string.h>
@@ -152,7 +156,9 @@ void main(void)
 			{
 					while(choice != 99)
 					{
-							puts("you open the door and find ........");
+							puts("you open the door, but something prevents you from entering. ");
+							puts("Through the door you hear someone shouting \"HOLD THE DOOR\"");
+							puts("Despite your effort, the mass opposite from you keeps the door closed.");
 							scanf("%d",&choice);
 					}
 					break;
