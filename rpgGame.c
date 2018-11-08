@@ -1,10 +1,12 @@
 //Contributors
 
+
 //Ivan Khaffaji Room #19 
 
 
 
 //kseeram
+
 
 
 #include <stdlib.h>
@@ -96,11 +98,55 @@ void main(void)
 			}
 			case 8:
 			{
-					while(choice != 99)
-					{
-							puts("you open the door and find ........");
-							scanf("%d",&choice);
+
+				int choice;
+		
+
+				while(choice != 99){
+					puts("you open the door and find ........");
+					puts("\n\nYou're instantly teleported into the STAR WARS Universe");
+					puts("Select your class:\n");
+					puts("1. jedi");
+					puts("2. sith");
+					puts("3. Smuggler");
+					puts("4. Wookie");
+					puts("5. yoda");
+					printf("type 50 for help\n");
+					scanf("%d",&choice);
+
+					if(choice == 1){
+						printf("You have chosen the %s","jedi");
 					}
+
+					if(choice == 2){
+						printf("You have chosen the %s","sith");
+					}
+
+					if(choice == 3){
+						printf("You have chosen the %s","smuggler");
+					}
+					
+					if(choice == 4){
+						printf("You have chosen the %s","wookie");
+					}
+
+					if(choice == 5){
+						printf("You have chosen the %s","yoda");
+					}
+
+					if(choice == 50){
+						printf("You have chosen help, but i will not help you\n\n");
+						puts("just kidding");
+						puts("option 1: The Jedi are the main protagonists in the Star Wars universe. They are depicted as an ancient monastic, academic, meritocratic and paramilitary organization whose origin dates back approximately 25,000 years before the events of the first film released in the franchise. ");
+						
+
+					}
+	
+			
+					scanf("%d",&choice);
+				}
+						
+					
 					break;
 			}
 			case 9:
