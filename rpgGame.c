@@ -1,10 +1,11 @@
 //Contributors
 #include <stdlib.h>
+#include <stdio.h>
 #include <ctype.h>
 #include <string.h>
 #include <time.h>
 
-
+//Edgar bahena room: 4
 
 void main(void)
 {
@@ -53,12 +54,53 @@ void main(void)
 					}
 					break;
 			}
-			case 4:
+			case 4: // Edgar Baheha
 			{
 					while(choice != 99)
 					{
-							puts("you open the door and find ........");
+							puts("You decided to open the 4th door,"
+								"and you are given 3 more choice."
+								"The door closes behind you leaving you"
+								"alone to forcably choose a door in order to continue"
+								"Each door states a given possiblity"
+								"if chosen. The choices are as follow"
+								"1. This Door with give you the ability to"
+								"understand the 'Truth' of all things\n" 
+								"2. This Door will give you the ability to"
+								"become 'Untouchable'\n"
+								"3. This Door will offer you a chance to 'Redo'"
+								"any event you encounter.\n");
+							puts("You seem to be hesitant as you decide to choose a door,"
+							"but are overwhelmed by the reward that you ignore any consequence");
+							puts("Enter the door you choose to continue: ");							
 							scanf("%d",&choice);
+							if(choice == 1)
+							{
+								puts("You know everyone and everything."
+									"You understand the knowledge of the universe"
+									"and the human-race purpose,"
+									"however it came with a price."
+									"You lose your humanity and emotions."
+									"You became an empty shell");
+							}
+							else if(choice == 2)
+							{
+								puts("You became a being with pure energy."
+									"You lost your phyical body and transcended"
+									"into a higher being"
+									"You lost the feeling of touch ,but gained"
+									"unreachable physic");  
+							}
+							else if(choice == 3)
+							{
+								puts("You have the power to reverse time."
+									"You gained an increable ability, however as you soon"
+									"come to understand, each time you"
+									"reverse time, someone close to you dies."
+									"You start to question why you chose this door"
+									"and begin to feel extreemly guilty for killing"
+									"these people");
+							}
 					}
 					break;
 			}
