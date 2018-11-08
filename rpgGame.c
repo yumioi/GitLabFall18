@@ -49,9 +49,9 @@ void main(void)
 			{
 					while(choice != 99)
 					{
-						puts("You open the door and find some strange looking creatures.\n");
-						puts("The creatures look like walking cactuses. One of them appears to have a flower on it's head. They see you but do nothing.\n");
-						puts("The cactus creatures wiggle their bodies, as if they are dancing. They look harmless, but you feel as though they are looking at you menacing.\n");
+						puts("You open the door and find some strange looking creatures. ");
+						puts("The creatures look like walking cactuses. One of them appears to have a flower on it's head. They see you but do nothing. ");
+						puts("The cactus creatures wiggle their bodies, as if they are dancing. They look harmless, but you feel as though they are looking at you menacing. ");
 						puts("You also notice a treasure chest not too far away from the creatures, completely unguarded.\n");
 						puts("You have three choices:\n");
 						puts("1. Interact with the cactuses creatures.\n");
@@ -60,8 +60,19 @@ void main(void)
 						scanf("%d",&choice);
 						if(choice == 1)
 						{
-							puts("You approach the cactus creatures cautiously. The creatures notice your presense again and circle around you.\n");
-							puts("They don't attack, instead they continue to dance.");
+							puts("You approach the cactus creatures cautiously. The creatures notice your presense again and circle around you. ");
+							puts("Their constant wiggling makes you dance with them. You dance with them until you're tired and decide to leave. ");
+							puts("The cactus creatures wave goodbye to you as you leave.\n");
+						}
+						else if(choice == 2)
+						{
+							puts("You ignore the creatures and head toward the treasure chest. ");
+							puts("You open it, only to find it empty. You decide to leave, dissapointed. ");
+							puts("You look at the cactus creatures as you leave. It's as if their dancing is meant to mock you.\n");
+						}
+						else if(choice == 3)
+						{
+							puts("You decide that this room is not worth you time and leave.\n");
 						}
 						break;
 					}
