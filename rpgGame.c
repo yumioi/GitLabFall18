@@ -1,9 +1,11 @@
 //Contributors
+//Ivan Khaffaji Room #19 
+
 #include <stdlib.h>
 #include <ctype.h>
 #include <string.h>
 #include <time.h>
-
+#include <stdio.h>
 
 
 void main(void)
@@ -179,7 +181,47 @@ void main(void)
 					while(choice != 99)
 					{
 							puts("you open the door and find ........");
+							puts("a box full of kittens!!! ..........");
+							puts("what do you do? ...................");
+							puts("1 for taking one kitten............");
+							puts("2 for taking two kittens...........");
+							puts("3 for taking three kittens.........");
+							puts("99 for leaving the room............");
 							scanf("%d",&choice);
+							switch(choice)
+							{
+								case 1:
+									puts("You only took one kitten??? How heartless!");
+									break;
+								case 2:
+									puts("Ok, not bad. 2 kittens could be worse.");
+									break;
+								case 3:
+									puts("Wow, look at you. Big man. You took 3 kittens. How do you plan on taking care of them?");
+									puts("Look, one of them is already crying. Damn, theres a bottle somewhere here, right?");
+									puts("1 to pick up the bottle from the table............");
+									puts("2 to ignore the kitten............................");
+									puts("99 to leave the room..............................");
+									scanf("%d",&choice);
+									switch(choice)
+									{
+										case 1:
+											puts("The kitten stopped crying. Good job! Now leaving room.");
+											choice = 19;
+											break;
+										case 2:
+											puts("You heartless fool! Game over.");
+											choice = 99;
+											break;
+										case 99:
+											puts("Now leaving room.");
+											choice = 19;
+											break;
+									}
+									break;
+							}
+							
+							
 					}
 					break;
 			}
