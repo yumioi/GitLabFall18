@@ -1,4 +1,5 @@
 //Contributors
+//kseeram
 #include <stdlib.h>
 #include <ctype.h>
 #include <string.h>
@@ -139,6 +140,10 @@ void main(void)
 			{
 					while(choice != 99)
 					{
+						puts("You enter and close the door behind you.");
+						puts("A door on your left");
+						puts("A tunnel straight ahead with a small circle of light at the very end");
+						scanf("%d",&choice);
 					}
 					break;
 			}
