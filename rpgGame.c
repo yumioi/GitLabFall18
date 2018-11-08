@@ -1,4 +1,5 @@
 //Contributors
+#include <stdio.h>
 #include <stdlib.h>
 #include <ctype.h>
 #include <string.h>
@@ -82,6 +83,67 @@ void main(void)
 			{
 					while(choice != 99)
 				{ 
+							puts("you open the door and find ........");
+							puts("an old man sitting in the middle of the dark and baren room.");
+							puts("what do you do?");
+							puts("1.Approach the old man");
+							puts("2.Scream at the old man");
+							puts("3.Try to sneak behind the old man");
+							puts("4.Leave the old man to die.");
+							scanf("%d",&choice);
+							if(choice == 1)
+							{
+								puts("As you approach the old man he notices you. what do you do?");
+								puts("1.Try talking to the old man");
+								puts("2.Pretend he didn't notice and walk away");
+								scanf("%d",&choice);
+								if(choice ==1)
+								{
+									puts("The old man was resting and you have disturbed his slumber. You are now in combat what do you do?");
+									puts("1.Attempt to beat him");
+									puts("2.Run away");
+									scanf("%d",&choice);
+									if(choice == 1)
+									{
+										puts("The old man is too strong for you. He beats you. You are dead Game over");
+										break;
+									}
+									if(choice == 2)
+									{
+										puts("As you begin to run the old man stands up. He catches up to you in a split second.");
+										puts("Your vision goes blury. You are dead Game over");
+										break;
+									}
+								}
+								if(choice == 2)
+								{
+									puts("The old man sees your attempt to leave and visibly angers");
+									puts("As soon as you turn around you hear the old man breathing behind you");
+									puts("The last thing you see is your lower body being strown accross the floor");
+									puts("You are dead. Game over.");
+									break;
+								}
+								break;
+							}
+							if(choice == 2)
+							{
+								puts("You awaken the old man and bring down his fury upon you. He completely decimates you. You are dead. Game over");
+								break;
+							}
+							if(choice == 3)
+							{
+								puts("As you approach you make a loud noise. You look down and you it was a tile you stepped on.");
+								puts("As you look up the old man is nowhere to be found. The next sensation you feel is a heavy hit in the back of the head.");
+								puts("You are dead. Game over");
+								break;
+							}
+							if(choice == 4)
+							{
+								puts("As you walk away the old man screams at you. He says \"Why would you just leave me.\"");
+								puts("You turn around and notice that the old man has taken all your belongings.");
+								puts("He screams \"you will pay with your life!\" You are dead. Game over");
+								break;
+							}
 				}
 					break;
 			}
