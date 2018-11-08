@@ -158,12 +158,10 @@ void main(void)
 			}
 			case 16:
 			{
-				puts("You open door 16 to a grand hallway as you walk in you here a laugh,the floor opens up under you and you fall into a black abyss");
-					if(choice == 99)
+					while(choice != 99)
 					{
-					break;
 					}
-					
+					break;
 			}
 			case 17:
 			{
