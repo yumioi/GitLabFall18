@@ -160,12 +160,34 @@ void main(void)
 			}
 			case 17:
 			{
+					puts("You open the door and find.......");
+					puts("A poorly lit room with a single box on the floor...");
+							
 					while(choice != 99)
 					{
-							puts("you open the door and find ........");
+
+
+							
+							puts("1.Inspect the box");
+							puts("2.Flick the light switch");
 							scanf("%d",&choice);
-					}
-					break;
+							if(choice == 1)
+							{
+ 								puts("You pick up the box and look inside....");
+								puts("There is nothing inside...");
+								puts("You are highly disappointed and your day is ruined");						
+							}
+							else if(choice ==2)
+							{
+								puts("You flick the light switch and hear a scream from the box");
+								puts(" Turn off the light ");
+							}
+							else
+							{
+								puts("You walk away...");
+							}
+					}						
+				break;
 			}
 			case 18:			
 			{
