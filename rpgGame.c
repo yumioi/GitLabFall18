@@ -1,5 +1,6 @@
 //Contributors
 #include <stdlib.h>
+#include <stdio.h>
 #include <ctype.h>
 #include <string.h>
 #include <time.h>
@@ -44,12 +45,24 @@ void main(void)
 					}
 					break;
 			}
-			case 3:
+			case 3: //Darren De Vera
 			{
 					while(choice != 99)
 					{
-							puts("you open the door and find ........");
-							scanf("%d",&choice);
+						puts("You open the door and find some strange looking creatures.\n");
+						puts("The creatures look like walking cactuses. One of them appears to have a flower on it's head. They see you but do nothing.\n");
+						puts("The cactus creatures wiggle their bodies, as if they are dancing. They look harmless, but you feel as though they are looking at you menacing.\n");
+						puts("You also notice a treasure chest not too far away from the creatures, completely unguarded.\n");
+						puts("You have three choices:\n");
+						puts("1. Interact with the cactuses creatures.\n");
+						puts("2. Go and open the treasure chest.\n");
+						puts("3. Continue to the next room.\n");
+						scanf("%d",&choice);
+						if(choice == 1)
+						{
+							puts("You approach the cactus creatures cautiously. The creatures notice your presense again and circle around you.\n");
+						}
+						break;
 					}
 					break;
 			}
