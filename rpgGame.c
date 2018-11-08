@@ -160,6 +160,7 @@ void main(void)
 			}
 			case 17:
 			{
+					//modyfied November 7, 2018
 					puts("You open the door and find.......");
 					puts("A poorly lit room with a single box on the floor...");
 							
