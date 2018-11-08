@@ -1,5 +1,6 @@
 //Contributors
 #include <stdlib.h>
+#include <stdio.h>
 #include <ctype.h>
 #include <string.h>
 #include <time.h>
@@ -11,6 +12,8 @@ void main(void)
 	int x,y,z,i,h,g,k,choice=0;
 	char name[256];
 	int boxNum=0;
+	int power = 0;
+	int diceroll;
 
 	printf("Please enter your name: "); //Input any number of array inputs
 	scanf("%s",name);
@@ -64,10 +67,63 @@ void main(void)
 			}
 			case 5:
 			{
+				srand(time(NULL));
 					while(choice != 99)
 					{
-							puts("you open the door and find ........");
+							puts("You open the door and find a treasure chest.\n");
+							puts("You have 2 choices listed below. Choose carefully.\n");
+							puts("1. Open the chest.\n");
+							puts("2. Leave the chest and move on.\n");
 							scanf("%d",&choice);
+							if(choice == 1)
+							{
+								puts("You open the chest and find a golden dice hidden inside.\n");
+								puts("You have 2 choices listed below. Choose carefully.\n");
+								puts("1. Roll the dice.\n");
+								puts("2. Pocket the dice.\n");
+								scanf("%d", &choice);
+								if(choice == 1)
+								{
+									diceroll = 1 + (rand() % 6);
+									printf("Congratulations! You rolled a %d. Your strength is increased by %d", diceroll, diceroll);
+									puts("You move on with your journey. Ahead you encounter a giant orc with heavy armor. Between you and the orc is a sword.\n");
+									puts("You have 3 choices listed below. Choose carefully.\n");
+									puts("1. Pick up the sword and combat the orc.\n");
+									puts("2. Run up and punch the orc.\n");
+									puts("3. Run away.\n");
+									scanf("%d", &choice);
+
+								}
+								else if(choice == 2)
+								{
+									puts("You move on with your journey. Ahead you encounter a giant orc with heavy armor. Between you and the orc is a sword.\n");
+									puts("You have 3 choices listed below. Choose carefully.\n");
+									puts("1. Pick up the sword and combat the orc.\n");
+									puts("2. Roll the dice.\n");
+									puts("3. Run away.\n");
+
+								}
+							}
+							else if(choice == 2)
+							{
+								puts("You leave the chest and move on. Standing before you is a giant orc with heavy armor. Between you and the orc is a sword.\n");
+								puts("You have 2 choices listed below. Choose carefully.\n");
+								puts("1. Pick up the sword and combat the orc.\n");
+								puts("2. Run away.\n");
+								scanf("%d", &choice);
+								if (choice == 1)
+								{
+									puts("You pick up the sword and charge at the orc.\n");
+									puts("Before you could hit the orc with your sword the orc swings down with its club.\n");
+									puts("Your head gets smashed.\n");
+									puts("*****_____ GAME OVER _____*****\n");
+								}
+								else if (choice == 2)
+								{
+									puts("You attempt to run away.\n");
+									puts("The orc quickly catches up and smashes your head.\n");
+									puts("*****_____ GAME OVER _____*****\n");								}
+							}
 					}
 					break;
 			}
