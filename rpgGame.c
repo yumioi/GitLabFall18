@@ -123,7 +123,7 @@ void main(void)
 			{
 					while(choice != 99)
 					{
-						puts("you open the door and find a labratory with a book shelf (enter 1 to inspect), table (enter 2 to inspect), and door (enter 3 to inspect) ");
+						puts(" you open the door and find a labratory with a book shelf (enter 1 to inspect), table (enter 2 to inspect), and door (enter 3 to inspect) ");
 						scanf("%d",&choice);
 						if(choice == 3)
 						{
