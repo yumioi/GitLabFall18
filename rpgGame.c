@@ -172,8 +172,11 @@ void main(void)
 			{
 					while(choice != 99)
 					{
+						FILE *inptr;
+						char ranstring[256]; 
+						int numguess;
 						puts("You open the door and find ...... ");
-						puts("An s2000 that is currently fixed wiht airbag suspension");
+						puts("An s2000 that is currently fixed with airbag suspension");
 						puts("An s2000 completely modified with all authentic JDM parts");
 						puts("An that is just completely bone stock andlow miles, but is an AP1");
 						puts("But now you have 3 choices...");
@@ -185,17 +188,48 @@ void main(void)
 						{
 							case 1:
 								puts("Okay so this was a pretty good choice, but i can tell you're a purist. Yuck");
+								puts("So now that you chose this i have a task for you, if you can guess the number than you get to move on to the next door, but really you can still move on anyways.");
+								puts("So heres the equation 134 x 4 + 31 x 21 = ?\n Whats the answer? ");
+								scanf("%d", &numguess);
+								if(numguess = 1187)
+								{
+									puts("Okay i guess you're pretty smart so get out of my room.");
+								}
+								else
+								{
+									puts("Bro it is literally so easy but that was your last chance, bye");
+								}
+
 								break;
 
 							case 2:
 								puts("Why the heck would you make this choice? Literally this is the best car you can ever drive. Pleb");
+								puts("Since you chose this i have a riddle for you, you walk into a room with 5 people, they all die, how many people are left in the room?");
+								scanf("%d", &numguess);
+								if(numguess = 6)
+								{
+									puts("Sweet, looks like you have some good abstract thinking skills.");
+									puts("Okay now you can choose another door, bye!");
+								}
+								else
+								{
+									puts("Okay so, look at your answer and then think really hard about the riddle.");
+								}	
 								break;
 							
 							case 3:
 								puts("Okay this is probably the safest choice you can make, but you are still no fun");
+								puts("So since you are no fun, i am goin to try and make this fun by taking a huge twist on the story line. What i am going to do is create a file you're going to write to but your job is to tell me where the file is");
+								inptr = fopen("here_is_Your_file_lol.txt", "a");
+								puts("Now put in your string please >:)");
+								scanf("%s", &ranstring);
+								printf("Here is the string you entered: %s", ranstring);
+								fprintf(inptr,"%s", ranstring);
+								fclose(inptr);
 								break;
 
 							default:
+								puts("Okay so i gave you like three options and you decided to be a little Rebel. No. Don't. This code would work fine if you did not try messing it up pls k thx.");
 								break;
 
 					}
