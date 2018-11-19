@@ -47,12 +47,27 @@ void main(void)
 						puts("2. Pick up the knife on the floor and throw it at the wolf.\n");
 						puts("3. Drop and play dead on the floor.\n");
 						scanf("%d",&choice);
-
 						if(choice == 1)
 						{
 							puts("You start running to the door but you are slower than the wolf.\n");
-							puts("The wolf catches up and eats you alive.");
+							puts("The wolf catches up and eats you alive.\n");
 						}
+						if(choice == 2)
+						{
+							puts("You pick up the knife... \n");
+							puts("Throw it as hard as you can and....\n");
+							puts("End up missing the wolf and the wolf mauls you to death.\n");
+						}
+						if(choice == 3)
+						{
+							puts("You decide to lay down and the wolf comes running at you...\n");
+							puts("As soon the wolf runs up to you, it sniffs you for a couple of minutes.\n");
+							puts("The wolf starts to lick you face and then scurries away.");
+						}
+						else
+						{
+							puts("Incorrect choice!\n");
+							puts("Choices are 1, 2 or 3 \n");
 					}
 					break;
 			}
