@@ -79,6 +79,7 @@ void main(void)
 						{
 							puts("Incorrect choice!\n");
 							puts("Choices are 1, 2 or 3 \n");
+						}
 					}
 					break;
 			}
@@ -382,7 +383,6 @@ void main(void)
 							if(choice == 3)
 							{
 								puts("You need a lot more balloons to fly.");
-								return 0;
 							}
 							break;
 					}
@@ -925,4 +925,5 @@ void main(void)
 			}
 		}	
 	}
+}
 }
