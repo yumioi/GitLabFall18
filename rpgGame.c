@@ -74,6 +74,7 @@ void main(void)
 						{
 							puts("You approach the cactus creatures cautiously. The creatures notice your presense again and circle around you.\n");
 							puts("They don't attack, instead they continue to dance.");
+							puts("It is as if they are mocking you.");
 						}
 						break;
 					}
