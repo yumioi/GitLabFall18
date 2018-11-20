@@ -493,7 +493,7 @@ int main(void)
 								puts("THIS IS A TEST");
 								
 								if(choice == 2);
-								puts("THIS IS A TEST 2");
+								puts("If this works... TOUCH DOWN!");
 								
 							if(choice == 2)
 								printf("You hear your name called \" %s \"! \n Do you dare move forward? \n", name);
