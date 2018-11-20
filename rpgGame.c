@@ -1,7 +1,14 @@
 //Contributors
+
 //Brandon LaNuevo Room #1
 //Ivan Khaffaji Room #19
+
+//Hugo Rodriguez Room #10
+
+
 // Justin Do Room #2
+
+
 //kseeram
 #include <stdlib.h>
 #include <stdio.h>
@@ -9,6 +16,7 @@
 #include <string.h>
 #include <time.h>
 #include <stdio.h>
+
 
 //Prototypes
 void sleep(unsigned int seconds);
@@ -951,4 +959,5 @@ void main(void)
                 }
         }
     }
+
 }
