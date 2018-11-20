@@ -77,6 +77,7 @@ void main(void)
 			}
 			case 5:
 			{
+				int power = 5;
 				srand(time(NULL));
 					while(choice != 99)
 					{
@@ -96,6 +97,7 @@ void main(void)
 								{
 									diceroll = 1 + (rand() % 6);
 									printf("Congratulations! You rolled a %d. Your strength is increased by %d", diceroll, diceroll);
+									power = power + diceroll;
 									puts("You move on with your journey. Ahead you encounter a giant orc with heavy armor. Between you and the orc is a sword.\n");
 									puts("You have 3 choices listed below. Choose carefully.\n");
 									puts("1. Pick up the sword and combat the orc.\n");
@@ -111,6 +113,7 @@ void main(void)
 									puts("1. Pick up the sword and combat the orc.\n");
 									puts("2. Roll the dice.\n");
 									puts("3. Run away.\n");
+									scanf("%d", &choice);
 
 								}
 							}
