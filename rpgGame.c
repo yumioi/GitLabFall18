@@ -968,7 +968,19 @@ void main(void)
                     {
                         while(choice != 99)
                         {
-                            puts("you open the door and find ........");
+                            
+				puts("You open the door and find yourself in Spanish 101 class!");
+				puts("Welcome to Karina's Spanish 101 class! :)");
+				puts("I have created 3 exams for you to take, so the end of this adventure you should be able to express yourself in spanish.");
+				puts("You have the choice to challenge me if you don't want to start from level 1.");
+				puts("You may choose a level above level 1 and if you pass the chosen level with a 90% or above then you automatically pass levels below the chosen level!");
+				puts("BUT if you do not pass the chosen level with a 90% or above then you will restart from level 1, so CHALLENGE ME! :P");
+				puts("If you choose to start from level 1 then you can work your way up to the next 2 levels.");
+				puts("The average of the 3 exams will be taken at the end. If you pass with an 80% then you pass the class otherwise you will retake the class.");
+				puts("Let the challenge begin! Enjoy! :D");
+				puts("You may quit anytime by selecting option 99, but I recommend you not to quit!");
+					
+
                             scanf("%d",&choice);
                         }
                         break;
