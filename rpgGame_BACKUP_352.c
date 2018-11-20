@@ -285,141 +285,50 @@ void main(void)
             case 8:
                 {
 
-					int choice;
-					#define RED     "\x1b[31m"
-					#define GREEN   "\x1b[32m"
-					#define YELLOW  "\x1b[33m"
-					#define BLUE    "\x1b[34m"
-					#define MAGENTA "\x1b[35m"
-					#define CYAN    "\x1b[36m"
-					#define RESET   "\x1b[0m"
+                    int choice;
 
-					char userInput[10];
-					int input = 0;
-					int gamesPlayed = 0;
-					int totalDeaths = 0;
-					char longestTime[15] = "0s";
 
                     while(choice != 99){
-					    puts("you open the door and find ........");
-					    //system("color A0");
-				    
-					    //Title Block
-					        puts("\n");
-					        for(i = 0;i < 19;i++){
-					            printf(" ");
-					        }
-					        printf(GREEN "SURVIVAL GAME\n" RESET);
-				    
-					    //boderlines1
-					        printf(BLUE"<");
-					        for(i = 0;i < 50;i++){
-					            printf("-"); 
-					        }
-					        printf(">\n"RESET);
-				    
-					    //borderlines2
-					        printf(BLUE"<");
-					        for(i = 0;i < 50;i++){
-					            printf("-"); 
-					        }
-					        printf(">\n"RESET);
-				    
-					    //TotalGames
-					        for(i = 0;i < 12;i++){
-					            printf(" ");
-					        }
-					        printf("Total Games Played:   "RED);
-					        printf("%d\n\n"RESET,gamesPlayed);
-				    
-					    //TotalDeaths
-					        for(i = 0;i < 12;i++){
-					            printf(" ");
-					        }
-					        printf("Total Deaths:   "RED);
-					        printf("%d\n\n"RESET,totalDeaths);
-				    
-					    //LongestTimeSurvived
-					        for(i = 0;i < 12;i++){
-					            printf(" ");
-					        }
-					        printf("Longest Time Survived:  "RED);
-					        printf("%s\n\n\n"RESET,longestTime);
-				    
-					    //PLAY
-					        for(i = 0;i < 12;i++){
-					            printf(" ");
-					        }
-					        printf(GREEN"PLAY:"RESET"\tto begin playing\n");
-				        
-					    //copyright
-					        printf("\n\n");
-					        for(i = 0;i < 12;i++){
-					            printf(" ");
-					        }
-					        printf("copyright or something 2018\n");
-				        
-					    //Marcus
-					        for(i = 0;i < 12;i++){
-					            printf(" ");
-					        }
-					        printf("Marcus Schumann\n\n");
-				        
-				        
-					    //help
-					        printf(YELLOW"This is an interactive game. Use numbers to make\nchoices in the game\n"RESET);
-					        printf(YELLOW"type PIRATE for pirate mode, type 99 to quit\n"RESET);
-				        
-					    //boderlines1
-					        printf(BLUE"<");
-					        for(i = 0;i < 50;i++){
-					            printf("-"); 
-					        }
-					        printf(">\n"RESET);
-				    
-					    //borderlines2
-					        printf(BLUE"<");
-					        for(i = 0;i < 50;i++){
-					            printf("-"); 
-					        }
-					        printf(">\n\n"RESET);
-                        
-                    
-					    while(1){
-					        printf(GREEN "Whats say you?: " RESET);    
-					        scanf("%s",userInput);
-				        
-					        if(strcmp("PLAY",userInput) == 0 || strcmp("play",userInput) == 0){
-				            
-					            printf("\nYour name is "BLUE"%s"RESET", and you're on a trip to see family in Canada....\n",name);
-					            puts("Everything seems to be going normally. You went through security and\nfound your seat on the plane.");
-					            puts("Pretty soon you're in the air and the flight attendants are going\ndown the aisles to give out drinks");
-					            puts("Would you like something to drink sir?");
-					            puts("\t1. ask for water");
-					            puts("\t2. ask for a sprite ");
-					            puts("\t3. ask for a beer ");
-					            puts("\t4. tell her to go away\n");
-				        
-					            printf(GREEN "Whats say you?: " RESET);    
-					            scanf("%d",&input);
-				            
-					            if(input == 99){
-					                break;
-					            }
-				            
-				            
-				            
-					        }else if(strcmp("99",userInput) == 0){
-				            
-					            break;
-				            
-					        }else{
-					            printf("I can't understand that, Try again?\n");
-					            continue;   
-					        }
-					    }
-                    	
-                       
+                        puts("you open the door and find ........");
+                        puts("\n\nYou're instantly teleported into the STAR WARS Universe");
+                        puts("Select your class:\n");
+                        puts("1. jedi");
+                        puts("2. sith");
+                        puts("3. Smuggler");
+                        puts("4. Wookie");
+                        puts("5. yoda");
+                        printf("type 50 for help\n");
+                        scanf("%d",&choice);
+
+                        if(choice == 1){
+                            printf("You have chosen the %s","jedi");
+                        }
+
+                        if(choice == 2){
+                            printf("You have chosen the %s","sith");
+                        }
+
+                        if(choice == 3){
+                            printf("You have chosen the %s","smuggler");
+                        }
+
+                        if(choice == 4){
+                            printf("You have chosen the %s","wookie");
+                        }
+
+                        if(choice == 5){
+                            printf("You have chosen the %s","yoda");
+                        }
+
+                        if(choice == 50){
+                            printf("You have chosen help, but i will not help you\n\n");
+                            puts("just kidding");
+                            puts("option 1: The Jedi are the main protagonists in the Star Wars universe. They are depicted as an ancient monastic, academic, meritocratic and paramilitary organization whose origin dates back approximately 25,000 years before the events of the first film released in the franchise. ");
+
+
+                        }
+
+
                         scanf("%d",&choice);
                     }
 
@@ -974,19 +883,7 @@ void main(void)
                     {
                         while(choice != 99)
                         {
-                            
-				puts("You open the door and find yourself in Spanish 101 class!");
-				puts("Welcome to Karina's Spanish 101 class! :)");
-				puts("I have created 3 exams for you to take, so the end of this adventure you should be able to express yourself in spanish.");
-				puts("You have the choice to challenge me if you don't want to start from level 1.");
-				puts("You may choose a level above level 1 and if you pass the chosen level with a 90% or above then you automatically pass levels below the chosen level!");
-				puts("BUT if you do not pass the chosen level with a 90% or above then you will restart from level 1, so CHALLENGE ME! :P");
-				puts("If you choose to start from level 1 then you can work your way up to the next 2 levels.");
-				puts("The average of the 3 exams will be taken at the end. If you pass with an 80% then you pass the class otherwise you will retake the class.");
-				puts("Let the challenge begin! Enjoy! :D");
-				puts("You may quit anytime by selecting option 99, but I recommend you not to quit!");
-					
-
+                            puts("you open the door and find ........");
                             scanf("%d",&choice);
                         }
                         break;
