@@ -796,6 +796,7 @@ void main(void)
 							puts("1 for taking one kitten............");
 							puts("2 for taking two kittens...........");
 							puts("3 for taking three kittens.........");
+							puts("4 for not taking any kittens.......");
 							puts("99 for leaving the room............");
 							scanf("%d",&choice);
 							switch(choice)
@@ -823,6 +824,9 @@ void main(void)
 											puts("You heartless fool! Game over.");
 											choice = 99;
 											break;
+										case 3:
+											puts("You didn't take any kittens!!!!! You monster");
+											choice = 99;
 										case 99:
 											puts("Now leaving room.");
 											choice = 19;
