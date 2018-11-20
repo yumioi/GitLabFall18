@@ -17,6 +17,7 @@ void main(void)
 	int x,y,z,i,h,g,k,choice=0;
 	char name[256];
 	int boxNum=0;
+	int num = 6, guess= 0, a;
 
 	
 	srand(time(NULL));
@@ -396,8 +397,27 @@ void main(void)
 			{
 					while(choice != 99)
 					{
+					 printf("Enter a number between 1 and 10: ");
+      
+      					 scanf("%d", &guess);
+      
+     
+     	 				 printf("%d + magic number =%d\n",guess, (num + guess) );
+      					 printf("%d * magic number=%d\n", guess, (num * guess));
+      					 printf("%d - magic number=%d\n", guess, (num - guess));
+    					 printf("what is your guess?\n");
+        				 scanf("%d", &a);
+      					 if(a==num)
+					 {
+          					printf("You are correct! You win\n");
+      					 }
+      						else	
+					{
+          					printf("sorry wrong guess");
+      					}
+						return 0;
 					}
-					break;
+						break;
 			}
 			case 12:
 			{
@@ -657,7 +677,7 @@ void main(void)
 										scanf("%d",&num);
 										j = rand() %6;
 										printf("%d\n",j);
-										winning = (num*j) * 1000000;
+										winning = (num*j) * 2000000;
 										printf("You have won $%d, congratulations!\n",winning);
 										break;
 									case 2:
@@ -805,6 +825,7 @@ void main(void)
 							puts("1 for taking one kitten............");
 							puts("2 for taking two kittens...........");
 							puts("3 for taking three kittens.........");
+							puts("4 for not taking any kittens.......");
 							puts("99 for leaving the room............");
 							scanf("%d",&choice);
 							switch(choice)
@@ -832,6 +853,9 @@ void main(void)
 											puts("You heartless fool! Game over.");
 											choice = 99;
 											break;
+										case 3:
+											puts("You didn't take any kittens!!!!! You monster");
+											choice = 99;
 										case 99:
 											puts("Now leaving room.");
 											choice = 19;
