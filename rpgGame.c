@@ -75,6 +75,33 @@ void main(void)
 			{
 					while(choice != 99)
 					{
+						puts("you open the door to find a man wearing sunglasses, track pants, and a blue shirt with a ravioli stain on his shirt pocket.");
+						puts("Welcome to the filthy frank show! Where everything is filthy and filled with terrible pop culture references.");
+						puts("If you want to make it out alive, just answer my questions and stuff and you'll be safe from dark lord chin chin");
+						puts("Question:  If Pewdiepie reached 80 million subscribers, will the ravioli stick to the ceiling?");
+						puts("1. Wait what?");
+						puts("2. Youtube's reccomended algorithm is garbage!");
+						puts("3. 34 chromonsones");
+						scanf("%d",&choice);
+						if (choice == 1)
+						{
+							puts("YOU OBVIOUSLY WEREN'T LISTENING!!! BACK TO THE RICEFIELDS FOR YOU!!!......GAME OVER.");
+							break;
+						}
+						else if (choice == 2)
+						{
+							puts("Yes, youtubes algorithm is pretty bad and they do demonetize my content, BUT IT ISN'T THE RIGHT ANSWER PUNK!!!......GAME OVER.");
+							break;
+						}
+						else if (choice == 3)
+						{
+							puts("I can't believe you try bribing me. You should be so damn ashamed.  Lucky for you though, I take bribes!");
+							puts("He pockets the chromosones");
+						}
+						else
+						{
+							puts("TRY AGAIN YOU DUNCE");
+						}
 					}
 					break;
 			}
