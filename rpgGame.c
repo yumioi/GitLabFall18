@@ -1,6 +1,6 @@
 //Contributors
 //Brandon LaNuevo #1
-//Ivan Khaffaji Room #19 
+//Ivan Khaffaji Room #19
 
 //kseeram
 #include <stdlib.h>
@@ -307,7 +307,7 @@ void main(void)
             case 7:
                 {
                     while(choice != 99)
-                    { 
+                    {
                         puts("you open the door and find ........");
                         puts("an old man sitting in the middle of the dark and baren room.");
                         puts("what do you do?");
@@ -512,7 +512,7 @@ void main(void)
                         {
                             printf("You are correct! You win\n");
                         }
-                        else	
+                        else
                         {
                             printf("sorry wrong guess");
                         }
@@ -834,7 +834,7 @@ void main(void)
                         {
                             puts("You pick up the box and look inside....");
                             puts("There is nothing inside...");
-                            puts("You are highly disappointed and your day is ruined");						
+                            puts("You are highly disappointed and your day is ruined");
                         }
                         else if(choice ==2)
                         {
@@ -845,15 +845,15 @@ void main(void)
                         {
                             puts("You walk away...");
                         }
-                    }						
+                    }
                     break;
                 }
-            case 18:			
+            case 18:
                 {
                     while(choice != 99)
                     {
                         FILE *inptr;
-                        char ranstring[256]; 
+                        char ranstring[256];
                         int numguess;
                         puts("You open the door and find ...... ");
                         puts("An s2000 that is currently fixed with airbag suspension");
@@ -894,7 +894,7 @@ void main(void)
                                 else
                                 {
                                     puts("Okay so, look at your answer and then think really hard about the riddle.");
-                                }	
+                                }
                                 break;
 
                             case 3:
@@ -1055,7 +1055,7 @@ void main(void)
 
 
                     }
-                }	
+                }
         }
     }
 }
