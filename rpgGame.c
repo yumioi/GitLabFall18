@@ -1,6 +1,11 @@
 //Contributors
 //Ivan Khaffaji Room #19 
+
+//Hugo Rodriguez Room #10
+
+
 // Justin Do Room #2
+
 //kseeram
 #include <stdlib.h>
 #include <stdio.h>
@@ -11,7 +16,7 @@
 
 
 
-void main(void)
+int main(void)
 {
 	int x,y,z,i,h,g,k,choice=0;
 	char name[256];
@@ -360,11 +365,12 @@ void main(void)
 					}
 					break;
 			}
-			case 10:
+			case 10: //Hugo
 			{
+					int choice1;
 					while(choice != 99)
 					{
-					puts("you open the door and find Balloons");
+					puts("You open the door and see nothing but glowing balloons");
 							puts("Your options:");
 							puts("1: Pop the balloons.");
 							puts("2: Inhale the helium.");
@@ -372,18 +378,43 @@ void main(void)
 
 							scanf("%d",&choice);
 							if(choice == 1)
-							{
+							{	
 								puts("Congratulations you made a kid cry.");
+								puts("The kids cry is so loud that you being to hear steps getting closer and closer. You look to your right and see the kids angry father coming your way.");
+								puts("The father threatens to beat you up for making his kid cry.");
+								printf("He says, \"Since you like popping little kids balloons, lets play a little game %s.\"\n ",name);
+								puts("Your hearts starts beating really fast because you never game your name but somehow he knows it.");
+								puts("Do you accept(1) or take a beating(2)?");
+
+								scanf("%d",&choice1);
+									if(choice1==1)
+									{
+										puts("Game rules: ");
+										break;
+									}
+
+									else if(choice1==2)
+									{
+										puts("You take a beating so bad that you feel like a popped balloon.");
+										break;
+									}
+									else
+									{
+										puts("You only have 2 choices. You can't make up your own.");
+										break;
+									}
 							}
 
 							if(choice == 2)
 							{
-								puts("You inhaled the helium and now you sound funny");
+								puts("You inhaled the helium and now you sound funny\n");
 							}
 
 							if(choice == 3)
 							{
-								puts("You need a lot more balloons to fly.");
+
+							 	puts("You need a lot more balloons to fly.\n");
+
 							}
 							break;
 					}
