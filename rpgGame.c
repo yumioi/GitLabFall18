@@ -1,6 +1,7 @@
 //Contributors
 
 //Ivan Khaffaji Room #19 
+//Hugo Rodriguez Room #10
 
 //kseeram
 #include <stdlib.h>
@@ -334,7 +335,7 @@ int main(void)
 					}
 					break;
 			}
-			case 10:
+			case 10: //Hugo
 			{
 					int choice1;
 					while(choice != 99)
