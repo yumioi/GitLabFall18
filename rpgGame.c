@@ -104,6 +104,15 @@ void main(void)
 									puts("2. Run up and punch the orc.\n");
 									puts("3. Run away.\n");
 									scanf("%d", &choice);
+									if(choice == 1)
+									{
+										puts("You pick up the sword and start to combat the orc. Your sword breaks and the orc bashes your head in.\n");
+										puts("*****_____ GAME OVER _____*****\n");
+									}
+									else if(choice == 2)
+									{
+
+									}
 
 								}
 								else if(choice == 2)
