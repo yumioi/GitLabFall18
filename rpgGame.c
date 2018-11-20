@@ -611,13 +611,61 @@ void main(void)
                 }
             case 13:
                 {
+                    
                     while(choice != 99)
                     {
-                        puts("you open the door and find ........");
+                        puts("You open the door and find yourself in a time traveling car. There are three buttons in front of you. In order head back home, you will have to travel back in time and surive the survival. If you fail to save them, you will end up back in the same room with water and drown. If you save their life you will be able to go back home");
+                        puts("The first button will take you to Zions national Park and you must save the dog from drowning in the flood");
+                        puts("The second button will take you to Yosemite National Park and you must save the your best friend from a wildfire ");
+                        puts("The third button will take you to Hawaii Volcanoes National Park and you must save the 7 year old boy from the erupting volcano");
+                        
                         scanf("%d",&choice);
+                        
+                        if(choice == 1)
+                        {
+                            puts("Welcome to Zions National Park");
+                        }
+                        
+                        if(choice == 2)
+                        {
+                            puts("Welcome to Yosemite National Park");
+                        }
+                        
+                        if(choice == 3)
+                        {
+                            puts("Welcome to Hawaii Volcanoes National Park");
+                        }
+                        
                     }
-                    break;
+                    switch(choice)
+                    {
+                        case 1:
+                            puts("You will be able to stay for here for 5 days. You are provided a " );
+                            
+                            
+                            break;
+                        case 2:
+                            
+                            puts("You will be able to stay for here for 5 days. You are provided a  ");
+                            
+                            
+                            
+                            
+                            break;
+                            
+                        case 3:
+                            
+                            puts("You will be able to stay for here for 5 days. You are provided a"  );
+                            
+                            
+                            break;
+                            
+                    }
+                    //break;
                 }
+                
+
+                
             case 14:
                 {
                     int num, j, winning;
