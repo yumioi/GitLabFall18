@@ -390,7 +390,7 @@ void main(void)
 					}
 						break;
 			}
-			case 12:
+			case 12:	//synced rpg
 			{
 				puts("you open the door and find a machine that proceeds to teleport you to a distant facility");
 				int hp = 20, enemyhp = 20;
