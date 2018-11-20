@@ -220,12 +220,15 @@ void main(void)
 							}
 							if(choice == 2)
 							{
-								puts("You awaken the old man and bring down his fury upon you. He completely decimates you. You are dead. Game over");
+								puts("You startle the old man. He slumps down. You sudenly are overcome with grief.");
+								puts("As you contemplate suicide for the death of an old man you notice that he starts to stand up");
+								puts("You feel relieved but the old man is angered by your actions.");
+								puts("The old man brings down his fury upon you. He completely decimates you. You are dead. Game over");
 								break;
 							}
 							if(choice == 3)
 							{
-								puts("As you approach you make a loud noise. You look down and you it was a tile you stepped on.");
+								puts("As you approach you make a loud noise. You look down and you notice the origin of the noise was a loose tile you stepped on.");
 								puts("As you look up the old man is nowhere to be found. The next sensation you feel is a heavy hit in the back of the head.");
 								puts("You are dead. Game over");
 								break;
@@ -358,7 +361,7 @@ void main(void)
 							if(choice == 3)
 							{
 								puts("You need a lot more balloons to fly.");
-								return 0;
+								//return 0;
 							}
 							break;
 					}
@@ -386,7 +389,7 @@ void main(void)
 					{
           					printf("sorry wrong guess");
       					}
-						return 0;
+						//return 0;
 					}
 						break;
 			}
