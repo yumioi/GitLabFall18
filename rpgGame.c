@@ -11,6 +11,7 @@ void main(void)
 	int x,y,z,i,h,g,k,choice=0;
 	char name[256];
 	int boxNum=0;
+	int num = 6, guess= 0, a;
 
 	printf("Please enter your name: "); //Input any number of array inputs
 	scanf("%s",name);
@@ -116,8 +117,27 @@ void main(void)
 			{
 					while(choice != 99)
 					{
+					 printf("Enter a number between 1 and 10: ");
+      
+      					 scanf("%d", &guess);
+      
+     
+     	 				 printf("%d + magic number =%d\n",guess, (num + guess) );
+      					 printf("%d * magic number=%d\n", guess, (num * guess));
+      					 printf("%d - magic number=%d\n", guess, (num - guess));
+    					 printf("what is your guess?\n");
+        				 scanf("%d", &a);
+      					 if(a==num)
+					 {
+          					printf("You are correct! You win\n");
+      					 }
+      						else	
+					{
+          					printf("sorry wrong guess");
+      					}
+						return 0;
 					}
-					break;
+						break;
 			}
 			case 12:
 			{
