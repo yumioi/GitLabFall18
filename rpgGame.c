@@ -17,8 +17,13 @@ void main(void)
 	int x,y,z,i,h,g,k,choice=0;
 	char name[256];
 	int boxNum=0;
+
+	
+	srand(time(NULL));
+
 	int power = 0;
 	int diceroll;
+
 
 	printf("Please enter your name: "); //Input any number of array inputs
 	scanf("%s",name);
@@ -303,12 +308,86 @@ void main(void)
 			}
 			case 14:
 			{
+					int num, j, winning;
 					while(choice != 99)
 					{
 						puts("You enter and close the door behind you.");
-						puts("A door on your left");
-						puts("A tunnel straight ahead with a small circle of light at the very end");
+						puts("You see two doors one on your left and one on your right");
+						puts("There is also a tunnel straight ahead");
+						puts("You can either enter door 1 of 2 of go to the tunnel (choice 3)");
+						puts("What's your choice?");
 						scanf("%d",&choice);
+						switch(choice)
+						{
+							case 1:
+								puts("You enter and close the door behind you");
+								puts("You find a table straight ahead with a duffel bag on top");
+								puts("You can either open the bag (Option 1) or take $500 and leave (Option 2");
+								puts("What do you choose?");
+								scanf("%d",&choice);
+								switch(choice)
+								{
+									case 1:
+									{
+										puts("You have chosen to open the bag");
+										puts("You win NOTHING, should've taken the money");
+										break;
+									}
+									case 2:
+									{
+										puts("You have chosen to take the money");
+										puts("Very smart since there was nothing in the bag");
+										puts("You can now leave $500 richer, Have a good day");
+										break;
+									}
+									default:
+										break;
+								}
+								break;
+							case 2:
+							{
+								puts("You have entered door 2");
+								puts("You have won the lottery!");
+								break;
+							}
+								break;
+							case 3:
+							{
+								puts("You have now entered the tunnel");
+								puts("Props for being a risk taker");
+								puts("While the other doors you could have been a very rich man...");
+								puts("You'll have a chance. You will be given one million dollars and you can bet on a number (1-5)");
+								puts("You also have another option to not gamble and take $500,000 and leave");
+								puts("You're a risk taker, but the option is up to you");
+								puts("Enter 1 to gamble or enter 2 to leave with the money");
+								scanf("%d",&choice);
+								switch(choice)
+								{
+									case 1:
+										puts("Enter the number you'd like to bet on:");
+										puts("The number will be multiplied by a random multiplier and that will be the money you win");
+										puts("Keep in mind it can be multiplied by 0");
+										scanf("%d",&num);
+										j = rand() %6;
+										printf("%d\n",j);
+										winning = (num*j) * 1000000;
+										printf("You have won $%d, congratulations!\n",winning);
+										break;
+									case 2:
+										puts("You took the easy way out");
+										puts("But you're being rewarded for taking the risk entering the tunnel");
+										puts("Have a good day!");
+										break;
+									default:
+										break;
+
+								}
+								break;
+							}
+							default:
+								break;
+						}
+						break;
 					}
 					break;
 			}
