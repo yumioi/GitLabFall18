@@ -89,7 +89,7 @@ void main(void)
 						}
 						else if(choice == 3)
 						{
-							puts("You decide that this room is not worth you time and leave.\n");
+							puts("You decide that this room is not worth your time and leave.\n");
 
 						}
 						break;
