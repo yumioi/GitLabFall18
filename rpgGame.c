@@ -648,7 +648,7 @@ void main(void)
 										scanf("%d",&num);
 										j = rand() %6;
 										printf("%d\n",j);
-										winning = (num*j) * 1000000;
+										winning = (num*j) * 2000000;
 										printf("You have won $%d, congratulations!\n",winning);
 										break;
 									case 2:
