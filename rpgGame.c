@@ -270,7 +270,39 @@ void main(void)
 					while(choice != 99)
 					{
 							puts("you open the door and find ........");
+							puts("Even more doors! What now?? You got four doors to choose! \n");
+							puts("1. Door 1 \n 2. Door 2 \n 3. Door 3 \n 4. Door 4 \n 5. Turn back to the same door you entered? \n");
 							scanf("%d",&choice);
+							
+							if(choice == 1);
+							puts("There's something ahead of you what do you choose to do?");
+							puts("1. Walk toward that something \n 2. Turn around");
+							scanf("%d", &choice);
+							
+								if(choice == 1);
+								puts("THIS IS A TEST");
+								
+								if(choice == 2);
+								puts("THIS IS A TEST 2");
+								
+							if(choice == 2)
+								printf("You hear your name called \" %s \"! \n Do you dare move forward? \n", name);
+								puts("1. Move forward \n 2. Stay where you are at \n");
+								scanf("%d", &choice);
+								
+								if(choice == 1)
+									puts("Hey I know you!");
+									
+								if(choice == 2)
+									puts("You hear \" where are you going? \") ");
+								
+							if(choice == 3)
+								puts("There's nothing at all!");
+							
+							if(choice == 4)
+								puts("Hey, there's gold!");
+							if(choice == 5)
+								puts("The door is locked. Great choice champ!");
 					}
 					break;
 			}
