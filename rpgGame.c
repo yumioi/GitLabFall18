@@ -256,21 +256,26 @@ void main(void)
                         }
                         if(choice == 2)
                         {
-                            puts("You awaken the old man and bring down his fury upon you. He completely decimates you. You are dead. Game over");
+                            puts("You startle the old man. He falls over and appears dead.");
+							puts("As you contemplate suicide over the guilt of killing an old man you notice him stand up.");
+							puts("He becomes infuriated by your actions and bring down his fury upon you. He completely decimates you.");
+							puts("You are dead. Game over");
                             break;
                         }
                         if(choice == 3)
                         {
-                            puts("As you approach you make a loud noise. You look down and you it was a tile you stepped on.");
-                            puts("As you look up the old man is nowhere to be found. The next sensation you feel is a heavy hit in the back of the head.");
+                            puts("As you approach you make a loud noise. You look down and notice the");
+							puts("origin of the noise was a loose tile you stepped on.");
+                            puts("As you look up the old man is nowhere to be found. The next sensation");
+							puts("you feel is a heavy hit in the back of the head.");
                             puts("You are dead. Game over");
                             break;
                         }
                         if(choice == 4)
                         {
-                            puts("As you walk away the old man screams at you. He says \"Why would you just leave me.\"");
+                            puts("As you walk away the old man screams at you. He says \"Why would you just leave me?\"");
                             puts("You turn around and notice that the old man has taken all your belongings.");
-                            puts("He screams \"you will pay with your life!\" You are dead. Game over");
+                            puts("He screams \"You will pay with your life!\" You are dead. Game over");
                             break;
                         }
                     }
