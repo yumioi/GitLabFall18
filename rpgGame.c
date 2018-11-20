@@ -337,8 +337,29 @@ void main(void)
 			{
 					while(choice != 99)
 					{
-							puts("you open the door and find ........");
+					puts("you open the door and find Balloons");
+							puts("Your options:");
+							puts("1: Pop the balloons.");
+							puts("2: Inhale the helium.");
+							puts("3: Grab them and fly away.");
+
 							scanf("%d",&choice);
+							if(choice == 1)
+							{
+								puts("Congratulations you made a kid cry.");
+							}
+
+							if(choice == 2)
+							{
+								puts("You inhaled the helium and now you sound funny");
+							}
+
+							if(choice == 3)
+							{
+								puts("You need a lot more balloons to fly.");
+								return 0;
+							}
+							break;
 					}
 					break;
 			}
