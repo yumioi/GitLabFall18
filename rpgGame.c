@@ -1,15 +1,10 @@
 //Contributors
 
-
 //Ivan Khaffaji Room #19 
 
-
-
 //kseeram
-
-
-
 #include <stdlib.h>
+#include <stdio.h>
 #include <ctype.h>
 #include <string.h>
 #include <time.h>
@@ -22,8 +17,13 @@ void main(void)
 	int x,y,z,i,h,g,k,choice=0;
 	char name[256];
 	int boxNum=0;
+
 	
 	srand(time(NULL));
+
+	int power = 0;
+	int diceroll;
+
 
 	printf("Please enter your name: "); //Input any number of array inputs
 	scanf("%s",name);
@@ -77,10 +77,63 @@ void main(void)
 			}
 			case 5:
 			{
+				srand(time(NULL));
 					while(choice != 99)
 					{
-							puts("you open the door and find ........");
+							puts("You open the door and find a treasure chest.\n");
+							puts("You have 2 choices listed below. Choose carefully.\n");
+							puts("1. Open the chest.\n");
+							puts("2. Leave the chest and move on.\n");
 							scanf("%d",&choice);
+							if(choice == 1)
+							{
+								puts("You open the chest and find a golden dice hidden inside.\n");
+								puts("You have 2 choices listed below. Choose carefully.\n");
+								puts("1. Roll the dice.\n");
+								puts("2. Pocket the dice.\n");
+								scanf("%d", &choice);
+								if(choice == 1)
+								{
+									diceroll = 1 + (rand() % 6);
+									printf("Congratulations! You rolled a %d. Your strength is increased by %d", diceroll, diceroll);
+									puts("You move on with your journey. Ahead you encounter a giant orc with heavy armor. Between you and the orc is a sword.\n");
+									puts("You have 3 choices listed below. Choose carefully.\n");
+									puts("1. Pick up the sword and combat the orc.\n");
+									puts("2. Run up and punch the orc.\n");
+									puts("3. Run away.\n");
+									scanf("%d", &choice);
+
+								}
+								else if(choice == 2)
+								{
+									puts("You move on with your journey. Ahead you encounter a giant orc with heavy armor. Between you and the orc is a sword.\n");
+									puts("You have 3 choices listed below. Choose carefully.\n");
+									puts("1. Pick up the sword and combat the orc.\n");
+									puts("2. Roll the dice.\n");
+									puts("3. Run away.\n");
+
+								}
+							}
+							else if(choice == 2)
+							{
+								puts("You leave the chest and move on. Standing before you is a giant orc with heavy armor. Between you and the orc is a sword.\n");
+								puts("You have 2 choices listed below. Choose carefully.\n");
+								puts("1. Pick up the sword and combat the orc.\n");
+								puts("2. Run away.\n");
+								scanf("%d", &choice);
+								if (choice == 1)
+								{
+									puts("You pick up the sword and charge at the orc.\n");
+									puts("Before you could hit the orc with your sword the orc swings down with its club.\n");
+									puts("Your head gets smashed.\n");
+									puts("*****_____ GAME OVER _____*****\n");
+								}
+								else if (choice == 2)
+								{
+									puts("You attempt to run away.\n");
+									puts("The orc quickly catches up and smashes your head.\n");
+									puts("*****_____ GAME OVER _____*****\n");								}
+							}
 					}
 					break;
 			}
@@ -95,6 +148,67 @@ void main(void)
 			{
 					while(choice != 99)
 				{ 
+							puts("you open the door and find ........");
+							puts("an old man sitting in the middle of the dark and baren room.");
+							puts("what do you do?");
+							puts("1.Approach the old man");
+							puts("2.Scream at the old man");
+							puts("3.Try to sneak behind the old man");
+							puts("4.Leave the old man to die.");
+							scanf("%d",&choice);
+							if(choice == 1)
+							{
+								puts("As you approach the old man he notices you. what do you do?");
+								puts("1.Try talking to the old man");
+								puts("2.Pretend he didn't notice and walk away");
+								scanf("%d",&choice);
+								if(choice ==1)
+								{
+									puts("The old man was resting and you have disturbed his slumber. You are now in combat what do you do?");
+									puts("1.Attempt to beat him");
+									puts("2.Run away");
+									scanf("%d",&choice);
+									if(choice == 1)
+									{
+										puts("The old man is too strong for you. He beats you. You are dead Game over");
+										break;
+									}
+									if(choice == 2)
+									{
+										puts("As you begin to run the old man stands up. He catches up to you in a split second.");
+										puts("Your vision goes blury. You are dead Game over");
+										break;
+									}
+								}
+								if(choice == 2)
+								{
+									puts("The old man sees your attempt to leave and visibly angers");
+									puts("As soon as you turn around you hear the old man breathing behind you");
+									puts("The last thing you see is your lower body being strown accross the floor");
+									puts("You are dead. Game over.");
+									break;
+								}
+								break;
+							}
+							if(choice == 2)
+							{
+								puts("You awaken the old man and bring down his fury upon you. He completely decimates you. You are dead. Game over");
+								break;
+							}
+							if(choice == 3)
+							{
+								puts("As you approach you make a loud noise. You look down and you it was a tile you stepped on.");
+								puts("As you look up the old man is nowhere to be found. The next sensation you feel is a heavy hit in the back of the head.");
+								puts("You are dead. Game over");
+								break;
+							}
+							if(choice == 4)
+							{
+								puts("As you walk away the old man screams at you. He says \"Why would you just leave me.\"");
+								puts("You turn around and notice that the old man has taken all your belongings.");
+								puts("He screams \"you will pay with your life!\" You are dead. Game over");
+								break;
+							}
 				}
 					break;
 			}
@@ -297,12 +411,35 @@ void main(void)
 			}
 			case 17:
 			{
+					//modyfied November 7, 2018
+					puts("You open the door and find.......");
+					puts("A poorly lit room with a single box on the floor...");
+							
 					while(choice != 99)
 					{
-							puts("you open the door and find ........");
+
+
+							
+							puts("1.Inspect the box");
+							puts("2.Flick the light switch");
 							scanf("%d",&choice);
-					}
-					break;
+							if(choice == 1)
+							{
+ 								puts("You pick up the box and look inside....");
+								puts("There is nothing inside...");
+								puts("You are highly disappointed and your day is ruined");						
+							}
+							else if(choice ==2)
+							{
+								puts("You flick the light switch and hear a scream from the box");
+								puts(" Turn off the light ");
+							}
+							else
+							{
+								puts("You walk away...");
+							}
+					}						
+				break;
 			}
 			case 18:			
 			{
