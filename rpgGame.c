@@ -80,6 +80,8 @@ void main(void)
 			}
 			case 3: //Darren De Vera
 			{
+				int playerHp = 10;
+				int playerInv[10];
 					while(choice != 99)
 					{
 						puts("You open the door and find some strange looking creatures. ");
@@ -94,12 +96,20 @@ void main(void)
 						if(choice == 1)
 						{
 
-							puts("You approach the cactus creatures cautiously. The creatures notice your presense again and circle around you.\n");
-							puts("They don't attack, instead they continue to dance.");
-							puts("It is as if they are mocking you.");
 							puts("You approach the cactus creatures cautiously. The creatures notice your presense again and circle around you. ");
-							puts("Their constant wiggling makes you dance with them. You dance with them until you're tired and decide to leave. ");
-							puts("The cactus creatures wave goodbye to you as you leave.\n");
+							puts("Their constant wiggling makes you dance with them. What do you want to do?");
+							puts("1. Dance with them. \n");
+							puts("2. Ignore them. \n")
+							scanf("%d",&choice);
+							if(choice == 1)
+							{
+								puts("You move your body just like the cactus creatures. They seem happy that you decided to dance with them.");
+								puts("One of them offers you a flower. You take the nice gift.")
+								puts("You got the Cactus Flower!");
+								playerInv[0] = 1;
+								puts("The cactus creatures wave good bye as you leave the room.\n");
+							}
+							
 						}
 						else if(choice == 2)
 						{
