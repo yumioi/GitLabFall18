@@ -256,21 +256,26 @@ void main(void)
                         }
                         if(choice == 2)
                         {
-                            puts("You awaken the old man and bring down his fury upon you. He completely decimates you. You are dead. Game over");
+                            puts("You startle the old man. He falls over and appears dead.");
+							puts("As you contemplate suicide over the guilt of killing an old man you notice him stand up.");
+							puts("He becomes infuriated by your actions and bring down his fury upon you. He completely decimates you.");
+							puts("You are dead. Game over");
                             break;
                         }
                         if(choice == 3)
                         {
-                            puts("As you approach you make a loud noise. You look down and you it was a tile you stepped on.");
-                            puts("As you look up the old man is nowhere to be found. The next sensation you feel is a heavy hit in the back of the head.");
+                            puts("As you approach you make a loud noise. You look down and notice the");
+							puts("origin of the noise was a loose tile you stepped on.");
+                            puts("As you look up the old man is nowhere to be found. The next sensation");
+							puts("you feel is a heavy hit in the back of the head.");
                             puts("You are dead. Game over");
                             break;
                         }
                         if(choice == 4)
                         {
-                            puts("As you walk away the old man screams at you. He says \"Why would you just leave me.\"");
+                            puts("As you walk away the old man screams at you. He says \"Why would you just leave me?\"");
                             puts("You turn around and notice that the old man has taken all your belongings.");
-                            puts("He screams \"you will pay with your life!\" You are dead. Game over");
+                            puts("He screams \"You will pay with your life!\" You are dead. Game over");
                             break;
                         }
                     }
@@ -279,50 +284,141 @@ void main(void)
             case 8:
                 {
 
-                    int choice;
+					int choice;
+					#define RED     "\x1b[31m"
+					#define GREEN   "\x1b[32m"
+					#define YELLOW  "\x1b[33m"
+					#define BLUE    "\x1b[34m"
+					#define MAGENTA "\x1b[35m"
+					#define CYAN    "\x1b[36m"
+					#define RESET   "\x1b[0m"
 
+					char userInput[10];
+					int input = 0;
+					int gamesPlayed = 0;
+					int totalDeaths = 0;
+					char longestTime[15] = "0s";
 
                     while(choice != 99){
-                        puts("you open the door and find ........");
-                        puts("\n\nYou're instantly teleported into the STAR WARS Universe");
-                        puts("Select your class:\n");
-                        puts("1. jedi");
-                        puts("2. sith");
-                        puts("3. Smuggler");
-                        puts("4. Wookie");
-                        puts("5. yoda");
-                        printf("type 50 for help\n");
-                        scanf("%d",&choice);
-
-                        if(choice == 1){
-                            printf("You have chosen the %s","jedi");
-                        }
-
-                        if(choice == 2){
-                            printf("You have chosen the %s","sith");
-                        }
-
-                        if(choice == 3){
-                            printf("You have chosen the %s","smuggler");
-                        }
-
-                        if(choice == 4){
-                            printf("You have chosen the %s","wookie");
-                        }
-
-                        if(choice == 5){
-                            printf("You have chosen the %s","yoda");
-                        }
-
-                        if(choice == 50){
-                            printf("You have chosen help, but i will not help you\n\n");
-                            puts("just kidding");
-                            puts("option 1: The Jedi are the main protagonists in the Star Wars universe. They are depicted as an ancient monastic, academic, meritocratic and paramilitary organization whose origin dates back approximately 25,000 years before the events of the first film released in the franchise. ");
-
-
-                        }
-
-
+					    puts("you open the door and find ........");
+					    //system("color A0");
+				    
+					    //Title Block
+					        puts("\n");
+					        for(i = 0;i < 19;i++){
+					            printf(" ");
+					        }
+					        printf(GREEN "SURVIVAL GAME\n" RESET);
+				    
+					    //boderlines1
+					        printf(BLUE"<");
+					        for(i = 0;i < 50;i++){
+					            printf("-"); 
+					        }
+					        printf(">\n"RESET);
+				    
+					    //borderlines2
+					        printf(BLUE"<");
+					        for(i = 0;i < 50;i++){
+					            printf("-"); 
+					        }
+					        printf(">\n"RESET);
+				    
+					    //TotalGames
+					        for(i = 0;i < 12;i++){
+					            printf(" ");
+					        }
+					        printf("Total Games Played:   "RED);
+					        printf("%d\n\n"RESET,gamesPlayed);
+				    
+					    //TotalDeaths
+					        for(i = 0;i < 12;i++){
+					            printf(" ");
+					        }
+					        printf("Total Deaths:   "RED);
+					        printf("%d\n\n"RESET,totalDeaths);
+				    
+					    //LongestTimeSurvived
+					        for(i = 0;i < 12;i++){
+					            printf(" ");
+					        }
+					        printf("Longest Time Survived:  "RED);
+					        printf("%s\n\n\n"RESET,longestTime);
+				    
+					    //PLAY
+					        for(i = 0;i < 12;i++){
+					            printf(" ");
+					        }
+					        printf(GREEN"PLAY:"RESET"\tto begin playing\n");
+				        
+					    //copyright
+					        printf("\n\n");
+					        for(i = 0;i < 12;i++){
+					            printf(" ");
+					        }
+					        printf("copyright or something 2018\n");
+				        
+					    //Marcus
+					        for(i = 0;i < 12;i++){
+					            printf(" ");
+					        }
+					        printf("Marcus Schumann\n\n");
+				        
+				        
+					    //help
+					        printf(YELLOW"This is an interactive game. Use numbers to make\nchoices in the game\n"RESET);
+					        printf(YELLOW"type PIRATE for pirate mode, type 99 to quit\n"RESET);
+				        
+					    //boderlines1
+					        printf(BLUE"<");
+					        for(i = 0;i < 50;i++){
+					            printf("-"); 
+					        }
+					        printf(">\n"RESET);
+				    
+					    //borderlines2
+					        printf(BLUE"<");
+					        for(i = 0;i < 50;i++){
+					            printf("-"); 
+					        }
+					        printf(">\n\n"RESET);
+                        
+                    
+					    while(1){
+					        printf(GREEN "Whats say you?: " RESET);    
+					        scanf("%s",userInput);
+				        
+					        if(strcmp("PLAY",userInput) == 0 || strcmp("play",userInput) == 0){
+				            
+					            printf("\nYour name is "BLUE"%s"RESET", and you're on a trip to see family in Canada....\n",name);
+					            puts("Everything seems to be going normally. You went through security and\nfound your seat on the plane.");
+					            puts("Pretty soon you're in the air and the flight attendants are going\ndown the aisles to give out drinks");
+					            puts("Would you like something to drink sir?");
+					            puts("\t1. ask for water");
+					            puts("\t2. ask for a sprite ");
+					            puts("\t3. ask for a beer ");
+					            puts("\t4. tell her to go away\n");
+				        
+					            printf(GREEN "Whats say you?: " RESET);    
+					            scanf("%d",&input);
+				            
+					            if(input == 99){
+					                break;
+					            }
+				            
+				            
+				            
+					        }else if(strcmp("99",userInput) == 0){
+				            
+					            break;
+				            
+					        }else{
+					            printf("I can't understand that, Try again?\n");
+					            continue;   
+					        }
+					    }
+                    	
+                       
                         scanf("%d",&choice);
                     }
 
@@ -611,13 +707,61 @@ void main(void)
                 }
             case 13:
                 {
+                    
                     while(choice != 99)
                     {
-                        puts("you open the door and find ........");
+                        puts("You open the door and find yourself in a time traveling car. There are three buttons in front of you. In order head back home, you will have to travel back in time and surive the survival. If you fail to save them, you will end up back in the same room with water and drown. If you save their life you will be able to go back home");
+                        puts("The first button will take you to Zions national Park and you must save the dog from drowning in the flood");
+                        puts("The second button will take you to Yosemite National Park and you must save the your best friend from a wildfire ");
+                        puts("The third button will take you to Hawaii Volcanoes National Park and you must save the 7 year old boy from the erupting volcano");
+                        
                         scanf("%d",&choice);
+                        
+                        if(choice == 1)
+                        {
+                            puts("Welcome to Zions National Park");
+                        }
+                        
+                        if(choice == 2)
+                        {
+                            puts("Welcome to Yosemite National Park");
+                        }
+                        
+                        if(choice == 3)
+                        {
+                            puts("Welcome to Hawaii Volcanoes National Park");
+                        }
+                        
                     }
-                    break;
+                    switch(choice)
+                    {
+                        case 1:
+                            puts("You will be able to stay for here for 5 days. You are provided a " );
+                            
+                            
+                            break;
+                        case 2:
+                            
+                            puts("You will be able to stay for here for 5 days. You are provided a  ");
+                            
+                            
+                            
+                            
+                            break;
+                            
+                        case 3:
+                            
+                            puts("You will be able to stay for here for 5 days. You are provided a"  );
+                            
+                            
+                            break;
+                            
+                    }
+                    //break;
                 }
+                
+
+                
             case 14:
                 {
                     int num, j, winning;
@@ -1007,6 +1151,5 @@ void main(void)
                     }
                 }
         }
-    }
-
+}
 }
