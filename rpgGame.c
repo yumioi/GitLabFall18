@@ -875,10 +875,8 @@ void main(void)
                     }
                     case 20:
                     {
-                        while(choice != 99)
-                        {
-                            
-				puts("You open the door and find yourself in Spanish 101 class!");
+
+			puts("You open the door and find yourself in Spanish 101 class!");
 				puts("Welcome to Karina's Spanish 101 class! :)");
 				puts("I have created 3 exams for you to take, so the end of this adventure you should be able to express yourself in spanish.");
 				puts("You have the choice to challenge me if you don't want to start from level 1.");
@@ -887,10 +885,49 @@ void main(void)
 				puts("If you choose to start from level 1 then you can work your way up to the next 2 levels.");
 				puts("The average of the 3 exams will be taken at the end. If you pass with an 80% then you pass the class otherwise you will retake the class.");
 				puts("Let the challenge begin! Enjoy! :D");
-				puts("You may quit anytime by selecting option 99, but I recommend you not to quit!");
-					
+				puts("You may quit anytime by selecting option 99, but I recommend you not to quit!");					
 
-                            scanf("%d",&choice);
+                        while(choice != 99)
+                        {
+                            
+				puts("Here are your choices. You may work on your way up or challenge me:");
+				puts("Level 1");
+				puts("Level 2");
+				puts("Level 3");
+				
+				
+				scanf("%d",&choice);
+				switch(choice)
+				{
+				case 1: 
+				puts("welcome to level 1");
+				
+				puts("Question 1. Please enter the translation for --> thank you");
+				puts("Please enter your answer in lower case letters (:");
+
+				
+				char gracias[7];
+				char input[10];
+				int i;
+				scanf("%s", input);
+					if(strcmp("gracias", input) == 0)
+					{ 
+				
+						 puts("Correct!\n");
+
+					}
+
+					else
+
+					{
+
+						puts("wrong! :( \n");
+						break;
+						
+
+					}
+				}
+	
                         }
                         break;
                     }
