@@ -331,42 +331,122 @@ void main(void)
                 }
             case 9:
                 {
+					int key = 0;
+					int hundredBucks = 0;
+					
+					char option[256];
+					
                     while(choice != 99)
                     {
-                        puts("you open the door and find ........");
-                        puts("Even more doors! What now?? You got four doors to choose! \n");
-                        puts("1. Door 1 \n 2. Door 2 \n 3. Door 3 \n 4. Door 4 \n 5. Turn back to the same door you entered? \n");
+                        printf("you open the door and find ........ \n");
+                        printf("You are in a dark room. You then open another door and you see light shining bright as you step out side\n");
+						printf("As you walk outside into what looks like a ghost town, an old man with gray beard and bald head runs up and tells you \" stranger, we need your help!\" \n");
+						puts(" ");
+						printf("You are first confused and want to ask what's happening but the old man continues \" MadDog McCree and his gang has return to terrorize our town! \n");
+						puts(" ");
+						printf("You have no idea how you got here but you feel you got to save this town to get out of here. \" His gang has taken over various parts of town and only you can get them out of here! \"");
+						puts(" ");
+						printf("Maybe this is too dangerous, perhaps you should decline but the old man continue \" His gang can be found over at the Saloon, the Post Office, the Bank, General Store, and in the Jail where they locked the sheriff! \"\n");
+						printf("\" So please stranger, can you help us take out MadDog and his gang once as for all?? \"");
+						puts(" ");
+                        printf("1. Yes, I'll help  \n 2. Sorry old man, I'll come back later  \n");
                         scanf("%d",&choice);
 
-                        if(choice == 1);
-                        puts("There's something ahead of you what do you choose to do?");
-                        puts("1. Walk toward that something \n 2. Turn around");
-                        scanf("%d", &choice);
-
-                        if(choice == 1);
-                        puts("THIS IS A TEST");
-
-                        if(choice == 2);
-                        puts("THIS IS A TEST 2");
-
-                        if(choice == 2)
-                            printf("You hear your name called \" %s \"! \n Do you dare move forward? \n", name);
-                        puts("1. Move forward \n 2. Stay where you are at \n");
-                        scanf("%d", &choice);
-
                         if(choice == 1)
-                            puts("Hey I know you!");
+						{
+                        printf("You tell the old man your name and agree to help him chase the MadDog gang out of town. \n");
+						printf("\"Oh thank you, %s! Now hurry, MadDog is only growing stronger the longer we stand here! \"", &name);
+						puts("\n1.The Bank \n2. The Saloon \n3. The Jail \n4. The Post Office \n");
+                        scanf("%d", &choice);
+						
+							switch(choice)
+							{
+								case 1:
+								{
+									printf("You are standing outside infront of a building titled 'Bank of the West'.");
+									puts("Do you want to: \n1. Walk into the bank \n2. Turn around");
+									scanf("%d", &choice);
+										if(choice == 1)
+											printf("AS you walk toward the entrance, a man hiding in a barrel next to the entrance peaks his head out.\n");
+											printf("He tells you \" one of MadDog's gang is in there! Be careful, he is armed! \"");
+											printf("You step into the bank, it looks abandon. However you do hear some noise. To the east of you is the teller booth.\nNorth of you is a door and south you is outside\n");
+											printf("Decision>");
+											scanf("%s", option);
+											
+												if(strcmp(option, "left") == 0)
+												{
+													printf("You walk up to the teller booth. You try to see as much as you can but the secure bars are in the way. \n");
+													printf("'Shout' to the get a response or 'turn back'. \n");
+													scanf("%s", option);
+														
+														if(strcmp(option, "shout") == 0)
+														{
+															printf("You shout \" Hey! who's back there? \" You get a response \" None of your damn business!\" You respond back saying \"I know what you're doing, now get out here and leave this town in peace\"\n");
+															printf("You hear the man respond \"That's it boy, you want to go? lets go! \" You hear foot steps coming closer and closer.\n");
+															printf("Hide immediately or pull your gun out and get ready to tango?");
+															scanf("%s", option);
+															
+														}
+														
+												}
+														else if (strcmp(option, "turn back") == 0)
+															{
+															}
+												
+												else if(strcmp(option, "north") == 0)
+												{
+													printf("You walk toward the door, you hear banging noises like someone is trying to break something");
+													printf("'Open' to open the door or 'turn back' around?");
 
-                        if(choice == 2)
-                            puts("You hear \" where are you going? \") ");
-
-                        if(choice == 3)
-                            puts("There's nothing at all!");
-
-                        if(choice == 4)
-                            puts("Hey, there's gold!");
-                        if(choice == 5)
-                            puts("The door is locked. Great choice champ!");
+													
+												}
+												
+												else if(strcmp(option, "turn back") == 0)
+												{
+												}
+									break;
+									}
+								case 2:
+								{
+									printf("You walk into the Saloon, everyone stares at you like they've never seen a human \n");
+									puts("You walk toward the stools at the bar. A man with a bow tie and handle bar mustache apporaches you and ask \"What will it be?\"");
+									puts("With no words to say, bartender just pours a shot of whiskey. Bartender then whispers to you \"those men to the leftside are part of MadDog's gang. Keep an eye on them. They have the key to free the sheriff.\"");
+									puts("\"HEY!\" One of the men on the leftside shout, \" I ain't never seen you before, who are you? \"");
+									printf("\n1. The name's $s, what's it to ya? \n2. None of your Goddamn business!\n", &name);
+									scanf("%d", &choice);
+										
+										if(choice == 1)
+										{
+											printf("\"Well you better not be planning stealing the key to free the sheriff!\"\n");
+										}
+										if(choice == 2)
+										{
+											puts("\"Want to say that again?!\" The man yells as he's reaching for his gun\n");
+											puts("\"I would outta appoligize if I was you!\"");
+										}
+								}
+									break;
+								
+								case 3:
+								{
+									break;
+								}
+									
+								case 4:
+								{
+									printf("\"Oh we have a gamer, well this isn't a game. Okay $s, video games it is, lets get started: \"", &name);
+									break;
+								}
+							}
+						break;
+						}
+						
+                        else if(choice == 2)
+						{
+                            puts("\"Please stranger, come back soon! Our town can't take anymore of these hooligans! \"  \n GAME OVER \n");
+						
+							return 1;
+						}
                     }
                     break;
                 }
