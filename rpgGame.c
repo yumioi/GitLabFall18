@@ -214,23 +214,26 @@ void main(void)
                     {
                         puts("you open the door and find ........");
                         puts("an old man sitting in the middle of the dark and baren room.");
-                        puts("what do you do?");
+                        puts("You have four choices: ");
                         puts("1.Approach the old man");
                         puts("2.Scream at the old man");
                         puts("3.Try to sneak behind the old man");
                         puts("4.Leave the old man to die.");
+						puts("What do you do?");
                         scanf("%d",&choice);
                         if(choice == 1)
                         {
-                            puts("As you approach the old man he notices you. what do you do?");
+                            puts("As you approach the old man he notices you. You have two choices: ");
                             puts("1.Try talking to the old man");
                             puts("2.Pretend he didn't notice and walk away");
+							puts("What do you do?");
                             scanf("%d",&choice);
                             if(choice ==1)
                             {
-                                puts("The old man was resting and you have disturbed his slumber. You are now in combat what do you do?");
+                                puts("The old man was resting and you have disturbed his slumber. You are now in combat you have two options:");
                                 puts("1.Attempt to beat him");
                                 puts("2.Run away");
+								puts("What do you do?");
                                 scanf("%d",&choice);
                                 if(choice == 1)
                                 {
@@ -256,10 +259,55 @@ void main(void)
                         }
                         if(choice == 2)
                         {
-                            puts("You startle the old man. He falls over and appears dead.");
+                            puts("You startle the old man. He falls over and appears dead. You have two choices: ");
+							puts("1. Poke the dead body.");
+							puts("2. Feel guilty.");
+							puts("What do you do?");
+							scanf("%d",&choice);
+							if(choice == 1)
+							{
+								puts("You look around the room for a stick to poke the old man.");
+								puts("You spot a stick by the chair the old man was sitting. Pick it up?");
+								puts("1. Yes");
+								puts("2. No");
+								scanf("%d",&choice)
+								if(choice == 1)
+								{
+									puts("You pick up the stick. With the stick in hand you approach the old man.");
+									puts("You poke at the old man a couple of times, but you see no reaction.");
+									puts("You have two choices: ");
+									puts("1. Dispose of the body.");
+									puts("2. Get Out!");
+									puts("What do you do?");
+									scanf("%d",&choice)
+									if(choice == 1)
+									{
+										puts("You decide that you would rather make the nobler choice of disposing of the evidence");
+										puts("than be responsible for the untimely death of this old fogey. ");
+										break;
+									}
+									if(choice == 2)
+									{
+										
+										break;
+									}
+									
+									break;
+								}
+								if(choice == 2)
+								{
+									puts("You decide not to pick up the stick.");
+									break;
+								}
+								break;
+							}
+							if(choice == 2)
+							{
 							puts("As you contemplate suicide over the guilt of killing an old man you notice him stand up.");
 							puts("He becomes infuriated by your actions and bring down his fury upon you. He completely decimates you.");
 							puts("You are dead. Game over");
+							break;
+							}
                             break;
                         }
                         if(choice == 3)
