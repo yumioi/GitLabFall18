@@ -20,6 +20,7 @@
 
 //Prototypes
 void sleep(unsigned int seconds);
+int rando(void);
 
 void main(void)
 {
@@ -1567,15 +1568,17 @@ void main(void)
                     {
                         FILE *inptr;
                         char ranstring[256];
-                        int numguess;
+			int randints[10];
+                        int numguess, randnum, i, k;
                         puts("You open the door and find ...... ");
                         puts("An s2000 that is currently fixed with airbag suspension");
                         puts("An s2000 completely modified with all authentic JDM parts");
                         puts("An that is just completely bone stock andlow miles, but is an AP1");
-                        puts("But now you have 3 choices...");
+                        puts("But now you have 4 choices...");
                         puts("Choice 1: throw away the bagged s2000 but then the modified s2000 is reverted to OEM");
                         puts("Choice 2: throw away all of these cars and save your money for a worse car");
                         puts("Choice 3: Make these cars all bone stock");
+			puts("Choice 4: Do nothing to the cars and just test your luck...");
                         scanf("%d", &choice);
                         switch(choice)
                         {
@@ -1620,6 +1623,21 @@ void main(void)
                                 fprintf(inptr,"%s", ranstring);
                                 fclose(inptr);
                                 break;
+			    case 4:
+				puts("Okay so you decided to have a random function chosen for you, cheeky person.");
+				puts("So here's your random function:");
+				int r = rando();
+				switch(r)
+				{
+					case 1:
+						puts("So this function will fill and sort a random array of integers for you");
+						for(i = 0; i < 10; i++)
+						{
+							randints[i] = (rand() % 10) + 1;
+						}
+
+						break;
+				}
 
                             default:
                                 puts("Okay so i gave you like three options and you decided to be a little Rebel. No. Don't. This code would work fine if you did not try messing it up pls k thx.");
@@ -1914,4 +1932,9 @@ void main(void)
                 }
         }
 }
+}
+int rando(void)
+{
+	int r = (rand() % 4) + 1;
+	return r;
 }
