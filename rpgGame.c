@@ -54,10 +54,134 @@ void main(void)
                 {
                     while(choice != 99)
                     {
+                      puts("You open the door and you quickly turn arround to find the door quickly disappearing behind you.");
+                        puts("In front of you, you now notice a long hallway leading to a room that is completely white.");
+                        puts("At this point you have two choices.");
+                        puts("1. Walk down the dark hallway.");
+                        puts("2. Scream in panic.");
+                        scanf("%d", &choice);
+                        if(choice == 1)
+                        {
+                            puts("You begin to wall down the dark hallway.");
+                            puts("As you walk, you notice that the room is actually a lot brighter than you thought it was.");
+                            puts("You now are inside the white room and it looks like a office cubicle.");
+                            puts("In the far right corner you see a old computer");
+                            sleep(4);
+                            puts("[  675.362959] Kernel panic - not syncing: Watchdog detected hard LOCKUP on cpu 8");
+                            puts("[  675.363355] Pid: 3457, comm: lve_tag_thread veid: 0 Not tainted 2.6.32-673.8.1.lve1.4.3.el6.x86_64 #1");
+                            puts("[  675.363748] Call Trace:");
+                            puts("[  675.363972]  <NMI>  [<ffffffff81546288>] ? panic+0xa7/0x16f");
+                            puts("[  675.364284]  [<ffffffff81015039>] ? sched_clock+0x9/0x10");
+                            puts("[  675.364520]  [<ffffffff81105fdd>] ? watchdog_overflow_callback+0xcd/0xd0");
+                            puts("[  675.364757]  [<ffffffff8113ed17>] ? __perf_event_overflow+0xa7/0x240");
+                            puts("[  675.364993]  [<ffffffff8101ee24>] ? x86_perf_event_set_period+0xf4/0x180");
+                            puts("[  675.365230]  [<ffffffff8113f364>] ? perf_event_overflow+0x14/0x20");
+                            puts("[  675.365464]  [<ffffffff81025bd2>] ? intel_pmu_handle_irq+0x202/0x3f0");
+                            puts("[  675.365703]  [<ffffffff8154bd49>] ? perf_event_nmi_handler+0x39/0xb0");
+                            puts("[  675.365937]  [<ffffffff8154d805>] ? notifier_call_chain+0x55/0x80");
+                            puts("[  675.366171]  [<ffffffff8154d86a>] ? atomic_notifier_call_chain+0x1a/0x20");
+                            puts("[  675.366408]  [<ffffffff810b239e>] ? notify_die+0x2e/0x30");
+                            puts("[  675.366640]  [<ffffffff8154b30b>] ? do_nmi+0x1cb/0x370");
+                            puts("[  675.366870]  [<ffffffff8154ad20>] ? nmi+0x20/0x30");
+                            puts("[  675.367111]  [<ffffffff8154a58e>] ? _spin_lock+0x1e/0x30");
+                            puts("[  675.367343]  <<EOE>>  <IRQ>  [<ffffffffa0283c7d>] ? tag_free_delayed+0x1d/0x60 [kmodlve]");
+                            puts("[  675.367873]  [<ffffffffa0288c53>] ? lve_free_task_hook+0x73/0x110 [kmodlve]");
+                            puts("[  675.368112]  [<ffffffff81084742>] ? delayed_put_task_struct+0x42/0x80");
+                            puts("[  675.368349]  [<ffffffff8110c015>] ? __rcu_process_callbacks+0x135/0x350");
+                            puts("[  675.368583]  [<ffffffff81015089>] ? read_tsc+0x9/0x10");
+                            puts("[  675.368815]  [<ffffffff8110c25b>] ? rcu_process_callbacks+0x2b/0x50");
+                            puts("[  675.369049]  [<ffffffff81087a2d>] ? __do_softirq+0x10d/0x250");
+                            puts("[  675.369285]  [<ffffffff8100c4cc>] ? call_softirq+0x1c/0x30");
+                            puts("[  675.369518]  [<ffffffff810102f5>] ? do_softirq+0x65/0xa0");
+                            puts("[  675.369749]  [<ffffffff8108784d>] ? irq_exit+0xcd/0xd0");
+                            puts("[  675.369981]  [<ffffffff8155139a>] ? smp_apic_timer_interrupt+0x4a/0x60");
+                            puts("[  675.370216]  [<ffffffff8100bcd3>] ? apic_timer_interrupt+0x13/0x20");
+                            puts("[  675.370448]  <EOI>  [<ffffffff8154a582>] ? _spin_lock+0x12/0x30");
+                            puts("[  675.370750]  [<ffffffffa0283e08>] ? tag_list_handle+0x28/0xc0 [kmodlve]");
+                            puts("[  675.370988]  [<ffffffffa0283ee2>] ? tag_list_handler+0x42/0xe0 [kmodlve]");
+                            puts("[  675.371223]  [<ffffffff810ab910>] ? autoremove_wake_function+0x0/0x40");
+                            puts("[  675.371460]  [<ffffffffa0283ea0>] ? tag_list_handler+0x0/0xe0 [kmodlve]");
+                            puts("[  675.371694]  [<ffffffff810ab51e>] ? kthread+0x9e/0xc0");
+                            puts("[  675.371926]  [<ffffffff8100c3ca>] ? child_rip+0xa/0x20");
+                            puts("[  675.372158]  [<ffffffff810ab480>] ? kthread+0x0/0xc0");
+                            puts("[  238.954555] [<8010ffd8>] (unwind_backtrace) from [<8010c240>] (show_stack+0x20/0x24)");
+                            puts("[  238.962413] [<8010c240>] (show_stack) from [<807840a4>] (dump_stack+0xd4/0x118)");
+                            puts("[  238.969832] [<807840a4>] (dump_stack) from [<8011dc34>] (panic+0xf0/0x274)");
+                            puts("[  238.976805] [<8011dc34>] (panic) from [<801225c4>] (complete_and_exit+0x0/0x2c)");
+                            puts("[  238.984218] [<801225c4>] (complete_and_exit) from [<8012265c>] (do_group_exit+0x4c/0xe4)");
+                            puts("[  238.992426] [<8012265c>] (do_group_exit) from [<8012da40>] (get_signal+0x36c/0x6bc)");
+                            puts("[  239.000195] [<8012da40>] (get_signal) from [<8010b2f4>] (do_signal+0xc4/0x3e4)");
+                            puts("[  239.007522] [<8010b2f4>] (do_signal) from [<8010b7fc>] (do_work_pending+0xb8/0xd0)");
+                            puts("[  239.015201] [<8010b7fc>] (do_work_pending) from [<80108094>] (slow_work_pending+0xc/0x20)");
+                            puts("[  239.023497] CPU0: stopping");
+                            puts("[  239.026239] CPU: 0 PID: 0 Comm: swapper/0 Tainted: G         C      4.14.34-v7+ #1110");
+                            puts("[  239.034177] Hardware name: BCM2835");
+                            puts("[  239.037626] [<8010ffd8>] (unwind_backtrace) from [<8010c240>] (show_stack+0x20/0x24)");
+                            puts("[  239.045480] [<8010c240>] (show_stack) from [<807840a4>] (dump_stack+0xd4/0x118)");
+                            puts("[  239.052895] [<807840a4>] (dump_stack) from [<8010e458>] (handle_IPI+0x2bc/0x33c)");
+                            puts("[  239.060398] [<8010e458>] (handle_IPI) from [<801014d8>] (bcm2836_arm_irqchip_handle_irq+0x7c/0xac)");
+                            puts("[  239.069490] [<801014d8>] (bcm2836_arm_irqchip_handle_irq) from [<8079fcbc>] (__irq_svc+0x5c/0x7c)");
+                            puts("[  239.078486] Exception stack(0x80c01ef0 to 0x80c01f38)");
+                            puts("[  239.083605] 1ee0:                                     00000000 00e7df50 397c4000 00000000");
+                            puts("[  239.091899] 1f00: 80c00000 80c03dcc 80c03d68 80c88172 00000001 80b60a30 babffa00 80c01f4c");
+                            puts("[  239.100192] 1f20: 80c04174 80c01f40 80108a4c 80108a50 60000013 ffffffff");
+                            puts("[  239.106902] [<8079fcbc>] (__irq_svc) from [<80108a50>] (arch_cpu_idle+0x34/0x4c)");
+                            puts("[  239.114405] [<80108a50>] (arch_cpu_idle) from [<8079f434>] (default_idle_call+0x34/0x48)");
+                            puts("[  239.122613] [<8079f434>] (default_idle_call) from [<801611cc>] (do_idle+0xd8/0x150)");
+                            puts("[  239.130379] [<801611cc>] (do_idle) from [<801614e0>] (cpu_startup_entry+0x28/0x2c)");
+                            puts("[  239.138058] [<801614e0>] (cpu_startup_entry) from [<80799184>] (rest_init+0xbc/0xc0)");
+                            puts("[  239.145915] [<80799184>] (rest_init) from [<80b00df8>] (start_kernel+0x3d4/0x3e0)");
+                            puts("[  239.153503] CPU3: stopping");
+                            puts("[  239.156245] CPU: 3 PID: 0 Comm: swapper/3 Tainted: G         C      4.14.34-v7+ #1110");
+                            puts("[  239.164182] Hardware name: BCM2835");
+                            puts("[  239.167631] [<8010ffd8>] (unwind_backtrace) from [<8010c240>] (show_stack+0x20/0x24)");
+                            puts("[  239.175486] [<8010c240>] (show_stack) from [<807840a4>] (dump_stack+0xd4/0x118)");
+                            puts("[  239.182901] [<807840a4>] (dump_stack) from [<8010e458>] (handle_IPI+0x2bc/0x33c)");
+                            puts("[  239.190402] [<8010e458>] (handle_IPI) from [<801014d8>] (bcm2836_arm_irqchip_handle_irq+0x7c/0xac)");
+                            puts("[  239.199492] [<801014d8>] (bcm2836_arm_irqchip_handle_irq) from [<8079fcbc>] (__irq_svc+0x5c/0x7c)");
+                            puts("[  239.208487] Exception stack(0xb9d27f38 to 0xb9d27f80)");
+                            puts("[  239.213606] 7f20:                                                       00000000 00062a7c");
+                            puts("[  239.221900] 7f40: 397f7000 00000000 b9d26000 80c03dcc 80c03d68 80c88172 00000001 410fd034");
+                            puts("[  239.230193] 7f60: 00000000 b9d27f94 80c04174 b9d27f88 80108a4c 80108a50 60000013 ffffffff");
+                            puts("[  239.238490] [<8079fcbc>] (__irq_svc) from [<80108a50>] (arch_cpu_idle+0x34/0x4c)");
+                            puts("[  239.245992] [<80108a50>] (arch_cpu_idle) from [<8079f434>] (default_idle_call+0x34/0x48)");
+                            puts("[  239.254199] [<8079f434>] (default_idle_call) from [<801611cc>] (do_idle+0xd8/0x150)");
+                            puts("[  239.261964] [<801611cc>] (do_idle) from [<801614e0>] (cpu_startup_entry+0x28/0x2c)");
+                            puts("[  239.269641] [<801614e0>] (cpu_startup_entry) from [<8010df50>] (secondary_start_kernel+0x130/0x13c)");
+                            puts("[  239.278819] [<8010df50>] (secondary_start_kernel) from [<0010196c>] (0x10196c)");
+                            puts("[  239.286140] CPU1: stopping");
+                            puts("[  239.288881] CPU: 1 PID: 0 Comm: swapper/1 Tainted: G         C      4.14.34-v7+ #1110");
+                            puts("[  239.296819] Hardware name: BCM2835");
+                            puts("[  239.300268] [<8010ffd8>] (unwind_backtrace) from [<8010c240>] (show_stack+0x20/0x24)");
+                            puts("[  239.308122] [<8010c240>] (show_stack) from [<807840a4>] (dump_stack+0xd4/0x118)");
+                            puts("[  239.315536] [<807840a4>] (dump_stack) from [<8010e458>] (handle_IPI+0x2bc/0x33c)");
+                            puts("[  239.323038] [<8010e458>] (handle_IPI) from [<801014d8>] (bcm2836_arm_irqchip_handle_irq+0x7c/0xac)");
+                            puts("[  239.332126] [<801014d8>] (bcm2836_arm_irqchip_handle_irq) from [<8079fcbc>] (__irq_svc+0x5c/0x7c)");
+                            puts("[  239.341121] Exception stack(0xb9d23f38 to 0xb9d23f80)");
+                            puts("[  239.346240] 3f20:                                                       00000000 007f534c");
+                            puts("[  239.354533] 3f40: 397d5000 00000000 b9d22000 80c03dcc 80c03d68 80c88172 00000001 410fd034");
+                            puts("[  239.362826] 3f60: 00000000 b9d23f94 80c04174 b9d23f88 80108a4c 80108a50 60000013 ffffffff");
+                            puts("[  239.371122] [<8079fcbc>] (__irq_svc) from [<80108a50>] (arch_cpu_idle+0x34/0x4c)");
+                            puts("[  239.378624] [<80108a50>] (arch_cpu_idle) from [<8079f434>] (default_idle_call+0x34/0x48)");
+                            puts("[  239.386831] [<8079f434>] (default_idle_call) from [<801611cc>] (do_idle+0xd8/0x150)");
+                            puts("[  239.394597] [<801611cc>] (do_idle) from [<801614e0>] (cpu_startup_entry+0x28/0x2c)");
+                            puts("[  239.402273] [<801614e0>] (cpu_startup_entry) from [<8010df50>] (secondary_start_kernel+0x130/0x13c)");
+                            puts("[  239.411448] [<8010df50>] (secondary_start_kernel) from [<0010196c>] (0x10196c)");
+                            puts("[  239.418781] ---[ end Kernel panic - not syncing: Attempted to kill init! exitcode=0x0000000b");
+                            sleep(4);
+                            system("clear");
+                            puts("they're watching.");
+                            sleep(2);
+                            puts("Press Control + c to exit.");
+                            for( ;; )
+                            {
 
+                            }
+                        }
                     }
                     break;
                 }
+
             case 2: // Justin Do Room 2
                 {
                     while(choice != 99)
@@ -256,21 +380,26 @@ void main(void)
                         }
                         if(choice == 2)
                         {
-                            puts("You awaken the old man and bring down his fury upon you. He completely decimates you. You are dead. Game over");
+                            puts("You startle the old man. He falls over and appears dead.");
+							puts("As you contemplate suicide over the guilt of killing an old man you notice him stand up.");
+							puts("He becomes infuriated by your actions and bring down his fury upon you. He completely decimates you.");
+							puts("You are dead. Game over");
                             break;
                         }
                         if(choice == 3)
                         {
-                            puts("As you approach you make a loud noise. You look down and you it was a tile you stepped on.");
-                            puts("As you look up the old man is nowhere to be found. The next sensation you feel is a heavy hit in the back of the head.");
+                            puts("As you approach you make a loud noise. You look down and notice the");
+							puts("origin of the noise was a loose tile you stepped on.");
+                            puts("As you look up the old man is nowhere to be found. The next sensation");
+							puts("you feel is a heavy hit in the back of the head.");
                             puts("You are dead. Game over");
                             break;
                         }
                         if(choice == 4)
                         {
-                            puts("As you walk away the old man screams at you. He says \"Why would you just leave me.\"");
+                            puts("As you walk away the old man screams at you. He says \"Why would you just leave me?\"");
                             puts("You turn around and notice that the old man has taken all your belongings.");
-                            puts("He screams \"you will pay with your life!\" You are dead. Game over");
+                            puts("He screams \"You will pay with your life!\" You are dead. Game over");
                             break;
                         }
                     }
@@ -279,50 +408,141 @@ void main(void)
             case 8:
                 {
 
-                    int choice;
+					int choice;
+					#define RED     "\x1b[31m"
+					#define GREEN   "\x1b[32m"
+					#define YELLOW  "\x1b[33m"
+					#define BLUE    "\x1b[34m"
+					#define MAGENTA "\x1b[35m"
+					#define CYAN    "\x1b[36m"
+					#define RESET   "\x1b[0m"
 
+					char userInput[10];
+					int input = 0;
+					int gamesPlayed = 0;
+					int totalDeaths = 0;
+					char longestTime[15] = "0s";
 
                     while(choice != 99){
-                        puts("you open the door and find ........");
-                        puts("\n\nYou're instantly teleported into the STAR WARS Universe");
-                        puts("Select your class:\n");
-                        puts("1. jedi");
-                        puts("2. sith");
-                        puts("3. Smuggler");
-                        puts("4. Wookie");
-                        puts("5. yoda");
-                        printf("type 50 for help\n");
-                        scanf("%d",&choice);
-
-                        if(choice == 1){
-                            printf("You have chosen the %s","jedi");
-                        }
-
-                        if(choice == 2){
-                            printf("You have chosen the %s","sith");
-                        }
-
-                        if(choice == 3){
-                            printf("You have chosen the %s","smuggler");
-                        }
-
-                        if(choice == 4){
-                            printf("You have chosen the %s","wookie");
-                        }
-
-                        if(choice == 5){
-                            printf("You have chosen the %s","yoda");
-                        }
-
-                        if(choice == 50){
-                            printf("You have chosen help, but i will not help you\n\n");
-                            puts("just kidding");
-                            puts("option 1: The Jedi are the main protagonists in the Star Wars universe. They are depicted as an ancient monastic, academic, meritocratic and paramilitary organization whose origin dates back approximately 25,000 years before the events of the first film released in the franchise. ");
-
-
-                        }
-
-
+					    puts("you open the door and find ........");
+					    //system("color A0");
+				    
+					    //Title Block
+					        puts("\n");
+					        for(i = 0;i < 19;i++){
+					            printf(" ");
+					        }
+					        printf(GREEN "SURVIVAL GAME\n" RESET);
+				    
+					    //boderlines1
+					        printf(BLUE"<");
+					        for(i = 0;i < 50;i++){
+					            printf("-"); 
+					        }
+					        printf(">\n"RESET);
+				    
+					    //borderlines2
+					        printf(BLUE"<");
+					        for(i = 0;i < 50;i++){
+					            printf("-"); 
+					        }
+					        printf(">\n"RESET);
+				    
+					    //TotalGames
+					        for(i = 0;i < 12;i++){
+					            printf(" ");
+					        }
+					        printf("Total Games Played:   "RED);
+					        printf("%d\n\n"RESET,gamesPlayed);
+				    
+					    //TotalDeaths
+					        for(i = 0;i < 12;i++){
+					            printf(" ");
+					        }
+					        printf("Total Deaths:   "RED);
+					        printf("%d\n\n"RESET,totalDeaths);
+				    
+					    //LongestTimeSurvived
+					        for(i = 0;i < 12;i++){
+					            printf(" ");
+					        }
+					        printf("Longest Time Survived:  "RED);
+					        printf("%s\n\n\n"RESET,longestTime);
+				    
+					    //PLAY
+					        for(i = 0;i < 12;i++){
+					            printf(" ");
+					        }
+					        printf(GREEN"PLAY:"RESET"\tto begin playing\n");
+				        
+					    //copyright
+					        printf("\n\n");
+					        for(i = 0;i < 12;i++){
+					            printf(" ");
+					        }
+					        printf("copyright or something 2018\n");
+				        
+					    //Marcus
+					        for(i = 0;i < 12;i++){
+					            printf(" ");
+					        }
+					        printf("Marcus Schumann\n\n");
+				        
+				        
+					    //help
+					        printf(YELLOW"This is an interactive game. Use numbers to make\nchoices in the game\n"RESET);
+					        printf(YELLOW"type PIRATE for pirate mode, type 99 to quit\n"RESET);
+				        
+					    //boderlines1
+					        printf(BLUE"<");
+					        for(i = 0;i < 50;i++){
+					            printf("-"); 
+					        }
+					        printf(">\n"RESET);
+				    
+					    //borderlines2
+					        printf(BLUE"<");
+					        for(i = 0;i < 50;i++){
+					            printf("-"); 
+					        }
+					        printf(">\n\n"RESET);
+                        
+                    
+					    while(1){
+					        printf(GREEN "Whats say you?: " RESET);    
+					        scanf("%s",userInput);
+				        
+					        if(strcmp("PLAY",userInput) == 0 || strcmp("play",userInput) == 0){
+				            
+					            printf("\nYour name is "BLUE"%s"RESET", and you're on a trip to see family in Canada....\n",name);
+					            puts("Everything seems to be going normally. You went through security and\nfound your seat on the plane.");
+					            puts("Pretty soon you're in the air and the flight attendants are going\ndown the aisles to give out drinks");
+					            puts("Would you like something to drink sir?");
+					            puts("\t1. ask for water");
+					            puts("\t2. ask for a sprite ");
+					            puts("\t3. ask for a beer ");
+					            puts("\t4. tell her to go away\n");
+				        
+					            printf(GREEN "Whats say you?: " RESET);    
+					            scanf("%d",&input);
+				            
+					            if(input == 99){
+					                break;
+					            }
+				            
+				            
+				            
+					        }else if(strcmp("99",userInput) == 0){
+				            
+					            break;
+				            
+					        }else{
+					            printf("I can't understand that, Try again?\n");
+					            continue;   
+					        }
+					    }
+                    	
+                       
                         scanf("%d",&choice);
                     }
 
@@ -611,13 +831,61 @@ void main(void)
                 }
             case 13:
                 {
+                    
                     while(choice != 99)
                     {
-                        puts("you open the door and find ........");
+                        puts("You open the door and find yourself in a time traveling car. There are three buttons in front of you. In order head back home, you will have to travel back in time and surive the survival. If you fail to save them, you will end up back in the same room with water and drown. If you save their life you will be able to go back home");
+                        puts("The first button will take you to Zions national Park and you must save the dog from drowning in the flood");
+                        puts("The second button will take you to Yosemite National Park and you must save the your best friend from a wildfire ");
+                        puts("The third button will take you to Hawaii Volcanoes National Park and you must save the 7 year old boy from the erupting volcano");
+                        
                         scanf("%d",&choice);
+                        
+                        if(choice == 1)
+                        {
+                            puts("Welcome to Zions National Park");
+                        }
+                        
+                        if(choice == 2)
+                        {
+                            puts("Welcome to Yosemite National Park");
+                        }
+                        
+                        if(choice == 3)
+                        {
+                            puts("Welcome to Hawaii Volcanoes National Park");
+                        }
+                        
                     }
-                    break;
+                    switch(choice)
+                    {
+                        case 1:
+                            puts("You will be able to stay for here for 5 days. You are provided a " );
+                            
+                            
+                            break;
+                        case 2:
+                            
+                            puts("You will be able to stay for here for 5 days. You are provided a  ");
+                            
+                            
+                            
+                            
+                            break;
+                            
+                        case 3:
+                            
+                            puts("You will be able to stay for here for 5 days. You are provided a"  );
+                            
+                            
+                            break;
+                            
+                    }
+                    //break;
                 }
+                
+
+                
             case 14:
                 {
                     int num, j, winning;
@@ -877,7 +1145,19 @@ void main(void)
                     {
                         while(choice != 99)
                         {
-                            puts("you open the door and find ........");
+                            
+				puts("You open the door and find yourself in Spanish 101 class!");
+				puts("Welcome to Karina's Spanish 101 class! :)");
+				puts("I have created 3 exams for you to take, so the end of this adventure you should be able to express yourself in spanish.");
+				puts("You have the choice to challenge me if you don't want to start from level 1.");
+				puts("You may choose a level above level 1 and if you pass the chosen level with a 90% or above then you automatically pass levels below the chosen level!");
+				puts("BUT if you do not pass the chosen level with a 90% or above then you will restart from level 1, so CHALLENGE ME! :P");
+				puts("If you choose to start from level 1 then you can work your way up to the next 2 levels.");
+				puts("The average of the 3 exams will be taken at the end. If you pass with an 80% then you pass the class otherwise you will retake the class.");
+				puts("Let the challenge begin! Enjoy! :D");
+				puts("You may quit anytime by selecting option 99, but I recommend you not to quit!");
+					
+
                             scanf("%d",&choice);
                         }
                         break;
@@ -958,6 +1238,5 @@ void main(void)
                     }
                 }
         }
-    }
-
+}
 }
