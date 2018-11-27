@@ -96,7 +96,7 @@ void main(void)
                     }
                     break;
                 }
-            case 3:
+             case 3:
                 {
                 	int playerHp = 10;
 			int playerInv[10];
