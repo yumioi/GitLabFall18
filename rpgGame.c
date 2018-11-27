@@ -21,6 +21,7 @@
 //Prototypes
 void sleep(unsigned int seconds);
 int rando(void);
+int room12Spells(int *hp, int enDam);
 
 void main(void)
 {
@@ -503,7 +504,7 @@ void main(void)
 						{
 					
                         printf("You tell the old man your name and agree to help him chase the MadDog gang out of town. \n");
-						printf("\"Oh thank you, %s! Now hurry, MadDog is only growing stronger the longer we stand here! \"", &name);
+						printf("\"Oh thank you, %s! Now hurry, MadDog is only growing stronger the longer we stand here! \"", name);
 						puts(" ");
 						while(choice != 99)
 						{
@@ -587,7 +588,7 @@ void main(void)
 																		puts(" ");
 																		printf("GAME OVER\n");
 																		
-																		return 0;
+																		exit(EXIT_SUCCESS);
 																	}
 																}
 															}
@@ -647,7 +648,7 @@ void main(void)
 																		printf("\n");
 																		puts("GAME OVER\n");
 																		
-																		return 0;
+																		exit(EXIT_SUCCESS);
 																	}
 																}
 																
@@ -764,7 +765,7 @@ void main(void)
 									puts("You walk toward the stools at the bar. A man with a bow tie and handle bar mustache approaches you and ask \"What will it be?\"");
 									puts("With no words to say, bartender just pours a shot of whiskey. Bartender then whispers to you \"those men to the left side playing cards are part of MadDog's gang. Keep an eye on them. They have the key to free the sheriff.\"");
 									puts("\"HEY!\" One of the men on the left side of you shout, \" I ain't never seen you before, who are you? \" It's three men over to your left.");
-									printf("\n1. The name's %s, what's it to ya? \n2. None of your Goddamn business! \n3. Turn around back\n", &name);
+									printf("\n1. The name's %s, what's it to ya? \n2. None of your Goddamn business! \n3. Turn around back\n", name);
 									scanf("%d", &choice);
 										
 										if(choice == 1 && FiveHundred == false)
@@ -937,7 +938,7 @@ void main(void)
 											printf("\"I would outta apologize if I was you!\"\n");
 											printf("You can 'apologize' or stay 'silent'. The choice is yours.\n");
 											printf("Decision>");
-											scanf("s", option);
+											scanf("%s", option);
 											
 											if(strcasecmp(option, "apologize") == 0)
 											{
@@ -1039,7 +1040,7 @@ void main(void)
 									printf("You pull the jail keys from your pocket. As you release the sheriff, you hear a click but it isn't a the jail unlocking, it's the sound of a revolver being ready to shoot.\n");
 									printf("You turn to the left of you and see a pretty build man in a brown vest with a long brown jacket with brown pants. He has the revolver pointed at you\n");
 									printf("\"Okay stranger, jump the keys and no one gets hurt\", the man tells you. Should you 'drop' it or 'go' for your gun?\n");
-									while(option != 'z')
+									while(*option != 'z')
 									{
 									printf("Decision>");
 									scanf("%s", option);
@@ -1051,7 +1052,7 @@ void main(void)
 											printf("As soon as the man grabbed the keys from the lock, the sheriff grabbed the outlaws wrist\n");
 											printf("The outlaw's left hand which is holding the gun is going over to the sheriff. This is a wise decision, what should you do?\n");
 											printf("Pull your gun and 'shoot' the man or try to throw a 'punch'?\n");
-											while(option != 'z')
+											while(*option != 'z')
 											{
 											printf("Decision>");
 											scanf("%s", option);
@@ -1110,7 +1111,7 @@ void main(void)
 									
 								if(choice == 4 && sheriff == false)
 								{
-									printf("\"Oh we have a gamer, well this isn't a game. Okay $s, video games it is, lets get started: \"", &name);
+									printf("You walk into the Post Office. A fine lady walks to the front counter. Though don't she isn't like any other lady. She is dressed like the rest of the cowboys.\n");
 									
 									goto Menu;
 								}
@@ -1126,7 +1127,7 @@ void main(void)
 						{
                             puts("\"Please stranger, come back soon! Our town can't take anymore of these hooligans! \"  \n GAME OVER \n");
 						
-							return 1;
+							exit(EXIT_SUCCESS);
 						}
                     }
                     break;
@@ -1185,191 +1186,251 @@ void main(void)
                     }
                     break;
                 }
-            case 12:	//synced rpg
-                {
-                    puts("you open the door and find a machine that proceeds to teleport you to a distant facility");
-                    int hp = 20, enemyhp = 20;
-                    int w, b[3] = { 0,0,0 };		//enemy weakness and boolean for completion
-                    FILE *fptr;
-                    int *p = b;
-                    fptr = fopen("data.txt", "w+");
-                    if (fscanf(fptr, "%d %d %d", b[0], b[1], b[2]) != 3)
-                    {
-                        rewind(fptr);
-                        puts("A new save file will be created.");
-                        fprintf(fptr, "%d %d %d", b[0], b[1], b[2]);
-                    }
-                    while (choice != 99)
-                    {
+            case 12:	//room 12 overhall
+		{
+			puts("you open the door and find a machine that proceeds to teleport you to a distant facility");
+			int hp = 20, enemyhp = 20, dam=0, enDam=0; 
+			int w, b[3] = { 0,0,0 };		//enemy weakness and boolean for completion
+			FILE *fptr;
+			int *p = b;
+			fptr = fopen("data.txt", "w+");
+			if (fscanf(fptr, "%d %d %d", b[0], b[1], b[2]) != 3)
+			{
+				rewind(fptr);
+				puts("A new save file will be created.");
+				fprintf(fptr, "%d %d %d", b[0], b[1], b[2]);
+			}
+			while (choice != 99)
+			{
 
-                        printf("Soldier: We're glad you made it back, captain %s! What are your orders?\n(Enter -1 to train, 0 to save your progress, or enter 1-3 to play through a particular chapter of this game.)\n", name);
-                        if ((*(p + 0) + *(p + 1) + *(p + 2)) == 3)
-                        {
-                            puts("After completing every chapter you unlocked a bonus scene.(Enter 4 to view it)");
-                        }
-                        scanf("%d", &choice);
-                        if (choice == -1)
-                        {
-                            puts("This is just a combat tutorial against a dummy.\nStart by entering 1(to use a gun), 2(to use a sword), 3(to use a spell), or 4(to heal).");
-                            puts("Enemies have different weaknesses so try to find them to deal more damage to the enemy.");
+				printf("Soldier: We're glad you made it back, captain %s! What are your orders?\n(Enter -1 to train, 0 to save your progress, or enter 1-3 to play through a particular chapter of this game.)\n", name);
+				if ((*(p + 0) + *(p + 1) + *(p + 2)) == 3)
+				{
+					puts("After completing every chapter you unlocked a bonus scene.(Enter 4 to view it)");
+				}
+				scanf("%d", &choice);
+				if (choice == -1)
+				{
+					puts("This is just a combat tutorial against a dummy.\nStart by entering 1(to use a gun), 2(to use a sword), or 3(to cast 1 of 4 spells).");
+					puts("Guns and swords will do a fixed amount of damage while spells vary.");
+					puts("Fire does a fixed amount, thunder does double of fire's amount but has a 50% chance of failing, heal does 0 damage but you heal hp, and reflect sends back enemy damage while taking half of the damage.");
+					puts("Enemies have a weakness to certain weapons or spells so try to find them to deal more damage to the enemy.");
+					puts("When casting a spell, cast it calmly or else you'll lose focus. (lower case letters)");
 
-                            enemyhp = 20; w = 4; hp = 20;
-                            while (choice != 99 && enemyhp > 0)
-                            {
-                                printf("You have %d hp and the enemy has %d hp\nWhat is your next move?(1:gun, 2:sword, 3:spell, or 4:heal)\n", hp, enemyhp);
-                                scanf("%d", &choice);
-                                enemyhp -= ((choice == w) ? 8 : 2);
-                                if (enemyhp <= 0)
-                                {
-                                    break;
-                                }
-                                if (choice == 4)
-                                {
-                                    hp = (hp + 10>20) ? 20 : (hp + 10);
-                                }
-                                hp -= 0;
-                                printf("You dealt %d damage and the enemy dealt 0 damage.\n", ((choice == w) ? 8 : 2));
-                            }
-                            puts("Last tip: Casting a spell may help in what would appear to be impossible odds.");
-                            puts("Congratulations you beat the training level, you will now be sent back to the facility.");
-                            choice = -2;
-                        }
-                        else if (choice == 0)
-                        {
-                            rewind(fptr);
-                            fprintf(fptr, "%d %d %d", b[0], b[1], b[2]);
-                            puts("Your progress has been saved, you will now return to the facility.");
-                            choice = -2;
-                        }
-                        else if (choice == 1)
-                        {
-                            puts("Chapter 1: Fall of a Republic");
-                            puts("Once the new chancellor was elected he implemented new laws throughout the galaxy.");
-                            puts("The laws strengthened the military, but rather than being used to protect the Milky Way Republic from the Andromeda Empire it was used to keep the people in line.");
-                            puts("Former military, local militias, and people fleeing the laws from the center of the galaxy formed a rebellion force around the edges of the Milky Way.");
-                            puts("We managed to deceive the enemy into sending their main force to our \"secret base\" now we sent our force for an all out attack towards the center.");
-                            printf("Here we are, facing the force stationed at the capital... - %s - January 24, 3018\n", name);
-                            enemyhp = 20; w = 3; hp = 20;
-                            while (choice != 99 && enemyhp > 0 && hp > 0)
-                            {
-                                printf("You have %d hp and the enemy soldier has %d hp\nWhat is your next move?(1:gun, 2:sword, 3:spell, or 4:heal)\n", hp, enemyhp);
-                                scanf("%d", &choice);
-                                enemyhp -= 2 * ((choice == w) ? 2 : 1)*((choice == 4) ? 0 : 1);
-                                if (enemyhp <= 0)
-                                {
-                                    break;
-                                }
-                                if (choice == 4)
-                                {
-                                    hp = (hp + 10>20) ? 20 : (hp + 10);
-                                }
-                                hp -= 3;
-                                printf("You dealt %d damage and the enemy dealt 3 damage.\n", ((choice == w) ? 4 : 2)*((choice == 4) ? 0 : 1));
-                            }
-                            b[0] = 1 * (hp>0) ? 1 : 0;
-                            if (hp <= 0)
-                            {
-                                puts("You lost you will now be sent to the facility.");
-                            }
-                            choice = -2;
-                        }
-                        else if (choice == 2)
-                        {
-                            puts("Chapter 2: Life in the Center");
-                            puts("The chancellor promised everyone jobs once elected and he delivered on his promise... in the most horrible way possible.");
-                            puts("Plenty of people were rounded up and experimented on with various chemical substances.");
-                            puts("The chancellor's goal was to make a mindless population that will obey any order given to them by him directly.");
-                            puts("Many people never survived the experiments because the drug made unnatural changes to the human brain.");
-                            puts("Those that survived suffer from symptoms such as rotting flesh and fits of rage, some resort to cannabalism. Rumors suggest it's to ease their pain.");
-                            printf("Here we are, facing the citizins attempting to put them out of their misery... - %s - February 1, 3018\n", name);
-                            enemyhp = 20; w = 1; hp = 20;
-                            while (choice != 99 && enemyhp > 0 && hp > 0)
-                            {
-                                printf("You have %d hp and the zombie has %d hp\nWhat is your next move?(1:gun, 2:sword, 3:spell, or 4:heal)\n", hp, enemyhp);
-                                scanf("%d", &choice);
-                                enemyhp -= 2 * ((choice == w) ? 2 : 1)*((choice == 4) ? 0 : 1);
-                                if (enemyhp <= 0)
-                                {
-                                    break;
-                                }
-                                if (choice == 4)
-                                {
-                                    hp = (hp + 10>20) ? 20 : (hp + 10);
-                                }
-                                hp -= 4;
-                                printf("You dealt %d damage and the enemy dealt 4 damage.\n", ((choice == w) ? 4 : 2)*((choice == 4) ? 0 : 1));
-                            }
-                            b[1] = 1 * (hp>0) ? 1 : 0;
-                            if (hp <= 0)
-                            {
-                                puts("You lost you will now be sent to the facility.");
-                            }
-                            choice = -2;
-                        }
-                        else if (choice == 3)
-                        {
-                            puts("Chapter 3: End of the Milky Way Government");
-                            puts("The chancellor is now confronting us directly along with his corrupt officials.");
-                            puts("People believe the restricting of magic to the general population helped the chancellor rise to power.");
-                            puts("Other corrupt officials proceeded to use spells to manipulate the population and due to a lack of knowledge on magic nobody could counter their charm spells.");
-                            puts("This will be our most difficult fight and we must finish this quickly before the main force returns to the capital.");
-                            puts("If the rumors hold true then the chancellor has a powerful ability that could destroy armies, there must be a way to counter it.");
-                            printf("Here we are, our last stand and stakess can't be any higher - %s - February 3, 3018\n", name);
-                            enemyhp = 40; w = 2; hp = 20;
-                            int timeStop = 0, timeReset = 0;
-                            while (choice != 99 && enemyhp > 0 && hp > 0)
-                            {
-                                printf("You have %d hp and the chancellor has %d hp\nWhat is your next move?(1:gun, 2:sword, 3:spell, or 4:heal)\n", hp, enemyhp);
-                                scanf("%d", &choice);
-                                if (timeStop == 1 && choice == 3 && timeReset == 0)
-                                {
-                                    puts("Chancellor: How can you nullify my time stop ability?!");
-                                    timeReset = 1;
-                                }
-                                if (timeStop == 0 || timeReset == 1)
-                                {
-                                    enemyhp -= ((choice == w) ? 8 : 2)*((choice == 4) ? 0 : 1);
-                                    if (choice == 4)
-                                    {
-                                        hp = (hp + 10>20) ? 20 : (hp + 10);
-                                    }
-                                }
-                                else
-                                {
-                                    puts("You can't do anything because time has stopped.");
-                                }
-                                if (enemyhp <= 0)
-                                {
-                                    break;
-                                }
-                                if (timeStop == 0)
-                                {
-                                    puts("Chancellor: You think this will be enough! TIMESTOP!");
-                                    timeStop = 1;
-                                }
-                                hp -= 7;
-                            }
-                            b[2] = 1 * (hp>0) ? 1 : 0;
-                            if (hp <= 0)
-                            {
-                                puts("You lost you will now be sent to the facility.");
-                            }
-                            choice = -2;
-                        }
-                        else if (choice == 4 && (*(p + 0) + *(p + 1) + *(p + 2)) == 3)
-                        {
-                            puts("Chapter 4: Return of the Republic");
-                            puts("After the final battle everyone celebrated our victory it became a holiday.");
-                            puts("I was the temporarily in charge of the galaxy until the republic rebuilt itself.");
-                            puts("To ensure such an incident like the one a few years ago would never happen again I decided to run for chancellor.");
-                            puts("Having popularity with the people and being the rebellion leader made it easy to get elected for several terms.");
-                            puts("I may not be immortal but I have successors ready to carry on my legacy of a clean government.");
-                            printf("Here we are, hopefully the Milky Way Republic will remain peaceful until the end of time. - %s - April 27, 3058\n", name);
-                            choice = -2;
-                        }
-                    }
-                    break;
-                }
+					enemyhp = 20; w = 3; hp = 20;
+					while (choice != 99 && enemyhp > 0)
+					{
+						printf("You have %d hp and the enemy has %d hp\nWhat is your next move?(1:gun, 2:sword, 3:spell, or else:nothing)\n", hp, enemyhp);
+						scanf("%d", &choice);
+						if (choice>0 && choice<4)
+						{
+							dam = ((choice == 3) ? room12Spells(&hp,1) : 4) * ((choice==w)?2:1);
+						}
+						else
+						{
+							dam = 0;
+						}
+						enemyhp -= dam;
+						puts("err");
+						if (enemyhp <= 0)
+						{
+							break;
+						}
+						enDam = 1;
+						if(dam % 2 == 1 || (int)(dam/2.0+.5) % 2 == 1)		//checks for reflect spell
+						{
+							enDam /= 2;
+						}
+						hp -= enDam;
+						printf("You dealt %d damage and the enemy dealt %d damage.\n", dam,enDam);
+					}
+					puts("Congratulations you beat the training level, you will now be sent back to the facility.");
+					choice = -2;
+				}
+				else if (choice == 0)
+				{
+					rewind(fptr);
+					fprintf(fptr, "%d %d %d", b[0], b[1], b[2]);
+					puts("Your progress has been saved, you will now return to the facility.");
+					choice = -2;
+				}
+				else if (choice == 1)
+				{
+					puts("Chapter 1: Fall of a Republic");
+					puts("Once the new chancellor was elected he implemented new laws throughout the galaxy.");
+					puts("The laws strengthened the military, but rather than being used to protect the Milky Way Republic from the Andromeda Empire it was used to keep the people in line.");
+					puts("Former military, local militias, and people fleeing the laws from the center of the galaxy formed a rebellion force around the edges of the Milky Way.");
+					puts("We managed to deceive the enemy into sending their main force to our \"secret base\" now we sent our force for an all out attack towards the center.");
+					printf("Here we are, facing the force stationed at the capital... - %s - January 24, 3018\n", name);
+					enemyhp = 20; w = 2; hp = 20;
+					while (choice != 99 && enemyhp > 0)
+					{
+						printf("You have %d hp and the enemy has %d hp\nWhat is your next move?(1:gun, 2:sword, 3:spell, or else:nothing)\n", hp, enemyhp);
+						scanf("%d", &choice);
+						if (choice>0 && choice<4)
+						{
+							dam = ((choice == 3) ? room12Spells(&hp,1) : 4) * ((choice==w)?2:1);
+						}
+						else
+						{
+							dam = 0;
+						}
+						enemyhp -= dam;
+						puts("err");
+						if (enemyhp <= 0)
+						{
+							break;
+						}
+						enDam = 1;
+						if(dam % 2 == 1 || (int)(dam/2.0+.5) % 2 == 1)		//checks for reflect spell
+						{
+							enDam /= 2;
+						}
+						hp -= enDam;
+						printf("You dealt %d damage and the enemy dealt %d damage.\n", dam,enDam);
+					}
+					b[0] = (hp>0) ? 1 : b[0];
+					if (hp <= 0)
+					{
+						puts("You lost you will now be sent to the facility.");
+					}
+					choice = -2;
+				}
+				else if (choice == 2)
+				{
+					puts("Chapter 2: Life in the Center");
+					puts("The chancellor promised everyone jobs once elected and he delivered on his promise... in the most horrible way possible.");
+					puts("Plenty of people were rounded up and experimented on with various chemical substances.");
+					puts("The chancellor's goal was to make a mindless population that will obey any order given to them by him directly.");
+					puts("Many people never survived the experiments because the drug made unnatural changes to the human brain.");
+					puts("Those that survived suffer from symptoms such as rotting flesh and fits of rage, some even resort to cannabalism. Rumors suggest it's to ease their pain.");
+					printf("Here we are, facing the citizins attempting to put them out of their misery... - %s - February 1, 3018\n", name);
+					enemyhp = 20; w = 1; hp = 30;
+					while (choice != 99 && enemyhp > 0)
+					{
+						printf("You have %d hp and the enemy has %d hp\nWhat is your next move?(1:gun, 2:sword, 3:spell, or else:nothing)\n", hp, enemyhp);
+						scanf("%d", &choice);
+						if (choice>0 && choice<4)
+						{
+							dam = ((choice == 3) ? room12Spells(&hp,1) : 4) * ((choice==w)?2:1);
+						}
+						else
+						{
+							dam = 0;
+						}
+						enemyhp -= dam;
+						puts("err");
+						if (enemyhp <= 0)
+						{
+							break;
+						}
+						enDam = 1;
+						if(dam % 2 == 1 || (int)(dam/2.0+.5) % 2 == 1)		//checks for reflect spell
+						{
+							enDam /= 2;
+						}
+						hp -= enDam;
+						printf("You dealt %d damage and the enemy dealt %d damage.\n", dam,enDam);
+					}
+					b[1] = (hp>0) ? 1 : b[1];
+					if (hp <= 0)
+					{
+						puts("You lost you will now be sent to the facility.");
+					}
+					choice = -2;
+				}
+				else if (choice == 3)
+				{
+					puts("Chapter 3: End of the Milky Way Government");
+					puts("The chancellor is now confronting us directly along with his corrupt officials.");
+					puts("People believe the restricting of magic to the general population helped the chancellor rise to power.");
+					puts("Other corrupt officials proceeded to use spells to manipulate the population and due to a lack of knowledge on magic nobody could counter their charm spells.");
+					puts("This will be our most difficult fight and we must finish this quickly before the main force returns to the capital.");
+					puts("If the rumors hold true then the chancellor has a powerful ability that could destroy armies, there must be a way to counter it.");
+					printf("This is it, our last stand and the stakes can't be any higher - %s - February 3, 3018\n", name);
+					enemyhp = 40; w = 3; hp = 20;
+					int timeStop = 0, timeReset = 0;
+					while (choice != 99 && enemyhp > 0)
+					{
+						printf("You have %d hp and the enemy has %d hp\nWhat is your next move?(1:gun, 2:sword, 3:spell, or else:nothing)\n", hp, enemyhp);
+						scanf("%d", &choice);
+						if (choice>0 && choice<4)
+						{
+							dam = ((choice == 3) ? room12Spells(&hp,1) : 4) * ((choice==w)?2:1);
+						}
+						else
+						{
+							dam = 0;
+						}
+						enemyhp -= dam;
+						puts("err");
+						if (enemyhp <= 0)
+						{
+							break;
+						}
+						enDam = 1;
+						if(dam % 2 == 1 || (int)(dam/2.0+.5) % 2 == 1)		//checks for reflect spell
+						{
+							enDam /= 2;
+						}
+						hp -= enDam;
+						printf("You dealt %d damage and the enemy dealt %d damage.\n", dam,enDam);
+					}
+					b[2] = (hp>0) ? 1 : b[2];
+					if (hp <= 0)
+					{
+						puts("You lost you will now be sent to the facility.");
+					}
+					choice = -2;
+				}
+				else if (choice == 4 && (*(p + 0) + *(p + 1) + *(p + 2)) == 3)
+				{
+					puts("Chapter 4: Return of the Republic");
+					puts("After the final battle everyone celebrated our victory it became a holiday.");
+					puts("The Milky Way was at peace for a time but then the Andromeda Empire invaded.");
+					puts("We discovered that the chancellor was a puppet of the Andromeda Emperor.");
+					printf("Looks like the final confrontation with the emperor and his army will determine the fate of the Milky Way.... - %s - April 27, 3058\n", name);
+					
+					while (choice != 99 && enemyhp > 0)
+					{
+						printf("You have %d hp and the enemy has %d hp\nWhat is your next move?(1:gun, 2:sword, 3:spell, or else:nothing)\n", hp, enemyhp);
+						scanf("%d", &choice);
+						if (choice>0 && choice<4)
+						{
+							dam = ((choice == 3) ? room12Spells(&hp,1) : 4) * ((choice==w)?2:1);
+						}
+						else
+						{
+							dam = 0;
+						}
+						enemyhp -= dam;
+						puts("err");
+						if (enemyhp <= 0)
+						{
+							break;
+						}
+						enDam = 1;
+						if(dam % 2 == 1 || (int)(dam/2.0+.5) % 2 == 1)		//checks for reflect spell
+						{
+							enDam /= 2;
+						}
+						hp -= enDam;
+						printf("You dealt %d damage and the enemy dealt %d damage.\n", dam,enDam);
+					}
+					choice = -2;
+					if (hp <= 0 && choice != 99)	//bad end
+					{
+						printf("The Milky Way has fallen I fear everyone will become slaves for Andromeda.\n Now I await for my execution in an hour on charges of war crimes.... %s - May 8, 3058",name);
+					}
+					if (hp > 0 && choice != 99)		//good end
+					{
+						printf("After the fall of the Andromeda Empire the Milky Way took over.\n Now we have entered a true era of peace and may it last forever..... %s - May 9, 3092");
+						printf("And thus the final entry in the journal of captain %s comes to an end.",name);
+					}
+				}
+			}
+			break;
+		}
             case 13:
                 {
                     
@@ -1567,7 +1628,7 @@ void main(void)
                         FILE *inptr;
                         char ranstring[256];
 			int randints[10];
-                        int numguess, randnum, i, k;
+                        int sides, numguess, randnum, i, k, numrolls, roll;
                         puts("You open the door and find ...... ");
                         puts("An s2000 that is currently fixed with airbag suspension");
                         puts("An s2000 completely modified with all authentic JDM parts");
@@ -1620,6 +1681,7 @@ void main(void)
                                 printf("Here is the string you entered: %s", ranstring);
                                 fprintf(inptr,"%s", ranstring);
                                 fclose(inptr);
+				puts("Now go find your file!");
                                 break;
 			    case 4:
 				puts("Okay so you decided to have a random function chosen for you, cheeky person.");
@@ -1633,9 +1695,37 @@ void main(void)
 						{
 							randints[i] = (rand() % 10) + 1;
 						}
+						printf("Here is your unsorted array: %d\n", randints);
+						for(i = 0; i < 9; i++)
+						{
+							for(k = i + 1; k < 10; k++)
+							{
+								if(randints[i] > randints[k])
+								{
+									int temp = randints[i];
+									randints[i] = randints[k];
+									randints[k] = temp;
+								}
+							}
 
+						}
 						break;
+					case 2:
+						puts("Okay so this random case will roll a die with how ever many sides you want, how ever many times you want, just enter a number please.");
+						scanf("%d", numrolls);
+						
+						puts("You decided to roll %d time/s. Now enter how many sides you want the die to have please.");
+						scanf("%d", sides);
+						
+						for(i = 0; i < numrolls; i++)
+						{
+							roll = (rand() % sides) + 1;
+							printf("You randomly rolled a: %d\n", roll);
+						}
+						break;
+					
 				}
+				break;
 
                             default:
                                 puts("Okay so i gave you like three options and you decided to be a little Rebel. No. Don't. This code would work fine if you did not try messing it up pls k thx.");
@@ -1857,7 +1947,7 @@ void main(void)
                     {
                         while(choice != 99)
                         {
-                            puts("you open the door and find ........");
+                            puts("you open the door and find the one and only Rob. Game over man.");
                             scanf("%d",&choice);
                         }
                         break;
@@ -1935,4 +2025,95 @@ int rando(void)
 {
 	int r = (rand() % 4) + 1;
 	return r;
+}
+
+
+int room12Spells(int *hp, int enDam)	//spell chanting
+{
+	char fire[] = "fire";
+	char thun[] = "thunder";
+	char heal[] = "heal";
+	char ref[] = "reflect";
+	char spell[9] = "";
+	puts("Enter any of the following spells: fire, thunder, heal, or reflect");
+	scanf("%s",spell);
+	char *ch = spell;
+	int i = 0, spellC = 0;
+	for (i = 0, spellC = 0; i<6; i++)
+	{
+		if (*(ch + i) == fire[i])
+		{
+			spellC++;
+		}
+		else
+		{
+			break;
+		}
+	}
+	if (spellC == 4 || spellC == 5)
+	{
+		return 4;	//guarunteed 4 damage
+	}
+	for (i = 0, spellC = 0; i<6; i++)
+	{
+		if (*(ch + i) == heal[i])
+		{
+			spellC++;
+		}
+		else
+		{
+			break;
+		}
+	}
+	if (spellC == 4 || spellC == 5)
+	{
+		if (*hp + 10>20)
+		{
+			*hp = 20;
+		}
+		else
+		{
+			*hp += 10;
+		}
+		return 0;	//heal 10 hp
+	}
+	for (i = 0, spellC = 0; i<9; i++)
+	{
+		if (*(ch + i) == thun[i])
+		{
+			spellC++;
+		}
+		else
+		{
+			break;
+		}
+	}
+	if (spellC == 7 || spellC == 8)
+	{
+		
+		if(rand() % 2 == 1) 
+		{		//50% chance of hitting
+			return 8;
+		}	
+		else
+		{
+			return 0;
+		}
+	}
+	for (i = 0, spellC = 0; i<9; i++)
+	{
+		if (*(ch + i) == ref[i])
+		{
+			spellC++;
+		}
+		else
+		{
+			break;
+		}
+	}
+	if (spellC == 7 || spellC == 8)
+	{
+		return enDam;	//reflect enemy damage
+	}
+	return 0;		//failed spell
 }
