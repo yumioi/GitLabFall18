@@ -2,7 +2,7 @@
 
 //Brandon LaNuevo Room #1
 //Ivan Khaffaji Room #19
-
+//Thomas Jones (Tommiiie) #15
 //Hugo Rodriguez Room #10
 
 
@@ -1577,9 +1577,7 @@ void main(void)
                 {
                     while(choice != 99)
                     {
-                        puts("you open the door, but something prevents you from entering. ");
-                        puts("Through the door you hear someone shouting \"HOLD THE DOOR\"");
-                        puts("Despite your effort, the mass opposite from you keeps the door closed.");
+                        puts("You approach the door clearly marked 15.\n As you pass through the doorway you find yourself a room unlike anything you've experience before. In the distance you see a small dimly lit table occupied by only the outline of what you make out to be a man.\n The door behind you has vanished into the blac void.\n Your attention is set back on the mysterious man as he grumbles a request to take a seat at his table.\n You find yourself in a situation of two choices:\n1. Proceed to the table.\n2. Run away."); 
                         scanf("%d",&choice);
                     }
                     break;
