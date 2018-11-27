@@ -76,9 +76,11 @@ void main(void)
 					break;
 			}
 			case 5:
-			{
+			{	
+				FILE *fileptr;
 				int power = 5;
 				srand(time(NULL));
+				fileptr = fopen("adventure.txt", "w");
 					while(choice != 99)
 					{
 							puts("You open the door and find a treasure chest.\n");
