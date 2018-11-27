@@ -504,7 +504,7 @@ void main(void)
 						{
 					
                         printf("You tell the old man your name and agree to help him chase the MadDog gang out of town. \n");
-						printf("\"Oh thank you, %s! Now hurry, MadDog is only growing stronger the longer we stand here! \"", &name);
+						printf("\"Oh thank you, %s! Now hurry, MadDog is only growing stronger the longer we stand here! \"", name);
 						puts(" ");
 						while(choice != 99)
 						{
@@ -588,7 +588,7 @@ void main(void)
 																		puts(" ");
 																		printf("GAME OVER\n");
 																		
-																		return 0;
+																		exit(EXIT_SUCCESS);
 																	}
 																}
 															}
@@ -648,7 +648,7 @@ void main(void)
 																		printf("\n");
 																		puts("GAME OVER\n");
 																		
-																		return 0;
+																		exit(EXIT_SUCCESS);
 																	}
 																}
 																
@@ -765,7 +765,7 @@ void main(void)
 									puts("You walk toward the stools at the bar. A man with a bow tie and handle bar mustache approaches you and ask \"What will it be?\"");
 									puts("With no words to say, bartender just pours a shot of whiskey. Bartender then whispers to you \"those men to the left side playing cards are part of MadDog's gang. Keep an eye on them. They have the key to free the sheriff.\"");
 									puts("\"HEY!\" One of the men on the left side of you shout, \" I ain't never seen you before, who are you? \" It's three men over to your left.");
-									printf("\n1. The name's %s, what's it to ya? \n2. None of your Goddamn business! \n3. Turn around back\n", &name);
+									printf("\n1. The name's %s, what's it to ya? \n2. None of your Goddamn business! \n3. Turn around back\n", name);
 									scanf("%d", &choice);
 										
 										if(choice == 1 && FiveHundred == false)
@@ -938,7 +938,7 @@ void main(void)
 											printf("\"I would outta apologize if I was you!\"\n");
 											printf("You can 'apologize' or stay 'silent'. The choice is yours.\n");
 											printf("Decision>");
-											scanf("s", option);
+											scanf("%s", option);
 											
 											if(strcasecmp(option, "apologize") == 0)
 											{
@@ -1040,7 +1040,7 @@ void main(void)
 									printf("You pull the jail keys from your pocket. As you release the sheriff, you hear a click but it isn't a the jail unlocking, it's the sound of a revolver being ready to shoot.\n");
 									printf("You turn to the left of you and see a pretty build man in a brown vest with a long brown jacket with brown pants. He has the revolver pointed at you\n");
 									printf("\"Okay stranger, jump the keys and no one gets hurt\", the man tells you. Should you 'drop' it or 'go' for your gun?\n");
-									while(option != 'z')
+									while(*option != 'z')
 									{
 									printf("Decision>");
 									scanf("%s", option);
@@ -1052,7 +1052,7 @@ void main(void)
 											printf("As soon as the man grabbed the keys from the lock, the sheriff grabbed the outlaws wrist\n");
 											printf("The outlaw's left hand which is holding the gun is going over to the sheriff. This is a wise decision, what should you do?\n");
 											printf("Pull your gun and 'shoot' the man or try to throw a 'punch'?\n");
-											while(option != 'z')
+											while(*option != 'z')
 											{
 											printf("Decision>");
 											scanf("%s", option);
@@ -1111,7 +1111,7 @@ void main(void)
 									
 								if(choice == 4 && sheriff == false)
 								{
-									printf("\"Oh we have a gamer, well this isn't a game. Okay $s, video games it is, lets get started: \"", &name);
+									printf("You walk into the Post Office. A fine lady walks to the front counter. Though don't she isn't like any other lady. She is dressed like the rest of the cowboys.\n");
 									
 									goto Menu;
 								}
@@ -1127,7 +1127,7 @@ void main(void)
 						{
                             puts("\"Please stranger, come back soon! Our town can't take anymore of these hooligans! \"  \n GAME OVER \n");
 						
-							return 1;
+							exit(EXIT_SUCCESS);
 						}
                     }
                     break;
