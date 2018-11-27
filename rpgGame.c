@@ -212,6 +212,7 @@ void main(void)
                 }
             case 7:
                 {
+					srand(time(NULL));
                     while(choice != 99)
                     {
                         puts("you open the door and find ........");
@@ -296,7 +297,7 @@ void main(void)
 										}
 										if(choice == 2)
 										{
-											puts("");
+											puts("You decide the best way to hide his body is to stash it behind the chair.");
 											break;
 										}
 										break;
@@ -311,7 +312,12 @@ void main(void)
 								}
 								if(choice == 2)
 								{
-									puts("You decide not to pick up the stick.");
+									puts("You decide not to pick up the stick. You approach the old man ");
+									puts("and kneel down. You decide the best course of actions is to poke him ");
+									puts("with your finger. Then the old man moves and says \"I'm not dead! Stop poking me!\"");
+									puts("You can: ");
+									puts("1. Keep poking.");
+									puts("2. Stop");
 									break;
 								}
 								break;
