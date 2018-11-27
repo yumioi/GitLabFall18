@@ -271,7 +271,7 @@ void main(void)
 								puts("You spot a stick by the chair the old man was sitting. Pick it up?");
 								puts("1. Yes");
 								puts("2. No");
-								scanf("%d",&choice)
+								scanf("%d",&choice);
 								if(choice == 1)
 								{
 									puts("You pick up the stick. With the stick in hand you approach the old man.");
@@ -280,7 +280,7 @@ void main(void)
 									puts("1. Dispose of the body.");
 									puts("2. Get Out!");
 									puts("What do you do?");
-									scanf("%d",&choice)
+									scanf("%d",&choice);
 									if(choice == 1)
 									{
 										puts("You decide that you would rather make the nobler choice of disposing of the evidence");
@@ -1569,7 +1569,7 @@ void main(void)
                         FILE *inptr;
                         char ranstring[256];
 			int randints[10];
-                        int numguess, randnum, i, k;
+                        int sides, numguess, randnum, i, k, numrolls, roll;
                         puts("You open the door and find ...... ");
                         puts("An s2000 that is currently fixed with airbag suspension");
                         puts("An s2000 completely modified with all authentic JDM parts");
@@ -1622,6 +1622,7 @@ void main(void)
                                 printf("Here is the string you entered: %s", ranstring);
                                 fprintf(inptr,"%s", ranstring);
                                 fclose(inptr);
+				puts("Now go find your file!");
                                 break;
 			    case 4:
 				puts("Okay so you decided to have a random function chosen for you, cheeky person.");
@@ -1635,9 +1636,37 @@ void main(void)
 						{
 							randints[i] = (rand() % 10) + 1;
 						}
+						printf("Here is your unsorted array: %d\n", randints);
+						for(i = 0; i < 9; i++)
+						{
+							for(k = i + 1; k < 10; k++)
+							{
+								if(randints[i] > randints[k])
+								{
+									int temp = randints[i];
+									randints[i] = randints[k];
+									randints[k] = temp;
+								}
+							}
 
+						}
 						break;
+					case 2:
+						puts("Okay so this random case will roll a die with how ever many sides you want, how ever many times you want, just enter a number please.");
+						scanf("%d", numrolls);
+						
+						puts("You decided to roll %d time/s. Now enter how many sides you want the die to have please.");
+						scanf("%d", sides);
+						
+						for(i = 0; i < numrolls; i++)
+						{
+							roll = (rand() % sides) + 1;
+							printf("You randomly rolled a: %d\n", roll);
+						}
+						break;
+					
 				}
+				break;
 
                             default:
                                 puts("Okay so i gave you like three options and you decided to be a little Rebel. No. Don't. This code would work fine if you did not try messing it up pls k thx.");
