@@ -271,7 +271,7 @@ void main(void)
 								puts("You spot a stick by the chair the old man was sitting. Pick it up?");
 								puts("1. Yes");
 								puts("2. No");
-								scanf("%d",&choice)
+								scanf("%d",&choice);
 								if(choice == 1)
 								{
 									puts("You pick up the stick. With the stick in hand you approach the old man.");
@@ -280,7 +280,7 @@ void main(void)
 									puts("1. Dispose of the body.");
 									puts("2. Get Out!");
 									puts("What do you do?");
-									scanf("%d",&choice)
+									scanf("%d",&choice);
 									if(choice == 1)
 									{
 										puts("You decide that you would rather make the nobler choice of disposing of the evidence");
