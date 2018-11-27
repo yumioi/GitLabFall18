@@ -297,7 +297,7 @@ void main(void)
 										}
 										if(choice == 2)
 										{
-											puts("You decide the best way to hide his body is to stash it behind the chair.");
+											puts("You decide the best way to hide his body is to stash it behind the chair. ");
 											break;
 										}
 										break;
