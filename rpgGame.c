@@ -140,12 +140,12 @@ void main(void)
 						puts("You ignore the creatures and head toward the treasure chest.");
 						x = (rand() % 100) + 1;
 						playerGold = x;
-						puts("You open it and find %d gold inside! You put the gold into your bag.",playerGold);
+						printf("You open it and find %d gold inside! You put the gold into your bag.",playerGold);
 						puts("You hear something hit the top of the chest and notice cactus thorns have pierced the chest.");
 						puts("The cactus creatures have fired their thorns at you and readying to fire again! What do you do?");
 						puts("1. Run away!");
 						puts("2. Fight back!");
-						scanf("%d",&choice)
+						scanf("%d",&choice);
 						if(choice == 1)
 						{
 							puts("You make a mad dash to the exit as cactus thorns fly by your head.");
