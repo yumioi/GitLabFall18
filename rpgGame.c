@@ -25,7 +25,7 @@ int rando(void);
 void main(void)
 {
     int x,y,z,i,h,g,k,choice=0;
-    char name[256];
+    char name[256],a[100], answerToA[100] = "number from 1 to 10";
     int boxNum=0;
     int num = 6, guess= 0, a;
 
@@ -204,8 +204,28 @@ void main(void)
                         }
                         else
                         {
-                            puts("TRY AGAIN YOU DUNCE");
+                            puts("YOU DIDN'T FOLLOW MY INSTRUCTIONS FOOL!! YOU'RE GONNA GET ZUCCED!!.......GAME OVER");
+			    break;
                         }
+			puts ("So now that you correctl brib....er I mean answered my statements, I will set up another stage for you to test your worth.");
+			puts("What I have in my hand is a fragment of Prometheus's chromosones.");
+			puts("The poor idiot lent it to me for safekeeping, but I think im gonna use it as a bargaining chip");
+			puts("I bet you're asking what do I need to do to get that?");
+			puts("WELL GUESS WHAT NERD! YOU NEED TO COMPLETE A CERTAIN PROBLEM IN ORDER TO GET THIS");
+			puts("HERE IS THE PROBLEM");
+			getchar();
+			puts("Enter number from 1 to 10");
+			fgets(a, 100, stdin);
+			if(strcmp(a,answerToA) == 0)
+			{
+				puts("oooooohhhh you saw through me huh you pervert!");
+				puts("Still I'm impressed that you were able to answer that");
+			}
+			else
+			{
+				puts("Don't be too hard n yourself, but you're gonna have a bad time.......GAME OVER");
+				break;
+			}
                     }
                     break;
                 }
@@ -271,7 +291,7 @@ void main(void)
 								puts("You spot a stick by the chair the old man was sitting. Pick it up?");
 								puts("1. Yes");
 								puts("2. No");
-								scanf("%d",&choice)
+								scanf("%d",&choice);
 								if(choice == 1)
 								{
 									puts("You pick up the stick. With the stick in hand you approach the old man.");
@@ -280,7 +300,7 @@ void main(void)
 									puts("1. Dispose of the body.");
 									puts("2. Get Out!");
 									puts("What do you do?");
-									scanf("%d",&choice)
+									scanf("%d",&choice);
 									if(choice == 1)
 									{
 										puts("You decide that you would rather make the nobler choice of disposing of the evidence");
