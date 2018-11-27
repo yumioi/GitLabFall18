@@ -21,6 +21,7 @@
 //Prototypes
 void sleep(unsigned int seconds);
 int rando(void);
+int room12Spells(int *hp, int enDam);
 
 void main(void)
 {
@@ -55,136 +56,10 @@ void main(void)
                 {
                     while(choice != 99)
                     {
-                      puts("You open the door and you quickly turn arround to find the door quickly disappearing behind you.");
-                        puts("In front of you, you now notice a long hallway leading to a room that is completely white.");
-                        puts("At this point you have two choices.");
-                        puts("1. Walk down the dark hallway.");
-                        puts("2. Scream in panic.");
-                        scanf("%d", &choice);
-                        if(choice == 1)
-                        {
-                            puts("You begin to wall down the dark hallway.");
-                            puts("As you walk, you notice that the room is actually a lot brighter than you thought it was.");
-                            puts("You now are inside the white room and it looks like a office cubicle.");
-                            puts("In the far right corner you see a old computer");
-                            sleep(4);
-                            puts("[  675.362959] Kernel panic - not syncing: Watchdog detected hard LOCKUP on cpu 8");
-                            puts("[  675.363355] Pid: 3457, comm: lve_tag_thread veid: 0 Not tainted 2.6.32-673.8.1.lve1.4.3.el6.x86_64 #1");
-                            puts("[  675.363748] Call Trace:");
-                            puts("[  675.363972]  <NMI>  [<ffffffff81546288>] ? panic+0xa7/0x16f");
-                            puts("[  675.364284]  [<ffffffff81015039>] ? sched_clock+0x9/0x10");
-                            puts("[  675.364520]  [<ffffffff81105fdd>] ? watchdog_overflow_callback+0xcd/0xd0");
-                            puts("[  675.364757]  [<ffffffff8113ed17>] ? __perf_event_overflow+0xa7/0x240");
-                            puts("[  675.364993]  [<ffffffff8101ee24>] ? x86_perf_event_set_period+0xf4/0x180");
-                            puts("[  675.365230]  [<ffffffff8113f364>] ? perf_event_overflow+0x14/0x20");
-                            puts("[  675.365464]  [<ffffffff81025bd2>] ? intel_pmu_handle_irq+0x202/0x3f0");
-                            puts("[  675.365703]  [<ffffffff8154bd49>] ? perf_event_nmi_handler+0x39/0xb0");
-                            puts("[  675.365937]  [<ffffffff8154d805>] ? notifier_call_chain+0x55/0x80");
-                            puts("[  675.366171]  [<ffffffff8154d86a>] ? atomic_notifier_call_chain+0x1a/0x20");
-                            puts("[  675.366408]  [<ffffffff810b239e>] ? notify_die+0x2e/0x30");
-                            puts("[  675.366640]  [<ffffffff8154b30b>] ? do_nmi+0x1cb/0x370");
-                            puts("[  675.366870]  [<ffffffff8154ad20>] ? nmi+0x20/0x30");
-                            puts("[  675.367111]  [<ffffffff8154a58e>] ? _spin_lock+0x1e/0x30");
-                            puts("[  675.367343]  <<EOE>>  <IRQ>  [<ffffffffa0283c7d>] ? tag_free_delayed+0x1d/0x60 [kmodlve]");
-                            puts("[  675.367873]  [<ffffffffa0288c53>] ? lve_free_task_hook+0x73/0x110 [kmodlve]");
-                            puts("[  675.368112]  [<ffffffff81084742>] ? delayed_put_task_struct+0x42/0x80");
-                            puts("[  675.368349]  [<ffffffff8110c015>] ? __rcu_process_callbacks+0x135/0x350");
-                            puts("[  675.368583]  [<ffffffff81015089>] ? read_tsc+0x9/0x10");
-                            puts("[  675.368815]  [<ffffffff8110c25b>] ? rcu_process_callbacks+0x2b/0x50");
-                            puts("[  675.369049]  [<ffffffff81087a2d>] ? __do_softirq+0x10d/0x250");
-                            puts("[  675.369285]  [<ffffffff8100c4cc>] ? call_softirq+0x1c/0x30");
-                            puts("[  675.369518]  [<ffffffff810102f5>] ? do_softirq+0x65/0xa0");
-                            puts("[  675.369749]  [<ffffffff8108784d>] ? irq_exit+0xcd/0xd0");
-                            puts("[  675.369981]  [<ffffffff8155139a>] ? smp_apic_timer_interrupt+0x4a/0x60");
-                            puts("[  675.370216]  [<ffffffff8100bcd3>] ? apic_timer_interrupt+0x13/0x20");
-                            puts("[  675.370448]  <EOI>  [<ffffffff8154a582>] ? _spin_lock+0x12/0x30");
-                            puts("[  675.370750]  [<ffffffffa0283e08>] ? tag_list_handle+0x28/0xc0 [kmodlve]");
-                            puts("[  675.370988]  [<ffffffffa0283ee2>] ? tag_list_handler+0x42/0xe0 [kmodlve]");
-                            puts("[  675.371223]  [<ffffffff810ab910>] ? autoremove_wake_function+0x0/0x40");
-                            puts("[  675.371460]  [<ffffffffa0283ea0>] ? tag_list_handler+0x0/0xe0 [kmodlve]");
-                            puts("[  675.371694]  [<ffffffff810ab51e>] ? kthread+0x9e/0xc0");
-                            puts("[  675.371926]  [<ffffffff8100c3ca>] ? child_rip+0xa/0x20");
-                            puts("[  675.372158]  [<ffffffff810ab480>] ? kthread+0x0/0xc0");
-                            puts("[  238.954555] [<8010ffd8>] (unwind_backtrace) from [<8010c240>] (show_stack+0x20/0x24)");
-                            puts("[  238.962413] [<8010c240>] (show_stack) from [<807840a4>] (dump_stack+0xd4/0x118)");
-                            puts("[  238.969832] [<807840a4>] (dump_stack) from [<8011dc34>] (panic+0xf0/0x274)");
-                            puts("[  238.976805] [<8011dc34>] (panic) from [<801225c4>] (complete_and_exit+0x0/0x2c)");
-                            puts("[  238.984218] [<801225c4>] (complete_and_exit) from [<8012265c>] (do_group_exit+0x4c/0xe4)");
-                            puts("[  238.992426] [<8012265c>] (do_group_exit) from [<8012da40>] (get_signal+0x36c/0x6bc)");
-                            puts("[  239.000195] [<8012da40>] (get_signal) from [<8010b2f4>] (do_signal+0xc4/0x3e4)");
-                            puts("[  239.007522] [<8010b2f4>] (do_signal) from [<8010b7fc>] (do_work_pending+0xb8/0xd0)");
-                            puts("[  239.015201] [<8010b7fc>] (do_work_pending) from [<80108094>] (slow_work_pending+0xc/0x20)");
-                            puts("[  239.023497] CPU0: stopping");
-                            puts("[  239.026239] CPU: 0 PID: 0 Comm: swapper/0 Tainted: G         C      4.14.34-v7+ #1110");
-                            puts("[  239.034177] Hardware name: BCM2835");
-                            puts("[  239.037626] [<8010ffd8>] (unwind_backtrace) from [<8010c240>] (show_stack+0x20/0x24)");
-                            puts("[  239.045480] [<8010c240>] (show_stack) from [<807840a4>] (dump_stack+0xd4/0x118)");
-                            puts("[  239.052895] [<807840a4>] (dump_stack) from [<8010e458>] (handle_IPI+0x2bc/0x33c)");
-                            puts("[  239.060398] [<8010e458>] (handle_IPI) from [<801014d8>] (bcm2836_arm_irqchip_handle_irq+0x7c/0xac)");
-                            puts("[  239.069490] [<801014d8>] (bcm2836_arm_irqchip_handle_irq) from [<8079fcbc>] (__irq_svc+0x5c/0x7c)");
-                            puts("[  239.078486] Exception stack(0x80c01ef0 to 0x80c01f38)");
-                            puts("[  239.083605] 1ee0:                                     00000000 00e7df50 397c4000 00000000");
-                            puts("[  239.091899] 1f00: 80c00000 80c03dcc 80c03d68 80c88172 00000001 80b60a30 babffa00 80c01f4c");
-                            puts("[  239.100192] 1f20: 80c04174 80c01f40 80108a4c 80108a50 60000013 ffffffff");
-                            puts("[  239.106902] [<8079fcbc>] (__irq_svc) from [<80108a50>] (arch_cpu_idle+0x34/0x4c)");
-                            puts("[  239.114405] [<80108a50>] (arch_cpu_idle) from [<8079f434>] (default_idle_call+0x34/0x48)");
-                            puts("[  239.122613] [<8079f434>] (default_idle_call) from [<801611cc>] (do_idle+0xd8/0x150)");
-                            puts("[  239.130379] [<801611cc>] (do_idle) from [<801614e0>] (cpu_startup_entry+0x28/0x2c)");
-                            puts("[  239.138058] [<801614e0>] (cpu_startup_entry) from [<80799184>] (rest_init+0xbc/0xc0)");
-                            puts("[  239.145915] [<80799184>] (rest_init) from [<80b00df8>] (start_kernel+0x3d4/0x3e0)");
-                            puts("[  239.153503] CPU3: stopping");
-                            puts("[  239.156245] CPU: 3 PID: 0 Comm: swapper/3 Tainted: G         C      4.14.34-v7+ #1110");
-                            puts("[  239.164182] Hardware name: BCM2835");
-                            puts("[  239.167631] [<8010ffd8>] (unwind_backtrace) from [<8010c240>] (show_stack+0x20/0x24)");
-                            puts("[  239.175486] [<8010c240>] (show_stack) from [<807840a4>] (dump_stack+0xd4/0x118)");
-                            puts("[  239.182901] [<807840a4>] (dump_stack) from [<8010e458>] (handle_IPI+0x2bc/0x33c)");
-                            puts("[  239.190402] [<8010e458>] (handle_IPI) from [<801014d8>] (bcm2836_arm_irqchip_handle_irq+0x7c/0xac)");
-                            puts("[  239.199492] [<801014d8>] (bcm2836_arm_irqchip_handle_irq) from [<8079fcbc>] (__irq_svc+0x5c/0x7c)");
-                            puts("[  239.208487] Exception stack(0xb9d27f38 to 0xb9d27f80)");
-                            puts("[  239.213606] 7f20:                                                       00000000 00062a7c");
-                            puts("[  239.221900] 7f40: 397f7000 00000000 b9d26000 80c03dcc 80c03d68 80c88172 00000001 410fd034");
-                            puts("[  239.230193] 7f60: 00000000 b9d27f94 80c04174 b9d27f88 80108a4c 80108a50 60000013 ffffffff");
-                            puts("[  239.238490] [<8079fcbc>] (__irq_svc) from [<80108a50>] (arch_cpu_idle+0x34/0x4c)");
-                            puts("[  239.245992] [<80108a50>] (arch_cpu_idle) from [<8079f434>] (default_idle_call+0x34/0x48)");
-                            puts("[  239.254199] [<8079f434>] (default_idle_call) from [<801611cc>] (do_idle+0xd8/0x150)");
-                            puts("[  239.261964] [<801611cc>] (do_idle) from [<801614e0>] (cpu_startup_entry+0x28/0x2c)");
-                            puts("[  239.269641] [<801614e0>] (cpu_startup_entry) from [<8010df50>] (secondary_start_kernel+0x130/0x13c)");
-                            puts("[  239.278819] [<8010df50>] (secondary_start_kernel) from [<0010196c>] (0x10196c)");
-                            puts("[  239.286140] CPU1: stopping");
-                            puts("[  239.288881] CPU: 1 PID: 0 Comm: swapper/1 Tainted: G         C      4.14.34-v7+ #1110");
-                            puts("[  239.296819] Hardware name: BCM2835");
-                            puts("[  239.300268] [<8010ffd8>] (unwind_backtrace) from [<8010c240>] (show_stack+0x20/0x24)");
-                            puts("[  239.308122] [<8010c240>] (show_stack) from [<807840a4>] (dump_stack+0xd4/0x118)");
-                            puts("[  239.315536] [<807840a4>] (dump_stack) from [<8010e458>] (handle_IPI+0x2bc/0x33c)");
-                            puts("[  239.323038] [<8010e458>] (handle_IPI) from [<801014d8>] (bcm2836_arm_irqchip_handle_irq+0x7c/0xac)");
-                            puts("[  239.332126] [<801014d8>] (bcm2836_arm_irqchip_handle_irq) from [<8079fcbc>] (__irq_svc+0x5c/0x7c)");
-                            puts("[  239.341121] Exception stack(0xb9d23f38 to 0xb9d23f80)");
-                            puts("[  239.346240] 3f20:                                                       00000000 007f534c");
-                            puts("[  239.354533] 3f40: 397d5000 00000000 b9d22000 80c03dcc 80c03d68 80c88172 00000001 410fd034");
-                            puts("[  239.362826] 3f60: 00000000 b9d23f94 80c04174 b9d23f88 80108a4c 80108a50 60000013 ffffffff");
-                            puts("[  239.371122] [<8079fcbc>] (__irq_svc) from [<80108a50>] (arch_cpu_idle+0x34/0x4c)");
-                            puts("[  239.378624] [<80108a50>] (arch_cpu_idle) from [<8079f434>] (default_idle_call+0x34/0x48)");
-                            puts("[  239.386831] [<8079f434>] (default_idle_call) from [<801611cc>] (do_idle+0xd8/0x150)");
-                            puts("[  239.394597] [<801611cc>] (do_idle) from [<801614e0>] (cpu_startup_entry+0x28/0x2c)");
-                            puts("[  239.402273] [<801614e0>] (cpu_startup_entry) from [<8010df50>] (secondary_start_kernel+0x130/0x13c)");
-                            puts("[  239.411448] [<8010df50>] (secondary_start_kernel) from [<0010196c>] (0x10196c)");
-                            puts("[  239.418781] ---[ end Kernel panic - not syncing: Attempted to kill init! exitcode=0x0000000b");
-                            sleep(4);
-                            system("clear");
-                            puts("they're watching.");
-                            sleep(2);
-                            puts("Press Control + c to exit.");
-                            for( ;; )
-                            {
 
-                            }
-                        }
                     }
                     break;
                 }
-
-
-
             case 2: // Justin Do Room 2
                 {
                     while(choice != 99)
@@ -629,7 +504,7 @@ void main(void)
 						{
 					
                         printf("You tell the old man your name and agree to help him chase the MadDog gang out of town. \n");
-						printf("\"Oh thank you, %s! Now hurry, MadDog is only growing stronger the longer we stand here! \"", &name);
+						printf("\"Oh thank you, %s! Now hurry, MadDog is only growing stronger the longer we stand here! \"", name);
 						puts(" ");
 						while(choice != 99)
 						{
@@ -713,7 +588,7 @@ void main(void)
 																		puts(" ");
 																		printf("GAME OVER\n");
 																		
-																		return 0;
+																		exit(EXIT_SUCCESS);
 																	}
 																}
 															}
@@ -773,7 +648,7 @@ void main(void)
 																		printf("\n");
 																		puts("GAME OVER\n");
 																		
-																		return 0;
+																		exit(EXIT_SUCCESS);
 																	}
 																}
 																
@@ -890,7 +765,7 @@ void main(void)
 									puts("You walk toward the stools at the bar. A man with a bow tie and handle bar mustache approaches you and ask \"What will it be?\"");
 									puts("With no words to say, bartender just pours a shot of whiskey. Bartender then whispers to you \"those men to the left side playing cards are part of MadDog's gang. Keep an eye on them. They have the key to free the sheriff.\"");
 									puts("\"HEY!\" One of the men on the left side of you shout, \" I ain't never seen you before, who are you? \" It's three men over to your left.");
-									printf("\n1. The name's %s, what's it to ya? \n2. None of your Goddamn business! \n3. Turn around back\n", &name);
+									printf("\n1. The name's %s, what's it to ya? \n2. None of your Goddamn business! \n3. Turn around back\n", name);
 									scanf("%d", &choice);
 										
 										if(choice == 1 && FiveHundred == false)
@@ -1063,7 +938,7 @@ void main(void)
 											printf("\"I would outta apologize if I was you!\"\n");
 											printf("You can 'apologize' or stay 'silent'. The choice is yours.\n");
 											printf("Decision>");
-											scanf("s", option);
+											scanf("%s", option);
 											
 											if(strcasecmp(option, "apologize") == 0)
 											{
@@ -1165,7 +1040,7 @@ void main(void)
 									printf("You pull the jail keys from your pocket. As you release the sheriff, you hear a click but it isn't a the jail unlocking, it's the sound of a revolver being ready to shoot.\n");
 									printf("You turn to the left of you and see a pretty build man in a brown vest with a long brown jacket with brown pants. He has the revolver pointed at you\n");
 									printf("\"Okay stranger, jump the keys and no one gets hurt\", the man tells you. Should you 'drop' it or 'go' for your gun?\n");
-									while(option != 'z')
+									while(*option != 'z')
 									{
 									printf("Decision>");
 									scanf("%s", option);
@@ -1177,7 +1052,7 @@ void main(void)
 											printf("As soon as the man grabbed the keys from the lock, the sheriff grabbed the outlaws wrist\n");
 											printf("The outlaw's left hand which is holding the gun is going over to the sheriff. This is a wise decision, what should you do?\n");
 											printf("Pull your gun and 'shoot' the man or try to throw a 'punch'?\n");
-											while(option != 'z')
+											while(*option != 'z')
 											{
 											printf("Decision>");
 											scanf("%s", option);
@@ -1236,7 +1111,7 @@ void main(void)
 									
 								if(choice == 4 && sheriff == false)
 								{
-									printf("\"Oh we have a gamer, well this isn't a game. Okay $s, video games it is, lets get started: \"", &name);
+									printf("You walk into the Post Office. A fine lady walks to the front counter. Though don't she isn't like any other lady. She is dressed like the rest of the cowboys.\n");
 									
 									goto Menu;
 								}
@@ -1252,7 +1127,7 @@ void main(void)
 						{
                             puts("\"Please stranger, come back soon! Our town can't take anymore of these hooligans! \"  \n GAME OVER \n");
 						
-							return 1;
+							exit(EXIT_SUCCESS);
 						}
                     }
                     break;
@@ -1311,191 +1186,251 @@ void main(void)
                     }
                     break;
                 }
-            case 12:	//synced rpg
-                {
-                    puts("you open the door and find a machine that proceeds to teleport you to a distant facility");
-                    int hp = 20, enemyhp = 20;
-                    int w, b[3] = { 0,0,0 };		//enemy weakness and boolean for completion
-                    FILE *fptr;
-                    int *p = b;
-                    fptr = fopen("data.txt", "w+");
-                    if (fscanf(fptr, "%d %d %d", b[0], b[1], b[2]) != 3)
-                    {
-                        rewind(fptr);
-                        puts("A new save file will be created.");
-                        fprintf(fptr, "%d %d %d", b[0], b[1], b[2]);
-                    }
-                    while (choice != 99)
-                    {
+            case 12:	//room 12 overhall
+		{
+			puts("you open the door and find a machine that proceeds to teleport you to a distant facility");
+			int hp = 20, enemyhp = 20, dam=0, enDam=0; 
+			int w, b[3] = { 0,0,0 };		//enemy weakness and boolean for completion
+			FILE *fptr;
+			int *p = b;
+			fptr = fopen("data.txt", "w+");
+			if (fscanf(fptr, "%d %d %d", b[0], b[1], b[2]) != 3)
+			{
+				rewind(fptr);
+				puts("A new save file will be created.");
+				fprintf(fptr, "%d %d %d", b[0], b[1], b[2]);
+			}
+			while (choice != 99)
+			{
 
-                        printf("Soldier: We're glad you made it back, captain %s! What are your orders?\n(Enter -1 to train, 0 to save your progress, or enter 1-3 to play through a particular chapter of this game.)\n", name);
-                        if ((*(p + 0) + *(p + 1) + *(p + 2)) == 3)
-                        {
-                            puts("After completing every chapter you unlocked a bonus scene.(Enter 4 to view it)");
-                        }
-                        scanf("%d", &choice);
-                        if (choice == -1)
-                        {
-                            puts("This is just a combat tutorial against a dummy.\nStart by entering 1(to use a gun), 2(to use a sword), 3(to use a spell), or 4(to heal).");
-                            puts("Enemies have different weaknesses so try to find them to deal more damage to the enemy.");
+				printf("Soldier: We're glad you made it back, captain %s! What are your orders?\n(Enter -1 to train, 0 to save your progress, or enter 1-3 to play through a particular chapter of this game.)\n", name);
+				if ((*(p + 0) + *(p + 1) + *(p + 2)) == 3)
+				{
+					puts("After completing every chapter you unlocked a bonus scene.(Enter 4 to view it)");
+				}
+				scanf("%d", &choice);
+				if (choice == -1)
+				{
+					puts("This is just a combat tutorial against a dummy.\nStart by entering 1(to use a gun), 2(to use a sword), or 3(to cast 1 of 4 spells).");
+					puts("Guns and swords will do a fixed amount of damage while spells vary.");
+					puts("Fire does a fixed amount, thunder does double of fire's amount but has a 50% chance of failing, heal does 0 damage but you heal hp, and reflect sends back enemy damage while taking half of the damage.");
+					puts("Enemies have a weakness to certain weapons or spells so try to find them to deal more damage to the enemy.");
+					puts("When casting a spell, cast it calmly or else you'll lose focus. (lower case letters)");
 
-                            enemyhp = 20; w = 4; hp = 20;
-                            while (choice != 99 && enemyhp > 0)
-                            {
-                                printf("You have %d hp and the enemy has %d hp\nWhat is your next move?(1:gun, 2:sword, 3:spell, or 4:heal)\n", hp, enemyhp);
-                                scanf("%d", &choice);
-                                enemyhp -= ((choice == w) ? 8 : 2);
-                                if (enemyhp <= 0)
-                                {
-                                    break;
-                                }
-                                if (choice == 4)
-                                {
-                                    hp = (hp + 10>20) ? 20 : (hp + 10);
-                                }
-                                hp -= 0;
-                                printf("You dealt %d damage and the enemy dealt 0 damage.\n", ((choice == w) ? 8 : 2));
-                            }
-                            puts("Last tip: Casting a spell may help in what would appear to be impossible odds.");
-                            puts("Congratulations you beat the training level, you will now be sent back to the facility.");
-                            choice = -2;
-                        }
-                        else if (choice == 0)
-                        {
-                            rewind(fptr);
-                            fprintf(fptr, "%d %d %d", b[0], b[1], b[2]);
-                            puts("Your progress has been saved, you will now return to the facility.");
-                            choice = -2;
-                        }
-                        else if (choice == 1)
-                        {
-                            puts("Chapter 1: Fall of a Republic");
-                            puts("Once the new chancellor was elected he implemented new laws throughout the galaxy.");
-                            puts("The laws strengthened the military, but rather than being used to protect the Milky Way Republic from the Andromeda Empire it was used to keep the people in line.");
-                            puts("Former military, local militias, and people fleeing the laws from the center of the galaxy formed a rebellion force around the edges of the Milky Way.");
-                            puts("We managed to deceive the enemy into sending their main force to our \"secret base\" now we sent our force for an all out attack towards the center.");
-                            printf("Here we are, facing the force stationed at the capital... - %s - January 24, 3018\n", name);
-                            enemyhp = 20; w = 3; hp = 20;
-                            while (choice != 99 && enemyhp > 0 && hp > 0)
-                            {
-                                printf("You have %d hp and the enemy soldier has %d hp\nWhat is your next move?(1:gun, 2:sword, 3:spell, or 4:heal)\n", hp, enemyhp);
-                                scanf("%d", &choice);
-                                enemyhp -= 2 * ((choice == w) ? 2 : 1)*((choice == 4) ? 0 : 1);
-                                if (enemyhp <= 0)
-                                {
-                                    break;
-                                }
-                                if (choice == 4)
-                                {
-                                    hp = (hp + 10>20) ? 20 : (hp + 10);
-                                }
-                                hp -= 3;
-                                printf("You dealt %d damage and the enemy dealt 3 damage.\n", ((choice == w) ? 4 : 2)*((choice == 4) ? 0 : 1));
-                            }
-                            b[0] = 1 * (hp>0) ? 1 : 0;
-                            if (hp <= 0)
-                            {
-                                puts("You lost you will now be sent to the facility.");
-                            }
-                            choice = -2;
-                        }
-                        else if (choice == 2)
-                        {
-                            puts("Chapter 2: Life in the Center");
-                            puts("The chancellor promised everyone jobs once elected and he delivered on his promise... in the most horrible way possible.");
-                            puts("Plenty of people were rounded up and experimented on with various chemical substances.");
-                            puts("The chancellor's goal was to make a mindless population that will obey any order given to them by him directly.");
-                            puts("Many people never survived the experiments because the drug made unnatural changes to the human brain.");
-                            puts("Those that survived suffer from symptoms such as rotting flesh and fits of rage, some resort to cannabalism. Rumors suggest it's to ease their pain.");
-                            printf("Here we are, facing the citizins attempting to put them out of their misery... - %s - February 1, 3018\n", name);
-                            enemyhp = 20; w = 1; hp = 20;
-                            while (choice != 99 && enemyhp > 0 && hp > 0)
-                            {
-                                printf("You have %d hp and the zombie has %d hp\nWhat is your next move?(1:gun, 2:sword, 3:spell, or 4:heal)\n", hp, enemyhp);
-                                scanf("%d", &choice);
-                                enemyhp -= 2 * ((choice == w) ? 2 : 1)*((choice == 4) ? 0 : 1);
-                                if (enemyhp <= 0)
-                                {
-                                    break;
-                                }
-                                if (choice == 4)
-                                {
-                                    hp = (hp + 10>20) ? 20 : (hp + 10);
-                                }
-                                hp -= 4;
-                                printf("You dealt %d damage and the enemy dealt 4 damage.\n", ((choice == w) ? 4 : 2)*((choice == 4) ? 0 : 1));
-                            }
-                            b[1] = 1 * (hp>0) ? 1 : 0;
-                            if (hp <= 0)
-                            {
-                                puts("You lost you will now be sent to the facility.");
-                            }
-                            choice = -2;
-                        }
-                        else if (choice == 3)
-                        {
-                            puts("Chapter 3: End of the Milky Way Government");
-                            puts("The chancellor is now confronting us directly along with his corrupt officials.");
-                            puts("People believe the restricting of magic to the general population helped the chancellor rise to power.");
-                            puts("Other corrupt officials proceeded to use spells to manipulate the population and due to a lack of knowledge on magic nobody could counter their charm spells.");
-                            puts("This will be our most difficult fight and we must finish this quickly before the main force returns to the capital.");
-                            puts("If the rumors hold true then the chancellor has a powerful ability that could destroy armies, there must be a way to counter it.");
-                            printf("Here we are, our last stand and stakess can't be any higher - %s - February 3, 3018\n", name);
-                            enemyhp = 40; w = 2; hp = 20;
-                            int timeStop = 0, timeReset = 0;
-                            while (choice != 99 && enemyhp > 0 && hp > 0)
-                            {
-                                printf("You have %d hp and the chancellor has %d hp\nWhat is your next move?(1:gun, 2:sword, 3:spell, or 4:heal)\n", hp, enemyhp);
-                                scanf("%d", &choice);
-                                if (timeStop == 1 && choice == 3 && timeReset == 0)
-                                {
-                                    puts("Chancellor: How can you nullify my time stop ability?!");
-                                    timeReset = 1;
-                                }
-                                if (timeStop == 0 || timeReset == 1)
-                                {
-                                    enemyhp -= ((choice == w) ? 8 : 2)*((choice == 4) ? 0 : 1);
-                                    if (choice == 4)
-                                    {
-                                        hp = (hp + 10>20) ? 20 : (hp + 10);
-                                    }
-                                }
-                                else
-                                {
-                                    puts("You can't do anything because time has stopped.");
-                                }
-                                if (enemyhp <= 0)
-                                {
-                                    break;
-                                }
-                                if (timeStop == 0)
-                                {
-                                    puts("Chancellor: You think this will be enough! TIMESTOP!");
-                                    timeStop = 1;
-                                }
-                                hp -= 7;
-                            }
-                            b[2] = 1 * (hp>0) ? 1 : 0;
-                            if (hp <= 0)
-                            {
-                                puts("You lost you will now be sent to the facility.");
-                            }
-                            choice = -2;
-                        }
-                        else if (choice == 4 && (*(p + 0) + *(p + 1) + *(p + 2)) == 3)
-                        {
-                            puts("Chapter 4: Return of the Republic");
-                            puts("After the final battle everyone celebrated our victory it became a holiday.");
-                            puts("I was the temporarily in charge of the galaxy until the republic rebuilt itself.");
-                            puts("To ensure such an incident like the one a few years ago would never happen again I decided to run for chancellor.");
-                            puts("Having popularity with the people and being the rebellion leader made it easy to get elected for several terms.");
-                            puts("I may not be immortal but I have successors ready to carry on my legacy of a clean government.");
-                            printf("Here we are, hopefully the Milky Way Republic will remain peaceful until the end of time. - %s - April 27, 3058\n", name);
-                            choice = -2;
-                        }
-                    }
-                    break;
-                }
+					enemyhp = 20; w = 3; hp = 20;
+					while (choice != 99 && enemyhp > 0)
+					{
+						printf("You have %d hp and the enemy has %d hp\nWhat is your next move?(1:gun, 2:sword, 3:spell, or else:nothing)\n", hp, enemyhp);
+						scanf("%d", &choice);
+						if (choice>0 && choice<4)
+						{
+							dam = ((choice == 3) ? room12Spells(&hp,1) : 4) * ((choice==w)?2:1);
+						}
+						else
+						{
+							dam = 0;
+						}
+						enemyhp -= dam;
+						puts("err");
+						if (enemyhp <= 0)
+						{
+							break;
+						}
+						enDam = 1;
+						if(dam % 2 == 1 || (int)(dam/2.0+.5) % 2 == 1)		//checks for reflect spell
+						{
+							enDam /= 2;
+						}
+						hp -= enDam;
+						printf("You dealt %d damage and the enemy dealt %d damage.\n", dam,enDam);
+					}
+					puts("Congratulations you beat the training level, you will now be sent back to the facility.");
+					choice = -2;
+				}
+				else if (choice == 0)
+				{
+					rewind(fptr);
+					fprintf(fptr, "%d %d %d", b[0], b[1], b[2]);
+					puts("Your progress has been saved, you will now return to the facility.");
+					choice = -2;
+				}
+				else if (choice == 1)
+				{
+					puts("Chapter 1: Fall of a Republic");
+					puts("Once the new chancellor was elected he implemented new laws throughout the galaxy.");
+					puts("The laws strengthened the military, but rather than being used to protect the Milky Way Republic from the Andromeda Empire it was used to keep the people in line.");
+					puts("Former military, local militias, and people fleeing the laws from the center of the galaxy formed a rebellion force around the edges of the Milky Way.");
+					puts("We managed to deceive the enemy into sending their main force to our \"secret base\" now we sent our force for an all out attack towards the center.");
+					printf("Here we are, facing the force stationed at the capital... - %s - January 24, 3018\n", name);
+					enemyhp = 20; w = 2; hp = 20;
+					while (choice != 99 && enemyhp > 0)
+					{
+						printf("You have %d hp and the enemy has %d hp\nWhat is your next move?(1:gun, 2:sword, 3:spell, or else:nothing)\n", hp, enemyhp);
+						scanf("%d", &choice);
+						if (choice>0 && choice<4)
+						{
+							dam = ((choice == 3) ? room12Spells(&hp,1) : 4) * ((choice==w)?2:1);
+						}
+						else
+						{
+							dam = 0;
+						}
+						enemyhp -= dam;
+						puts("err");
+						if (enemyhp <= 0)
+						{
+							break;
+						}
+						enDam = 1;
+						if(dam % 2 == 1 || (int)(dam/2.0+.5) % 2 == 1)		//checks for reflect spell
+						{
+							enDam /= 2;
+						}
+						hp -= enDam;
+						printf("You dealt %d damage and the enemy dealt %d damage.\n", dam,enDam);
+					}
+					b[0] = (hp>0) ? 1 : b[0];
+					if (hp <= 0)
+					{
+						puts("You lost you will now be sent to the facility.");
+					}
+					choice = -2;
+				}
+				else if (choice == 2)
+				{
+					puts("Chapter 2: Life in the Center");
+					puts("The chancellor promised everyone jobs once elected and he delivered on his promise... in the most horrible way possible.");
+					puts("Plenty of people were rounded up and experimented on with various chemical substances.");
+					puts("The chancellor's goal was to make a mindless population that will obey any order given to them by him directly.");
+					puts("Many people never survived the experiments because the drug made unnatural changes to the human brain.");
+					puts("Those that survived suffer from symptoms such as rotting flesh and fits of rage, some even resort to cannabalism. Rumors suggest it's to ease their pain.");
+					printf("Here we are, facing the citizins attempting to put them out of their misery... - %s - February 1, 3018\n", name);
+					enemyhp = 20; w = 1; hp = 30;
+					while (choice != 99 && enemyhp > 0)
+					{
+						printf("You have %d hp and the enemy has %d hp\nWhat is your next move?(1:gun, 2:sword, 3:spell, or else:nothing)\n", hp, enemyhp);
+						scanf("%d", &choice);
+						if (choice>0 && choice<4)
+						{
+							dam = ((choice == 3) ? room12Spells(&hp,1) : 4) * ((choice==w)?2:1);
+						}
+						else
+						{
+							dam = 0;
+						}
+						enemyhp -= dam;
+						puts("err");
+						if (enemyhp <= 0)
+						{
+							break;
+						}
+						enDam = 1;
+						if(dam % 2 == 1 || (int)(dam/2.0+.5) % 2 == 1)		//checks for reflect spell
+						{
+							enDam /= 2;
+						}
+						hp -= enDam;
+						printf("You dealt %d damage and the enemy dealt %d damage.\n", dam,enDam);
+					}
+					b[1] = (hp>0) ? 1 : b[1];
+					if (hp <= 0)
+					{
+						puts("You lost you will now be sent to the facility.");
+					}
+					choice = -2;
+				}
+				else if (choice == 3)
+				{
+					puts("Chapter 3: End of the Milky Way Government");
+					puts("The chancellor is now confronting us directly along with his corrupt officials.");
+					puts("People believe the restricting of magic to the general population helped the chancellor rise to power.");
+					puts("Other corrupt officials proceeded to use spells to manipulate the population and due to a lack of knowledge on magic nobody could counter their charm spells.");
+					puts("This will be our most difficult fight and we must finish this quickly before the main force returns to the capital.");
+					puts("If the rumors hold true then the chancellor has a powerful ability that could destroy armies, there must be a way to counter it.");
+					printf("This is it, our last stand and the stakes can't be any higher - %s - February 3, 3018\n", name);
+					enemyhp = 40; w = 3; hp = 20;
+					int timeStop = 0, timeReset = 0;
+					while (choice != 99 && enemyhp > 0)
+					{
+						printf("You have %d hp and the enemy has %d hp\nWhat is your next move?(1:gun, 2:sword, 3:spell, or else:nothing)\n", hp, enemyhp);
+						scanf("%d", &choice);
+						if (choice>0 && choice<4)
+						{
+							dam = ((choice == 3) ? room12Spells(&hp,1) : 4) * ((choice==w)?2:1);
+						}
+						else
+						{
+							dam = 0;
+						}
+						enemyhp -= dam;
+						puts("err");
+						if (enemyhp <= 0)
+						{
+							break;
+						}
+						enDam = 1;
+						if(dam % 2 == 1 || (int)(dam/2.0+.5) % 2 == 1)		//checks for reflect spell
+						{
+							enDam /= 2;
+						}
+						hp -= enDam;
+						printf("You dealt %d damage and the enemy dealt %d damage.\n", dam,enDam);
+					}
+					b[2] = (hp>0) ? 1 : b[2];
+					if (hp <= 0)
+					{
+						puts("You lost you will now be sent to the facility.");
+					}
+					choice = -2;
+				}
+				else if (choice == 4 && (*(p + 0) + *(p + 1) + *(p + 2)) == 3)
+				{
+					puts("Chapter 4: Return of the Republic");
+					puts("After the final battle everyone celebrated our victory it became a holiday.");
+					puts("The Milky Way was at peace for a time but then the Andromeda Empire invaded.");
+					puts("We discovered that the chancellor was a puppet of the Andromeda Emperor.");
+					printf("Looks like the final confrontation with the emperor and his army will determine the fate of the Milky Way.... - %s - April 27, 3058\n", name);
+					
+					while (choice != 99 && enemyhp > 0)
+					{
+						printf("You have %d hp and the enemy has %d hp\nWhat is your next move?(1:gun, 2:sword, 3:spell, or else:nothing)\n", hp, enemyhp);
+						scanf("%d", &choice);
+						if (choice>0 && choice<4)
+						{
+							dam = ((choice == 3) ? room12Spells(&hp,1) : 4) * ((choice==w)?2:1);
+						}
+						else
+						{
+							dam = 0;
+						}
+						enemyhp -= dam;
+						puts("err");
+						if (enemyhp <= 0)
+						{
+							break;
+						}
+						enDam = 1;
+						if(dam % 2 == 1 || (int)(dam/2.0+.5) % 2 == 1)		//checks for reflect spell
+						{
+							enDam /= 2;
+						}
+						hp -= enDam;
+						printf("You dealt %d damage and the enemy dealt %d damage.\n", dam,enDam);
+					}
+					choice = -2;
+					if (hp <= 0 && choice != 99)	//bad end
+					{
+						printf("The Milky Way has fallen I fear everyone will become slaves for Andromeda.\n Now I await for my execution in an hour on charges of war crimes.... %s - May 8, 3058",name);
+					}
+					if (hp > 0 && choice != 99)		//good end
+					{
+						printf("After the fall of the Andromeda Empire the Milky Way took over.\n Now we have entered a true era of peace and may it last forever..... %s - May 9, 3092");
+						printf("And thus the final entry in the journal of captain %s comes to an end.",name);
+					}
+				}
+			}
+			break;
+		}
             case 13:
                 {
                     
@@ -2092,4 +2027,95 @@ int rando(void)
 {
 	int r = (rand() % 4) + 1;
 	return r;
+}
+
+
+int room12Spells(int *hp, int enDam)	//spell chanting
+{
+	char fire[] = "fire";
+	char thun[] = "thunder";
+	char heal[] = "heal";
+	char ref[] = "reflect";
+	char spell[9] = "";
+	puts("Enter any of the following spells: fire, thunder, heal, or reflect");
+	scanf("%s",spell);
+	char *ch = spell;
+	int i = 0, spellC = 0;
+	for (i = 0, spellC = 0; i<6; i++)
+	{
+		if (*(ch + i) == fire[i])
+		{
+			spellC++;
+		}
+		else
+		{
+			break;
+		}
+	}
+	if (spellC == 4 || spellC == 5)
+	{
+		return 4;	//guarunteed 4 damage
+	}
+	for (i = 0, spellC = 0; i<6; i++)
+	{
+		if (*(ch + i) == heal[i])
+		{
+			spellC++;
+		}
+		else
+		{
+			break;
+		}
+	}
+	if (spellC == 4 || spellC == 5)
+	{
+		if (*hp + 10>20)
+		{
+			*hp = 20;
+		}
+		else
+		{
+			*hp += 10;
+		}
+		return 0;	//heal 10 hp
+	}
+	for (i = 0, spellC = 0; i<9; i++)
+	{
+		if (*(ch + i) == thun[i])
+		{
+			spellC++;
+		}
+		else
+		{
+			break;
+		}
+	}
+	if (spellC == 7 || spellC == 8)
+	{
+		
+		if(rand() % 2 == 1) 
+		{		//50% chance of hitting
+			return 8;
+		}	
+		else
+		{
+			return 0;
+		}
+	}
+	for (i = 0, spellC = 0; i<9; i++)
+	{
+		if (*(ch + i) == ref[i])
+		{
+			spellC++;
+		}
+		else
+		{
+			break;
+		}
+	}
+	if (spellC == 7 || spellC == 8)
+	{
+		return enDam;	//reflect enemy damage
+	}
+	return 0;		//failed spell
 }
