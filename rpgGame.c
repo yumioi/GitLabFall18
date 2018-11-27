@@ -17,14 +17,6 @@ void main(void)
 	int x,y,z,i,h,g,k,choice=0;
 	char name[256];
 	int boxNum=0;
-
-	
-	srand(time(NULL));
-
-	int power = 0;
-	int diceroll;
-
-
 	printf("Please enter your name: "); //Input any number of array inputs
 	scanf("%s",name);
 
@@ -79,10 +71,16 @@ void main(void)
 			{	
 				FILE *fileptr;
 				int power = 5;
+				char c;
+				int i;
+				int diceroll;
+				int randomNumber;
+				int numbers[10];
 				srand(time(NULL));
 				fileptr = fopen("adventure.txt", "w");
 					while(choice != 99)
 					{
+							fprintf(fileptr, "Hello %s below is a recap of your adventure.\n", name);
 							puts("You open the door and find a treasure chest.\n");
 							puts("You have 2 choices listed below. Choose carefully.\n");
 							puts("1. Open the chest.\n");
@@ -90,6 +88,7 @@ void main(void)
 							scanf("%d",&choice);
 							if(choice == 1)
 							{
+								fprintf(fileptr, "You opened a chest.\n");
 								puts("You open the chest and find a golden dice hidden inside.\n");
 								puts("You have 2 choices listed below. Choose carefully.\n");
 								puts("1. Roll the dice.\n");
@@ -97,9 +96,11 @@ void main(void)
 								scanf("%d", &choice);
 								if(choice == 1)
 								{
+									fprintf(fileptr, "You rolled the dice.\n");
 									diceroll = 1 + (rand() % 6);
 									printf("Congratulations! You rolled a %d. Your strength is increased by %d", diceroll, diceroll);
 									power = power + diceroll;
+									fprintf(fileptr, "Lucky you! You rolled a %d which is added to your strength. Your strength is now %d.\n", diceroll, power);
 									puts("You move on with your journey. Ahead you encounter a giant orc with heavy armor. Between you and the orc is a sword.\n");
 									puts("You have 3 choices listed below. Choose carefully.\n");
 									puts("1. Pick up the sword and combat the orc.\n");
@@ -108,25 +109,65 @@ void main(void)
 									scanf("%d", &choice);
 									if(choice == 1)
 									{
+										fprintf(fileptr, "You pick up the sword and fight the orc, but too bad your sword broke and you died.\n");
 										puts("You pick up the sword and start to combat the orc. Your sword breaks and the orc bashes your head in.\n");
 										puts("*****_____ GAME OVER _____*****\n");
 									}
 									else if(choice == 2)
 									{
-
+										puts("You run up and punch the orc.\n");
+										if(power < 8)
+										{
+											puts("Your fist broke to the sheer muscle of the orc and the orc picks you up and chomps your head off.\n");
+											puts("*****_____ GAME OVER _____*****\n");
+											fprintf(fileptr, "You punched the orc and your first shatter, then it chomped off your head...unlucky you.\n");
+										}
+										else
+										{
+											puts("You find a door down the path and it is asking you for any number between 1 and 100. Answer wisely.\n");
+											scanf("%d", &randomNumber);
+											for(i = 0; i < 10; i++)
+											{
+												numbers[i] = 1 + (rand() % 100);
+											}
+											if(randomNumber > 1 && randomNumber < 100)
+											{
+												for(i = 0; i < 10; i++)
+												{
+													if(randomNumber = numbers[i])
+													{
+														puts("You yell the number at the door, it magically opens and you find your way out of the dungeon.\n");
+														puts("Congratulations. You won!\n");
+														fprintf(fileptr, "You open the door and escape the dungeon. Congratulations you win.\n");
+														fclose(fileptr);
+														exit(0);
+													}
+												}
+												puts("Guess you didn't guess a correct number.\n");
+												puts("You become stuck in the dungeon. No food. No other signs of life. You die a lonely death.\n");
+												fprintf(fileptr, "Sucks to be you, not guessing a correct number. You died a very lonely death.\n");
+											}
+										}
 									}
 
 								}
 								else if(choice == 2)
 								{
+									fprintf(fileptr, "You pocketed the dice...bad move.\n");
 									puts("You move on with your journey. Ahead you encounter a giant orc with heavy armor. Between you and the orc is a sword.\n");
 									puts("You have 3 choices listed below. Choose carefully.\n");
 									puts("1. Pick up the sword and combat the orc.\n");
 									puts("2. Roll the dice.\n");
 									puts("3. Run away.\n");
 									scanf("%d", &choice);
-
+									if(choice == 1)
+									{
+										fprintf(fileptr, "You pick up the sword and fight the orc, but too bad your sword broke and you died.\n");
+										puts("You pick up the sword and start to combat the orc. Your sword breaks and the orc bashes your head in.\n");
+										puts("*****_____ GAME OVER _____*****\n");								
+									}
 								}
+
 							}
 							else if(choice == 2)
 							{
