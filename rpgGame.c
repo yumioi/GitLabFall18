@@ -22,6 +22,8 @@
 void sleep(unsigned int seconds);
 int rando(void);
 int room12Spells(int *hp, int enDam);
+void warning(int count);
+char uppercase(char *str);
 
 void main(void)
 {
@@ -1431,62 +1433,102 @@ void main(void)
 			}
 			break;
 		}
-            case 13:
-                {
+                        case 13:
+                        {
+                            
+                            while(choice != 99)
+                            {
+                                
+                                #define RED(string)     "\x1b[31m" string "\x1b[0m"
+                                #define GREEN(string)    "\x1b[32m" string "\x1b[0m"
+                                #define YELLOW(string)  "\x1b[33m" string "\x1b[0m"
+                                #define BLUE(string)     "\x1b[34m" string "\x1b[0m"
+                                #define MAGENTA(string)  "\x1b[35m" string "\x1b[0m"
+                                #define CYAN(string)     "\x1b[36m" string "\x1b[0m"
+                                #define RESET(string)    "\x1b[0m" string "\x1b[0m"
+                                #define SIZE 20
+                                
+                                char str[SIZE];
+                                int count;
+                                
+                                puts("");
+                                puts("" BLUE("You open the door and find a time traveling car. You're excited to drive the traveling car. You get in the car and start thinking of all the places in time you could visit. The car asks you...")"");
+                                
+                                puts("");
+                                puts(""CYAN("WHAT TIME AND PLACE WOULD YOU LIKE TO TRAVEL?")"");
+                                scanf("%s\n", str);
+                                puts("\n");
+                                
+                                puts(""   CYAN("EEEEEE      X     X    CCCCCCC     EEEEEE     L          L          EEEEEE    N      N    TTTTTTTTTTT   ")"");
+                                puts(""    RED("E            X   X     C           E          L          L          E         N N    N         T        ")"");
+                                puts(""MAGENTA("E             X X      C           E          L          L          E         N  N   N         T        ")"");
+                                puts("EEEEE          X       C           EEEEE      L          L          EEEEE     N   N  N         T        ");
+                                puts(""   BLUE("E             X X      C           E          L          L          E         N    N N         T        ")"");
+                                puts("" YELLOW("E            X   X     C           E          L          L          E         N     NN         T        ")"");
+                                puts(""  GREEN("EEEEEE      X     X    CCCCCCC     EEEEEE     LLLLLLL    LLLLLLL    EEEEEE    N      N         T        ")"");
+                                
+                                
+                                puts("\n");
+                                printf("YOU WILL BE TRAVELING TO %s",str);
+                                // printf("YOU WILL BE TRAVELING TO %s%d ",uppercase(str)); //fix the spacing //segmentation fault
+                                
+                                puts("" BLUE("\nYou look at your watch and the hands are turning backwards. You look around and see the wormhole around you. Everything is moving fast and you start feeling dizzy. You want it to stop but it continues to move faster. All of a sudden...")"");
+                                puts("");
+                                
+                                //Adding timer in this section
+                                // exit(0);
+                                
+                                warning(count);
+                                
+                                
+                                puts(""GREEN("\nYOU HAVE ARRIVED TO YOUR DESTINATION")"");
+                                
+                                
+                                puts(""BLUE("\nYou look at the window and now see that you have landed in the wilderness")"");
+                                
+                                // repeats the beginning
+                                exit(0);
+                                
+                            }
+                            break;
+                        }
+                    }
                     
-                    while(choice != 99)
-                    {
-                        puts("You open the door and find yourself in a time traveling car. There are three buttons in front of you. In order head back home, you will have to travel back in time and surive the survival. If you fail to save them, you will end up back in the same room with water and drown. If you save their life you will be able to go back home");
-                        puts("The first button will take you to Zions national Park and you must save the dog from drowning in the flood");
-                        puts("The second button will take you to Yosemite National Park and you must save the your best friend from a wildfire ");
-                        puts("The third button will take you to Hawaii Volcanoes National Park and you must save the 7 year old boy from the erupting volcano");
-                        
-                        scanf("%d",&choice);
-                        
-                        if(choice == 1)
-                        {
-                            puts("Welcome to Zions National Park");
-                        }
-                        
-                        if(choice == 2)
-                        {
-                            puts("Welcome to Yosemite National Park");
-                        }
-                        
-                        if(choice == 3)
-                        {
-                            puts("Welcome to Hawaii Volcanoes National Park");
-                        }
-                        
-                    }
-                    switch(choice)
-                    {
-                        case 1:
-                            puts("You will be able to stay for here for 5 days. You are provided a " );
-                            
-                            
-                            break;
-                        case 2:
-                            
-                            puts("You will be able to stay for here for 5 days. You are provided a  ");
-                            
-                            
-                            
-                            
-                            break;
-                            
-                        case 3:
-                            
-                            puts("You will be able to stay for here for 5 days. You are provided a"  );
-                            
-                            
-                            break;
-                            
-                    }
-                    //break;
+                }
+            }
+                
+                char uppercase(char *str)
+            {
+                int c = 0;
+                char ch;
+                
+                while (str[c] != '\0') {
+                    ch = str[c];
+                    if (ch >= 'a' && ch <= 'z')
+                        str[c] = str[c] - 32;
+                    c++;
                 }
                 
-
+                printf("%s\n", str);
+                
+                return *str;
+            }
+                
+                
+                void warning(int count)
+            {
+                for(count = 0;count<1000;count++)
+                {
+                    if(count!=99)
+                    {
+                        
+                        printf("" RED("WARNING! TIME SYSTEM MALFUNCTION!") "");
+                    }
+                    
+                }
+                
+            }
+                
                 
             case 14:
                 {
