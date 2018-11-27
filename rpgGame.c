@@ -1888,7 +1888,7 @@ void main(void)
                     {
                         while(choice != 99)
                         {
-                            puts("you open the door and find ........");
+                            puts("you open the door and find the one and only Rob. Game over man.");
                             scanf("%d",&choice);
                         }
                         break;
