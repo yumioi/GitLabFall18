@@ -2,7 +2,7 @@
 
 //Brandon LaNuevo Room #1
 //Ivan Khaffaji Room #19
-
+//Thomas Jones (Tommiiie) #15
 //Hugo Rodriguez Room #10
 
 
@@ -271,7 +271,7 @@ void main(void)
 								puts("You spot a stick by the chair the old man was sitting. Pick it up?");
 								puts("1. Yes");
 								puts("2. No");
-								scanf("%d",&choice)
+								scanf("%d",&choice);
 								if(choice == 1)
 								{
 									puts("You pick up the stick. With the stick in hand you approach the old man.");
@@ -280,7 +280,7 @@ void main(void)
 									puts("1. Dispose of the body.");
 									puts("2. Get Out!");
 									puts("What do you do?");
-									scanf("%d",&choice)
+									scanf("%d",&choice);
 									if(choice == 1)
 									{
 										puts("You decide that you would rather make the nobler choice of disposing of the evidence");
@@ -1516,9 +1516,7 @@ void main(void)
                 {
                     while(choice != 99)
                     {
-                        puts("you open the door, but something prevents you from entering. ");
-                        puts("Through the door you hear someone shouting \"HOLD THE DOOR\"");
-                        puts("Despite your effort, the mass opposite from you keeps the door closed.");
+                        puts("You approach the door clearly marked 15.\n As you pass through the doorway you find yourself a room unlike anything you've experience before. In the distance you see a small dimly lit table occupied by only the outline of what you make out to be a man.\n The door behind you has vanished into the blac void.\n Your attention is set back on the mysterious man as he grumbles a request to take a seat at his table.\n You find yourself in a situation of two choices:\n1. Proceed to the table.\n2. Run away."); 
                         scanf("%d",&choice);
                     }
                     break;
