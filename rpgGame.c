@@ -16,10 +16,12 @@
 #include <string.h>
 #include <time.h>
 #include <stdio.h>
-
+#include <stdbool.h>
 
 //Prototypes
 void sleep(unsigned int seconds);
+int rando(void);
+int room12Spells(int *hp, int enDam);
 
 void main(void)
 {
@@ -300,23 +302,26 @@ void main(void)
                     {
                         puts("you open the door and find ........");
                         puts("an old man sitting in the middle of the dark and baren room.");
-                        puts("what do you do?");
+                        puts("You have four choices: ");
                         puts("1.Approach the old man");
                         puts("2.Scream at the old man");
                         puts("3.Try to sneak behind the old man");
                         puts("4.Leave the old man to die.");
+						puts("What do you do?");
                         scanf("%d",&choice);
                         if(choice == 1)
                         {
-                            puts("As you approach the old man he notices you. what do you do?");
+                            puts("As you approach the old man he notices you. You have two choices: ");
                             puts("1.Try talking to the old man");
                             puts("2.Pretend he didn't notice and walk away");
+							puts("What do you do?");
                             scanf("%d",&choice);
                             if(choice ==1)
                             {
-                                puts("The old man was resting and you have disturbed his slumber. You are now in combat what do you do?");
+                                puts("The old man was resting and you have disturbed his slumber. You are now in combat you have two options:");
                                 puts("1.Attempt to beat him");
                                 puts("2.Run away");
+								puts("What do you do?");
                                 scanf("%d",&choice);
                                 if(choice == 1)
                                 {
@@ -342,10 +347,55 @@ void main(void)
                         }
                         if(choice == 2)
                         {
-                            puts("You startle the old man. He falls over and appears dead.");
+                            puts("You startle the old man. He falls over and appears dead. You have two choices: ");
+							puts("1. Poke the dead body.");
+							puts("2. Feel guilty.");
+							puts("What do you do?");
+							scanf("%d",&choice);
+							if(choice == 1)
+							{
+								puts("You look around the room for a stick to poke the old man.");
+								puts("You spot a stick by the chair the old man was sitting. Pick it up?");
+								puts("1. Yes");
+								puts("2. No");
+								scanf("%d",&choice);
+								if(choice == 1)
+								{
+									puts("You pick up the stick. With the stick in hand you approach the old man.");
+									puts("You poke at the old man a couple of times, but you see no reaction.");
+									puts("You have two choices: ");
+									puts("1. Dispose of the body.");
+									puts("2. Get Out!");
+									puts("What do you do?");
+									scanf("%d",&choice);
+									if(choice == 1)
+									{
+										puts("You decide that you would rather make the nobler choice of disposing of the evidence");
+										puts("than be responsible for the untimely death of this old fogey. ");
+										break;
+									}
+									if(choice == 2)
+									{
+										
+										break;
+									}
+									
+									break;
+								}
+								if(choice == 2)
+								{
+									puts("You decide not to pick up the stick.");
+									break;
+								}
+								break;
+							}
+							if(choice == 2)
+							{
 							puts("As you contemplate suicide over the guilt of killing an old man you notice him stand up.");
 							puts("He becomes infuriated by your actions and bring down his fury upon you. He completely decimates you.");
 							puts("You are dead. Game over");
+							break;
+							}
                             break;
                         }
                         if(choice == 3)
@@ -513,42 +563,658 @@ void main(void)
                 }
             case 9:
                 {
+					
+					bool chp1 = false, chp2 = false, chp3 = false, chp4 = false;
+					bool key = false, FiveHundred = false, JailKey = false, sheriff = false;
+					int take;
+
+					char option[256];
+					
+					    printf("you open the door and find ........ \n");
+                        printf("You are in a dark room. You then open another door and you see light shining bright as you step out side\n");
+						printf("As you walk outside into what looks like a ghost town, an old man with gray beard and bald head runs up and tells you \" stranger, we need your help!\" \n");
+						puts(" ");
+						printf("You are first confused and want to ask what's happening but the old man continues \" MadDog McCree and his gang has return to terrorize our town! \n");
+						puts(" ");
+						printf("You have no idea how you got here but you feel you got to save this town to get out of here. \" His gang has taken over various parts of town and only you can get them out of here! \"");
+						puts(" ");
+						printf("Maybe this is too dangerous, perhaps you should decline but the old man continue \" His gang can be found over at the Saloon, the Post Office, the Bank, General Store, and in the Jail where they locked the sheriff! \"\n");
+						printf("\" So please stranger, can you help us take out MadDog and his gang once as for all?? \"");
+						puts(" ");
                     while(choice != 99)
-                    {
-                        puts("you open the door and find ........");
-                        puts("Even more doors! What now?? You got four doors to choose! \n");
-                        puts("1. Door 1 \n 2. Door 2 \n 3. Door 3 \n 4. Door 4 \n 5. Turn back to the same door you entered? \n");
+					{
+                        printf("1. Yes, I'll help  \n 2. Sorry old man, I'll come back later  \n");
                         scanf("%d",&choice);
 
-                        if(choice == 1);
-                        puts("There's something ahead of you what do you choose to do?");
-                        puts("1. Walk toward that something \n 2. Turn around");
-                        scanf("%d", &choice);
-
-                        if(choice == 1);
-                        puts("THIS IS A TEST");
-
-                        if(choice == 2);
-                        puts("THIS IS A TEST 2");
-
-                        if(choice == 2)
-                            printf("You hear your name called \" %s \"! \n Do you dare move forward? \n", name);
-                        puts("1. Move forward \n 2. Stay where you are at \n");
-                        scanf("%d", &choice);
-
                         if(choice == 1)
-                            puts("Hey I know you!");
+						{
+					
+                        printf("You tell the old man your name and agree to help him chase the MadDog gang out of town. \n");
+						printf("\"Oh thank you, %s! Now hurry, MadDog is only growing stronger the longer we stand here! \"", name);
+						puts(" ");
+						while(choice != 99)
+						{
+						
+						Menu:
+						puts("Choose a location:\n1. The Bank \n2. The Saloon \n3. The Jail \n4. The Post Office \n");
+                        scanf("%d", &choice);
+						
+							if(choice == 1 && chp1 == false)
+								{
+											Bank:
+											printf("AS you walk toward the entrance, a man hiding in a barrel next to the entrance peaks his head out.\n");
+											printf("He tells you \"One of MadDog's gang is in there! Be careful, he is armed! \"");
+											printf("You step into the bank, it looks abandon. However you do hear some noise. To the 'west' of you is the teller booth. 'North' of you is a door. You can also turn 'back'\n");
+											printf("Decision>");
+											scanf("%s", option);
+											
+												if(strcasecmp(option, "west") == 0)
+												{
+													printf("You walk up to the teller booth. You try to see as much as you can but the secure bars are in the way. \n");
+													printf("'Shout' to the get a response or turn 'back'. \n");
+													printf("Decision>");
+													scanf("%s", option);
+														
+														if(strcasecmp(option, "shout") == 0)
+														{
+															printf("You shout \" Hey! who's back there? \" You get a response \" None of your damn business!\" You respond back saying \"I know what you're doing, now get out here and leave this town in peace\"\n");
+															printf("You hear the man respond \"That's it, you want to go? lets go! \" You hear foot steps coming closer and closer.\n");
+															printf("'Hide' immediately or 'pull' your gun out and get ready to tango?\n");
+															printf("Decision>");
+															scanf("%s", option);
+															
+															if(strcasecmp(option, "hide") == 0)
+															{
+																printf("You suddenly hear \" Oh we have a prankster do we? Okay funny guy, this will be your last laugh! \"\n");
+																printf("The foot steps sound like they are heading to the door. \n");
+																printf("The door is now opening. You can 'stay' there or 'shoot' as soon as the guy walks out \n");
+																printf("decision>");
+																scanf("%s", option);
+																
+																if(strcasecmp(option, "stay") == 0)
+																{
+																	printf("You see the door open but you stayed in place\n");
+																	printf("The man looks overweight, wearing a plaid red shirt, with black suspender. \n");
+																	printf("He has a full goatee, basically he looks like a fat duck dynasty character or young santa Claus. \n");
+																	printf("However he doesn't look friendly. He has a shotgun pointed right at you. \" It's best you outta get out of here. it will turn ugly\" He tells you \n");
+																	printf("He's not wrong, you better get out of here and restart this chapter. Any further and your a dead man. \n");
+																	goto Menu;
+																}
+																
+																else if(strcasecmp(option, "shoot") == 0)
+																{
+																	printf("You see the door open and you immediately shoot. Residue from the door spreads out around. \n");
+																	printf("\"GODDAMN IT!\", the man shouts. You get up and immediately run behind the damage door. \n");
+																	printf("\"That's it!\" the man shouts \"you are so f**king dead!\" He runs out the room looks left and right while you are right be hind him hiding behind the damaged door.\n");
+																	printf("The man himself looks overweight, wearing a plaid red shirt, with black suspenders. \n");
+																	printf("He is wearing a cowboy hat and has a full goatee, basically he looks like a fat duck dynasty character. \n");
+																	printf("He's about to turn around, what's your move?");
+																	printf("You notice that one shot was your only ammo. You can 'hit' him with your gun or do 'nothing' \n");
+																	printf("Decision>");
+																	scanf("%s", option);
+																	
+																	if(strcasecmp(option, "hit") == 0)
+																	{
+																		printf("You immediately hit the man in the back of the head. He's out cold. \n");
+																		printf("The guy that was hiding in the barrel walks in. He looks a little lanky with blue plaid shirt and Levis denom jeans. \n");
+																		printf("Surprisingly, he was strong enough to pick up the man. \"I'm gonna cuff this man before he walks up. Here's award stranger, this man has been wanted for various murder and robbery crimes.\"\n");
+																		printf("The skinny man awards you with 500 dollars. He then walks into the back room and notice a gun the ground. It as a double barreled side by side coach shot gun. Boy that would of spelled trouble if he pointed that at you!\n");
+																		printf("The skinny guy tells you that the jail cannot be opened. One of MadDog's gang members have the key. You better hurry and find out where it's at!");
+																		puts(" ");
+																		printf("--------- END OF THIS CHAPTER ---------\n");
+																		FiveHundred = true;
+																		chp1 = true;
+																		goto Menu;
+																		
+																	}
+																	
+																	else if(strcasecmp(option, "nothing") == 0)
+																	{
+																		printf("You didn't move, nothing at all. The man turns around, points his gun at you. Before you know it, it's too late. No need to tell you what happens next. \n");
+																		puts(" ");
+																		printf("GAME OVER\n");
+																		
+																		exit(EXIT_SUCCESS);
+																	}
+																}
+															}
+															
+															else if(strcasecmp(option, "pull") == 0)
+															{
+																printf("You pull your gun, ready to shoot the man. \n");
+																printf("You see him behind the teller desk, he is overweight with a red plaid shirt with black suspenders. He's wearing a cowboy hat and his face have a full goatee. \n");
+																printf("He clearly sees you with a .44 magnum pointed at him. \"Go ahead!\" he says, \"you don't got the guts!\". It's up to you, this can turn ugly quick \n");
+																printf("You can 'shoot' the man or you can 'disarm' yourself \n");
+																puts("Decision>");
+																scanf("%s", option);
+																
+																if(strcasecmp(option, "shoot") == 0)
+																{
+																	printf("You shoot the man,\" GODDAMN IT!\" he shouts. Only his hat is hit; you got a pretty bad shot. \n");
+																	printf("He seems really frustrated now and proceeded to run around to the door near you. \n");
+																	printf("It's up to you. You can 'hide' behind the door or just 'stand' there \n");
+																	scanf("%s", option);
+																	
+																	if(strcasecmp(option, "hide") == 0)
+																	{
+																		printf("You suddenly hear \"You are about to meet your maker!\"\n");
+																		printf("The criminal is now out the door and right in front of you but his back turned. \n");
+																		printf("You can 'stay' there or 'hit' the man back of his head with your gun. \n");
+																		printf("decision>");
+																		scanf("%s", option);
+																		
+																		if(strcasecmp(option, "hit") == 0)
+																		{
+																			printf("You immediately hit the man in the back of the head. He's out cold. \n");
+																			printf("The guy that was hiding in the barrel walks in. He looks a little lanky with blue plaid shirt and Levis denom jeans. \n");
+																			printf("Surprisingly, he was strong enough to pick up the man. \"I'm gonna cuff this man before he walks up. Here's award stranger, this man has been wanted for various murder and robbery crimes.\"\n");
+																			printf("The man awards you with 500 dollars. He then walks into the back room and notice a gun the ground. It as a double barreled side by side coach shot gun. Boy that would of spelled trouble if he pointed that at you!\n");
+																			printf("The guy explains that the jail cannot be opened. One of MadDog's gang members have the key. You better hurry and find out where it's at!");
+																			puts(" ");
+																			printf("--------- END OF THIS CHAPTER ---------\n");
+																			FiveHundred = 1;
+																			chp1 = true;
+																			goto Menu;
+																		}
+																		
+																		else if(strcasecmp(option, "stay") == 0)
+																		{
+																			printf("The man turned around and he has a shotgun pointed right at you. \" It's best you outta get out of here. it will turn ugly\" He tells you \n");
+																			printf("He's not wrong, you better get out of here and restart this chapter. Any further and your a dead man. \n");
+																			printf("-----------------------");
+																			goto Menu;
+																		}
+																	}
+																	
+																	else if(strcasecmp(option, "stand") == 0)
+																	{
+																		printf("The door opens fast, you see the man with a doubled barreled side by side coach shotgun. \n");
+																		printf("One of a kind. Too bad you didn't get to observe it for that long but you did get a taste of the bullets. \n");
+																		printf("Yea, you got the hint, you died. Why did you just stand there again? \n");
+																		printf("\n");
+																		puts("GAME OVER\n");
+																		
+																		exit(EXIT_SUCCESS);
+																	}
+																}
+																
+																else if(strcasecmp(option, "disarm") == 0)
+																{
+																	printf("You disarm yourself but the man raises a shot gun. Double barreled side by side cough shot gun. \n");
+																	printf("\"I knew you wouldn't, now get the hell out of here or you'll be pushing daisies!\" the criminal shouts \n");
+																	printf("There isn't really anything you can do. We'll pretend this didn't happen and restart the chapter. \n");
+																	printf("-------------------------------------------------------------------------------------------------\n");
+																	
+																	goto Menu;
+																}
+															}
+						
+														}
+														else if(strcasecmp(option, "Back") == 0)
+														{
+															printf("You've decided to turn back\n");
+															printf("------------------------------");
+															goto Bank;
+														}
+												}
+												
+												else if(strcasecmp(option, "north") == 0)
+												{
+													printf("You walk toward the door, you hear banging noises like someone is trying to break something");
+													printf("'Open' to open the door or turn 'back' around?\n");
+													printf("decision>");
+													scanf("%s", option);
+													
+														if(strcasecmp(option, "Open") == 0)
+														{
+															printf("You slowly open the door. You see a overweight man with red plaid shirt and black suspenders.\n");
+															printf("He looks as if he is trying to break into a safe.\n");
+															printf("Should you 'shoot' the man or turn 'back' around?\n");
+															puts("decision>");
+															scanf("%s", option);
+															
+															if(strcasecmp(option, "shoot") == 0)
+															{
+																printf("You shoot your gun and the man's hat flys off his head. \n");
+																printf("\"WHAT THE FU-\", the man shouts loudly. He seems to turning around. What do you do?\n");
+																printf("'Hide' behind the door or 'stay' where you are at?\n");
+																printf("Decision>");
+																scanf("%s", option);
+															
+																if(strcasecmp(option, "hide") == 0)
+																{
+																printf("You suddenly hear \"whoever that was, you are about to meet your maker!\"\n");
+																printf("The foot steps sound like they are heading to the door. The criminal is now out the door and right in front of you but his back turned. \n");
+																printf("You can 'stay' there or 'hit' the man back of his head with your gun. \n");
+																printf("decision>");
+																scanf("%s", option);
+																
+																	if(strcasecmp(option, "hit") == 0)
+																	{
+																		printf("You immediately hit the man in the back of the head. He's out cold. \n");
+																		printf("The guy that was hiding in the barrel walks in. He looks a little lanky with blue plaid shirt and Levis denom jeans. \n");
+																		printf("Surprisingly, he was strong enough to pick up the man. \"I'm gonna cuff this man before he walks up. Here's award stranger, this man has been wanted for various murder and robbery crimes.\"\n");
+																		printf("The man awards you with 500 dollars. He then walks into the back room and notice a gun the ground. It as a double barreled side by side coach shot gun. Boy that would of spelled trouble if he pointed that at you!\n");
+																		printf("The guy explains that the jail cannot be opened. One of MadDog's gang members have the key. You better hurry and find out where it's at!");
+																		puts(" ");
+																		printf("--------- END OF THIS CHAPTER ---------\n");
+																		FiveHundred = true;
+																		chp1 = true;
+																		goto Menu;
+																	}
+																	
+																	else if(strcasecmp(option, "stay") == 0)
+																	{
+																		printf("The man turned around and he has a shotgun pointed right at you. \" It's best you outta get out of here. it will turn ugly\" He tells you \n");
+																		printf("He's not wrong, you better get out of here and restart this chapter. Any further and your a dead man. \n");
+																		printf("-----------------------");
+																		goto Menu;
+																	}
+																}
+															}
+																
+															else if(strcasecmp(option, "stay") == 0)
+															{
+																printf("You stand in place and just watch the fat guy in red plaid shit approach you with a double barreled shot gun in his hand. \n");
+																printf("He has the gun pointed at you and tells you \" it's best you outta get out of here, boy! \"\n");
+																printf("He's not wrong, you better get out of here and restart this chapter. Any further and your a dead man. \n");
+															}
+																
+														}
+														
+														else if(strcasecmp(option, "back") == 0)
+														{
+															printf("You've turned around back\n");
+															printf("-------------------------\n");
+															goto Bank;
+															
+														}
+													
+												}
+												
+												else if(strcasecmp(option, "back") == 0)
+												{
+													goto Menu;
+												}
+								}
+								
+								if(choice == 1 && chp1 == true)
+								{
+									printf("THIS CHAPTER IS COMPLETE. CHOOSE ANOTHER CHAPTER. \n");
+									printf("------------------------------------------------- \n");
+									goto Menu;
+								}
+						
+								if(choice == 2 && chp2 == false)
+								{
+									printf("You walk into the Saloon, everyone stares at you like they've never seen a human \n");
+									puts("You walk toward the stools at the bar. A man with a bow tie and handle bar mustache approaches you and ask \"What will it be?\"");
+									puts("With no words to say, bartender just pours a shot of whiskey. Bartender then whispers to you \"those men to the left side playing cards are part of MadDog's gang. Keep an eye on them. They have the key to free the sheriff.\"");
+									puts("\"HEY!\" One of the men on the left side of you shout, \" I ain't never seen you before, who are you? \" It's three men over to your left.");
+									printf("\n1. The name's %s, what's it to ya? \n2. None of your Goddamn business! \n3. Turn around back\n", name);
+									scanf("%d", &choice);
+										
+										if(choice == 1 && FiveHundred == false)
+										{
+											printf("\"Well you better not be planning stealing the key to free the sheriff!\" The man in the middle yells.\n");
+											printf("You can say you are 'going' to do it or so 'what' if you are.\n");
+											printf("Decision>");
+											scanf("%s", option);
+											
+											if(strcasecmp(option, "going") == 0)
+											{
+												printf("\"Yea, I am and there's nothing you can do \", you tell the men. \n");
+												printf("Bad idea, all the three men over to the left pull their guns and point it at you. \n");
+												printf("Let's pretend that this didn't happen and do this chapter again. \n");
+												printf("---------------------------------------------------------------- \n");
+												printf("\n");
+												
+												goto Menu;
+											}
+											
+											else if(strcasecmp(option, "what") == 0)
+											{
+												printf("\"What if I am?\", you ask the man with his other crew. \n");
+												printf("\"Well I got the key!\" the man in the middle shouts at you while he jingle the keys in his left hand. \n");
+												printf("He's men around him seem to be smirking, they know you aren't getting the keys. \n");
+												printf("However you seem confident. You tell them \"Well we can do this the easy way... or the hard way \" \n");
+												printf("The minute you've said that, the three men got serious and got their hand on their holsters. \n");
+												
+												fight:
+												printf("\"Well it seems we'll be doing the hard way. Any last wishes?\", you got some guts, I'll tell you what. \n");
+												printf("This is a chance of random (numbers between 1 to 10 to be exact). If you take the challenge to face these men, you have a date with lady luck (sexy)\n");
+												printf("BUT if you aren't lucky, it could be game over. You can 'take' the challenge or go 'back' to restart this chapter.\n");
+												printf("If your number lands a 1, 4, or 8. The rest will just reset will count as a miss. (NOTE: LOSING WILL END UP IN A GAME OVER!)\n");
+												printf("If you are up to it, just type 'take', if not just type 'back'. GOOD LUCK!\n");
+												printf("Decision>");
+												scanf("%s", option);
+												
+												if(strcasecmp(option, "take") == 0)
+												{
+												
+													
+													int try=0,hit=0,need=0,left=0, miss=0;
+													
+													for(try = 4; try > 0; try--)
+													{
+														
+													take = rand() % 10 + 1;
+													
+														if(take == 1 || take == 4 || take == 8)
+														{
+															hit++;
+															
+															need = 3 - hit;
+															
+															printf("You've rolled at %d, it's a hit! That's %d, %d to go!\n",take, hit, need);
+															
+															if(hit == 3)
+																{
+																	printf("You've won the shoot out. All three men are in a state of shock. The man on the right hat has flown off. The left had his gun shot off his hand. The one in the middle completely dropped the keys \n");
+																	printf("\"Now get out of here! All of you! Oh don't forget to drop the keys and don't let the door hit your ass on the way out!\" All men run out scared. Everyone in the bar was as shock to see you win the battle.");
+																	printf("\"Gee, lady luck was surely on your side, stranger!\" The bartender compliments in an encouraging way. You grab the keys and begin walking out the bar.\n");
+																	printf("However, you stop right at the door, turn your head to the crowed and say \"it's all in a days work... and sorry for the mess.\"\n");
+																	printf("Congrats on winning the bar fight and just skipping chapter one! (Feel free to play chapter one)\n");
+																	printf("--------- END OF THIS CHAPTER ---------\n");
+																	key = true;
+																	chp2 = true;
+																	goto Menu;
+																}	
+															
+															printf("Type 'roll' to try again!\n");
+															scanf("%s", option);
+															
+														}
+														else
+														{
+															miss++;
+															
+															printf("You've rolled a %d, that's a miss... \n", take);
+															
+															if(miss == 3)
+																{
+																	printf("The shoot out didn't go in your favor. Bullets are flying left and right. Every bullet you had missed all three men. \n");
+																	printf("The whole saloon is now an entire battle royale. You aren't the gun slinger wizard as you thought you were. \n");
+																	printf("It's not easy to say this but you took more bullets than it took the tries. \n");
+																	printf("GAME OVER\n HINT: COMPLETING CHAPTER ONE WILL RESULT THIS CHAPTER DIFFERENTLY\n");
+																	
+																	exit(EXIT_SUCCESS);
+																}
+																	
+															printf("Type 'roll' to try again!\n");	
+															scanf("%s", option);
+														}
+													
+													}
+													
+												}
+												
+												else if(strcasecmp(option, "back") == 0)
+												{
+													puts("You've decided to go back. It was perhaps for the best. \n");
+													puts("------------------------------------------------------- \n");
+													
+													goto Menu;
+												}
+											}
+										}
+										else if(choice == 1 && FiveHundred == true)
+											{
+												printf("\"Well you better not be planning stealing the key to free the sheriff!\" The man in the middle yells.\n");
+												printf("You can say you are 'going' to do it or so 'what' if you are.\n");
+												printf("Decision>");
+												scanf("%s", option);
+												
+												if(strcasecmp(option, "going") == 0)
+												{
+													printf("\"Yea, I am and there's nothing you can do \", you tell the men. \n");
+													printf("Bad idea, all the three men over to the left pull their guns and point it at you. \n");
+													printf("Let's pretend that this didn't happen and do this chapter again. \n");
+													printf("---------------------------------------------------------------- \n");
+													printf("\n");
+													
+													goto Menu;
+												}
+												
+												else if(strcasecmp(option, "what") == 0)
+												{
+													printf("\"What if I am?\", you ask the man with his other crew. \n");
+													printf("\"Well I got the key!\" the man in the middle shouts at you while he jingle the keys in his left hand. \n");
+													
+													bribe:
+													printf("His men around him seem to be smirking, they know you aren't getting the keys. \n");
+													printf("However you are confident. You tell them \"Well I'll tell you what, we'll play a game. I'll take you on in a game of Vingt et Un for the key. \" \n");
+													printf("\"Yea? And what do you got to make such a bet?\", the man scoffs. From your pocket, you pull the five-hundred from your award. \n");
+													printf("All three men eyes widen. \"I win, the key is mine. If I lose, the money is yours.\"\n");
+													printf("They seem skeptical but the man in the middle looked he knows he'll win. He accepts the challenge.\n");
+													printf("--------------------------------------------------------------------------------------------------\n");
+													printf("The rules of Vingt et Un (BlackJack) is simple. You must beat the dealers hand by having the higher card. Dealer must hit till the dealer is matching or above seventeen.\n");
+													printf("Your options will be: \n");
+													printf("'Hit' - To get cards \n'Stand' - Stay with the cards that drawn \n'Double' - Double your bet however you can only draw one card \n'Split'(If necessary) - Will spit your hand if the cards are even \n");
+													printf("----------------------------------------------------------------- \n");
+													printf("Additional information: \n");
+													printf("Your and the dealer's cards value must stay under twenty-one or you will bust! \n");
+													printf("If you are up to it, just type 'take', if not just type 'back'. GOOD LUCK!\n");
+													printf("Decision>");
+													scanf("%s", option);
+													
+													if(strcasecmp(option, "take") == 0)
+													{
 
-                        if(choice == 2)
-                            puts("You hear \" where are you going? \") ");
+													}
+													
+													else if(strcasecmp(option, "back") == 0)
+													{
+														puts("You've decided to go back. \n");
+														puts("-------------------------- \n");
+														
+														goto Menu;
+													}
+												
+												}
 
-                        if(choice == 3)
-                            puts("There's nothing at all!");
-
-                        if(choice == 4)
-                            puts("Hey, there's gold!");
-                        if(choice == 5)
-                            puts("The door is locked. Great choice champ!");
+												
+												
+												
+											}
+											
+										if(choice == 2 && FiveHundred == true)
+										{
+											printf("\"Want to say that again?!\" The man yells as he's reaching for his gun\n");
+											printf("\"I would outta apologize if I was you!\"\n");
+											printf("You can 'apologize' or stay 'silent'. The choice is yours.\n");
+											printf("Decision>");
+											scanf("%s", option);
+											
+											if(strcasecmp(option, "apologize") == 0)
+											{
+												apologized:
+												
+												printf("You tell the man you are sorry for your actions. \n");
+												printf("He tells you, \"yea, that's what I thought!\"\n");
+												printf("There isn't going anywhere from here, lets try that again.\n");
+												
+												goto Menu;
+											}
+											
+											else if(strcasecmp(option, "silent") == 0)
+											{
+												printf("You stay silent while staring at the man... intimidately.\n");
+												printf("\"Hey, did you hear what I said?? You better apologize!\", the man shouts at you. \n");
+												printf("He seems to be getting agrivated. You may find yourself in a gun fight.\n");
+												printf("\"Hey boy! If you don't apologize now, I'll make you apologize!\" This is it! You are in big troulbe now!\n");
+												printf("You can still get yourself out of this, that five-hundred you got can be handy. type 'bribe' to cool things down\n");
+												printf("type 'pull' to fight this guy or type 'back' to go back to the menu.\n");
+												printf("Decision>");
+												scanf("%s", option);
+												
+												if(strcasecmp(option, "bribe") == 0)
+												{
+													goto bribe;
+												}
+												
+												else if(strcasecmp(option, "pull") == 0)
+												{
+													goto fight;
+												}
+												
+												else if(strcasecmp(option, "back") == 0)
+												{
+													printf("You decided to go back\n");
+													printf("----------------------\n");
+													
+													goto Menu;
+												}
+											}
+										}
+										
+										else if(choice == 2 && FiveHundred == false)
+										{
+											printf("\"Want to say that again?!\" The man yells as he's reaching for his gun\n");
+											printf("\"I would outta apologize if I was you!\"\n");
+											printf("You do not have anything but your gun to back yourself. You can tango with this guy or go back. \n");
+											printf("Type 'fight' to get yourself in a gun fight or 'back' to try this again. \n");
+											printf("Decision>");
+											scanf("%s", option);
+											
+											if(strcasecmp(option, "fight") == 0)
+											{
+												goto fight;
+											}
+											
+											else if(strcasecmp(option, "back") == 0)
+											{
+												printf("You decided to go back.\n");
+												printf("-----------------------\n");
+												
+												goto Menu;
+											}
+										}
+										else if(choice == 3);
+										{
+											printf("You decided to go back\n");
+											printf("------------------------\n");
+											goto Menu;
+										}
+									
+								}
+								if(choice == 2 && chp2 == true)
+								{
+									printf("THIS CHAPTER IS COMPLETE. CHOOSE ANOTHER CHAPTER. \n");
+									printf("------------------------------------------------- \n");
+									goto Menu;
+								}
+								if(choice == 3 && chp3 == false && key == false)
+								{
+									printf("You open the door to the jail house. You hear a voice yell \"who's there?\"\n");
+									printf("You approach to the jail cell, you see it's the town sheriff. \"the name's %s, I'm here to run MadDog and his gang out.\"\n", name);
+									printf("\"Boy, am I glade to hear that!\" the sheriff tells you.\"You see, MadDog and his gang out number me and my deputies. They completely over ran us. \nYou got to let me out and stop this shenanigans. Do you have the keys to the cells?\"\n");
+									printf("Unfortunately, you don't have the keys, the sheriff tells you that the guy who locked the sheriff may be in the saloon but he only heard that from that criminal on the way out of the jail house\n");
+									printf("He furthermore tells you that the man is very hard to deal with though he is dense. A huge gambling man. It's best to find some money and win that key at any cost.\n");
+									printf("\"Now don't try to nagociate or challenge this man,\" the sheriff tells you, \"it may end in a deadly way. Now please go and get me out of here!\" \n");
+									printf("You will now return to the main menu.\n");
+									printf("-------------------------------------\n");
+									
+									goto Menu;
+								}
+								
+								if(choice == 3 && chp3 == false && key == true)
+								{
+									printf("You open the door to the jail house. You hear a voice yell \"who's there?\"\n");
+									printf("You approach to the jail cell, you see it's the town sheriff. \"the name's %s, I'm here to run MadDog and his gang out.\"\n", name);
+									printf("\"Boy, am I glade to hear that!\" the sheriff tells you.\"You see, MadDog and his gang out number me and my deputies. They completely over ran us. \nYou got to let me out and stop this shenanigans. Do you have the keys to the cells?\"\n");
+									printf("You pull the jail keys from your pocket. As you release the sheriff, you hear a click but it isn't a the jail unlocking, it's the sound of a revolver being ready to shoot.\n");
+									printf("You turn to the left of you and see a pretty build man in a brown vest with a long brown jacket with brown pants. He has the revolver pointed at you\n");
+									printf("\"Okay stranger, jump the keys and no one gets hurt\", the man tells you. Should you 'drop' it or 'go' for your gun?\n");
+									while(*option != 'z')
+									{
+									printf("Decision>");
+									scanf("%s", option);
+									
+									
+										if(strcasecmp(option, "drop") == 0)
+										{
+											printf("\"That's right fellar,\" the man tells you, \"drop the keys and move back, don't do anything stupid\"\n");
+											printf("As soon as the man grabbed the keys from the lock, the sheriff grabbed the outlaws wrist\n");
+											printf("The outlaw's left hand which is holding the gun is going over to the sheriff. This is a wise decision, what should you do?\n");
+											printf("Pull your gun and 'shoot' the man or try to throw a 'punch'?\n");
+											while(*option != 'z')
+											{
+											printf("Decision>");
+											scanf("%s", option);
+											
+												if(strcasecmp(option, "shoot") == 0)
+												{
+													printf("You pull your gun and shoot the outlaw. His gun falls right out of his hands\n");
+													printf("Immediately, the sheriff punches the outlaw, he is now outcold.\n");
+													printf("You run toward the jail cell and free the sheriff. \"Let's put this hooligan behind bars.\" The sheriff tells you\n");
+													printf("The sheriff walks out of the jail house and you follow behind. He grabs his belt and raises his pants. \"MadDog! You don't stand a chance!\" He says proudly.\n");
+													printf("\"I know his girlfriend is at the post office. He may be hidding out there. Lets go %s! Oh by the way, the name is sheriff Moore!\" Sheriff Moore says while tipping his hat.\n", name);
+													printf("It's time to head to the post office and finally put an end to this madness!\n");
+													printf("--------- END OF THIS CHAPTER ---------\n");
+													sheriff = true;
+													chp3 = true;
+													
+													goto Menu;
+												}
+												
+												else if(strcasecmp(option, "punch") == 0)
+												{
+													printf("You throw a punch to the outlaw. His gun fires but no one got hit. You immediately unlock the jail cell for the sheriff\n");
+													printf("\"Thank you kindly, %s. The name is sheriff Moore.\" The sheriff tells you while he tips his hat.\n", name);
+													printf("\"Quick lets put this hooligan behind bars before he wakes up.\" Sheriff Moore tells you as he puts the outlaw in jail\n");
+													printf("Soon after, you both walk outside the jail cell, \"MadDog! You don't stand a chance!\" He says proudly. \"I know his girlfriend is at the post office. He may be hiding out there. Lets go, %s!\n", name);
+													printf("It's time to head to the post office and finally put an end to this madness!\n");
+													printf("--------- END OF THIS CHAPTER ---------\n");
+													sheriff = true;
+													chp3 = true;
+													
+													goto Menu;
+												}
+											
+											}
+										}
+										
+										else if(strcasecmp(option, "go") == 0)
+										{
+											printf("You reach for your gun but the outlaw immediately shot it out of your hand.\n");
+											printf("This is pretty much a dead end. Let's take you back to the menu and try this again.\n");
+											printf("-----------------------------------------------------------------------------------\n");
+											
+											goto Menu;
+										}
+											
+									}
+									
+								}
+								
+								if(choice == 3 && chp3 == true)
+								{
+									printf("THIS CHAPTER IS COMPLETE. CHOOSE ANOTHER CHAPTER. \n");
+									printf("------------------------------------------------- \n");
+									goto Menu;
+								}
+									
+								if(choice == 4 && sheriff == false)
+								{
+									printf("You walk into the Post Office. A fine lady walks to the front counter. Though don't she isn't like any other lady. She is dressed like the rest of the cowboys.\n");
+									
+									goto Menu;
+								}
+								
+								if(choice == 4 && sheriff == true)
+								{
+								}
+						}
+								
+						}
+						
+                        else if(choice == 2)
+						{
+                            puts("\"Please stranger, come back soon! Our town can't take anymore of these hooligans! \"  \n GAME OVER \n");
+						
+							exit(EXIT_SUCCESS);
+						}
                     }
                     break;
                 }
@@ -606,191 +1272,251 @@ void main(void)
                     }
                     break;
                 }
-            case 12:	//synced rpg
-                {
-                    puts("you open the door and find a machine that proceeds to teleport you to a distant facility");
-                    int hp = 20, enemyhp = 20;
-                    int w, b[3] = { 0,0,0 };		//enemy weakness and boolean for completion
-                    FILE *fptr;
-                    int *p = b;
-                    fptr = fopen("data.txt", "w+");
-                    if (fscanf(fptr, "%d %d %d", b[0], b[1], b[2]) != 3)
-                    {
-                        rewind(fptr);
-                        puts("A new save file will be created.");
-                        fprintf(fptr, "%d %d %d", b[0], b[1], b[2]);
-                    }
-                    while (choice != 99)
-                    {
+            case 12:	//room 12 overhall
+		{
+			puts("you open the door and find a machine that proceeds to teleport you to a distant facility");
+			int hp = 20, enemyhp = 20, dam=0, enDam=0; 
+			int w, b[3] = { 0,0,0 };		//enemy weakness and boolean for completion
+			FILE *fptr;
+			int *p = b;
+			fptr = fopen("data.txt", "w+");
+			if (fscanf(fptr, "%d %d %d", b[0], b[1], b[2]) != 3)
+			{
+				rewind(fptr);
+				puts("A new save file will be created.");
+				fprintf(fptr, "%d %d %d", b[0], b[1], b[2]);
+			}
+			while (choice != 99)
+			{
 
-                        printf("Soldier: We're glad you made it back, captain %s! What are your orders?\n(Enter -1 to train, 0 to save your progress, or enter 1-3 to play through a particular chapter of this game.)\n", name);
-                        if ((*(p + 0) + *(p + 1) + *(p + 2)) == 3)
-                        {
-                            puts("After completing every chapter you unlocked a bonus scene.(Enter 4 to view it)");
-                        }
-                        scanf("%d", &choice);
-                        if (choice == -1)
-                        {
-                            puts("This is just a combat tutorial against a dummy.\nStart by entering 1(to use a gun), 2(to use a sword), 3(to use a spell), or 4(to heal).");
-                            puts("Enemies have different weaknesses so try to find them to deal more damage to the enemy.");
+				printf("Soldier: We're glad you made it back, captain %s! What are your orders?\n(Enter -1 to train, 0 to save your progress, or enter 1-3 to play through a particular chapter of this game.)\n", name);
+				if ((*(p + 0) + *(p + 1) + *(p + 2)) == 3)
+				{
+					puts("After completing every chapter you unlocked a bonus scene.(Enter 4 to view it)");
+				}
+				scanf("%d", &choice);
+				if (choice == -1)
+				{
+					puts("This is just a combat tutorial against a dummy.\nStart by entering 1(to use a gun), 2(to use a sword), or 3(to cast 1 of 4 spells).");
+					puts("Guns and swords will do a fixed amount of damage while spells vary.");
+					puts("Fire does a fixed amount, thunder does double of fire's amount but has a 50% chance of failing, heal does 0 damage but you heal hp, and reflect sends back enemy damage while taking half of the damage.");
+					puts("Enemies have a weakness to certain weapons or spells so try to find them to deal more damage to the enemy.");
+					puts("When casting a spell, cast it calmly or else you'll lose focus. (lower case letters)");
 
-                            enemyhp = 20; w = 4; hp = 20;
-                            while (choice != 99 && enemyhp > 0)
-                            {
-                                printf("You have %d hp and the enemy has %d hp\nWhat is your next move?(1:gun, 2:sword, 3:spell, or 4:heal)\n", hp, enemyhp);
-                                scanf("%d", &choice);
-                                enemyhp -= ((choice == w) ? 8 : 2);
-                                if (enemyhp <= 0)
-                                {
-                                    break;
-                                }
-                                if (choice == 4)
-                                {
-                                    hp = (hp + 10>20) ? 20 : (hp + 10);
-                                }
-                                hp -= 0;
-                                printf("You dealt %d damage and the enemy dealt 0 damage.\n", ((choice == w) ? 8 : 2));
-                            }
-                            puts("Last tip: Casting a spell may help in what would appear to be impossible odds.");
-                            puts("Congratulations you beat the training level, you will now be sent back to the facility.");
-                            choice = -2;
-                        }
-                        else if (choice == 0)
-                        {
-                            rewind(fptr);
-                            fprintf(fptr, "%d %d %d", b[0], b[1], b[2]);
-                            puts("Your progress has been saved, you will now return to the facility.");
-                            choice = -2;
-                        }
-                        else if (choice == 1)
-                        {
-                            puts("Chapter 1: Fall of a Republic");
-                            puts("Once the new chancellor was elected he implemented new laws throughout the galaxy.");
-                            puts("The laws strengthened the military, but rather than being used to protect the Milky Way Republic from the Andromeda Empire it was used to keep the people in line.");
-                            puts("Former military, local militias, and people fleeing the laws from the center of the galaxy formed a rebellion force around the edges of the Milky Way.");
-                            puts("We managed to deceive the enemy into sending their main force to our \"secret base\" now we sent our force for an all out attack towards the center.");
-                            printf("Here we are, facing the force stationed at the capital... - %s - January 24, 3018\n", name);
-                            enemyhp = 20; w = 3; hp = 20;
-                            while (choice != 99 && enemyhp > 0 && hp > 0)
-                            {
-                                printf("You have %d hp and the enemy soldier has %d hp\nWhat is your next move?(1:gun, 2:sword, 3:spell, or 4:heal)\n", hp, enemyhp);
-                                scanf("%d", &choice);
-                                enemyhp -= 2 * ((choice == w) ? 2 : 1)*((choice == 4) ? 0 : 1);
-                                if (enemyhp <= 0)
-                                {
-                                    break;
-                                }
-                                if (choice == 4)
-                                {
-                                    hp = (hp + 10>20) ? 20 : (hp + 10);
-                                }
-                                hp -= 3;
-                                printf("You dealt %d damage and the enemy dealt 3 damage.\n", ((choice == w) ? 4 : 2)*((choice == 4) ? 0 : 1));
-                            }
-                            b[0] = 1 * (hp>0) ? 1 : 0;
-                            if (hp <= 0)
-                            {
-                                puts("You lost you will now be sent to the facility.");
-                            }
-                            choice = -2;
-                        }
-                        else if (choice == 2)
-                        {
-                            puts("Chapter 2: Life in the Center");
-                            puts("The chancellor promised everyone jobs once elected and he delivered on his promise... in the most horrible way possible.");
-                            puts("Plenty of people were rounded up and experimented on with various chemical substances.");
-                            puts("The chancellor's goal was to make a mindless population that will obey any order given to them by him directly.");
-                            puts("Many people never survived the experiments because the drug made unnatural changes to the human brain.");
-                            puts("Those that survived suffer from symptoms such as rotting flesh and fits of rage, some resort to cannabalism. Rumors suggest it's to ease their pain.");
-                            printf("Here we are, facing the citizins attempting to put them out of their misery... - %s - February 1, 3018\n", name);
-                            enemyhp = 20; w = 1; hp = 20;
-                            while (choice != 99 && enemyhp > 0 && hp > 0)
-                            {
-                                printf("You have %d hp and the zombie has %d hp\nWhat is your next move?(1:gun, 2:sword, 3:spell, or 4:heal)\n", hp, enemyhp);
-                                scanf("%d", &choice);
-                                enemyhp -= 2 * ((choice == w) ? 2 : 1)*((choice == 4) ? 0 : 1);
-                                if (enemyhp <= 0)
-                                {
-                                    break;
-                                }
-                                if (choice == 4)
-                                {
-                                    hp = (hp + 10>20) ? 20 : (hp + 10);
-                                }
-                                hp -= 4;
-                                printf("You dealt %d damage and the enemy dealt 4 damage.\n", ((choice == w) ? 4 : 2)*((choice == 4) ? 0 : 1));
-                            }
-                            b[1] = 1 * (hp>0) ? 1 : 0;
-                            if (hp <= 0)
-                            {
-                                puts("You lost you will now be sent to the facility.");
-                            }
-                            choice = -2;
-                        }
-                        else if (choice == 3)
-                        {
-                            puts("Chapter 3: End of the Milky Way Government");
-                            puts("The chancellor is now confronting us directly along with his corrupt officials.");
-                            puts("People believe the restricting of magic to the general population helped the chancellor rise to power.");
-                            puts("Other corrupt officials proceeded to use spells to manipulate the population and due to a lack of knowledge on magic nobody could counter their charm spells.");
-                            puts("This will be our most difficult fight and we must finish this quickly before the main force returns to the capital.");
-                            puts("If the rumors hold true then the chancellor has a powerful ability that could destroy armies, there must be a way to counter it.");
-                            printf("Here we are, our last stand and stakess can't be any higher - %s - February 3, 3018\n", name);
-                            enemyhp = 40; w = 2; hp = 20;
-                            int timeStop = 0, timeReset = 0;
-                            while (choice != 99 && enemyhp > 0 && hp > 0)
-                            {
-                                printf("You have %d hp and the chancellor has %d hp\nWhat is your next move?(1:gun, 2:sword, 3:spell, or 4:heal)\n", hp, enemyhp);
-                                scanf("%d", &choice);
-                                if (timeStop == 1 && choice == 3 && timeReset == 0)
-                                {
-                                    puts("Chancellor: How can you nullify my time stop ability?!");
-                                    timeReset = 1;
-                                }
-                                if (timeStop == 0 || timeReset == 1)
-                                {
-                                    enemyhp -= ((choice == w) ? 8 : 2)*((choice == 4) ? 0 : 1);
-                                    if (choice == 4)
-                                    {
-                                        hp = (hp + 10>20) ? 20 : (hp + 10);
-                                    }
-                                }
-                                else
-                                {
-                                    puts("You can't do anything because time has stopped.");
-                                }
-                                if (enemyhp <= 0)
-                                {
-                                    break;
-                                }
-                                if (timeStop == 0)
-                                {
-                                    puts("Chancellor: You think this will be enough! TIMESTOP!");
-                                    timeStop = 1;
-                                }
-                                hp -= 7;
-                            }
-                            b[2] = 1 * (hp>0) ? 1 : 0;
-                            if (hp <= 0)
-                            {
-                                puts("You lost you will now be sent to the facility.");
-                            }
-                            choice = -2;
-                        }
-                        else if (choice == 4 && (*(p + 0) + *(p + 1) + *(p + 2)) == 3)
-                        {
-                            puts("Chapter 4: Return of the Republic");
-                            puts("After the final battle everyone celebrated our victory it became a holiday.");
-                            puts("I was the temporarily in charge of the galaxy until the republic rebuilt itself.");
-                            puts("To ensure such an incident like the one a few years ago would never happen again I decided to run for chancellor.");
-                            puts("Having popularity with the people and being the rebellion leader made it easy to get elected for several terms.");
-                            puts("I may not be immortal but I have successors ready to carry on my legacy of a clean government.");
-                            printf("Here we are, hopefully the Milky Way Republic will remain peaceful until the end of time. - %s - April 27, 3058\n", name);
-                            choice = -2;
-                        }
-                    }
-                    break;
-                }
+					enemyhp = 20; w = 3; hp = 20;
+					while (choice != 99 && enemyhp > 0)
+					{
+						printf("You have %d hp and the enemy has %d hp\nWhat is your next move?(1:gun, 2:sword, 3:spell, or else:nothing)\n", hp, enemyhp);
+						scanf("%d", &choice);
+						if (choice>0 && choice<4)
+						{
+							dam = ((choice == 3) ? room12Spells(&hp,1) : 4) * ((choice==w)?2:1);
+						}
+						else
+						{
+							dam = 0;
+						}
+						enemyhp -= dam;
+						puts("err");
+						if (enemyhp <= 0)
+						{
+							break;
+						}
+						enDam = 1;
+						if(dam % 2 == 1 || (int)(dam/2.0+.5) % 2 == 1)		//checks for reflect spell
+						{
+							enDam /= 2;
+						}
+						hp -= enDam;
+						printf("You dealt %d damage and the enemy dealt %d damage.\n", dam,enDam);
+					}
+					puts("Congratulations you beat the training level, you will now be sent back to the facility.");
+					choice = -2;
+				}
+				else if (choice == 0)
+				{
+					rewind(fptr);
+					fprintf(fptr, "%d %d %d", b[0], b[1], b[2]);
+					puts("Your progress has been saved, you will now return to the facility.");
+					choice = -2;
+				}
+				else if (choice == 1)
+				{
+					puts("Chapter 1: Fall of a Republic");
+					puts("Once the new chancellor was elected he implemented new laws throughout the galaxy.");
+					puts("The laws strengthened the military, but rather than being used to protect the Milky Way Republic from the Andromeda Empire it was used to keep the people in line.");
+					puts("Former military, local militias, and people fleeing the laws from the center of the galaxy formed a rebellion force around the edges of the Milky Way.");
+					puts("We managed to deceive the enemy into sending their main force to our \"secret base\" now we sent our force for an all out attack towards the center.");
+					printf("Here we are, facing the force stationed at the capital... - %s - January 24, 3018\n", name);
+					enemyhp = 20; w = 2; hp = 20;
+					while (choice != 99 && enemyhp > 0)
+					{
+						printf("You have %d hp and the enemy has %d hp\nWhat is your next move?(1:gun, 2:sword, 3:spell, or else:nothing)\n", hp, enemyhp);
+						scanf("%d", &choice);
+						if (choice>0 && choice<4)
+						{
+							dam = ((choice == 3) ? room12Spells(&hp,1) : 4) * ((choice==w)?2:1);
+						}
+						else
+						{
+							dam = 0;
+						}
+						enemyhp -= dam;
+						puts("err");
+						if (enemyhp <= 0)
+						{
+							break;
+						}
+						enDam = 1;
+						if(dam % 2 == 1 || (int)(dam/2.0+.5) % 2 == 1)		//checks for reflect spell
+						{
+							enDam /= 2;
+						}
+						hp -= enDam;
+						printf("You dealt %d damage and the enemy dealt %d damage.\n", dam,enDam);
+					}
+					b[0] = (hp>0) ? 1 : b[0];
+					if (hp <= 0)
+					{
+						puts("You lost you will now be sent to the facility.");
+					}
+					choice = -2;
+				}
+				else if (choice == 2)
+				{
+					puts("Chapter 2: Life in the Center");
+					puts("The chancellor promised everyone jobs once elected and he delivered on his promise... in the most horrible way possible.");
+					puts("Plenty of people were rounded up and experimented on with various chemical substances.");
+					puts("The chancellor's goal was to make a mindless population that will obey any order given to them by him directly.");
+					puts("Many people never survived the experiments because the drug made unnatural changes to the human brain.");
+					puts("Those that survived suffer from symptoms such as rotting flesh and fits of rage, some even resort to cannabalism. Rumors suggest it's to ease their pain.");
+					printf("Here we are, facing the citizins attempting to put them out of their misery... - %s - February 1, 3018\n", name);
+					enemyhp = 20; w = 1; hp = 30;
+					while (choice != 99 && enemyhp > 0)
+					{
+						printf("You have %d hp and the enemy has %d hp\nWhat is your next move?(1:gun, 2:sword, 3:spell, or else:nothing)\n", hp, enemyhp);
+						scanf("%d", &choice);
+						if (choice>0 && choice<4)
+						{
+							dam = ((choice == 3) ? room12Spells(&hp,1) : 4) * ((choice==w)?2:1);
+						}
+						else
+						{
+							dam = 0;
+						}
+						enemyhp -= dam;
+						puts("err");
+						if (enemyhp <= 0)
+						{
+							break;
+						}
+						enDam = 1;
+						if(dam % 2 == 1 || (int)(dam/2.0+.5) % 2 == 1)		//checks for reflect spell
+						{
+							enDam /= 2;
+						}
+						hp -= enDam;
+						printf("You dealt %d damage and the enemy dealt %d damage.\n", dam,enDam);
+					}
+					b[1] = (hp>0) ? 1 : b[1];
+					if (hp <= 0)
+					{
+						puts("You lost you will now be sent to the facility.");
+					}
+					choice = -2;
+				}
+				else if (choice == 3)
+				{
+					puts("Chapter 3: End of the Milky Way Government");
+					puts("The chancellor is now confronting us directly along with his corrupt officials.");
+					puts("People believe the restricting of magic to the general population helped the chancellor rise to power.");
+					puts("Other corrupt officials proceeded to use spells to manipulate the population and due to a lack of knowledge on magic nobody could counter their charm spells.");
+					puts("This will be our most difficult fight and we must finish this quickly before the main force returns to the capital.");
+					puts("If the rumors hold true then the chancellor has a powerful ability that could destroy armies, there must be a way to counter it.");
+					printf("This is it, our last stand and the stakes can't be any higher - %s - February 3, 3018\n", name);
+					enemyhp = 40; w = 3; hp = 20;
+					int timeStop = 0, timeReset = 0;
+					while (choice != 99 && enemyhp > 0)
+					{
+						printf("You have %d hp and the enemy has %d hp\nWhat is your next move?(1:gun, 2:sword, 3:spell, or else:nothing)\n", hp, enemyhp);
+						scanf("%d", &choice);
+						if (choice>0 && choice<4)
+						{
+							dam = ((choice == 3) ? room12Spells(&hp,1) : 4) * ((choice==w)?2:1);
+						}
+						else
+						{
+							dam = 0;
+						}
+						enemyhp -= dam;
+						puts("err");
+						if (enemyhp <= 0)
+						{
+							break;
+						}
+						enDam = 1;
+						if(dam % 2 == 1 || (int)(dam/2.0+.5) % 2 == 1)		//checks for reflect spell
+						{
+							enDam /= 2;
+						}
+						hp -= enDam;
+						printf("You dealt %d damage and the enemy dealt %d damage.\n", dam,enDam);
+					}
+					b[2] = (hp>0) ? 1 : b[2];
+					if (hp <= 0)
+					{
+						puts("You lost you will now be sent to the facility.");
+					}
+					choice = -2;
+				}
+				else if (choice == 4 && (*(p + 0) + *(p + 1) + *(p + 2)) == 3)
+				{
+					puts("Chapter 4: Return of the Republic");
+					puts("After the final battle everyone celebrated our victory it became a holiday.");
+					puts("The Milky Way was at peace for a time but then the Andromeda Empire invaded.");
+					puts("We discovered that the chancellor was a puppet of the Andromeda Emperor.");
+					printf("Looks like the final confrontation with the emperor and his army will determine the fate of the Milky Way.... - %s - April 27, 3058\n", name);
+					
+					while (choice != 99 && enemyhp > 0)
+					{
+						printf("You have %d hp and the enemy has %d hp\nWhat is your next move?(1:gun, 2:sword, 3:spell, or else:nothing)\n", hp, enemyhp);
+						scanf("%d", &choice);
+						if (choice>0 && choice<4)
+						{
+							dam = ((choice == 3) ? room12Spells(&hp,1) : 4) * ((choice==w)?2:1);
+						}
+						else
+						{
+							dam = 0;
+						}
+						enemyhp -= dam;
+						puts("err");
+						if (enemyhp <= 0)
+						{
+							break;
+						}
+						enDam = 1;
+						if(dam % 2 == 1 || (int)(dam/2.0+.5) % 2 == 1)		//checks for reflect spell
+						{
+							enDam /= 2;
+						}
+						hp -= enDam;
+						printf("You dealt %d damage and the enemy dealt %d damage.\n", dam,enDam);
+					}
+					choice = -2;
+					if (hp <= 0 && choice != 99)	//bad end
+					{
+						printf("The Milky Way has fallen I fear everyone will become slaves for Andromeda.\n Now I await for my execution in an hour on charges of war crimes.... %s - May 8, 3058",name);
+					}
+					if (hp > 0 && choice != 99)		//good end
+					{
+						printf("After the fall of the Andromeda Empire the Milky Way took over.\n Now we have entered a true era of peace and may it last forever..... %s - May 9, 3092");
+						printf("And thus the final entry in the journal of captain %s comes to an end.",name);
+					}
+				}
+			}
+			break;
+		}
             case 13:
                 {
                     
@@ -989,15 +1715,17 @@ void main(void)
                     {
                         FILE *inptr;
                         char ranstring[256];
-                        int numguess;
+			int randints[10];
+                        int sides, numguess, randnum, i, k, numrolls, roll;
                         puts("You open the door and find ...... ");
                         puts("An s2000 that is currently fixed with airbag suspension");
                         puts("An s2000 completely modified with all authentic JDM parts");
                         puts("An that is just completely bone stock andlow miles, but is an AP1");
-                        puts("But now you have 3 choices...");
+                        puts("But now you have 4 choices...");
                         puts("Choice 1: throw away the bagged s2000 but then the modified s2000 is reverted to OEM");
                         puts("Choice 2: throw away all of these cars and save your money for a worse car");
                         puts("Choice 3: Make these cars all bone stock");
+			puts("Choice 4: Do nothing to the cars and just test your luck...");
                         scanf("%d", &choice);
                         switch(choice)
                         {
@@ -1041,7 +1769,51 @@ void main(void)
                                 printf("Here is the string you entered: %s", ranstring);
                                 fprintf(inptr,"%s", ranstring);
                                 fclose(inptr);
+				puts("Now go find your file!");
                                 break;
+			    case 4:
+				puts("Okay so you decided to have a random function chosen for you, cheeky person.");
+				puts("So here's your random function:");
+				int r = rando();
+				switch(r)
+				{
+					case 1:
+						puts("So this function will fill and sort a random array of integers for you");
+						for(i = 0; i < 10; i++)
+						{
+							randints[i] = (rand() % 10) + 1;
+						}
+						printf("Here is your unsorted array: %d\n", randints);
+						for(i = 0; i < 9; i++)
+						{
+							for(k = i + 1; k < 10; k++)
+							{
+								if(randints[i] > randints[k])
+								{
+									int temp = randints[i];
+									randints[i] = randints[k];
+									randints[k] = temp;
+								}
+							}
+
+						}
+						break;
+					case 2:
+						puts("Okay so this random case will roll a die with how ever many sides you want, how ever many times you want, just enter a number please.");
+						scanf("%d", numrolls);
+						
+						puts("You decided to roll %d time/s. Now enter how many sides you want the die to have please.");
+						scanf("%d", sides);
+						
+						for(i = 0; i < numrolls; i++)
+						{
+							roll = (rand() % sides) + 1;
+							printf("You randomly rolled a: %d\n", roll);
+						}
+						break;
+					
+				}
+				break;
 
                             default:
                                 puts("Okay so i gave you like three options and you decided to be a little Rebel. No. Don't. This code would work fine if you did not try messing it up pls k thx.");
@@ -1105,22 +1877,157 @@ void main(void)
                     }
                     case 20:
                     {
+			
+				#define BOLDBLACK "\033[1m\033[30m"
+				#define BOLDGREEN "\033[1m\033[32m"
+				#define RED "\x1b[31m"
+				#define BLUE "\x1b[34m"
+				#define BOLDBLUE "\033[1m\033[34m"
+				#define BOLDRED "\033[1m\033[31m"
+
+				puts(BOLDBLACK "\n\nWelcome to Karina's Spanish 101 class!"  BOLDGREEN " \u263A\n" RESET);
+				puts("I have created 3 exams for you to take, so the end of this adventure you should be able to express yourself in spanish.\n");
+				puts("You have the choice to challenge me if you don't want to start from level 1.\n");
+				puts("You may choose a level above level 1 and if you pass the chosen level with a 90% or above then you automatically pass levels below the chosen level!\n");
+				puts("BUT if you do not pass the chosen level with a 90% or above then you will restart from level 1, so CHALLENGE ME! :P\n");
+				puts("If you choose to start from level 1 then you can work your way up to the next 2 levels.\n");
+				puts("The average of the 3 exams will be taken at the end. If you pass with an 80% then you pass the class otherwise you will retake the class.\n");
+				puts(BOLDBLACK"Let the challenge begin! Enjoy! :D"RESET);
+				puts("You may quit anytime by selecting option 99, but I recommend you not to quit!");					
+
                         while(choice != 99)
                         {
-                            
-				puts("You open the door and find yourself in Spanish 101 class!");
-				puts("Welcome to Karina's Spanish 101 class! :)");
-				puts("I have created 3 exams for you to take, so the end of this adventure you should be able to express yourself in spanish.");
-				puts("You have the choice to challenge me if you don't want to start from level 1.");
-				puts("You may choose a level above level 1 and if you pass the chosen level with a 90% or above then you automatically pass levels below the chosen level!");
-				puts("BUT if you do not pass the chosen level with a 90% or above then you will restart from level 1, so CHALLENGE ME! :P");
-				puts("If you choose to start from level 1 then you can work your way up to the next 2 levels.");
-				puts("The average of the 3 exams will be taken at the end. If you pass with an 80% then you pass the class otherwise you will retake the class.");
-				puts("Let the challenge begin! Enjoy! :D");
-				puts("You may quit anytime by selecting option 99, but I recommend you not to quit!");
-					
+                            	
+				puts(BOLDBLACK"\nHere are your choices. You may work on your way up or challenge me:\n"RESET);
+				puts(BOLDBLACK"Level 1"RESET);
+				puts(BOLDBLACK"Level 2"RESET);
+				puts(BOLDBLACK"Level 3\n"RESET);
 
-                            scanf("%d",&choice);
+				scanf("%d",&choice);
+				switch(choice)
+				{
+					
+					case 1: 
+					puts(BOLDBLUE"\n**** Welcome to level 1! ****\n"RESET);
+				
+				int score = 0;
+				char input;
+				char n[30];
+				choice = (rand() %10) + 1;
+				gets(name);
+				puts(BOLDBLACK"\n1. Please choose the correct translation for:"RESET BOLDBLUE" goodmorning"RESET);
+				puts(" A. buenas noches\n B. buenos días\n C. buenas tardes\n D. buen días\n");
+				printf(BOLDBLACK"Answer:"RESET);
+				scanf(" %c", &input);
+				if((input=='B') || (input == 'b'))
+				{
+					score = score+2; 
+				}
+				
+				puts(BOLDBLACK"\n2. Please choose the correct translation for:"RESET BOLDBLUE" my name is"RESET);
+				puts(" A. mi nombre es\n B. tu nombre es\n C. mi hombre es\n D. el hombre es\n");
+				printf(BOLDBLACK"Answer:"RESET);
+				scanf(" %c", &input);
+				if((input=='A') || (input == 'a'))
+				{
+					score = score+2; 
+				}
+
+				puts(BOLDBLACK"\n3. Please choose the correct translation for:"RESET BOLDBLUE" what is your name"RESET);
+				puts(" A. cómo llamas\n B. cómo tu llamas\n C. cómo te lamas\n D. cómo te llamas\n");
+				printf(BOLDBLACK"Answer:\n"RESET);
+				scanf(" %c" ,&input);
+				if((input=='D') || (input == 'd'))
+				{
+					score = score+2; 
+				}
+				
+				puts(BOLDBLACK"\n4. Please choose the correct translation for:"RESET BOLDBLUE" Good afternoon"RESET);
+				puts(" A. Buenas tarde\n B. Buen tarde\n C. Buenas tardes\n D. Bueno tarde\n");
+				printf(BOLDBLACK"Answer:\n"RESET);
+				scanf(" %c" ,&input);
+				if((input=='C') || (input == 'c'))
+				{
+					score = score+2; 
+				}
+				
+				puts(BOLDBLACK"\n5. Please choose the correct translation for:"RESET BOLDBLUE" Goodnight"RESET);
+				puts(" A. Buenas noches\n B. Buen noches\n C. Buen\n D. noche\n");
+				printf(BOLDBLACK"Answer:\n"RESET);
+				scanf(" %c" ,&input);
+				if((input=='A') || (input == 'a'))
+				{
+					score = score+2; 
+				}
+				
+				puts("------------------------");
+
+				printf(BOLDBLACK"%s You scored %d out of 10\n"RESET, n, score);
+				puts("------------------------");
+				
+				if (score >= 8)
+
+				puts(BOLDGREEN"\nGood Job!! I'm so proud of you! :')"RESET);
+
+				else
+
+				{
+					
+					printf(BOLDRED "\nCome on! You are better than this!! -.- \n" RESET);
+
+				}
+
+				break;	
+			
+				case 2: 
+
+				puts(BOLDBLUE"\n**** Welcome to level 2! ****\n"RESET);
+
+				puts(BOLDBLACK"\n1. Please choose the correct translation for:"RESET BOLDBLUE" Monday"RESET);
+				puts(" A. Viernes\n B. Martes\n C. Lunes\n D. Miércoles\n E. Jueves\n");
+				printf(BOLDBLACK"Answer:\n"RESET);
+				scanf(" %c" ,&input);
+				if((input=='C') || (input == 'c'))
+				{
+					score = score+2; 
+					
+				}
+
+				puts(BOLDBLACK"\n2. Please choose the correct translation for:"RESET BOLDBLUE" Tuesday"RESET);
+				puts(" A. Viernes\n B. Martes\n C. Lunes\n D. Miércoles\n E. Jueves\n");
+				printf(BOLDBLACK"Answer:\n"RESET);
+				scanf(" %c" ,&input);
+				if((input=='B') || (input == 'b'))
+				{
+					score = score+2; 
+				}				
+
+				puts("------------------------");
+				printf(BOLDBLACK"%s You scored %d out of 10\n"RESET, n, score);
+				puts("------------------------");
+
+				puts(BOLDBLUE"\nHere are the rest of the week days that you should know\n"RESET);
+				puts("Jueves = Thursday");
+
+				if (score >= 8)
+
+				puts(BOLDGREEN"\nGood Job!! I'm so proud of you! :')"RESET);
+
+				else
+
+				{
+					
+					printf(BOLDRED "\nCome on! You are better than this!! -.- \n" RESET);
+
+				}
+
+				}
+					
+				if(choice == 99)
+				{
+					puts(BOLDRED"\nW H Y\nA R E\nY O U\n  A\nQ U I T T E R?!!"RESET);
+				
+				}
                         }
                         break;
                     }
@@ -1128,7 +2035,7 @@ void main(void)
                     {
                         while(choice != 99)
                         {
-                            puts("you open the door and find ........");
+                            puts("you open the door and find the one and only Rob. Game over man.");
                             scanf("%d",&choice);
                         }
                         break;
@@ -1201,4 +2108,100 @@ void main(void)
                 }
         }
 }
+}
+int rando(void)
+{
+	int r = (rand() % 4) + 1;
+	return r;
+}
+
+
+int room12Spells(int *hp, int enDam)	//spell chanting
+{
+	char fire[] = "fire";
+	char thun[] = "thunder";
+	char heal[] = "heal";
+	char ref[] = "reflect";
+	char spell[9] = "";
+	puts("Enter any of the following spells: fire, thunder, heal, or reflect");
+	scanf("%s",spell);
+	char *ch = spell;
+	int i = 0, spellC = 0;
+	for (i = 0, spellC = 0; i<6; i++)
+	{
+		if (*(ch + i) == fire[i])
+		{
+			spellC++;
+		}
+		else
+		{
+			break;
+		}
+	}
+	if (spellC == 4 || spellC == 5)
+	{
+		return 4;	//guarunteed 4 damage
+	}
+	for (i = 0, spellC = 0; i<6; i++)
+	{
+		if (*(ch + i) == heal[i])
+		{
+			spellC++;
+		}
+		else
+		{
+			break;
+		}
+	}
+	if (spellC == 4 || spellC == 5)
+	{
+		if (*hp + 10>20)
+		{
+			*hp = 20;
+		}
+		else
+		{
+			*hp += 10;
+		}
+		return 0;	//heal 10 hp
+	}
+	for (i = 0, spellC = 0; i<9; i++)
+	{
+		if (*(ch + i) == thun[i])
+		{
+			spellC++;
+		}
+		else
+		{
+			break;
+		}
+	}
+	if (spellC == 7 || spellC == 8)
+	{
+		
+		if(rand() % 2 == 1) 
+		{		//50% chance of hitting
+			return 8;
+		}	
+		else
+		{
+			return 0;
+		}
+	}
+	for (i = 0, spellC = 0; i<9; i++)
+	{
+		if (*(ch + i) == ref[i])
+		{
+			spellC++;
+		}
+		else
+		{
+			break;
+		}
+	}
+	if (spellC == 7 || spellC == 8)
+	{
+		return enDam;	//reflect enemy damage
+	}
+	return 0;		//failed spell
 }
