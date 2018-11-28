@@ -20,6 +20,8 @@
 
 //Prototypes
 void sleep(unsigned int seconds);
+void shuffle(int *a, int *b, int SIZE);
+void combine(int *a, int *b, int *c, int *d, int *all);
 int rando(void);
 int room12Spells(int *hp, int enDam);
 
@@ -477,10 +479,17 @@ void main(void)
                 }
             case 9:
                 {
+					#define GREEN   "\x1b[32m"
+					#define RESET   "\x1b[0m"
+					#define RED     "\x1b[31m"
+					#define FILE_NAME "MadDog.txt"
+					
 					
 					bool chp1 = false, chp2 = false, chp3 = false, chp4 = false;
 					bool key = false, FiveHundred = false, JailKey = false, sheriff = false;
 					int take;
+					
+					FILE *wptr;
 
 					char option[256];
 					
@@ -497,7 +506,7 @@ void main(void)
 						puts(" ");
                     while(choice != 99)
 					{
-                        printf("1. Yes, I'll help  \n 2. Sorry old man, I'll come back later  \n");
+                        printf("1. Yes, I'll help  \n2. Sorry old man, I'll come back later  \n");
                         scanf("%d",&choice);
 
                         if(choice == 1)
@@ -518,31 +527,40 @@ void main(void)
 											Bank:
 											printf("AS you walk toward the entrance, a man hiding in a barrel next to the entrance peaks his head out.\n");
 											printf("He tells you \"One of MadDog's gang is in there! Be careful, he is armed! \"");
-											printf("You step into the bank, it looks abandon. However you do hear some noise. To the 'west' of you is the teller booth. 'North' of you is a door. You can also turn 'back'\n");
-											printf("Decision>");
+											printf("You step into the bank, it looks abandon. However you do hear some noise. To the '"GREEN"west"RESET"' of you is the teller booth. '"GREEN"North"RESET"' of you is a door. You can also turn '"GREEN"back"RESET"'\n");
+										while(*option != 'z')
+											{
+											printf(GREEN "Decision>" RESET);
 											scanf("%s", option);
+											
 											
 												if(strcasecmp(option, "west") == 0)
 												{
 													printf("You walk up to the teller booth. You try to see as much as you can but the secure bars are in the way. \n");
-													printf("'Shout' to the get a response or turn 'back'. \n");
-													printf("Decision>");
+													printf("'"GREEN"Shout"RESET"' to the get a response or turn '"GREEN"back"RESET"'. \n");
+												while(*option != 'z')
+												{
+													printf(GREEN "Decision>" RESET);
 													scanf("%s", option);
 														
 														if(strcasecmp(option, "shout") == 0)
 														{
 															printf("You shout \" Hey! who's back there? \" You get a response \" None of your damn business!\" You respond back saying \"I know what you're doing, now get out here and leave this town in peace\"\n");
 															printf("You hear the man respond \"That's it, you want to go? lets go! \" You hear foot steps coming closer and closer.\n");
-															printf("'Hide' immediately or 'pull' your gun out and get ready to tango?\n");
-															printf("Decision>");
+															printf("'"GREEN"Hide"RESET"' immediately or '"GREEN"pull"RESET"' your gun out and get ready to tango?\n");
+														while(*option != 'z')
+														{
+															printf(GREEN"Decision>" RESET);
 															scanf("%s", option);
 															
 															if(strcasecmp(option, "hide") == 0)
 															{
 																printf("You suddenly hear \" Oh we have a prankster do we? Okay funny guy, this will be your last laugh! \"\n");
 																printf("The foot steps sound like they are heading to the door. \n");
-																printf("The door is now opening. You can 'stay' there or 'shoot' as soon as the guy walks out \n");
-																printf("decision>");
+																printf("The door is now opening. You can '"GREEN"stay"RESET"' there or '"GREEN"shoot"RESET"' as soon as the guy walks out \n");
+															while(*option != 'z')
+															{
+																printf(GREEN "decision>" RESET);
 																scanf("%s", option);
 																
 																if(strcasecmp(option, "stay") == 0)
@@ -563,8 +581,10 @@ void main(void)
 																	printf("The man himself looks overweight, wearing a plaid red shirt, with black suspenders. \n");
 																	printf("He is wearing a cowboy hat and has a full goatee, basically he looks like a fat duck dynasty character. \n");
 																	printf("He's about to turn around, what's your move?");
-																	printf("You notice that one shot was your only ammo. You can 'hit' him with your gun or do 'nothing' \n");
-																	printf("Decision>");
+																	printf("You notice that one shot was your only ammo. You can '"GREEN"hit"RESET"' him with your gun or do '"GREEN"nothing"RESET"' \n");
+																while(*option != 'z')
+																{
+																	printf(GREEN "Decision>" RESET);
 																	scanf("%s", option);
 																	
 																	if(strcasecmp(option, "hit") == 0)
@@ -591,6 +611,8 @@ void main(void)
 																		exit(EXIT_SUCCESS);
 																	}
 																}
+																}
+															}
 															}
 															
 															else if(strcasecmp(option, "pull") == 0)
@@ -598,23 +620,30 @@ void main(void)
 																printf("You pull your gun, ready to shoot the man. \n");
 																printf("You see him behind the teller desk, he is overweight with a red plaid shirt with black suspenders. He's wearing a cowboy hat and his face have a full goatee. \n");
 																printf("He clearly sees you with a .44 magnum pointed at him. \"Go ahead!\" he says, \"you don't got the guts!\". It's up to you, this can turn ugly quick \n");
-																printf("You can 'shoot' the man or you can 'disarm' yourself \n");
-																puts("Decision>");
+																printf("You can '"GREEN"shoot"RESET"' the man or you can '"GREEN"disarm"RESET"' yourself \n");
+															while(*option != 'z')
+															{
+																puts(GREEN "Decision>" RESET);
 																scanf("%s", option);
 																
 																if(strcasecmp(option, "shoot") == 0)
 																{
 																	printf("You shoot the man,\" GODDAMN IT!\" he shouts. Only his hat is hit; you got a pretty bad shot. \n");
 																	printf("He seems really frustrated now and proceeded to run around to the door near you. \n");
-																	printf("It's up to you. You can 'hide' behind the door or just 'stand' there \n");
+																	printf("It's up to you. You can '"GREEN"hide"RESET"' behind the door or just '"GREEN"stand"RESET"' there \n");
+																while(*option != 'z')
+																{
+																	printf("Decision>");
 																	scanf("%s", option);
 																	
 																	if(strcasecmp(option, "hide") == 0)
 																	{
 																		printf("You suddenly hear \"You are about to meet your maker!\"\n");
 																		printf("The criminal is now out the door and right in front of you but his back turned. \n");
-																		printf("You can 'stay' there or 'hit' the man back of his head with your gun. \n");
-																		printf("decision>");
+																		printf("You can '"GREEN"stay"RESET"' there or '"GREEN"hit"RESET"' the man back of his head with your gun. \n");
+																	while(*option != 'z')
+																	{
+																		printf(GREEN "decision>" RESET);
 																		scanf("%s", option);
 																		
 																		if(strcasecmp(option, "hit") == 0)
@@ -625,7 +654,7 @@ void main(void)
 																			printf("The man awards you with 500 dollars. He then walks into the back room and notice a gun the ground. It as a double barreled side by side coach shot gun. Boy that would of spelled trouble if he pointed that at you!\n");
 																			printf("The guy explains that the jail cannot be opened. One of MadDog's gang members have the key. You better hurry and find out where it's at!");
 																			puts(" ");
-																			printf("--------- END OF THIS CHAPTER ---------\n");
+																			printf(GREEN "--------- END OF THIS CHAPTER ---------\n" RESET);
 																			FiveHundred = 1;
 																			chp1 = true;
 																			goto Menu;
@@ -635,9 +664,10 @@ void main(void)
 																		{
 																			printf("The man turned around and he has a shotgun pointed right at you. \" It's best you outta get out of here. it will turn ugly\" He tells you \n");
 																			printf("He's not wrong, you better get out of here and restart this chapter. Any further and your a dead man. \n");
-																			printf("-----------------------");
+																			printf("-----------------------\n");
 																			goto Menu;
 																		}
+																	}
 																	}
 																	
 																	else if(strcasecmp(option, "stand") == 0)
@@ -646,10 +676,11 @@ void main(void)
 																		printf("One of a kind. Too bad you didn't get to observe it for that long but you did get a taste of the bullets. \n");
 																		printf("Yea, you got the hint, you died. Why did you just stand there again? \n");
 																		printf("\n");
-																		puts("GAME OVER\n");
+																		puts(RED"GAME OVER\n"RESET);
 																		
 																		exit(EXIT_SUCCESS);
 																	}
+																}
 																}
 																
 																else if(strcasecmp(option, "disarm") == 0)
@@ -662,6 +693,8 @@ void main(void)
 																	goto Menu;
 																}
 															}
+															}
+														}
 						
 														}
 														else if(strcasecmp(option, "Back") == 0)
@@ -671,36 +704,45 @@ void main(void)
 															goto Bank;
 														}
 												}
+												}
 												
 												else if(strcasecmp(option, "north") == 0)
 												{
 													printf("You walk toward the door, you hear banging noises like someone is trying to break something");
-													printf("'Open' to open the door or turn 'back' around?\n");
-													printf("decision>");
+													printf("'"GREEN"Open"RESET"' to open the door or turn 'back' around?\n");
+												while(*option != 'z')
+												{
+													printf(GREEN "Decision>" RESET);
 													scanf("%s", option);
 													
 														if(strcasecmp(option, "Open") == 0)
 														{
 															printf("You slowly open the door. You see a overweight man with red plaid shirt and black suspenders.\n");
 															printf("He looks as if he is trying to break into a safe.\n");
-															printf("Should you 'shoot' the man or turn 'back' around?\n");
-															puts("decision>");
+															printf("Should you '"GREEN"shoot"RESET"' the man or turn '"GREEN"back"RESET"' around?\n");
+														while(*option != 'z')
+														{
+															puts(GREEN "Decision>" RESET);
 															scanf("%s", option);
 															
 															if(strcasecmp(option, "shoot") == 0)
 															{
-																printf("You shoot your gun and the man's hat flys off his head. \n");
+																printf("You shoot your gun and the man's hat flies off his head. \n");
 																printf("\"WHAT THE FU-\", the man shouts loudly. He seems to turning around. What do you do?\n");
-																printf("'Hide' behind the door or 'stay' where you are at?\n");
-																printf("Decision>");
+																printf("'"GREEN"Hide"RESET"' behind the door or '"GREEN"stay"RESET"' where you are at?\n");
+															while(*option != 'z')
+															{
+																printf(GREEN "Decision>" RESET);
 																scanf("%s", option);
 															
 																if(strcasecmp(option, "hide") == 0)
 																{
 																printf("You suddenly hear \"whoever that was, you are about to meet your maker!\"\n");
 																printf("The foot steps sound like they are heading to the door. The criminal is now out the door and right in front of you but his back turned. \n");
-																printf("You can 'stay' there or 'hit' the man back of his head with your gun. \n");
-																printf("decision>");
+																printf("You can '"GREEN"stay"RESET"' there or '"GREEN"hit"RESET"' the man back of his head with your gun. \n");
+															while(*option != 'z')
+															{
+																printf(GREEN "Decision>" RESET);
 																scanf("%s", option);
 																
 																	if(strcasecmp(option, "hit") == 0)
@@ -721,18 +763,32 @@ void main(void)
 																	{
 																		printf("The man turned around and he has a shotgun pointed right at you. \" It's best you outta get out of here. it will turn ugly\" He tells you \n");
 																		printf("He's not wrong, you better get out of here and restart this chapter. Any further and your a dead man. \n");
-																		printf("-----------------------");
+																		printf("-----------------------\n");
 																		goto Menu;
 																	}
+															}
+																}
+																else if(strcasecmp(option, "stay") == 0)
+																{
+																	printf("You decided to stay right where you are at. The door opens very fast. The man is now right in front of you.\n");
+																	printf("\"Boy it is best you outta leave now or you'll be sleeping six feet under the ground.\"\n");
+																	printf("Standing there wasn't a good idea. What is a good idea is trying this chapter again\n");
+																	printf("You are now returning to the main menu.\n");
+																	printf("---------------------------------------\n");
+																	
+																	goto Menu;
 																}
 															}
-																
-															else if(strcasecmp(option, "stay") == 0)
-															{
-																printf("You stand in place and just watch the fat guy in red plaid shit approach you with a double barreled shot gun in his hand. \n");
-																printf("He has the gun pointed at you and tells you \" it's best you outta get out of here, boy! \"\n");
-																printf("He's not wrong, you better get out of here and restart this chapter. Any further and your a dead man. \n");
 															}
+																
+															else if(strcasecmp(option, "back") == 0)
+															{
+																printf("You've turned around back\n");
+																printf("-------------------------\n");
+																
+																goto Bank;
+															}
+														}
 																
 														}
 														
@@ -743,6 +799,7 @@ void main(void)
 															goto Bank;
 															
 														}
+												}
 													
 												}
 												
@@ -750,12 +807,13 @@ void main(void)
 												{
 													goto Menu;
 												}
+											}
 								}
 								
 								if(choice == 1 && chp1 == true)
 								{
 									printf("THIS CHAPTER IS COMPLETE. CHOOSE ANOTHER CHAPTER. \n");
-									printf("------------------------------------------------- \n");
+									printf(GREEN "------------------------------------------------- \n" RESET);
 									goto Menu;
 								}
 						
@@ -763,16 +821,20 @@ void main(void)
 								{
 									printf("You walk into the Saloon, everyone stares at you like they've never seen a human \n");
 									puts("You walk toward the stools at the bar. A man with a bow tie and handle bar mustache approaches you and ask \"What will it be?\"");
-									puts("With no words to say, bartender just pours a shot of whiskey. Bartender then whispers to you \"those men to the left side playing cards are part of MadDog's gang. Keep an eye on them. They have the key to free the sheriff.\"");
+									puts("With no words to say, the bartender just pours a shot of whiskey. Bartender then whispers to you \"those men to the left side playing cards are part of MadDog's gang. Keep an eye on them. They have the key to free the sheriff.\"");
 									puts("\"HEY!\" One of the men on the left side of you shout, \" I ain't never seen you before, who are you? \" It's three men over to your left.");
 									printf("\n1. The name's %s, what's it to ya? \n2. None of your Goddamn business! \n3. Turn around back\n", name);
+									while(choice != 99)
+									{
 									scanf("%d", &choice);
 										
 										if(choice == 1 && FiveHundred == false)
 										{
 											printf("\"Well you better not be planning stealing the key to free the sheriff!\" The man in the middle yells.\n");
-											printf("You can say you are 'going' to do it or so 'what' if you are.\n");
-											printf("Decision>");
+											printf("You can say you are '"GREEN"going"RESET"' to do it or so '"GREEN"what"RESET"' if you are.\n");
+											while(*option != 'z')
+											{
+											printf(GREEN "Decision>" RESET);
 											scanf("%s", option);
 											
 											if(strcasecmp(option, "going") == 0)
@@ -790,17 +852,19 @@ void main(void)
 											{
 												printf("\"What if I am?\", you ask the man with his other crew. \n");
 												printf("\"Well I got the key!\" the man in the middle shouts at you while he jingle the keys in his left hand. \n");
-												printf("He's men around him seem to be smirking, they know you aren't getting the keys. \n");
-												printf("However you seem confident. You tell them \"Well we can do this the easy way... or the hard way \" \n");
+												printf("His men around him seem to be smirking; they know you aren't getting the keys. \n");
+												printf("However you are confident. You tell them \"Well we can do this the easy way... or the hard way \" \n");
 												printf("The minute you've said that, the three men got serious and got their hand on their holsters. \n");
 												
 												fight:
 												printf("\"Well it seems we'll be doing the hard way. Any last wishes?\", you got some guts, I'll tell you what. \n");
-												printf("This is a chance of random (numbers between 1 to 10 to be exact). If you take the challenge to face these men, you have a date with lady luck (sexy)\n");
+												printf("You are now in a shoot out. This is a chance of random (numbers between 1 to 10 to be exact). If you take the challenge to face these men, you better hope you got a date with lady luck (sexy)\n");
 												printf("BUT if you aren't lucky, it could be game over. You can 'take' the challenge or go 'back' to restart this chapter.\n");
-												printf("If your number lands a 1, 4, or 8. The rest will just reset will count as a miss. (NOTE: LOSING WILL END UP IN A GAME OVER!)\n");
-												printf("If you are up to it, just type 'take', if not just type 'back'. GOOD LUCK!\n");
-												printf("Decision>");
+												printf("If your number lands a 1, 4, or 8. The RESET will just reset will count as a miss. (NOTE: LOSING WILL END UP IN A GAME OVER!)\n");
+												printf("If you are up to it, just type '"GREEN"take"RESET"', if not just type '"GREEN"back"RESET"'. GOOD LUCK!\n");
+												while(*option != 'z')
+												{	
+												printf(GREEN "Decision>" RESET);
 												scanf("%s", option);
 												
 												if(strcasecmp(option, "take") == 0)
@@ -809,7 +873,7 @@ void main(void)
 													
 													int try=0,hit=0,need=0,left=0, miss=0;
 													
-													for(try = 4; try > 0; try--)
+													for(try = 5; try > 0; try--)
 													{
 														
 													take = rand() % 10 + 1;
@@ -835,7 +899,7 @@ void main(void)
 																	goto Menu;
 																}	
 															
-															printf("Type 'roll' to try again!\n");
+															printf("Type '"GREEN"roll"RESET"' to try again!\n");
 															scanf("%s", option);
 															
 														}
@@ -850,12 +914,12 @@ void main(void)
 																	printf("The shoot out didn't go in your favor. Bullets are flying left and right. Every bullet you had missed all three men. \n");
 																	printf("The whole saloon is now an entire battle royale. You aren't the gun slinger wizard as you thought you were. \n");
 																	printf("It's not easy to say this but you took more bullets than it took the tries. \n");
-																	printf("GAME OVER\n HINT: COMPLETING CHAPTER ONE WILL RESULT THIS CHAPTER DIFFERENTLY\n");
+																	printf(RED"GAME OVER\n"RESET"HINT: COMPLETING CHAPTER ONE WILL RESULT THIS CHAPTER DIFFERENTLY\n");
 																	
 																	exit(EXIT_SUCCESS);
 																}
 																	
-															printf("Type 'roll' to try again!\n");	
+															printf("Type '"GREEN"roll"RESET"' to try again!\n");	
 															scanf("%s", option);
 														}
 													
@@ -870,13 +934,17 @@ void main(void)
 													
 													goto Menu;
 												}
+												}
+											}
 											}
 										}
 										else if(choice == 1 && FiveHundred == true)
 											{
 												printf("\"Well you better not be planning stealing the key to free the sheriff!\" The man in the middle yells.\n");
-												printf("You can say you are 'going' to do it or so 'what' if you are.\n");
-												printf("Decision>");
+												printf("You can say you are '"GREEN"going"RESET"' to do it or so '"GREEN"what"RESET"' if you are.\n");
+												while(*option != 'z')
+												{	
+												printf(GREEN"Decision>"RESET);
 												scanf("%s", option);
 												
 												if(strcasecmp(option, "going") == 0)
@@ -897,24 +965,480 @@ void main(void)
 													
 													bribe:
 													printf("His men around him seem to be smirking, they know you aren't getting the keys. \n");
-													printf("However you are confident. You tell them \"Well I'll tell you what, we'll play a game. I'll take you on in a game of Vingt et Un for the key. \" \n");
-													printf("\"Yea? And what do you got to make such a bet?\", the man scoffs. From your pocket, you pull the five-hundred from your award. \n");
+													printf("However you are confident. You say to them, \"Well I'll tell you what, we'll play a game. I'll take you on in a game of Vingt et Un for the key. \" \n");
+													printf("\"Yea? And what do you got to make such a bet?\", the man scoffs. From your pocket, you pull the five-hundred dollars from your award. \n");
 													printf("All three men eyes widen. \"I win, the key is mine. If I lose, the money is yours.\"\n");
-													printf("They seem skeptical but the man in the middle looked he knows he'll win. He accepts the challenge.\n");
+													printf("They seem skeptical but the man in the middle looked as if he knows he'll win. He accepts the challenge.\n");
 													printf("--------------------------------------------------------------------------------------------------\n");
-													printf("The rules of Vingt et Un (BlackJack) is simple. You must beat the dealers hand by having the higher card. Dealer must hit till the dealer is matching or above seventeen.\n");
+													printf("The rules of Vingt et Un (BlackJack) is simple. You must beat the dealers hand by having the higher card value. Dealer must hit till the dealer's cards value are matching or above seventeen.\n");
 													printf("Your options will be: \n");
 													printf("'Hit' - To get cards \n'Stand' - Stay with the cards that drawn \n'Double' - Double your bet however you can only draw one card \n'Split'(If necessary) - Will spit your hand if the cards are even \n");
 													printf("----------------------------------------------------------------- \n");
 													printf("Additional information: \n");
-													printf("Your and the dealer's cards value must stay under twenty-one or you will bust! \n");
-													printf("If you are up to it, just type 'take', if not just type 'back'. GOOD LUCK!\n");
-													printf("Decision>");
+													printf("Your and the dealer's cards value must stay under twenty-one or you will bust! You must win three games to proceed. \n");
+													printf("If you are up to it, just type '"GREEN"take"RESET"', if not just type '"GREEN"back"RESET"'. GOOD LUCK!\n");
+													while(*option != 'z')
+													{	
+													printf(GREEN"Decision>"RESET);
 													scanf("%s", option);
+													
 													
 													if(strcasecmp(option, "take") == 0)
 													{
+														int PC1=0, PC2, PC3, COM1, COM2, COM3, left=0, i,j,PT, CT;
+														int win=0, lose=0;
+														int *ptr1, *ptr2, *ptr3, *ptr4, *whole;
+														
+														
+														int Deck1[13] = {1,2,3,4,5,6,7,8,9,10,10,10,10};
+														int Deck2[13] = {1,2,3,4,5,6,7,8,9,10,10,10,10};
+														int Deck3[13] = {1,2,3,4,5,6,7,8,9,10,10,10,10};
+														int Deck4[13] = {1,2,3,4,5,6,7,8,9,10,10,10,10};
+														
+														ptr1 = Deck1;
+														ptr2 = Deck2;
+														ptr3 = Deck3;
+							 							ptr4 = Deck4;
+														
+														shuffle(ptr1, ptr2, 13);
+														shuffle(ptr3, ptr4, 13);
+														shuffle(ptr2, ptr4, 13);
+														shuffle(ptr1, ptr3, 13);
+														shuffle(ptr3, ptr2, 13);
+														shuffle(ptr4, ptr1, 13);
+														
+														for(j = 5; j >= 0; j--)
+														{
 
+														i = (rand()% 13) + 1;
+														
+														PC1 = *(ptr3 + i);
+														PC2 = *(ptr4 + i);
+														COM1 = *(ptr2 + i);
+														COM2 = *(ptr3 + i);
+						
+														if(PC1 == 1 || PC2 == 1)
+														{
+															if(PC1 == 1 && PC2 != 1)
+															{
+																PC1 = PC1 + 10;
+															}
+															if(PC1 == 1 && PC1 != 1)
+															{
+																PC2 = PC2 + 10;
+															}
+															if(PC1 == 1 && PC2 == 1)
+															{
+																PC1 = PC1 + 10;
+															}
+														}	
+														
+														if(COM1 == 1 || COM2 == 1)
+														{
+															if(COM1 == 1 && COM2 == 10)
+															{
+																COM1 = COM1 + 10;
+																
+																printf("Dealer have a ace with a %d, dealer wins.. you have %d left", PC2,j);
+															}
+															if(COM2 == 1 && COM1 == 10)
+															{
+																COM2 = COM2 + 10;
+																printf("You have a ace with a %d, dealer wins.. you have %d left", PC2,j);
+															}
+															if(COM1 == 1 && COM2 != 1)
+															{
+																COM1 = COM1 + 10;
+															}
+															if(COM2 == 1 && COM1 != 1)
+															{
+																COM2 = COM2 + 10;
+															}
+															if(COM1 == 1 && COM2 == 1)
+															{
+																COM1 = COM1 + 10;
+															}
+															
+														}
+														PT = PC1 + PC2;
+														CT = COM1 + COM2;
+														printf("You are presented with %d and %d. A %d total card value. ", PC1, PC2, PT);
+														printf("Dealer has a %d faced up. \n", COM1);
+														
+														move:
+														printf("What is your move?\n");
+														printf(GREEN "Decision>" RESET);
+														scanf("%s", option);
+
+														
+														if(strcasecmp(option, "hit") == 0)
+														{
+															hit:
+															
+															i = rand()% 13;
+															
+															PC3 = *(ptr3 + i);
+															
+															PT = PT + PC3;
+															
+															if(PT > 21)
+															{
+																bust:
+																lose++;
+																printf("A %d card flips\n", PC3);
+																printf("Your cards values at %d. You busted, you lose this hand.\n", PT);
+																if(lose == 3)
+																{
+																	goto lost;
+																}
+																printf("Type '"GREEN" deal "RESET"' to continue. \n");
+																scanf("%s", option);
+
+															}
+															else if(PT == 21)
+															{
+																win++;
+																left = 3 - win;
+																printf("A %d card flip which makes your total cards value %d\n", PC3, PT);
+																printf("BLACKJACK! Congrats!\n");
+																printf("That's %d,%d to go!\n", win, left);
+																if(win == 3)
+																{
+																	goto winner;
+																}
+																printf("Type '"GREEN" deal "RESET"' to continue. \n");
+																scanf("%s", option);
+															}
+															else if(PT < 21)
+															{
+																printf("A %d card flips \n", PC3);
+																printf("Your new total is %d, what is your next move?\n", PT);
+																printf(GREEN "Decision>" RESET);
+																scanf("%s", option);
+
+																
+																	if(strcasecmp(option, "hit") == 0)
+																	{
+																		goto hit;
+																	}
+																	
+																	if(strcasecmp(option, "stand") == 0 || strcasecmp(option, "stay") == 0)
+																	{
+																		goto stand;
+																	}
+	
+															}
+															
+														}
+														
+														if(strcasecmp(option, "double") == 0)
+														{
+															
+															i = rand()% 13;
+															
+															PC3 = *(ptr4 + i);
+															
+															PT = PT + PC3;
+															
+															if(PT > 21)
+															{
+																goto bust;
+															}
+															else if(PT == 21)
+															{
+																win++;
+																left = win - 3;
+																printf("BLACKJACK! Congrats!\n");
+																printf("That's %d,%d to go!\n", win, left);
+																if(win == 3)
+																{
+																	goto winner;
+																}
+																printf("Type '"GREEN" deal "RESET"' to continue. \n");
+																scanf("%s", option);
+															}
+															else if (PT < 21)
+															{
+																printf("A %d card flips.", PC3);
+																printf("Your new total is %d", PT);
+																goto stand;
+															}
+														}
+														if(strcasecmp(option, "split") == 0)
+														{
+															if(PC1 != PC2)
+															{
+																printf("You cannot split your cards.\n");
+																goto move;
+															}
+															
+															if(PC1 == PC2)
+															{
+																i = rand()% 13;
+																
+																PC3 = *(ptr4 + i);
+																
+																int PT1 = PC1 + PC3;
+																
+																printf("You're first hand shows a %d and %d. Total card value of %d. What is your move?\n", PC1, PC3, PT1);
+																do
+																{	
+																	printf(GREEN"Decision>"RESET);
+																	scanf("%s", option);
+																	
+																	if(strcasecmp(option, "hit") == 0)
+																	{
+																	i = rand()% 13;
+																
+																	PC3 = *(ptr3 + i);
+																
+																	PT1 = PT1 + PC3;
+																	
+																	printf("Next card is a %d. Giving you %d total value.\n", PC3, PT1);
+																		if(PT1 > 21)
+																		{
+																			lose++;
+																			printf("A %d card flips\n", PC3);
+																			printf("Your cards values at %d. You busted, you lose this hand. You have %d tries left\n", PT, j);
+																			if(lose == 3)
+																			{
+																				goto lost;
+																			}
+																			printf("Type '"GREEN" stand "RESET"' to continue. \n");
+																			scanf("%s", option);
+																			continue;
+																		}
+																	}
+																}
+																while(!strcasecmp(option, "stand") == 0);
+																
+																i = rand()% 13;
+																
+																int PC4 = *(ptr4 + i);
+																
+																int PT2 = PC1 + PC4;
+																
+																printf("You're second hand shows a %d and %d. Total card value of %d. What is your move?\n", PC1, PC4, PT2);
+																do
+																{	
+																	printf(GREEN"Decision>"RESET);
+																	scanf("%s", option);
+																	
+																	if(strcasecmp(option, "hit") == 0)
+																	{
+																	i = rand()% 13;
+																
+																	PC4 = *(ptr3 + i);
+																
+																	PT2 = PT2 + PC4;
+																	
+																	printf("Next card is a %d. Giving you %d total value.\n", PC4, PT2);
+																	if(PT2 > 21)
+																		{
+																			lose++;
+																			printf("A %d card flips\n", PC3);
+																			printf("Your cards values at %d. You busted, you lose this hand.\n", PT);
+																			if(lose == 3)
+																			{
+																				goto lost;
+																			}
+																			printf("Type '"GREEN" continue "RESET"' to continue. \n");
+																			scanf("%s", option);
+																			continue;
+																		}
+																	}
+																}
+																while(!strcasecmp(option, "stand") == 0);
+																
+																printf("Dealer's cards are %d and %d. Total of %d card value.\n", COM1, COM2, CT);
+																
+																while(CT < 17)
+																{
+																	i = rand()% 13;
+																	
+																	COM3 = *(ptr3 + i);
+																	
+																	CT = CT + COM3;
+																	
+																	printf("Dealer hits a %d.\n", COM3);
+																	printf("Dealer has a %d in total.\n", CT);
+																	
+																}
+																if(CT > 21)
+																{
+																	win++;
+																	printf("Your first card present a total card value of %d. \n", PT);
+																	printf("Dealer presents a %d. Dealer bust, you win this hand!. \n", CT);
+																	printf("That's %d,%d to go!\n", win, left);
+																	if(win == 3)
+																	{
+																	  goto winner;
+																	}
+																	printf("Type '"GREEN" Deal "RESET"' to continue. \n");
+																	scanf("%s", option);
+																}
+																else if(CT > PT1)
+																{
+																	lose++;
+																	printf("Your first card present total card value of %d. \n", PT1);
+																	printf("Dealer wins this hand...\n");
+																	if(lose == 3)
+																	{
+																		goto lost;
+																	}
+																	
+																}
+																else if(PT1 > CT)
+																{
+																	win++;
+																	left = 3 - win;
+																	printf("Your first card present total card value of %d. \n", PT1);
+																	printf("Dealer presents a %d. You won this hand!\n", CT);
+																	if(win == 3)
+																	{
+																		goto winner;
+																	}
+																	printf("That's %d,%d to go!\n", win, left);
+
+																	
+																}
+																else if(PT1 == CT)
+																{
+																	j++;
+																	printf("You present total card value of %d. \n", PT1);
+																	printf("Dealer presents a %d. This is a push.\n", CT);
+																	
+																}
+																else if(CT > PT2)
+																{
+																	printf("Your first card present total card value of %d. \n", PT2);
+																	printf("Dealer wins this hand...\n");
+																	lose++;
+																	if(lose == 3)
+																	{
+																		goto lost;
+																	}
+																	printf("Type '"GREEN" deal "RESET"' to continue. \n");
+																	scanf("%s", option);
+																	
+																	
+																}
+																else if(PT2 > CT)
+																{
+																	win++;
+																	if(win == 3)
+																	{
+																		goto winner;
+																	}
+																	left = 3 - win;
+																	printf("You present total card value of %d. \n", PT2);
+																	printf("Dealer presents a %d. You won this hand!\n", CT);
+																	printf("That's %d,%d to go!\n", win, left);
+																	printf("Type '"GREEN" deal "RESET"' to continue. \n");
+																	scanf("%s", option);
+																	
+																	
+																}
+																else if(PT2 == CT)
+																{
+																	j++;
+																	printf("You present total card value of %d. \n", PT2);
+																	printf("Dealer presents a %d. This is a push. \n", CT);
+																	printf("Type '"GREEN" deal "RESET"' to continue. \n");
+																	scanf("%s", option);
+																}
+																
+																
+															}
+																	
+																	
+														}
+														
+														if(strcasecmp(option, "stand") == 0 || strcasecmp(option, "stay") == 0)
+														{
+							
+																stand:
+																printf("Dealer's cards are %d and %d. Total of %d card value.\n", COM1, COM2, CT);
+																
+																while(CT < 17)
+																{
+																	i = rand()% 13;
+																	
+																	COM3 = *(ptr3 + i);
+																	
+																	CT = CT + COM3;
+																	
+																	printf("Dealer hits a %d.\n", COM3);
+																	printf("Dealer has a %d in total.\n", CT);
+																	
+																}
+																if(CT > 21)
+																{
+																	win++;
+																	left = 3 - win;
+																	printf("You present a total card value of %d. \n", PT);
+																	printf("Dealer presents a %d. Dealer bust, you win this hand!. \n", CT);
+																	if(win == 3)
+																		{
+																			goto winner;
+																		}
+																	printf("That's %d,%d to go!\n", win, left);
+																	printf("Type '"GREEN" deal "RESET"' to continue. \n");
+																	scanf("%s", option);
+																}
+																else if(CT > PT)
+																{
+																	lose++;
+																	printf("You present total card value of %d. \n", PT);
+																	printf("Dealer presents a %d, dealer wins...\n", CT);
+																	if(lose == 3)
+																	{
+																		lost:
+																		printf("You've lost three times. It seems lady luck wasn't on your side.\n");
+																		printf("You can have another shot once we restart this chapter or you could take and alternate path\n");
+																		printf("You'll now go back to the menu\n");
+																		printf("-------------------------------\n");
+																		goto Menu;
+																	}
+																	
+																	printf("Type '"GREEN" deal "RESET"' to continue. \n");
+																	scanf("%s", option);
+																	
+																}
+																else if(PT > CT)
+																{
+																	win++;
+																	left = 3 - win;
+																	printf("You present total card value of %d. \n", PT);
+																	printf("Dealer presents a %d. You won this hand!\n", CT);
+																	printf("That's %d,%d to go!\n", win, left);
+																	if(win == 3)
+																		{
+																			winner:
+																			printf("You beat the man for the sheriff's key. \"Well if you still think I'm giving it, forget it!\" the man assertively tells you.\n");
+																			printf("\"Just hand 'em the key! The stranger won fair and square!\" the man on the left shouts at the man you beat.\n");
+																			printf("With a mad grin on his face, the man you beat puts the key on the table. All three out laws start walking out the bar but before they walk out, you shout \"hey!\".\n");
+																			printf("As they turn, you toss three-hundred of your money toward the men. That's more than half of your award! \"I don't need this much, you men take it and clean yourself up. Don't worry, I will never rat ya'll wrongful doings.\", you tell the men.\n");
+																			printf("With all three men in shocking in despair, one of them thanks you. Your great generosity will certainly keep those men out of town. Now lets get the sheriff out of jail and put an end to MadDog for good!\n");
+																			printf("--------- END OF THIS CHAPTER ---------\n");
+																			key = true;
+																			chp2 = true;
+																			goto Menu;
+																		}
+																	printf("Type '"GREEN" deal "RESET"' to continue. \n");
+																	scanf("%s", option);
+							
+																}
+																else if(PT == CT)
+																{
+																	j++;
+																	printf("You present total card value of %d. \n", PT);
+																	printf("Dealer presents a %d. This is a push.\n", CT);
+																	printf("Type '"GREEN" deal "RESET"' to continue. \n");
+																	scanf("%s", option);
+																}
+														}
+														}
 													}
 													
 													else if(strcasecmp(option, "back") == 0)
@@ -924,10 +1448,11 @@ void main(void)
 														
 														goto Menu;
 													}
+													}
 												
 												}
 
-												
+												}
 												
 												
 											}
@@ -936,8 +1461,10 @@ void main(void)
 										{
 											printf("\"Want to say that again?!\" The man yells as he's reaching for his gun\n");
 											printf("\"I would outta apologize if I was you!\"\n");
-											printf("You can 'apologize' or stay 'silent'. The choice is yours.\n");
-											printf("Decision>");
+											printf("You can '"GREEN"apologize"RESET"' or stay '"GREEN"silent"RESET"'. The choice is yours.\n");
+											while(*option != 'z')
+											{
+											printf(GREEN"Decision>"RESET);
 											scanf("%s", option);
 											
 											if(strcasecmp(option, "apologize") == 0)
@@ -957,9 +1484,9 @@ void main(void)
 												printf("\"Hey, did you hear what I said?? You better apologize!\", the man shouts at you. \n");
 												printf("He seems to be getting agrivated. You may find yourself in a gun fight.\n");
 												printf("\"Hey boy! If you don't apologize now, I'll make you apologize!\" This is it! You are in big troulbe now!\n");
-												printf("You can still get yourself out of this, that five-hundred you got can be handy. type 'bribe' to cool things down\n");
-												printf("type 'pull' to fight this guy or type 'back' to go back to the menu.\n");
-												printf("Decision>");
+												printf("You can still get yourself out of this, that five-hundred you got can be handy. type '"GREEN"bribe"RESET"' to cool things down\n");
+												printf("type '"GREEN"pull"RESET"' to fight this guy or type '"GREEN"back"RESET"' to go back to the menu.\n");
+												printf(GREEN"Decision>"RESET);
 												scanf("%s", option);
 												
 												if(strcasecmp(option, "bribe") == 0)
@@ -980,6 +1507,7 @@ void main(void)
 													goto Menu;
 												}
 											}
+											}
 										}
 										
 										else if(choice == 2 && FiveHundred == false)
@@ -987,8 +1515,10 @@ void main(void)
 											printf("\"Want to say that again?!\" The man yells as he's reaching for his gun\n");
 											printf("\"I would outta apologize if I was you!\"\n");
 											printf("You do not have anything but your gun to back yourself. You can tango with this guy or go back. \n");
-											printf("Type 'fight' to get yourself in a gun fight or 'back' to try this again. \n");
-											printf("Decision>");
+											printf("Type '"GREEN"fight"RESET"' to get yourself in a gun fight or '"GREEN"back"RESET"' to try this again. \n");
+											while(*option != 'z')
+											{	
+											printf(GREEN"Decision>"RESET);
 											scanf("%s", option);
 											
 											if(strcasecmp(option, "fight") == 0)
@@ -1003,6 +1533,7 @@ void main(void)
 												
 												goto Menu;
 											}
+											}
 										}
 										else if(choice == 3);
 										{
@@ -1010,7 +1541,7 @@ void main(void)
 											printf("------------------------\n");
 											goto Menu;
 										}
-									
+									}
 								}
 								if(choice == 2 && chp2 == true)
 								{
@@ -1039,10 +1570,10 @@ void main(void)
 									printf("\"Boy, am I glade to hear that!\" the sheriff tells you.\"You see, MadDog and his gang out number me and my deputies. They completely over ran us. \nYou got to let me out and stop this shenanigans. Do you have the keys to the cells?\"\n");
 									printf("You pull the jail keys from your pocket. As you release the sheriff, you hear a click but it isn't a the jail unlocking, it's the sound of a revolver being ready to shoot.\n");
 									printf("You turn to the left of you and see a pretty build man in a brown vest with a long brown jacket with brown pants. He has the revolver pointed at you\n");
-									printf("\"Okay stranger, jump the keys and no one gets hurt\", the man tells you. Should you 'drop' it or 'go' for your gun?\n");
+									printf("\"Okay stranger, jump the keys and no one gets hurt\", the man tells you. Should you '"GREEN"drop"RESET"' it or '"GREEN"go"RESET"' for your gun?\n");
 									while(*option != 'z')
 									{
-									printf("Decision>");
+									printf(GREEN"Decision>"RESET);
 									scanf("%s", option);
 									
 									
@@ -1051,10 +1582,10 @@ void main(void)
 											printf("\"That's right fellar,\" the man tells you, \"drop the keys and move back, don't do anything stupid\"\n");
 											printf("As soon as the man grabbed the keys from the lock, the sheriff grabbed the outlaws wrist\n");
 											printf("The outlaw's left hand which is holding the gun is going over to the sheriff. This is a wise decision, what should you do?\n");
-											printf("Pull your gun and 'shoot' the man or try to throw a 'punch'?\n");
+											printf("Pull your gun and '"GREEN"shoot"RESET"' the man or try to throw a '"GREEN"punch"RESET"'?\n");
 											while(*option != 'z')
 											{
-											printf("Decision>");
+											printf(GREEN"Decision>"RESET);
 											scanf("%s", option);
 											
 												if(strcasecmp(option, "shoot") == 0)
@@ -1111,13 +1642,190 @@ void main(void)
 									
 								if(choice == 4 && sheriff == false)
 								{
-									printf("You walk into the Post Office. A fine lady walks to the front counter. Though don't she isn't like any other lady. She is dressed like the rest of the cowboys.\n");
+									printf("You walk into the Post Office. A fine lady walks to the front counter. Though she isn't like any other lady. She is dressed like the rest of the cowboys.\n");
+									printf("\"How can I help you darling?\" The lady ask you. You ask her about MadDog and his whereabouts. She seems slightly distraught when you asked that question but she answers,\"I know his gang is controlling town but I don't know where he is.\"\n");
+									printf("She isn't giving much information, there isn't much to do here. She ask you \"listen sugar, if I see him, I'll report to you immediately\", the way she said that sounds dishonest but it's all you got.\n");
+									printf("We may need someone who has more information. You will now return to the main menu. \n");
+									printf("----------------------------------------------------------------------------------- \n");
 									
 									goto Menu;
 								}
 								
 								if(choice == 4 && sheriff == true)
 								{
+									printf("You walk into the Post Office. A fine lady walks to the front counter. Though she isn't like any other lady. She is dressed like the rest of the cowboys.\n");
+									printf("\"How can I help you darling?\" The lady ask you. You ask her about MadDog and his whereabouts. She seems slightly distraught when you asked that question but she answers,\"I know his gang is controlling town but I don't know where he is.\"\n");
+									printf("She isn't giving much information. \"Perhaps you do, Mrs. Logan\", sheriff Moore says as he walks into the Post Office. \"Now ma'am, stop playing these charades and tell use where Clayton 'MadDog' Logan is at.\" Moore says assertively.\n");
+									printf("Ms. Logan is now very distraught, she tells sheriff Moore \"I have no idea what you're talking about. This is an outrage, what gives you authority to just start questioning things like this?\"\n");
+									printf("\"You see, I'm the sheriff of this town. My partner, %s, got me out of the jail that YOUR husband locked me in. He also cleaned out the town from MadDog's hooligans. Now Mandy Logan, please, tell us where MadDog is!\"\n", name);
+									printf("She is very furious now, she yells \"what makes you think I'm gonna rat my husband out? We still have control of the town, you have to do better then that officer!\"\n");
+									printf("As she says that, she pulls out a gun, a Sharps Rifle and points it right at the sheriff.\n");
+									while(*option != 'z')
+									{
+									printf("You can '"GREEN"reach"RESET"'for the gun or '"GREEN"attack"RESET"' the wroman. The choice is yours");
+									printf(GREEN"Decision>"RESET);
+									
+										if(strcasecmp(option, "hit") == 0)
+										{
+											printf("You reach for the gun and pushed the barrel away from the officer just as soon as she made her shot.\n");
+											printf("\"What the hell was that?!\" you hear a distinct voice heard from another room \"That's it you've guys done it now.\" Mandy try blaming you two.\n");
+											printf("A man with long neck length black hair, a dark cowboy hat, brown vest and red tie with a dark long jacket wearing brown jeans steps into the Post Office lobby\n");
+											printf("He is surprise to see sheriff Moore standing right in front of him. \"What in the world is going on? How did you get out??\"\n");
+											printf("\"This guy has been causing trouble around town, hun. He chased our men and let the sheriff out of jail\" Mandy said about you.\n");
+											printf("MadDog is very frustrated. He immediately pulls his pistol and says \"come on, babe, lets have good ole fun. Lets finish these two!\"\n");
+											printf("You found yourself in a shoot out. Stakes are high, you must roll 3 or better. It is best out of 3. You win twice, MadDog is done, you lose twice you are done. \n");
+											printf("Type '"GREEN"ready"RESET"' if you are ready to end MadDog's wrongful doings\n");
+											printf(GREEN"Decision>"RESET);
+											scanf("%s", option);
+
+											while(*option != 'z')
+											{
+												if(strcasecmp(option, "ready") == 0)
+												{
+													int try=0,hit=0,need=0,left=0, miss=0;
+													
+													for(try = 5; try > 0; try--)
+													{
+														
+													take = rand() % 6 + 1;
+													
+														if(take >= 3)
+														{
+															hit++;
+															
+															need = 2 - hit;
+															
+															printf("You've rolled at %d, it's a hit! That's %d, %d to go!\n",take, hit, need);
+															
+															if(hit == 2)
+																{
+																	printf("You've won the shoot out. You and the officer shot both of Mandy and Clayton guns out of their hands. \n");
+																	printf("Even if they pick up their guns, they are out of ammo both outlaws have no choice but to flee.\n");
+																	printf("MadDog and his wife run to the back of the Post Office through to the back door. You and sheriff Moore chase after them.\n");
+																	printf("Out in the back door, there are two horses which MadDog and Mandy jump on receptively\n");
+																	printf("\"You listen to me, buddy!\" MadDog shouts at you,\"This isn't over! You haven't heard the last of MadDog!\" Both Mandy and Clayton ride off fast. \n");
+																	printf("\"Let 'em go\" sheriff Moore tells you. \"They'll meet their maker one day. They can't always run forever. You were brave, son. Tell me, where are going to go now?\"\n");
+																	printf("\"I'm going home,back into that same portal that brought me here in the first place!\"\n");
+																	printf("MadDog wasn't wrong about saying he's going to see you again. You actually received a letter from Western Union... somehow on your computer.\n");
+																	printf("To see it just type '"GREEN"cat MadDog.txt"RESET"'\n");
+																	printf("--------- THE END ---------\n");
+																	wptr = fopen(FILE_NAME, "w");
+																	fclose(wptr);
+																	fprintf(wptr, "Hey %s!\n\nThis is Clayton 'MadDog' Logan. Don't worry about how I send this letter from the past to you.\nThat's the least of your concern.\nI am sending this to you to remind you that you haven't seen the last of me!\n\n\nYour pal,\nMadDog\n", name);
+																	
+																	exit(EXIT_SUCCESS);
+																}	
+															
+															printf("Type '"GREEN"roll"RESET"' to try again!\n");
+															scanf("%s", option);
+															
+														}
+														else
+														{
+															miss++;
+															
+															printf("You've rolled a %d, that's a miss... \n", take);
+															
+															if(miss == 2)
+																{
+																	printf("The shoot out didn't go in your favor. \n");
+																	printf("You and the sheriff ran out of ammo. Soon you both found yourselves in quite the pickle. \n");
+																	printf("I would tell you what happens next but lets keep the violence at PG-13. \n");
+																	printf(RED"GAME OVER\n"RESET);
+																	
+																	exit(EXIT_SUCCESS);
+																}
+																	
+															printf("Type '"GREEN"roll"RESET"' to try again!\n");	
+															scanf("%s", option);
+														}
+													
+													}
+												}
+											}
+										}
+										
+										else if(strcasecmp(option, "nothing") == 0);
+										{
+											printf("You've tried attacking the woman by charging her over the counter but it's too late.\n");
+											printf("The sheriff has been shot, he is laying on the ground wounded. \n");
+											printf("\"What the hell was that?!\" you hear a distinct voice heard from another room \"That's it you've guys done it now.\" Mandy try blaming you two.\n");
+											printf("A man with long neck length black hair, a dark cowboy hat, brown vest and red tie with a dark long jacket wearing brown jeans steps into the Post Office lobby\n");
+											printf("He is surprise to see sheriff Moor laying on the ground. \"What in the world is going on? How did he get out??\"\n");
+											printf("\"This guy has been causing trouble around town, hun. He chased our men and let the sheriff out of jail\" Mandy said about you.\n");
+											printf("MadDog is very frustrated. He immediately pulls his pistol and says \"come on, babe, lets have good ole fun. Lets finish these asshole!\"\n");
+											printf("You found yourself in a shoot out. Stakes are high, you must roll 5 or better. It is best out of 3. You win twice, MadDog is done, you lose twice you are done. \n");
+											printf("Type '"GREEN"ready"RESET"' if you are ready to end MadDog's wrongful doings\n");
+											while(*option != 'z')
+											{	
+											printf(GREEN"Decision>"RESET);
+											scanf("%s", option);
+											
+											if(strcasecmp(option, "ready") == 0)
+												{
+													int try=0,hit=0,need=0,left=0, miss=0;
+													
+													for(try = 4; try > 0; try--)
+													{
+														
+													take = rand() % 6 + 1;
+													
+														if(take >= 3)
+														{
+															hit++;
+															
+															need = 2 - hit;
+															
+															printf("You've rolled at %d, it's a hit! That's %d, %d to go!\n",take, hit, need);
+															
+															if(hit == 2)
+																{
+																	printf("You've won the shoot out. You shot both of Mandy and Clayton guns out of their hands. \n");
+																	printf("Even if they pick up their guns, they are out of ammo both outlaws have no choice but to flee.\n");
+																	printf("MadDog and his wife run to the back of the Post Office through to the back door. You chase after them.\n");
+																	printf("Out the back door, there are two horses which MadDog and Mandy jump on receptively\n");
+																	printf("\"You listen to me, buddy!\" MadDog shouts at you,\"This isn't over! You haven't heard the last of MadDog!\" Both Mandy and Clayton ride off fast. \n");
+																	printf("\"Let 'em go\" sheriff Moore tells you. To your surprise, you are happy to see sheriff survive the shot. \"They'll meet their maker one day. They can't always run forever. You were brave, son. Tell me, where are going to go now?\"\n");
+																	printf("\"I'm going home,back into that same portal that brought me here in the first place!\"\n");
+																	printf("MadDog wasn't wrong about saying he's going to see you again. You actually received a letter from Western Union... somehow on your computer.\n");
+																	printf("To see it just type '"GREEN"cat MadDog.txt"RESET"'\n");
+																	printf("--------- THE END ---------\n");
+																	
+																	wptr = fopen(FILE_NAME, "w");
+																	fprintf(wptr, "Hey %s!\n\nThis is Clayton 'MadDog' Logan. Don't worry about how I send this letter from the past to you.\nThat's the least of your concern.\nI am sending this to you to remind you that you haven't seen the last of me!\n\n\nYour pal,\nMadDog\n", name);
+																	fclose(wptr);
+																	exit(EXIT_SUCCESS);
+																}	
+															
+															printf("Type '"GREEN"roll"RESET"' to try again!\n");
+															scanf("%s", option);
+															
+														}
+														else
+														{
+															miss++;
+															
+															printf("You've rolled a %d, that's a miss... \n", take);
+															
+															if(miss == 2)
+																{
+																	printf("The shoot out didn't go in your favor. \n");
+																	printf("You ran out of ammo. With the sheriff down, there is no one to help you. \n");
+																	printf("I would tell you what happens next but lets keep the violence at PG-13. \n");
+																	printf(RED"GAME OVER\n"RESET);
+																	
+																	exit(EXIT_SUCCESS);
+																}
+																	
+															printf("Type '"GREEN"roll"RESET"' to try again!\n");	
+															scanf("%s", option);
+														}
+													
+													}
+												}
+											}
+										}
+									}
 								}
 						}
 								
@@ -2028,7 +2736,34 @@ int rando(void)
 	int r = (rand() % 4) + 1;
 	return r;
 }
+void shuffle(int *a, int *b, int SIZE)
+{
+	int i;
+	int hold;
+	for(i = 0; i < SIZE; i++)
+	{
+		hold = *(b + i);
+		*(b + i) = *(a + i + 1);
+		*(a + i + 1) = hold;
+	}
+}
 
+void combine(int *a, int *b, int *c, int *d, int *all)
+{
+	int i;
+	int j;
+	int k;
+	int l;
+	int m;
+	
+	for(i = 0; i < 52; i++)
+	{
+		all[j++] = a[i++];
+		all[k++] = b[i++];
+		all[l++] = c[i++];
+		all[m++] = d[i++];
+	}
+}
 
 int room12Spells(int *hp, int enDam)	//spell chanting
 {
