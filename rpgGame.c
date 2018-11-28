@@ -56,7 +56,10 @@ void main(void)
                 {
                     while(choice != 99)
                     {
-                      puts("You open the door and you quickly turn arround to find the door quickly disappearing behind you.");
+                        char ch;
+                        char hostname[256];
+                        FILE *fp;
+                        puts("You open the door and you quickly turn arround to find the door quickly disappearing behind you.");
                         puts("In front of you, you now notice a long hallway leading to a room that is completely white.");
                         puts("At this point you have two choices.");
                         puts("1. Walk down the dark hallway.");
@@ -68,7 +71,7 @@ void main(void)
                             puts("As you walk, you notice that the room is actually a lot brighter than you thought it was.");
                             puts("You now are inside the white room and it looks like a office cubicle.");
                             puts("In the far right corner you see a old computer");
-                            sleep(4);
+                            sleep(2);
                             puts("[  675.362959] Kernel panic - not syncing: Watchdog detected hard LOCKUP on cpu 8");
                             puts("[  675.363355] Pid: 3457, comm: lve_tag_thread veid: 0 Not tainted 2.6.32-673.8.1.lve1.4.3.el6.x86_64 #1");
                             puts("[  675.363748] Call Trace:");
@@ -170,11 +173,54 @@ void main(void)
                             puts("[  239.402273] [<801614e0>] (cpu_startup_entry) from [<8010df50>] (secondary_start_kernel+0x130/0x13c)");
                             puts("[  239.411448] [<8010df50>] (secondary_start_kernel) from [<0010196c>] (0x10196c)");
                             puts("[  239.418781] ---[ end Kernel panic - not syncing: Attempted to kill init! exitcode=0x0000000b");
-                            sleep(4);
+                            sleep(3);
                             system("clear");
                             puts("they're watching.");
+
+                            // Get real name and declare it to hostname
+                            fp = popen("whoami", "r");
+                            if(fp == NULL)
+                            {
+                                puts("error in popen (whoami). exiting");
+                                exit(0);
+                            }
+                            printf("%s", hostname);
+                            pclose(fp);
+
                             sleep(2);
-                            puts("Press Control + c to exit.");
+                            system("clear");
+                            printf("Please confirm your name is %s (Y/N)", name);
+                            scanf(" %c", &ch);
+                            while(tolower(ch) != 'y' && tolower(ch) != 'n')
+                            {
+                                puts("invalid input");
+                                printf("Please confirm your name is %s (Y/N)", name);
+                            }
+                            if(tolower(ch == 'n'))
+                            {
+                                puts("Oh, then what is your name?");
+                            }
+                            if(tolower(ch == 'y'))
+                            {
+                                printf("No, ");
+                                // Get Hostname and print it
+                                fp = popen("whoami", "r");
+                                if(fp == NULL)
+                                {
+                                    puts("error in popen (whoami). exiting");
+                                    exit(0);
+                                }
+                                fgets(hostname, 256, fp);
+                                hostname[strlen(hostname)-1]='\0';
+                                printf("%s", hostname);
+
+                                pclose(fp);
+                                puts(" why would you lie?");
+                                sleep(2);
+                                puts("1. How did you ");
+                            }
+
+                            //puts("Press Control + c to exit.");
                             for( ;; )
                             {
 
