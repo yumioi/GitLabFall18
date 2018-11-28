@@ -25,7 +25,11 @@ int room12Spells(int *hp, int enDam);
 
 void main(void)
 {
+
     int x,y,z,i,h,g,k,choice=0,pin=0;
+
+  
+
     char name[256];
     int boxNum=0;
     int num = 6, guess= 0, a;
@@ -1161,6 +1165,7 @@ void main(void)
                     }
                     break;
                 }
+
             case 11: 
                     {
                         while(choice != 99)
@@ -1271,6 +1276,7 @@ void main(void)
                             }
                         }
 }
+
             case 12:	//room 12 overhall
 		{
 			puts("you open the door and find a machine that proceeds to teleport you to a distant facility");
