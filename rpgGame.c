@@ -30,7 +30,12 @@ int usleep(suseconds_t usec);
 int rando(void);
 int room12Spells(int *hp, int enDam);
 void printUpper(char *arr, int size);
+
+void writeAnswers(void);
+int checkAnswers(int *ptr);
+
 int RolltheDiceman(void);
+
 
 void main(void)
 {
@@ -3260,34 +3265,155 @@ void main(void)
                 }
             case 17:
                 {
-                    //modyfied November 7, 2018
-                    puts("You open the door and find.......");
-                    puts("A poorly lit room with a single box on the floor...");
+                    int cor = 0;
+			int *p;
+			int chances = 3;
+			int guess = 0;
+			int choice = 0;
+			int magicNum = rand()%16;
+			int scaleWeight = rand()%50;
+			int totWeight = 0;
 
-                    while(choice != 99)
-                    {
+			int correctSlots[2] = {magicNum, scaleWeight};
+
+			p = correctSlots;
+
+
+		    puts("You open the door and walk in to find");
+		    puts("a dark room with a dim spotlight on a machine at the end of the room");
+		    puts("The door locks behind you...");
 
 
 
-                        puts("1.Inspect the box");
-                        puts("2.Flick the light switch");
-                        scanf("%d",&choice);
-                        if(choice == 1)
-                        {
-                            puts("You pick up the box and look inside....");
-                            puts("There is nothing inside...");
-                            puts("You are highly disappointed and your day is ruined");
-                        }
-                        else if(choice ==2)
-                        {
-                            puts("You flick the light switch and hear a scream from the box");
-                            puts(" Turn off the light ");
-                        }
-                        else
-                        {
-                            puts("You walk away...");
-                        }
-                    }
+		    printf("MN: %d\n", magicNum );
+		    printf("SW: %d\n", scaleWeight );
+
+		    while(choice != 99)
+		    {
+
+		            puts("1. Approach spotlight");
+		            puts("2. Guess number");
+		            puts("3. Balance Scale");
+		            puts("4. Write down the answers");
+		            puts("5. Check Answers");
+		            puts("Enter 99 to quit");
+
+		            scanf("%d",&choice);
+
+		            switch(choice)
+		            {
+		                case 1:
+
+		                    puts("There are 2 slots on the wall");
+		                    puts("There is something written on the wall..");
+		                    puts("ANSWER THE EACH QUESTION CORRECTLY AND BECOME CLOSER TO ESCAPING WITH YOUR LIFE!");
+		                    puts("1. GUESS THE MAGIC NUMBER BETWEEN 0 - 16");
+		                    puts("2. BALANCE THE SCALE");
+		                    puts("ENTER YOUR ANSWERS IN THE MACHINE AND PRAY YOU ARE CORRECT...");
+
+
+		                    break;
+		                case 2:
+		                    printf("You have %d chances", chances );
+		                    puts("Enter your guess: ");
+		                    scanf("%d",&guess);
+
+		                    if(guess == magicNum)
+		                    {
+		                        puts("YOU ARE CLOSER");
+		                    }
+
+		                        if(guess > magicNum)
+		                        {
+		                            puts("Lower");
+		                        }
+		                        else if(guess < magicNum){
+		                            puts("Higher");
+		                        }
+
+		                    break;
+		                case 3:
+		                        choice =0;
+
+		                        while(choice != 3)
+		                        {
+		                            puts("1. Add rocks to scale");
+		                            puts("2. Remove rocks from scale");
+		                            puts("3. Done with scale");
+		                            scanf("%d", &choice);
+
+		                            switch(choice)
+		                            {
+		                                case 1:
+		                                    puts("How many rocks to add: ");
+		                                    scanf("%d", &guess);
+
+		                                    totWeight += guess;
+
+		                                    if(totWeight > scaleWeight)
+		                                    {
+		                                        puts("LESS WEIGHT");
+		                                    }
+		                                    else if(totWeight < scaleWeight)
+		                                    {
+		                                        puts("MORE WEIGHT");
+		                                    }
+		                                    else if(totWeight == scaleWeight)
+		                                    {
+		                                        puts("YOU ARE CLOSER!");
+		                                    }
+
+
+		                                    break;
+		                                case 2:
+		                                    puts("How many rocks to remove: ");
+		                                    scanf("%d", &guess);
+		                                    totWeight -= guess;
+
+		                                    if(totWeight < 0)
+		                                    {
+		                                        puts("MORE WEIGHT");
+		                                        totWeight = 0;
+		                                    }
+		                                    else if(totWeight > scaleWeight)
+		                                    {
+		                                        puts("LESS WEIGHT");
+		                                    }
+		                                    else if(totWeight == scaleWeight)
+		                                    {
+		                                        puts("YOU ARE CLOSER!");
+		                                    }
+
+		                                    break;
+
+		                                default:
+		                                    break;
+
+
+		                            }
+
+		                        }
+
+		                    break;
+		                case 4:
+		                    writeAnswers();
+		                    break;
+		                case 5:
+		                    cor = checkAnswers(p);
+
+		                    if(cor == 2)
+		                    {
+		                        puts("YOU MAY LIVE");
+		                    }
+		                    else("You are INCORRCET...The walls begin to close in...RIP");
+		                    break;
+		                default :
+		                         puts("The walls begin to close in...RIP");
+		                    break;
+		            }
+
+
+		    }
                     break;
                 }
             case 18:
@@ -3813,7 +3939,62 @@ int room12Spells(int *hp, int enDam)	//spell chanting
 	}
 	return 0;		//failed spell
 }
+void writeAnswers()
+{
+    int input = 0;
+	FILE *wptr;
 
+    wptr = fopen("output.txt", "w");
+
+
+        puts("Enter the magicNumber: ");
+        scanf("%d", &input);
+
+        fprintf(wptr, "%d\n", input);
+
+        puts("Enter the weight Balance: ");
+        scanf("%d", &input);
+
+        fprintf(wptr, "%d\n", input);
+
+	fclose(wptr);
+}
+
+
+int checkAnswers(int *ptr)
+{
+    FILE *rptr;
+    int i;
+	int ptrInt = 0;
+	int correct = 0;
+
+	if((rptr = fopen("output.txt", "r")) == NULL)
+	{
+		puts("File could not be opened");
+	}
+	else
+    {
+        while(!feof(rptr))
+		{
+            fscanf(rptr, "%d", ptrInt);
+
+            for(i = 0; i < 2; i++)
+            {
+                if(ptrInt == *ptr)
+                {
+                    correct++;
+                    ptr++;
+                }
+            }
+			//compare reader with ptr
+
+		}
+    }
+    rewind(rptr);
+    fclose(rptr);
+    return correct;
+
+}
 void printUpper(char *arr, int size)
 {
 	int i;
