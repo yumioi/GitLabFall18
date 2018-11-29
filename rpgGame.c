@@ -96,15 +96,101 @@ void main(void)
                     }
                     break;
                 }
-            case 3:
+             case 3:
                 {
-                    while(choice != 99)
-                    {
-                        puts("you open the door and find ........");
-                        scanf("%d",&choice);
-                    }
-                    break;
-                }
+                	int playerHp = 10;
+			int playerInv[10];
+			int playerGold = 0;
+			int hitChance = 0;
+			while(choice != 99)
+			{
+				puts("You open the door and find some strange looking creatures. ");
+				puts("The creatures look like walking cactuses. One of them appears to have a flower on it's head. They see you but do nothing. ");
+				puts("The cactus creatures wiggle their bodies, as if they are dancing. They look harmless, but you feel as though they are looking at you menacing. ");
+				puts("You also notice a treasure chest not too far away from the creatures, completely unguarded.\n");
+				puts("You have three choices:\n");
+				puts("1. Interact with the cactuses creatures.\n");
+				puts("2. Go and open the treasure chest.\n");
+				puts("3. Continue to the next room.\n");
+				scanf("%d",&choice);
+				if(choice == 1)
+				{
+					puts("You approach the cactus creatures cautiously. The creatures notice your presense again and circle around you. ");
+					puts("Their constant wiggling makes you dance with them. What do you want to do?");
+					puts("1. Dance with them. \n");
+					puts("2. Attack them. \n");
+					scanf("%d",&choice);
+					if(choice == 1)
+					{
+						puts("You move your body just like the cactus creatures. They seem happy that you decided to dance with them.");
+						puts("One of them offers you a flower. You take the nice gift.");
+						puts("You got the Cactus Flower!");
+						playerInv[0] = 1;
+						puts("The cactus creatures wave good bye as you leave the room.\n");
+					}
+					else if(choice == 2)
+					{
+						puts("You try to attack the cactus creatures. Surprisingly, they nimbly avoid your attacks.");
+						puts("The cactus creatures point their arms toward you and suddenly shoot their thorns at you!");
+						puts("You try to dodge, but you lose your balance and get hit!");
+						x = (rand() % 9) + 1;
+						printf("You take %d damage!",x);
+						puts("You run out of the room covered in cactus thorns.\n");
+					}
+					else if(choice == 2)
+					{
+						puts("You ignore the creatures and head toward the treasure chest.");
+						x = (rand() % 100) + 1;
+						playerGold = x;
+						printf("You open it and find %d gold inside! You put the gold into your bag.",playerGold);
+						puts("You hear something hit the top of the chest and notice cactus thorns have pierced the chest.");
+						puts("The cactus creatures have fired their thorns at you and readying to fire again! What do you do?");
+						puts("1. Run away!");
+						puts("2. Fight back!");
+						scanf("%d",&choice);
+						if(choice == 1)
+						{
+							puts("You make a mad dash to the exit as cactus thorns fly by your head.");
+							puts("You narrowly avoid getting hit as the jump through the door.");
+							puts("You feel your bag and notice some gold fell out!");
+							playerGold = playerGold - x;
+							printf("You lost %d gold!",playerGold);
+							puts("At least you made it out alive.\n");
+						}
+						else if(choice == 2)
+						{
+							puts("You take one of the nearby cactus thorns and throw it back at the cactus creatures!");
+							hitChance = x;
+							if(hitChance >= 50)
+							{
+								puts("You hit one of cactus creatures! It runs away in pain, followed by the others.");
+								puts("You see that the cactus creatures left behind a flower.");
+								puts("You take it as a trophy");
+								puts("You got the Cactus Flower!");
+								playerInv[0] = 1;
+								puts("You leave the room, happy and full of spoils.");
+							}
+							else if(hitChance < 50)
+							{
+								puts("You miss and get hit by another thorn!");
+								y = (rand() % 10) + 1;
+								playerHp = playerHp - y;
+								if(playerHp <= 0)
+								{
+									puts("You die, full of cactus thorns.");
+								}
+							}
+						}
+					}
+					else if(choice == 3)
+					{
+						puts("You decide that this room is not worth your time and leave.\n");
+					}
+					break;
+				}
+				break;
+			}
+		}
             case 4:
                 {
                     while(choice != 99)
