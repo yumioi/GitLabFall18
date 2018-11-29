@@ -4,7 +4,7 @@
 //Ivan Khaffaji Room #19
 //Thomas Jones (Tommiiie) #15
 //Hugo Rodriguez Room #10
-//Timothy Phung #6
+//Timothy Phung #room 6
 
 // Justin Do Room #2
 
