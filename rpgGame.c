@@ -2821,7 +2821,7 @@ void main(void)
 								if(choice == 1)
 								{
 									puts("Goodbye!");
-									return 0;
+									exit(EXIT_SUCCESS);
 								}
 								if(choice == 2)
 								{
@@ -2835,7 +2835,7 @@ void main(void)
 								printf("Congralutions! You have chosen a beating of a life time. The kids father proceeds to toss you back and forth like a dirty rag.\n");
 								printf("Thanks to you the little kids has learned a valuable lesson: Don't pop a kids balloons if his/her father is around."
 										"\nThe beating was so good and therapeutic that it kicked you out of here. \nGoodbye %s!\n",name);
-								return 0;
+								exit(EXIT_SUCCESS);
 							}
 							
                         }
@@ -2905,7 +2905,7 @@ void main(void)
 							
 							if(answer == 'Y' || answer == 'y')
 							{
-								return 0;
+								exit(EXIT_SUCCESS);
 							}
 							else
 							{								
@@ -2922,7 +2922,7 @@ void main(void)
 						{
 							printf("A hidden compartment opens under you and sends you back to the real world.\n");
 							printf("Goodbye %s!\n",name);
-							return 0;
+							exit(EXIT_SUCCESS);
 						}                 
                     }
 					break;
@@ -3016,7 +3016,7 @@ void main(void)
                                                         puts("you wake up and realize this was all just a dream ;) ");
                                                         pin = 99;     
                                                         break;
-                                                        return 0;
+                                                        exit(EXIT_SUCCESS);
                                                     }
                                             
                                             
@@ -3033,7 +3033,7 @@ void main(void)
                                             
                                             break;
                                         }
-                                    return 0;
+                                    exit(EXIT_SUCCESS);
                                 }
                             }
                         }
