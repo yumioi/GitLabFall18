@@ -1,4 +1,4 @@
-//Contributors
+﻿//Contributors
 
 //Brandon LaNuevo Room #1
 //Ivan Khaffaji Room #19
@@ -35,6 +35,9 @@ void writeAnswers(void);
 int checkAnswers(int *ptr);
 
 int RolltheDiceman(void);
+void casecheck(void);
+void readfile(void);
+void randomfill(void);
 
 
 void main(void)
@@ -405,41 +408,39 @@ void main(void)
                     break;
                 }
             case 2: // Justin Do Room 2
-                {
-                  while(choice != 99)
-                    {
-                        puts("Welcome to room 2. Glad you didn't drown. \n");
-                        puts("You open the door and find a wolf that looks intimidating.\n");
-                        puts("You need to stay alive and there are three choices to choose from.\n");
-                        puts("1. Run back to the door.\n");
-                        puts("2. Pick up the knife on the floor and throw it at the wolf.\n");
-                        puts("3. Drop and play dead on the floor.\n");
-                        scanf("%d",&choice);
-                        if(choice == 1)
-                        {
-                            puts("You start running to the door but you are slower than the wolf.\n");
-                            puts("The wolf catches up and eats you alive.\n");
-                        }
-                        if(choice == 2)
-                        {
-                            puts("You pick up the knife... \n");
-                            puts("Throw it as hard as you can and....\n");
-                            puts("End up missing the wolf and the wolf mauls you to death.\n");
-                        }
-                        if(choice == 3)
-                        {
-                            puts("You decide to lay down and the wolf comes running at you...\n");
-                            puts("As soon the wolf runs up to you, it sniffs you for a couple of minutes.\n");
-                            puts("The wolf starts to lick you face and then scurries away.");
-                        }
-                        else
-                        {
-                            puts("Incorrect choice!\n");
-                            puts("Choices are 1, 2 or 3 \n");
-                        }
-                    }
-                    break;
-                }
+		{
+			while(choice != 99)
+			{
+				puts("Welcome to room 2. Glad you didn't drown. \n");
+				puts("You open the door and see a mirror at the end of the room.\n");
+				puts("As you walk toward the mirror, the doorknob is freezes and out comes a math wizard!!\n");
+				puts("The math wizard then states that you have 3 challenges to pick from in order to leave the room\n");
+				puts("1. Count Characters.\n");
+				puts("2. Add Numbers.\n");
+				puts("3. Switching Numbers.\n");
+				puts("4. Drop and play dead on the floor and hope the wizard falls for it.\n");
+				scanf("%d",&choice);
+				if(choice == 1)
+				{
+					casecheck();
+				}
+				if(choice == 2)
+				{
+					readfile();
+				}
+				if(choice == 3)
+				{
+					randomfill();
+				}
+				if(choice == 4)
+				{
+					puts("Why would you even try......\n");
+					puts("----- GAME OVER -----\n");
+				}
+				choice = 99;
+			}
+			break;
+		}
              case 3:
                 {
                 	int playerHp = 10;
@@ -4012,4 +4013,114 @@ int RolltheDiceman(void)
 	int a;
 	a = (rand() % 6) + 1;
 	return a;
+}
+
+void casecheck(void)
+{
+	char input[] ={'"','T','h','e','y',' ','D','i','d',' ','S','u','r','g','e','r','y',' ','O','n',' ','A',' ','G','R','A','P','E','!','"'};
+	int upper=0, lower=0, guessadd,i;
+	for(i=0;i<input[i]!='\0';i++)
+	{
+		if(isupper(input[i]))
+		{
+			upper++;
+		}
+		if(islower(input[i]))
+		{
+			lower++;
+		}
+		printf("%c",input[i]);
+	}
+	puts("\nHow many lowercase and uppercase letters are in the string you entered?\n");
+	scanf("%d", &guessadd);
+	if(guessadd == (upper+lower))
+	{
+		printf("Correct! There were %d lowercase letters and %d uppercase letters\n", lower, upper);
+		puts("You may leave.... Never come back...muahahah");
+	}
+	else
+	{
+		printf("Incorrect! There were %d lowercase letters and %d uppercase letters\n", lower, upper);
+		puts("I will now freeze you to death!!!!\n");
+		puts("----- GAME OVER -----\n");
+	}
+}
+
+void readfile(void)
+{
+	char accountuser[30] = {0};
+	FILE *wptr;
+	FILE *rptr;
+	unsigned int account = 0;
+	double balance = 0;
+	double balanceguess = 0;
+
+	if((rptr = fopen("input.txt", "r")) == NULL)
+	{
+		puts("File could not be opened" );
+		puts("REQUIRES A 'input.txt' file \n");
+	}
+	else
+	{
+		puts("If you add Tim's balance with Roman's balance what do you get?\n");
+		puts("Displaying all balance accounts.\n");
+		fscanf(rptr,"%d%s%lf", &account, accountuser, &balance );
+		rewind(rptr);
+		while(!feof(rptr))
+		{
+			fscanf(rptr,"%d%s%lf", &account, accountuser, &balance );
+			printf("%d %s %.2f\n", account, accountuser, balance);
+		}
+	}
+	scanf("%lf", &balanceguess);
+	if(balanceguess == 62.78)
+	{
+		puts("Correct! You may leave.... \n");
+	}
+	else
+	{
+		puts("I will now throw the knife back at you!!!!\n");
+		puts("----- GAME OVER -----\n");
+	}
+}
+
+void randomfill(void)
+{
+	srand(time(NULL));
+	int i=0,y=0,z=0,swap;
+	int firstArray[5] = {0};
+	int secondArray[5] = {0};
+	
+	for(i=0;i<5;i++)
+	{
+		firstArray[i] = rand() % (200 + 1);
+		i++;
+	}
+	for(i=0;i<5;i++)
+	{
+		secondArray[i] = rand() % (200 + 1);
+		i++;
+	}
+		
+	puts("Before Swap \n");
+	for(i=0;i<5;i++)
+	{
+		printf("firstArray[%d]=%d, secondArray[%d]=%d\n", i, firstArray[i], i, secondArray[i]);
+	}
+        puts("\n");
+	puts("After Swap \n");
+	for(y=0;y<5;y++)
+	{
+		swap = firstArray[y];
+                firstArray[y]=secondArray[y];
+		secondArray[y] = swap;
+		
+	}
+        for(z=0;z<5;z++)
+        {
+		printf("firstArray[%d]=%d, secondArray[%d]=%d\n", z, firstArray[z], z, secondArray[z]);
+	}
+	puts("To be honest, this choice shouldn't even be an option....\n");
+	puts("I guess I have no other choice but to kill you.... muahahaha\n");
+	puts("----- GAME OVER -----\n");
 }
