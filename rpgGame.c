@@ -850,9 +850,17 @@ void main(void)
 			}
             case 5:
                 {
+		    FILE *fileptr;
+		    int power = 5;
+		    int i;
+		    int diceroll;
+		    int randomNumber;
+		    int numbers[10];	    
                     srand(time(NULL));
+		    fileptr = fopen("adventure.txt", "w");
                     while(choice != 99)
                     {
+			fprintf(fileptr,"Hello %s, you have started out with 5 power. Below is a recap of your adventure.\n", name);
                         puts("You open the door and find a treasure chest.\n");
                         puts("You have 2 choices listed below. Choose carefully.\n");
                         puts("1. Open the chest.\n");
@@ -860,6 +868,7 @@ void main(void)
                         scanf("%d",&choice);
                         if(choice == 1)
                         {
+			    fprintf(fileptr, "You opened a chest and find a golden dice hidden inside.\n");
                             puts("You open the chest and find a golden dice hidden inside.\n");
                             puts("You have 2 choices listed below. Choose carefully.\n");
                             puts("1. Roll the dice.\n");
@@ -868,13 +877,94 @@ void main(void)
                             if(choice == 1)
                             {
                                 diceroll = 1 + (rand() % 6);
-                                printf("Congratulations! You rolled a %d. Your strength is increased by %d", diceroll, diceroll);
+                                printf("Congratulations! You rolled a %d. Your strength is increased by %d\n", diceroll, diceroll);
+				power = power + diceroll;
+				fprintf(fileptr, "You chose to roll the dice. Lucky you! You rolled a %d. Your strength is increased to %d.\n", diceroll, power);
                                 puts("You move on with your journey. Ahead you encounter a giant orc with heavy armor. Between you and the orc is a sword.\n");
                                 puts("You have 3 choices listed below. Choose carefully.\n");
                                 puts("1. Pick up the sword and combat the orc.\n");
                                 puts("2. Run up and punch the orc.\n");
                                 puts("3. Run away.\n");
                                 scanf("%d", &choice);
+				if (choice == 1)
+				{
+					fprintf(fileptr, "You pick up the sword and fight the orc, but too bad your sword broke and you died.\n");
+					puts("You pick up the sword and start to combat the orc. Your sword breaks and the orc bashes your head in.\n");
+					puts("*****_____ GAME OVER ______*****\n");
+					puts("Check adventure.txt for an adventure recap.\n");
+					fclose(fileptr);
+					exit(0);
+				}
+				else if (choice == 2)
+				{
+					puts("You run up and punch the orc.\n");
+					if(power < 8)
+					{
+						puts("Your fist broke to the sheer muscle of the orc and the orc picks you up and chomps your had off.\n");
+						puts("*****_____ GAME OVER ______*****\n");
+						fprintf(fileptr, "How unlucky of you...your power was not strong enough to kill the orc in one punch. You became a tootsie roll pop for the orc\n");
+						puts("Check adventure.txt for an adventure recap.\n");
+						fclose(fileptr);
+						exit(0);
+					}
+					else
+					{
+						fprintf(fileptr,"You punched the orc...and it blew up...disgusting. At least a random door lied ahead of the orc.\n");
+						puts("You punch the orc and his whole body shatters into blood and chunks.\n");
+						puts("You walk down a bit more and you find a door down the path and it is asking you for any number between 1 and 100. Answer wisely.\n");
+						scanf("%d", &randomNumber);
+						for(i = 0; i < 10; i++)
+						{
+							numbers[i] = 1 + (rand() % 100);
+						}
+						if(randomNumber > 1 && randomNumber < 100)
+						{
+							if(randomNumber == numbers[i])
+							{
+								printf("You yell the number %d at the door, it magically opens and you find your way out of the dungeon.\n", randomNumber);
+								puts("Congratulations. You won!\n");
+								fprintf(fileptr,"Your opened the door with your magic number and escape the dungeon. Congratulations you win.\n");
+								fprintf(fileptr, "The numbers to open the doors were:\n");
+								for(i = 0; i < 10; i++)
+								{
+									fprintf(fileptr, "%d\t", numbers[i]);
+								}
+								puts("Check adventure.txt for an adventure recap.\n");
+								fclose(fileptr);
+								exit(0);
+							}
+							else
+							{
+								printf("%d does not match %d\n", numbers[i]);
+							}
+						}
+						else
+						{
+							puts("A huge spike trap falls from the ceiling and kills you.\n");
+							puts("*****_____ GAME OVER _____*****\n");
+							fprintf(fileptr, "You died because you didn't follow the rules. Guess that's what you get for not following the rules.\n");
+							puts("Check adventure.txt for an adventure recap.\n");
+							fclose(fileptr);
+							exit(0);
+						}
+						puts("Guess you didn't guess a correct number.\n");
+						puts("You become stuck in the dungeon. No food. No other signs of life. You die a lonely death.\n");
+						puts("*****_____ GAME OVER _____*****\n");
+						puts("Check adventure.txt for an adventure recap.\n");
+						fprintf(fileptr, "Sucks to be you...dying a lonely death because you couldn't guess a random number.\n");
+						fclose(fileptr);
+						exit(0);
+					}
+				}
+				else if (choice == 3)
+				{
+			       		 puts("You attempt to run away.\n");
+                              	 	 puts("The orc quickly catches up and smashes your head.\n");
+                              		 puts("*****_____ GAME OVER _____*****\n");	
+		 			 fprintf(fileptr,"You attempted to run from the orc. What were you thinking, your legs are half the length of its. Well you died.\n");
+					 puts("Check adventure.txt for an adventure recap.\n");																	     fclose(fileptr);
+					 exit(0);
+				}
 
                             }
                             else if(choice == 2)
@@ -884,6 +974,37 @@ void main(void)
                                 puts("1. Pick up the sword and combat the orc.\n");
                                 puts("2. Roll the dice.\n");
                                 puts("3. Run away.\n");
+				scanf("%d", &choice);
+				if(choice == 1)
+				{
+					fprintf(fileptr, "You pick up the sword and fight the orc, but too bad your sword broke and you died.\n");
+					puts("You pick up the sword and start to combat the orc. Your sword breaks and the orc bashes your head in.\n");
+					puts("*****_____ GAME OVER ______*****\n");
+					puts("Check adventure.txt for an adventure recap.\n");
+					fclose(fileptr);
+					exit(0);
+				}
+				else if(choice == 2)
+				{
+					puts("You attempt the roll the dice while the orc is looking at you.\n");
+					puts("The orc runs up and smashes your head in. Your dice falls on the ground.\n");
+					diceroll = 1 + (rand() % 6);
+					puts("*****_____ GAME OVER _____*****\n");
+					fprintf(fileptr, "Well you died, but if you would have lived, you would have rolled a %d.\n", diceroll);
+					puts("Check adventure.txt for an adventure recap.\n");
+					fclose(fileptr);
+					exit(0);
+				}
+				else if (choice == 3)
+				{
+					 puts("You attempt to run away.\n");
+                              	 	 puts("The orc quickly catches up and smashes your head.\n");
+                              		 puts("*****_____ GAME OVER _____*****\n");	
+		 			 fprintf(fileptr,"You attempted to run from the orc. What were you thinking, your legs are half the length of its. Well you died.\n");
+					 puts("Check adventure.txt for an adventure recap.\n");
+					 fclose(fileptr);
+					 exit(0);
+				}
 
                             }
                         }
@@ -896,16 +1017,25 @@ void main(void)
                             scanf("%d", &choice);
                             if (choice == 1)
                             {
+				fprintf(fileptr, "You pick up the sword and fight the orc, but too bad your sword was shorter than the orc's club, so you died.\n");
                                 puts("You pick up the sword and charge at the orc.\n");
                                 puts("Before you could hit the orc with your sword the orc swings down with its club.\n");
                                 puts("Your head gets smashed.\n");
                                 puts("*****_____ GAME OVER _____*****\n");
+				puts("Check adventure.txt for an adventure recap.\n");
+				fclose(fileptr);
+				exit(0);
                             }
                             else if (choice == 2)
                             {
                                 puts("You attempt to run away.\n");
                                 puts("The orc quickly catches up and smashes your head.\n");
-                                puts("*****_____ GAME OVER _____*****\n");								}
+                                puts("*****_____ GAME OVER _____*****\n");
+				fprintf(fileptr,"You attempted to run from the orc. What were you thinking, your legs are half the length of its. Well you died.\n");
+				puts("Check adventure.txt for an adventure recap.\n");
+				fclose(fileptr);
+				exit(0);
+			    }
                         }
                     }
                     break;
