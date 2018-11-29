@@ -26,7 +26,11 @@ void printUpper(char *arr, int size);
 
 void main(void)
 {
-    int x,y,z,i,h,g,k,choice=0;
+
+    int x,y,z,i,h,g,k,choice=0,pin=0;
+
+  
+
     char name[256];
     int boxNum=0;
     int num = 6, guess= 0, a;
@@ -1248,31 +1252,118 @@ void main(void)
                     }
                     break;
                 }
-            case 11:
-                {
-                    while(choice != 99)
+
+            case 11: 
                     {
-                        printf("Enter a number between 1 and 10: ");
-
-                        scanf("%d", &guess);
-
-
-                        printf("%d + magic number =%d\n",guess, (num + guess) );
-                        printf("%d * magic number=%d\n", guess, (num * guess));
-                        printf("%d - magic number=%d\n", guess, (num - guess));
-                        printf("what is your guess?\n");
-                        scanf("%d", &a);
-                        if(a==num)
+                        while(choice != 99)
                         {
-                            printf("You are correct! You win\n");
+                            puts("\n Welcome to room 11");
+                            puts("The door is locked, you are now in a maze ");
+                            puts("you keep walking though the maze searching your way out");
+                            puts("The light suddenly goes off and you dont know what to do.");
+                            puts("you can see a small beam of light far away in the maze");
+                            puts("you work your way as quick as you can to get to that light.");
+                            puts("on your way there you see words written on the wall of each section of the maze on your way");
+                            puts("the words you see so far are (shall, course, must, pass, he, be, in, the, enrolled, who, course");//who he shall pass must be enrolled in the course "course number"
+                            puts("you wonder what the words you saw on your way to the light means?");
+                            puts("Finally you made it to the light beam and find a big door your so excited to finally leave this maze with all its words and none sense"); 
+                            puts("you approach to open the door but the door seems to be locked.");
+                            puts("on the wall next to door there is a 3 digit pin pad");
+                            puts("you must guess the pin in order to escape the maze and gain back your freedom!");
+                            int i;    
+                            FILE *inptr;
+                            for(i = 1; i<4; i++)
+                            {
+                                scanf("%d", &pin);
+                                if(pin != 251)
+                                {
+                                    printf("\nYou guessed wrong. Attempt %d failed.\n", i);
+                                    if(i == 3)
+                                    {
+                                        inptr = fopen("failed.txt", "w");
+                                        fprintf(inptr, "sorry you reached maximum attempts your locked in for life");
+                                        fclose(inptr);
+                                        puts("\n You reached maximum tries you lost.");
+                                        
+                                        pin = 99; 
+                                        break;
+                                    }
+                                    
+                                }
+                                else if(pin == 251)
+                                {
+                                    puts("\n door unlocked.");
+                                    
+                                    puts("You are so happy you finally escaped this maze");
+                                    puts("all of a sudden the door shuts behind you and a steel cage with blades keep rolling down on you from the ceiling");
+                                    puts("you find some dice and a not next to it");
+                                    puts("the note says ( Welcome to death trap you have 5 chances to guess if you fail the cage drops and kills you!");
+                                    srand(time(NULL));
+                                    int x;    
+                                    int guess;    
+                                    puts("you may begin guessing");
+                                    for(i = 1; i < 6; i++)
+                                    {
+                                        scanf("%d", &guess);
+                                        x = 1 + (rand()%6);
+                                        printf("You guessed  %d. You rolled  %d.\n", guess, x);
+                                        
+                                        if(guess != x)
+                                        {
+                                            printf("\nYou guessed wrong. guess %d failed.\n", i);
+                                            if(i == 5)
+                                            {
+                                                inptr = fopen("failedAgain.txt", "w");
+                                                fprintf(inptr, "if your reading this message you must be dead already :( ");
+                                                fclose(inptr);
+                                                puts("You lose see you in hell ");
+                                                pin = 99; 
+                                            }
+                                        }
+                                        else if(guess == x)
+                                        {
+                                            char answer[100] = {0};
+                                            puts("you must be feeling lucky today you guessed right");
+                                            puts("A new door appears and is unlocked you walk out of the room");
+                                            puts("you find yourself inside another room with bright lights");
+                                            puts("you find a chest with letter combination lock on it");
+                                            puts("there is questions engraved on the chest that appears to be the key to unlock it");
+                                            puts("first question is (WHO TAUGHT YOU THIS LANGUAGE");
+                                            scanf("%s", answer);
+                                            if(strcmp(answer, "poppe") == 0 || strcmp(answer, "POPPE") == 0)
+                                            {
+                                               
+                                                        inptr = fopen("SUCCESS.txt", "w");
+                                                        fprintf(inptr, "you are now free!.");
+                                                        fclose(inptr);
+                                                        puts("the chest is unlocked.");
+                                                        puts("a bright light hits you once you open the chest");
+                                                        puts("you wake up and realize this was all just a dream ;) ");
+                                                        pin = 99;     
+                                                        break;
+                                                        return 0;
+                                                    }
+                                            
+                                            
+                                                    else
+                                                    {
+                                                        inptr = fopen("Fail3.txt", "w");
+                                                        fprintf(inptr, "you lost chest is locked forever.");
+                                                        fclose(inptr);
+                                                        puts("Chest locked forever");
+                                                        pin = 99; 
+                                                    }
+                                                }
+                                               
+                                            
+                                            break;
+                                        }
+                                    return 0;
+                                }
+                            }
                         }
-                        else
-                        {
-                            printf("sorry wrong guess");
-                        }
-                    }
-                    break;
-                }
+}
+
             case 12:	//room 12 overhall
 		{
 			puts("you open the door and find a machine that proceeds to teleport you to a distant facility");
