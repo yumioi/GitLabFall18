@@ -2702,34 +2702,230 @@ void main(void)
                     }
                     break;
                 }
-            case 10:
+            case 10: // Hugo
                 {
                     while(choice != 99)
                     {
-                        puts("you open the door and find Balloons");
+						int x = 0;
+						int guess = 0;
+						int balloon;
+						int good = 0;
+						int bad = 0;
+						int typeCount;
+						FILE *fp;
+						char answer;
+						
+						//Makes first letter uppercase and the rest lowercase.
+						for(int i = 0; name[i] != '\0'; i++)
+						{
+							if(i==0)
+							{
+								if((name[i] >= 'a' && name[i] <= 'z'))
+								{
+									name[i] = name[i] - 32;
+								}
+								continue;
+							}
+							
+							if(name[i]==' ')
+							{
+								++i;
+								if(name[i]>='a' && name[i]<='z')
+								{
+									name[i] = name[i] - 32;
+									continue; 
+								}
+							}
+							
+							else
+							{
+								if(name[i] >= 'A' && name[i] <= 'Z')
+								{
+									name[i] = name[i] + 32; 
+								}
+							}
+						}
+						
+                        puts("\nYou open the door and above you is a very bright light... Relax you're not dying, at least not yet.");
+						puts("In front of you are some balloons.");
                         puts("Your options:");
                         puts("1: Pop the balloons.");
-                        puts("2: Inhale the helium.");
-                        puts("3: Grab them and fly away.");
+                        puts("2: Poke a little hole and inhale the helium.");
+                        printf("3: Grab them and fly away.\n");
+						scanf("%d",&choice);
 
-                        scanf("%d",&choice);
                         if(choice == 1)
                         {
-                            puts("Congratulations you made a kid cry.");
+                            puts("\nCongratulations you made a kid cry.");
+							puts("The kids cry is so loud that you begin to hear steps getting closer and closer. You look to your right and see the kids angry father coming your way.");
+							puts("The father threatens to beat you up for making his kid cry.");
+							printf("He says, \"Since you like popping little kids balloons, lets play a little game %s.\"\n",name);
+							puts("Do you accept(1) or take a beating(2)?");
+							scanf("%d",&choice);
+							if(choice == 1)
+							{
+								printf("Past the light, where it stops shinning, are 3 balloons: (1)Blue, (2)Green, and (3)Orange. \nThey're there, you just can't see them.\n");
+								printf("The rules are simple: Throw a dart at the balloons and guess the color of the balloon that you popped.\n");
+								printf("How many times would you like to play?\n");
+								scanf("%d",&x);
+								
+								for(int i = 0; i < x; i++)
+								{
+									printf("What's your guess: ");
+									scanf("%d",&guess);
+									balloon = (rand() % 3) + 1;
+									
+									if(guess == balloon)
+									{
+										puts("You guessed correctly!\n");
+										good++;
+									}
+									if(guess != balloon)
+									{
+										puts("You guessed incorrectly!\n");
+										bad++;
+									}
+									if((guess < 1) || (guess > 3))
+									{
+										puts("Choose (1)Blue, (2)Green, or (3)Orange");
+										puts("This counts as a bad guess\n");
+										bad++;
+									}
+					
+								}
+								
+								if(good == 1 && (bad > 1 || bad == 0))
+								{
+									printf("\nFor getting %d guess correct you get %d balloon.\n",good, good);
+									printf("For getting %d guesses wrong the kid, who you made cry, is going to throw %d darts at you.\n\n",bad, bad);
+								}
+								else if(bad == 1 && (good > 1 || bad == 1))
+								{
+									printf("\nFor getting %d guesses correct you get %d balloons.\n",good, good);
+									printf("For getting %d guess wrong the kid, who you made cry, is going to throw %d dart at you.\n\n",bad, bad);
+								}
+								else if((bad == 1) && (good == 1))
+								{
+									printf("\nFor getting %d guess correct you get %d balloon.\n",good, good);
+									printf("For getting %d guess wrong, the kid who you made cry, is going to throw %d dart at you.\n\n",bad, bad);
+								}
+								else
+								{
+									printf("\nFor getting %d guesses correct you get %d balloons.\n",good, good);
+									printf("For getting %d guesses wrong the kid, who you made cry, is going to throw %d darts at you.\n\n",bad, bad);
+								}
+								printf("Every dart that the kid throws at you makes him feel better.\n");
+								puts("The fathers says \"Thanks for making my kid feel better. Taking that door will get you out of here. \" ");
+								printf("\nYou open the door. Now you have to options: Go away and never come back(1) or go (2)...\n");
+								scanf("%d",&choice);
+								if(choice == 1)
+								{
+									puts("Goodbye!");
+									return 0;
+								}
+								if(choice == 2)
+								{
+									continue;
+								}
+						
+							}									
+							
+							if(choice == 2)
+							{
+								printf("Congralutions! You have chosen a beating of a life time. The kids father proceeds to toss you back and forth like a dirty rag.\n");
+								printf("Thanks to you the little kids has learned a valuable lesson: Don't pop a kids balloons if his/her father is around."
+										"\nThe beating was so good and therapeutic that it kicked you out of here. \nGoodbye %s!\n",name);
+								return 0;
+							}
+							
                         }
 
                         if(choice == 2)
                         {
-                            puts("You inhaled the helium and now you sound funny");
+                            puts("\nYou inhaled the helium and now you sound funny.");
+							
+							fp = fopen("NumberCount.txt","a");
+							puts("The helium you inhaled made you forget how to count.");
+							puts("You don't know why but for some reason you really want to count to X numbers.");
+							puts("You find a book that shows you the numbers. How high do you want to count to? ");
+							scanf("%d",&choice);
+							puts("Do you want (1)odd count, (2)even count, or (3)regular count.");
+							scanf("%d",&typeCount);
+							
+							if(typeCount == 1)
+							{
+								printf("Odd Count: \n");
+								fprintf(fp,"Even Count: \n");
+							}
+							if(typeCount == 2)
+							{
+								printf("Even Count: \n");
+								fprintf(fp,"Odd Count: \n");
+							}
+							if(typeCount == 3)
+							{
+								printf("Regular Count: \n");
+								fprintf(fp,"Regular Count: \n");
+							}
+							
+							for(int i = 0; i < choice; i++)
+							{
+								if(typeCount == 3)
+								{
+									printf("%d\n",i+1);
+									fprintf(fp,"%d\n",i+1);
+									
+								}
+								if(typeCount == 2)
+								{
+									if(i % 2 == 1)
+									{
+										printf("%d\n",i+1);
+										fprintf(fp,"%d\n",i+1);
+										
+									}
+								}
+								if(typeCount == 1) 	 
+								{
+									if(i % 2 == 0)
+									{
+										printf("%d\n",i+1);
+										fprintf(fp,"%d\n",i+1);
+									}
+								}								
+							}
+							
+							fprintf(fp,"\n");
+							fclose(fp);
+							
+							printf("In case you forget again, you can always use \"NumberCount.txt\" file as a reference.\n");
+							
+							puts("Are you done? Y/N ");
+							scanf(" %c",&answer);
+							
+							if(answer == 'Y' || answer == 'y')
+							{
+								return 0;
+							}
+							else
+							{								
+								continue;
+							}	
                         }
 
                         if(choice == 3)
                         {
-                            puts("You need a lot more balloons to fly.");
+                            puts("\nYou need a lot more balloons to fly.");
+							break;
                         }
-                        break;
+						if(choice == 99)
+						{
+							printf("A hidden compartment opens under you and sends you back to the real world.\n");
+							printf("Goodbye %s!\n",name);
+							return 0;
+						}                 
                     }
-                    break;
+					break;
                 }
 
             case 11: 
