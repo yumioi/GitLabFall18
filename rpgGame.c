@@ -22,6 +22,7 @@
 void sleep(unsigned int seconds);
 int rando(void);
 int room12Spells(int *hp, int enDam);
+void printUpper(char *arr, int size);
 
 void main(void)
 {
@@ -62,7 +63,7 @@ void main(void)
                 }
             case 2: // Justin Do Room 2
                 {
-                    while(choice != 99)
+                  while(choice != 99)
                     {
                         puts("Welcome to room 2. Glad you didn't drown. \n");
                         puts("You open the door and find a wolf that looks intimidating.\n");
@@ -1576,10 +1577,15 @@ void main(void)
                 
             case 14:
                 {
-                    int num, j, winning;
+                    int num, i, j, winning;
+		    char g[20];
+		    FILE *wptr;
+		    wptr = fopen("output.txt","w");
                     while(choice != 99)
                     {
                         puts("You enter and close the door behind you.");
+			puts("Welcome to Case 14: The opportunity is great here to win some money");
+			puts("Play smart and you will be a winner today");
                         puts("You see two doors one on your left and one on your right");
                         puts("There is also a tunnel straight ahead");
                         puts("You can either enter door 1 of 2 of go to the tunnel (choice 3)");
@@ -1590,7 +1596,7 @@ void main(void)
                             case 1:
                                 puts("You enter and close the door behind you");
                                 puts("You find a table straight ahead with a duffel bag on top");
-                                puts("You can either open the bag (Option 1) or take $500 and leave (Option 2");
+                                puts("You can either open the bag (Option 1) or take $500 and leave (Option 2)");
                                 puts("What do you choose?");
                                 scanf("%d",&choice);
                                 switch(choice)
@@ -1598,7 +1604,10 @@ void main(void)
                                     case 1:
                                         {
                                             puts("You have chosen to open the bag");
-                                            puts("You win NOTHING, should've taken the money");
+                                            puts("Enter a number of you desire");
+					    scanf("%d",&num);
+					    puts("Check the output file to see how much you have won!");
+					    fprintf(wptr,"You have won $%d000000! Congrats!",num);
                                             break;
                                         }
                                     case 2:
@@ -1615,7 +1624,12 @@ void main(void)
                             case 2:
                                 {
                                     puts("You have entered door 2");
-                                    puts("You have won the lottery!");
+                                    puts("Enter a string less than 20 characters");
+				    puts("I will change your string to all uppercase letters");
+				    getchar();
+				    fgets(g, 20, stdin);
+				    printUpper(g,20);
+				    puts("Thank you for playing along. You don't win anything, should have chosen a different door :p");
                                     break;
                                 }
                                 break;
@@ -1637,7 +1651,6 @@ void main(void)
                                             puts("Keep in mind it can be multiplied by 0");
                                             scanf("%d",&num);
                                             j = rand() %6;
-                                            printf("%d\n",j);
                                             winning = (num*j) * 2000000;
                                             printf("You have won $%d, congratulations!\n",winning);
                                             break;
@@ -2202,4 +2215,17 @@ int room12Spells(int *hp, int enDam)	//spell chanting
 		return enDam;	//reflect enemy damage
 	}
 	return 0;		//failed spell
+}
+
+void printUpper(char *arr, int size)
+{
+	int i;
+	for(i=0;i<size;i++)
+	{
+		if(islower(arr[i]))
+		{
+			*(arr+i) = toupper(*(arr+i));
+		}
+	}
+	printf("%s",arr);
 }
