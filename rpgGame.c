@@ -4,7 +4,13 @@
 //Brandon LaNuevo Room #1
 //Ivan Khaffaji Room #19
 //Thomas Jones (Tommiiie) #15
+//Brian Godoy room 12
 //Hugo Rodriguez Room #10
+
+//Fernando ochoa room #18
+
+//Edgar Bahena Room #4
+
 
 
 // Justin Do Room #2
@@ -29,7 +35,17 @@ int usleep(suseconds_t usec);
 
 int rando(void);
 int room12Spells(int *hp, int enDam);
+
+void stringStuff(char *ptr);
+
 void printUpper(char *arr, int size);
+
+void writeAnswers(void);
+int checkAnswers(int *ptr);
+
+int RolltheDiceman(void);
+
+
 
 void main(void)
 {
@@ -529,20 +545,337 @@ void main(void)
 				break;
 			}
 		}
-            case 4:
-                {
-                    while(choice != 99)
-                    {
-                        puts("you open the door and find ........");
-                        scanf("%d",&choice);
-                    }
-                    break;
-                }
+            case 4: // Edgar Baheha
+			{
+					while(choice != 99)
+					{
+							puts("You decided to open the 4th door,"
+								" and you are given 3 more choice."
+								" The door closes behind you leaving you"
+								" alone to forcably choose a door in order to continue."
+								" Each door states a given possiblity"
+								" if chosen. The choices are as follow: \n"
+								"1. This Door with give you the ability to"
+								" understand the 'Truth' of all things\n" 
+								"2. This Door will give you the ability to"
+								" become 'Untouchable'\n"
+								"3. This Door will offer you a chance to 'Redo'"
+								" any event you encounter.\n");
+							puts("You seem to be hesitant as you decide to choose a door,"
+							"but are overwhelmed by the reward that you ignore any consequence");
+							puts("Enter the door you choose to continue: ");							
+							scanf("%d",&choice);
+							if(choice == 1)
+							{
+								puts("You know everyone and everything."
+									"You understand the knowledge of the universe "
+									"and humanities purpose, "
+									"however it came with a price. "
+									"You lose your own benevolence and emotions.\n");
+								puts("As you become an emotionless human-being, you understand what you must do, "
+									"and in order to fulfill your existance you must exit this place.");
+								puts("You continue into the darkness and encounter several beings, some which seem "
+									"to be attracted toward you. You have two choices that you may choose from: \n");
+								puts("1- Communicate with the group in order to gain allies to help on your journey.\n"
+									"2- Offer salvation and destory them.\n");
+								scanf("%d",&choice);
+								
+								if(choice == 1)
+								{
+									puts("you have gained two allies, a Skeleton Soldier and a Wolf. \n");
+									puts("You talk with your aillies, learning more about their existance "
+										"and daily attributes"); 
+									puts("As you continue on your journey you finally encounter the final door. ");
+									puts("you are given 2 more choices: \n");
+									puts("1 - kill off your allies to exit\n"
+										"2 - Offer your intellect instead\n");
+									scanf("%d",&choice);
+								
+									if(choice == 1)
+									{
+										puts("You now have to play a game and win.");
+										int start;
+										puts("Guess my riddle right and you live, however, if you fail, you will be defeated");
+										puts("Enter 1 to continue: ");
+										scanf("%d",&start);
+										
+										if(start == 1)
+										{
+											puts("Never resting, never still.");
+											puts("Moving silently from hill to hill.");
+											puts("It does not walk, run or trot, All is cool where it is not.");
+											puts("What is it?"); 
+											puts("Hint:(No spaces and capitals, example: sun)");
+											puts("Enter the answer in 10 or less characters: ");
+											char guess[11];
+											char answer[20] = "sunshine";
+											scanf("%s", guess);
+											int i;
+											
+											
+											for(i = 0; i < 8; i++)
+											{
+												
+											
+												if(guess[i] == answer[i])
+												{
+													puts("You have passed, you escaped!");
+													break;
+												}
+												else
+												{
+													puts("you failed, you have died");
+													break;
+												}
+											}
+										}
+										else
+										{
+											puts("Wrong input, try again");
+										}
+										
+									}
+									else if(choice == 2)
+									{
+										puts("You gave up knowledge in exchange for friendship. "
+											"Although you know you did the right thing, you can't "
+											"help but think that knowlege was greater than friendship. ");
+										puts("YOu face the final door and must accept the challenge in order to leave.");
+										srand(time(NULL));
+										int i, j, x;
+										int count = 0;
+												
+										puts("You will begin to roll a dice 3 times.");
+										puts("You must get 4 or greater twice in order to win.");
+										puts("Enter 1 to begin: ");
+										scanf("%d",&x);
+											
+											if(x == 1)
+											{
+												for(i = 0; i < 3; i++)
+												{
+													j = RolltheDiceman();
+													if(j >=4)
+													{
+														count++;
+													}
+												}
+												if(count < 2)
+												{
+													puts("You couldn't get 4 or greater twice, you failed!");
+													puts("You died an incredibility painful death.");
+												}
+												else
+												{
+													puts("You managed to win, congratz you're free!");
+												}
+											}
+											else
+											{
+											puts("You have died due to failing to follow orders");
+											}
+									}
+								}
+								else if(choice == 2)
+								{
+									puts("The mysteries group has been defeated");
+									puts("You begin to organize a team");
+									puts("You want to make sure you have everyone organized and ready");
+									unsigned int num;
+									unsigned int rank;
+									double power;
+									char name[30];
+									FILE *reads;
+									FILE *writes;
+									
+									puts("Create a file called input.txt");
+									puts("Write the rank, name, and power level of any characters you can think of.");
+									puts("Ranks are from 1-10, power is from 1.0 - 10.0");
+
+									writes = fopen("output.txt", "w");
+									if(writes == NULL)
+									{
+										puts("Error reading file!");
+										exit(0);
+									}
+									reads = fopen("input.txt", "r");
+									if(reads == NULL)
+									{
+										puts("File could not be opened!");
+									}
+									else
+									{
+										puts("You are viewing your teams power level.");
+										printf("%s", "Enter a choice to do the following: \n"
+											"1 - List the characters LOWER rank (4 OR LESS).\n"
+											"2 - List the characters in terms of HIGH power (5 OR GREATER).\n"
+											"3 - who cares\n");
+										scanf("%u", &num);
+										
+										while(num != 3)
+										{
+											fscanf(reads,"%d%s%lf",&rank, name,&power);
+
+											switch (num)
+											{
+												case 1:
+													puts("List the characters in terms of rank: \n");
+													while(!feof(reads))
+													{
+														if(rank < 5)
+														{
+															printf("%d%s\n",rank,name);
+															fprintf(writes, "%d%s\n",rank,name);
+														}
+														fscanf(reads,"%d%s\n",&rank,name);
+													}
+												break;
+											
+												case 2:
+													puts("Listing the characters in terms of power: \n");
+													while(!feof(reads))
+													{
+														if(power > 4)
+														{
+															printf("%f%s\n",power,name);
+															fprintf(writes,"%f%s\n",power,name);
+														}
+														fscanf(reads,"%lf%s\n",&power,name);
+													}
+												break;
+											}
+										rewind(reads);
+										puts("Enter another choice: ");
+										scanf("%d",&num);
+										}
+										puts("You have listed what you wanted");
+										puts("You may leave now, you are free!");
+										fprintf(writes, "%d", num);
+										fclose(reads);
+										fclose(writes);
+									}
+																	
+								} 
+								else
+								{
+									puts("Wrong choice");
+									
+								}								
+							}
+							else if(choice == 2)
+							{
+								puts("You became a being with pure energy."
+									"You lost your phyical body and transcended "
+									"into a higher plane. "
+									"You lost the feeling of touch ,but gained "
+									"unreachable power ");
+								puts("As you continue on your jorney, you come unto a cross-road "
+									"where yuo can decide to choose which one to take: \n");
+								puts("1- the left path\n"
+									"2- the right path\n");
+					  			scanf("%d",&choice);
+								if(choice == 1)
+								{
+									puts("You came upon a lake, you decided to absorb the water with ur new found power. "
+										"You soon realize that your only weakness is water.");
+									puts("The consequence of your actions led to your death");
+									puts("The End."	);
+								}
+								if(choice == 2)
+								{
+									puts("You approach a light. It gazes upon you ever so brightly.");
+									puts("It's brighter than your own self, and a voice slowly let's you know");
+									puts("You have dead the moment you turned into this being and now you must suffer the 											consequences");
+									puts("You have already died");
+									puts("The End");
+								}
+			
+								
+							}
+							else if(choice == 3)
+							{
+								puts("You have the power to reverse time."
+									"You gained an increable ability, however as you soon"
+									"come to understand, each time you"
+									"reverse time, someone close to you dies."
+									"You start to question why you chose this door"
+									"and begin to feel extreemly guilty for killing"
+									"these people");
+								puts("You start walking toward a river");
+								puts("You decide two choices:");
+								puts("1-Follow the river\n" "2-camp for the night\n");
+								scanf("%d",&choice);
+								if(choice == 1)
+								{
+									puts("you decided to follow the river.");
+									puts("You hear something strange and suddenly the river begins to flood");
+									puts("you slowly drown and are faced with a dilemma");
+									puts("You have died due to drowing");
+									puts("The End");
+								}
+								if(choice == 2)
+								{
+									puts("You decided to camp for the night");
+									puts("You began to read your book and slowly hear sounds coming from outside the tent");
+									puts("You soon discover a dragon has appeared!");
+									puts("As you combat it with your redo power, the dragon asks a riddle");
+									puts("It asks to guess a number and if correct, he will leave you alone");
+									int x, mult, add, sub, y;
+									int magic = 5;	
+									puts("Pick a number from 1-4 in order to defeat the dragon");
+									scanf("%d",&x);
+									
+										if(x < 5 && x > 0)
+										{
+										mult = x * magic;
+										printf("%d * magicnum = %d \n", x, mult);
+										add = x + magic;
+										printf("%d + magicnum = %d\n", x, add);
+										sub = x - magic;
+										printf("%d - magicnum = %d\n", x, sub);
+										
+										puts("Guess my number or else: ");
+										scanf("%d",&y);
+											if(y == magic)
+											{
+												puts("You win! Next time you wont be lucky");
+											}
+											else
+											{
+												puts("You have died!");
+											}
+										}
+										else
+										{
+											puts("You can't follow rules huh, guess you died");
+										}
+								}
+							}
+							else
+							{
+								puts("You failed to follow orders, By the power bestowed upon me by the "
+									"Great Garrett Poppe you will DIE!!!!\n");
+								printf("%s",name);
+								puts(" has died.");
+						
+							}
+					choice = 99;
+					}
+					break;
+			}
             case 5:
                 {
+		    FILE *fileptr;
+		    int power = 5;
+		    int i;
+		    int diceroll;
+		    int randomNumber;
+		    int numbers[10];	    
                     srand(time(NULL));
+		    fileptr = fopen("adventure.txt", "w");
                     while(choice != 99)
                     {
+			fprintf(fileptr,"Hello %s, you have started out with 5 power. Below is a recap of your adventure.\n", name);
                         puts("You open the door and find a treasure chest.\n");
                         puts("You have 2 choices listed below. Choose carefully.\n");
                         puts("1. Open the chest.\n");
@@ -550,6 +883,7 @@ void main(void)
                         scanf("%d",&choice);
                         if(choice == 1)
                         {
+			    fprintf(fileptr, "You opened a chest and find a golden dice hidden inside.\n");
                             puts("You open the chest and find a golden dice hidden inside.\n");
                             puts("You have 2 choices listed below. Choose carefully.\n");
                             puts("1. Roll the dice.\n");
@@ -558,13 +892,94 @@ void main(void)
                             if(choice == 1)
                             {
                                 diceroll = 1 + (rand() % 6);
-                                printf("Congratulations! You rolled a %d. Your strength is increased by %d", diceroll, diceroll);
+                                printf("Congratulations! You rolled a %d. Your strength is increased by %d\n", diceroll, diceroll);
+				power = power + diceroll;
+				fprintf(fileptr, "You chose to roll the dice. Lucky you! You rolled a %d. Your strength is increased to %d.\n", diceroll, power);
                                 puts("You move on with your journey. Ahead you encounter a giant orc with heavy armor. Between you and the orc is a sword.\n");
                                 puts("You have 3 choices listed below. Choose carefully.\n");
                                 puts("1. Pick up the sword and combat the orc.\n");
                                 puts("2. Run up and punch the orc.\n");
                                 puts("3. Run away.\n");
                                 scanf("%d", &choice);
+				if (choice == 1)
+				{
+					fprintf(fileptr, "You pick up the sword and fight the orc, but too bad your sword broke and you died.\n");
+					puts("You pick up the sword and start to combat the orc. Your sword breaks and the orc bashes your head in.\n");
+					puts("*****_____ GAME OVER ______*****\n");
+					puts("Check adventure.txt for an adventure recap.\n");
+					fclose(fileptr);
+					exit(0);
+				}
+				else if (choice == 2)
+				{
+					puts("You run up and punch the orc.\n");
+					if(power < 8)
+					{
+						puts("Your fist broke to the sheer muscle of the orc and the orc picks you up and chomps your had off.\n");
+						puts("*****_____ GAME OVER ______*****\n");
+						fprintf(fileptr, "How unlucky of you...your power was not strong enough to kill the orc in one punch. You became a tootsie roll pop for the orc\n");
+						puts("Check adventure.txt for an adventure recap.\n");
+						fclose(fileptr);
+						exit(0);
+					}
+					else
+					{
+						fprintf(fileptr,"You punched the orc...and it blew up...disgusting. At least a random door lied ahead of the orc.\n");
+						puts("You punch the orc and his whole body shatters into blood and chunks.\n");
+						puts("You walk down a bit more and you find a door down the path and it is asking you for any number between 1 and 100. Answer wisely.\n");
+						scanf("%d", &randomNumber);
+						for(i = 0; i < 10; i++)
+						{
+							numbers[i] = 1 + (rand() % 100);
+						}
+						if(randomNumber > 1 && randomNumber < 100)
+						{
+							if(randomNumber == numbers[i])
+							{
+								printf("You yell the number %d at the door, it magically opens and you find your way out of the dungeon.\n", randomNumber);
+								puts("Congratulations. You won!\n");
+								fprintf(fileptr,"Your opened the door with your magic number and escape the dungeon. Congratulations you win.\n");
+								fprintf(fileptr, "The numbers to open the doors were:\n");
+								for(i = 0; i < 10; i++)
+								{
+									fprintf(fileptr, "%d\t", numbers[i]);
+								}
+								puts("Check adventure.txt for an adventure recap.\n");
+								fclose(fileptr);
+								exit(0);
+							}
+							else
+							{
+								printf("%d does not match %d\n", numbers[i]);
+							}
+						}
+						else
+						{
+							puts("A huge spike trap falls from the ceiling and kills you.\n");
+							puts("*****_____ GAME OVER _____*****\n");
+							fprintf(fileptr, "You died because you didn't follow the rules. Guess that's what you get for not following the rules.\n");
+							puts("Check adventure.txt for an adventure recap.\n");
+							fclose(fileptr);
+							exit(0);
+						}
+						puts("Guess you didn't guess a correct number.\n");
+						puts("You become stuck in the dungeon. No food. No other signs of life. You die a lonely death.\n");
+						puts("*****_____ GAME OVER _____*****\n");
+						puts("Check adventure.txt for an adventure recap.\n");
+						fprintf(fileptr, "Sucks to be you...dying a lonely death because you couldn't guess a random number.\n");
+						fclose(fileptr);
+						exit(0);
+					}
+				}
+				else if (choice == 3)
+				{
+			       		 puts("You attempt to run away.\n");
+                              	 	 puts("The orc quickly catches up and smashes your head.\n");
+                              		 puts("*****_____ GAME OVER _____*****\n");	
+		 			 fprintf(fileptr,"You attempted to run from the orc. What were you thinking, your legs are half the length of its. Well you died.\n");
+					 puts("Check adventure.txt for an adventure recap.\n");																	     fclose(fileptr);
+					 exit(0);
+				}
 
                             }
                             else if(choice == 2)
@@ -574,6 +989,37 @@ void main(void)
                                 puts("1. Pick up the sword and combat the orc.\n");
                                 puts("2. Roll the dice.\n");
                                 puts("3. Run away.\n");
+				scanf("%d", &choice);
+				if(choice == 1)
+				{
+					fprintf(fileptr, "You pick up the sword and fight the orc, but too bad your sword broke and you died.\n");
+					puts("You pick up the sword and start to combat the orc. Your sword breaks and the orc bashes your head in.\n");
+					puts("*****_____ GAME OVER ______*****\n");
+					puts("Check adventure.txt for an adventure recap.\n");
+					fclose(fileptr);
+					exit(0);
+				}
+				else if(choice == 2)
+				{
+					puts("You attempt the roll the dice while the orc is looking at you.\n");
+					puts("The orc runs up and smashes your head in. Your dice falls on the ground.\n");
+					diceroll = 1 + (rand() % 6);
+					puts("*****_____ GAME OVER _____*****\n");
+					fprintf(fileptr, "Well you died, but if you would have lived, you would have rolled a %d.\n", diceroll);
+					puts("Check adventure.txt for an adventure recap.\n");
+					fclose(fileptr);
+					exit(0);
+				}
+				else if (choice == 3)
+				{
+					 puts("You attempt to run away.\n");
+                              	 	 puts("The orc quickly catches up and smashes your head.\n");
+                              		 puts("*****_____ GAME OVER _____*****\n");	
+		 			 fprintf(fileptr,"You attempted to run from the orc. What were you thinking, your legs are half the length of its. Well you died.\n");
+					 puts("Check adventure.txt for an adventure recap.\n");
+					 fclose(fileptr);
+					 exit(0);
+				}
 
                             }
                         }
@@ -586,16 +1032,25 @@ void main(void)
                             scanf("%d", &choice);
                             if (choice == 1)
                             {
+				fprintf(fileptr, "You pick up the sword and fight the orc, but too bad your sword was shorter than the orc's club, so you died.\n");
                                 puts("You pick up the sword and charge at the orc.\n");
                                 puts("Before you could hit the orc with your sword the orc swings down with its club.\n");
                                 puts("Your head gets smashed.\n");
                                 puts("*****_____ GAME OVER _____*****\n");
+				puts("Check adventure.txt for an adventure recap.\n");
+				fclose(fileptr);
+				exit(0);
                             }
                             else if (choice == 2)
                             {
                                 puts("You attempt to run away.\n");
                                 puts("The orc quickly catches up and smashes your head.\n");
-                                puts("*****_____ GAME OVER _____*****\n");								}
+                                puts("*****_____ GAME OVER _____*****\n");
+				fprintf(fileptr,"You attempted to run from the orc. What were you thinking, your legs are half the length of its. Well you died.\n");
+				puts("Check adventure.txt for an adventure recap.\n");
+				fclose(fileptr);
+				exit(0);
+			    }
                         }
                     }
                     break;
@@ -1431,6 +1886,450 @@ void main(void)
 														
 														for(j = 5; j >= 0; j--)
 														{
+
+
+														i = (rand()% 13) + 1;
+														
+														PC1 = *(ptr3 + i);
+														PC2 = *(ptr4 + i);
+														COM1 = *(ptr2 + i);
+														COM2 = *(ptr3 + i);
+						
+														if(PC1 == 1 || PC2 == 1)
+														{
+															if(PC1 == 1 && PC2 != 1)
+															{
+																PC1 = PC1 + 10;
+															}
+															if(PC1 == 1 && PC1 != 1)
+															{
+																PC2 = PC2 + 10;
+															}
+															if(PC1 == 1 && PC2 == 1)
+															{
+																PC1 = PC1 + 10;
+															}
+														}	
+														
+														if(COM1 == 1 || COM2 == 1)
+														{
+															if(COM1 == 1 && COM2 == 10)
+															{
+																COM1 = COM1 + 10;
+																
+																printf("Dealer have a ace with a %d, dealer wins.. you have %d left", PC2,j);
+															}
+															if(COM2 == 1 && COM1 == 10)
+															{
+																COM2 = COM2 + 10;
+																printf("You have a ace with a %d, dealer wins.. you have %d left", PC2,j);
+															}
+															if(COM1 == 1 && COM2 != 1)
+															{
+																COM1 = COM1 + 10;
+															}
+															if(COM2 == 1 && COM1 != 1)
+															{
+																COM2 = COM2 + 10;
+															}
+															if(COM1 == 1 && COM2 == 1)
+															{
+																COM1 = COM1 + 10;
+															}
+															
+														}
+														PT = PC1 + PC2;
+														CT = COM1 + COM2;
+														printf("You are presented with %d and %d. A %d total card value. ", PC1, PC2, PT);
+														printf("Dealer has a %d faced up. \n", COM1);
+														
+														move:
+														printf("What is your move?\n");
+														printf(GREEN "Decision>" RESET);
+														scanf("%s", option);
+
+														
+														if(strcasecmp(option, "hit") == 0)
+														{
+															hit:
+															
+															i = rand()% 13;
+															
+															PC3 = *(ptr3 + i);
+															
+															PT = PT + PC3;
+															
+															if(PT > 21)
+															{
+																bust:
+																lose++;
+																printf("A %d card flips\n", PC3);
+																printf("Your cards values at %d. You busted, you lose this hand.\n", PT);
+																if(lose == 3)
+																{
+																	goto lost;
+																}
+																printf("Type '"GREEN" deal "RESET"' to continue. \n");
+																scanf("%s", option);
+
+															}
+															else if(PT == 21)
+															{
+																win++;
+																left = 3 - win;
+																printf("A %d card flip which makes your total cards value %d\n", PC3, PT);
+																printf("BLACKJACK! Congrats!\n");
+																printf("That's %d,%d to go!\n", win, left);
+																if(win == 3)
+																{
+																	goto winner;
+																}
+																printf("Type '"GREEN" deal "RESET"' to continue. \n");
+																scanf("%s", option);
+															}
+															else if(PT < 21)
+															{
+																printf("A %d card flips \n", PC3);
+																printf("Your new total is %d, what is your next move?\n", PT);
+																printf(GREEN "Decision>" RESET);
+																scanf("%s", option);
+
+																
+																	if(strcasecmp(option, "hit") == 0)
+																	{
+																		goto hit;
+																	}
+																	
+																	if(strcasecmp(option, "stand") == 0 || strcasecmp(option, "stay") == 0)
+																	{
+																		goto stand;
+																	}
+	
+															}
+															
+														}
+														
+														if(strcasecmp(option, "double") == 0)
+														{
+															
+															i = rand()% 13;
+															
+															PC3 = *(ptr4 + i);
+															
+															PT = PT + PC3;
+															
+															if(PT > 21)
+															{
+																goto bust;
+															}
+															else if(PT == 21)
+															{
+																win++;
+																left = win - 3;
+																printf("BLACKJACK! Congrats!\n");
+																printf("That's %d,%d to go!\n", win, left);
+																if(win == 3)
+																{
+																	goto winner;
+																}
+																printf("Type '"GREEN" deal "RESET"' to continue. \n");
+																scanf("%s", option);
+															}
+															else if (PT < 21)
+															{
+																printf("A %d card flips.", PC3);
+																printf("Your new total is %d", PT);
+																goto stand;
+															}
+														}
+														if(strcasecmp(option, "split") == 0)
+														{
+															if(PC1 != PC2)
+															{
+																printf("You cannot split your cards.\n");
+																goto move;
+															}
+															
+															if(PC1 == PC2)
+															{
+																i = rand()% 13;
+																
+																PC3 = *(ptr4 + i);
+																
+																int PT1 = PC1 + PC3;
+																
+																printf("You're first hand shows a %d and %d. Total card value of %d. What is your move?\n", PC1, PC3, PT1);
+																do
+																{	
+																	printf(GREEN"Decision>"RESET);
+																	scanf("%s", option);
+																	
+																	if(strcasecmp(option, "hit") == 0)
+																	{
+																	i = rand()% 13;
+																
+																	PC3 = *(ptr3 + i);
+																
+																	PT1 = PT1 + PC3;
+																	
+																	printf("Next card is a %d. Giving you %d total value.\n", PC3, PT1);
+																		if(PT1 > 21)
+																		{
+																			lose++;
+																			printf("A %d card flips\n", PC3);
+																			printf("Your cards values at %d. You busted, you lose this hand. You have %d tries left\n", PT, j);
+																			if(lose == 3)
+																			{
+																				goto lost;
+																			}
+																			printf("Type '"GREEN" stand "RESET"' to continue. \n");
+																			scanf("%s", option);
+																			continue;
+																		}
+																	}
+																}
+																while(!strcasecmp(option, "stand") == 0);
+																
+																i = rand()% 13;
+																
+																int PC4 = *(ptr4 + i);
+																
+																int PT2 = PC1 + PC4;
+																
+																printf("You're second hand shows a %d and %d. Total card value of %d. What is your move?\n", PC1, PC4, PT2);
+																do
+																{	
+																	printf(GREEN"Decision>"RESET);
+																	scanf("%s", option);
+																	
+																	if(strcasecmp(option, "hit") == 0)
+																	{
+																	i = rand()% 13;
+																
+																	PC4 = *(ptr3 + i);
+																
+																	PT2 = PT2 + PC4;
+																	
+																	printf("Next card is a %d. Giving you %d total value.\n", PC4, PT2);
+																	if(PT2 > 21)
+																		{
+																			lose++;
+																			printf("A %d card flips\n", PC3);
+																			printf("Your cards values at %d. You busted, you lose this hand.\n", PT);
+																			if(lose == 3)
+																			{
+																				goto lost;
+																			}
+																			printf("Type '"GREEN" continue "RESET"' to continue. \n");
+																			scanf("%s", option);
+																			continue;
+																		}
+																	}
+																}
+																while(!strcasecmp(option, "stand") == 0);
+																
+																printf("Dealer's cards are %d and %d. Total of %d card value.\n", COM1, COM2, CT);
+																
+																while(CT < 17)
+																{
+																	i = rand()% 13;
+																	
+																	COM3 = *(ptr3 + i);
+																	
+																	CT = CT + COM3;
+																	
+																	printf("Dealer hits a %d.\n", COM3);
+																	printf("Dealer has a %d in total.\n", CT);
+																	
+																}
+																if(CT > 21)
+																{
+																	win++;
+																	printf("Your first card present a total card value of %d. \n", PT);
+																	printf("Dealer presents a %d. Dealer bust, you win this hand!. \n", CT);
+																	printf("That's %d,%d to go!\n", win, left);
+																	if(win == 3)
+																	{
+																	  goto winner;
+																	}
+																	printf("Type '"GREEN" Deal "RESET"' to continue. \n");
+																	scanf("%s", option);
+																}
+																else if(CT > PT1)
+																{
+																	lose++;
+																	printf("Your first card present total card value of %d. \n", PT1);
+																	printf("Dealer wins this hand...\n");
+																	if(lose == 3)
+																	{
+																		goto lost;
+																	}
+																	
+																}
+																else if(PT1 > CT)
+																{
+																	win++;
+																	left = 3 - win;
+																	printf("Your first card present total card value of %d. \n", PT1);
+																	printf("Dealer presents a %d. You won this hand!\n", CT);
+																	if(win == 3)
+																	{
+																		goto winner;
+																	}
+																	printf("That's %d,%d to go!\n", win, left);
+
+																	
+																}
+																else if(PT1 == CT)
+																{
+																	j++;
+																	printf("You present total card value of %d. \n", PT1);
+																	printf("Dealer presents a %d. This is a push.\n", CT);
+																	
+																}
+																else if(CT > PT2)
+																{
+																	printf("Your first card present total card value of %d. \n", PT2);
+																	printf("Dealer wins this hand...\n");
+																	lose++;
+																	if(lose == 3)
+																	{
+																		goto lost;
+																	}
+																	printf("Type '"GREEN" deal "RESET"' to continue. \n");
+																	scanf("%s", option);
+																	
+																	
+																}
+																else if(PT2 > CT)
+																{
+																	win++;
+																	if(win == 3)
+																	{
+																		goto winner;
+																	}
+																	left = 3 - win;
+																	printf("You present total card value of %d. \n", PT2);
+																	printf("Dealer presents a %d. You won this hand!\n", CT);
+																	printf("That's %d,%d to go!\n", win, left);
+																	printf("Type '"GREEN" deal "RESET"' to continue. \n");
+																	scanf("%s", option);
+																	
+																	
+																}
+																else if(PT2 == CT)
+																{
+																	j++;
+																	printf("You present total card value of %d. \n", PT2);
+																	printf("Dealer presents a %d. This is a push. \n", CT);
+																	printf("Type '"GREEN" deal "RESET"' to continue. \n");
+																	scanf("%s", option);
+																}
+																
+																
+															}
+																	
+																	
+														}
+														
+														if(strcasecmp(option, "stand") == 0 || strcasecmp(option, "stay") == 0)
+														{
+							
+																stand:
+																printf("Dealer's cards are %d and %d. Total of %d card value.\n", COM1, COM2, CT);
+																
+																while(CT < 17)
+																{
+																	i = rand()% 13;
+																	
+																	COM3 = *(ptr3 + i);
+																	
+																	CT = CT + COM3;
+																	
+																	printf("Dealer hits a %d.\n", COM3);
+																	printf("Dealer has a %d in total.\n", CT);
+																	
+																}
+																if(CT > 21)
+																{
+																	win++;
+																	left = 3 - win;
+																	printf("You present a total card value of %d. \n", PT);
+																	printf("Dealer presents a %d. Dealer bust, you win this hand!. \n", CT);
+																	if(win == 3)
+																		{
+																			goto winner;
+																		}
+																	printf("That's %d,%d to go!\n", win, left);
+																	printf("Type '"GREEN" deal "RESET"' to continue. \n");
+																	scanf("%s", option);
+																}
+																else if(CT > PT)
+																{
+																	lose++;
+																	printf("You present total card value of %d. \n", PT);
+																	printf("Dealer presents a %d, dealer wins...\n", CT);
+																	if(lose == 3)
+																	{
+																		lost:
+																		printf("You've lost three times. It seems lady luck wasn't on your side.\n");
+																		printf("You can have another shot once we restart this chapter or you could take and alternate path\n");
+																		printf("You'll now go back to the menu\n");
+																		printf("-------------------------------\n");
+																		goto Menu;
+																	}
+																	
+																	printf("Type '"GREEN" deal "RESET"' to continue. \n");
+																	scanf("%s", option);
+																	
+																}
+																else if(PT > CT)
+																{
+																	win++;
+																	left = 3 - win;
+																	printf("You present total card value of %d. \n", PT);
+																	printf("Dealer presents a %d. You won this hand!\n", CT);
+																	printf("That's %d,%d to go!\n", win, left);
+																	if(win == 3)
+																		{
+																			winner:
+																			printf("You beat the man for the sheriff's key. \"Well if you still think I'm giving it, forget it!\" the man assertively tells you.\n");
+																			printf("\"Just hand 'em the key! The stranger won fair and square!\" the man on the left shouts at the man you beat.\n");
+																			printf("With a mad grin on his face, the man you beat puts the key on the table. All three out laws start walking out the bar but before they walk out, you shout \"hey!\".\n");
+																			printf("As they turn, you toss three-hundred of your money toward the men. That's more than half of your award! \"I don't need this much, you men take it and clean yourself up. Don't worry, I will never rat ya'll wrongful doings.\", you tell the men.\n");
+																			printf("With all three men in shocking in despair, one of them thanks you. Your great generosity will certainly keep those men out of town. Now lets get the sheriff out of jail and put an end to MadDog for good!\n");
+																			printf("--------- END OF THIS CHAPTER ---------\n");
+																			key = true;
+																			chp2 = true;
+																			goto Menu;
+																		}
+																	printf("Type '"GREEN" deal "RESET"' to continue. \n");
+																	scanf("%s", option);
+							
+																}
+																else if(PT == CT)
+																{
+																	j++;
+																	printf("You present total card value of %d. \n", PT);
+																	printf("Dealer presents a %d. This is a push.\n", CT);
+																	printf("Type '"GREEN" deal "RESET"' to continue. \n");
+																	scanf("%s", option);
+																}
+														}
+														}
+													}
+													
+													else if(strcasecmp(option, "back") == 0)
+													{
+														puts("You've decided to go back. \n");
+														puts("-------------------------- \n");
+														
+														goto Menu;
+													}
+													}
+												
+												}
+
 
 														i = (rand()% 13) + 1;
 														
@@ -2403,249 +3302,307 @@ void main(void)
                         }
 }
 
-            case 12:	//room 12 overhall
+            case 12:	//room 12 overhall complete
 		{
-			puts("you open the door and find a machine that proceeds to teleport you to a distant facility");
-			int hp = 20, enemyhp = 20, dam=0, enDam=0; 
-			int w, b[3] = { 0,0,0 };		//enemy weakness and boolean for completion
-			FILE *fptr;
-			int *p = b;
-			fptr = fopen("data.txt", "w+");
-			if (fscanf(fptr, "%d %d %d", b[0], b[1], b[2]) != 3)
-			{
-				rewind(fptr);
-				puts("A new save file will be created.");
-				fprintf(fptr, "%d %d %d", b[0], b[1], b[2]);
-			}
-			while (choice != 99)
-			{
-
-				printf("Soldier: We're glad you made it back, captain %s! What are your orders?\n(Enter -1 to train, 0 to save your progress, or enter 1-3 to play through a particular chapter of this game.)\n", name);
-				if ((*(p + 0) + *(p + 1) + *(p + 2)) == 3)
+				puts("you open the door and find a machine that proceeds to teleport you to a distant facility");
+				int hp = 20, enemyhp = 20, dam = 0, enDam = 0;
+				int w, b[3] = { 0,0,0 };		//enemy weakness and boolean for completion
+				FILE *fptr;
+				int *p = b;
+				if (fptr = fopen("data.txt", "r+"))
 				{
-					puts("After completing every chapter you unlocked a bonus scene.(Enter 4 to view it)");
+					puts("Your save file has been loaded.");
+					fscanf(fptr, "%d %d %d", &b[0], &b[1], &b[2]);
 				}
-				scanf("%d", &choice);
-				if (choice == -1)
+				else
 				{
-					puts("This is just a combat tutorial against a dummy.\nStart by entering 1(to use a gun), 2(to use a sword), or 3(to cast 1 of 4 spells).");
-					puts("Guns and swords will do a fixed amount of damage while spells vary.");
-					puts("Fire does a fixed amount, thunder does double of fire's amount but has a 50% chance of failing, heal does 0 damage but you heal hp, and reflect sends back enemy damage while taking half of the damage.");
-					puts("Enemies have a weakness to certain weapons or spells so try to find them to deal more damage to the enemy.");
-					puts("When casting a spell, cast it calmly or else you'll lose focus. (lower case letters)");
-
-					enemyhp = 20; w = 3; hp = 20;
-					while (choice != 99 && enemyhp > 0)
-					{
-						printf("You have %d hp and the enemy has %d hp\nWhat is your next move?(1:gun, 2:sword, 3:spell, or else:nothing)\n", hp, enemyhp);
-						scanf("%d", &choice);
-						if (choice>0 && choice<4)
-						{
-							dam = ((choice == 3) ? room12Spells(&hp,1) : 4) * ((choice==w)?2:1);
-						}
-						else
-						{
-							dam = 0;
-						}
-						enemyhp -= dam;
-						puts("err");
-						if (enemyhp <= 0)
-						{
-							break;
-						}
-						enDam = 1;
-						if(dam % 2 == 1 || (int)(dam/2.0+.5) % 2 == 1)		//checks for reflect spell
-						{
-							enDam /= 2;
-						}
-						hp -= enDam;
-						printf("You dealt %d damage and the enemy dealt %d damage.\n", dam,enDam);
-					}
-					puts("Congratulations you beat the training level, you will now be sent back to the facility.");
-					choice = -2;
-				}
-				else if (choice == 0)
-				{
-					rewind(fptr);
+					fptr = fopen("data.txt", "w+");
+					puts("A new save file will be created.");
 					fprintf(fptr, "%d %d %d", b[0], b[1], b[2]);
-					puts("Your progress has been saved, you will now return to the facility.");
-					choice = -2;
 				}
-				else if (choice == 1)
+				while (choice != 99)
 				{
-					puts("Chapter 1: Fall of a Republic");
-					puts("Once the new chancellor was elected he implemented new laws throughout the galaxy.");
-					puts("The laws strengthened the military, but rather than being used to protect the Milky Way Republic from the Andromeda Empire it was used to keep the people in line.");
-					puts("Former military, local militias, and people fleeing the laws from the center of the galaxy formed a rebellion force around the edges of the Milky Way.");
-					puts("We managed to deceive the enemy into sending their main force to our \"secret base\" now we sent our force for an all out attack towards the center.");
-					printf("Here we are, facing the force stationed at the capital... - %s - January 24, 3018\n", name);
-					enemyhp = 20; w = 2; hp = 20;
-					while (choice != 99 && enemyhp > 0)
+
+					printf("Soldier: We're glad you made it back, captain %s! What are your orders?\n(Enter -1 to train, 0 to save your progress, or enter 1-3 to play through a particular chapter of this game.)\n", name);
+					if ((*(p + 0) + *(p + 1) + *(p + 2)) == 3)
 					{
-						printf("You have %d hp and the enemy has %d hp\nWhat is your next move?(1:gun, 2:sword, 3:spell, or else:nothing)\n", hp, enemyhp);
-						scanf("%d", &choice);
-						if (choice>0 && choice<4)
-						{
-							dam = ((choice == 3) ? room12Spells(&hp,1) : 4) * ((choice==w)?2:1);
-						}
-						else
-						{
-							dam = 0;
-						}
-						enemyhp -= dam;
-						puts("err");
-						if (enemyhp <= 0)
-						{
-							break;
-						}
-						enDam = 1;
-						if(dam % 2 == 1 || (int)(dam/2.0+.5) % 2 == 1)		//checks for reflect spell
-						{
-							enDam /= 2;
-						}
-						hp -= enDam;
-						printf("You dealt %d damage and the enemy dealt %d damage.\n", dam,enDam);
+						puts("After completing every chapter you unlocked a bonus scene.(Enter 4 to view it)");
 					}
-					b[0] = (hp>0) ? 1 : b[0];
-					if (hp <= 0)
+					scanf("%d", &choice);
+					if (choice == -1)
 					{
-						puts("You lost you will now be sent to the facility.");
+						puts("This is just a combat tutorial against a dummy.\nStart by entering 1(to use a gun), 2(to use a sword), or 3(to cast 1 of 4 spells).");
+						puts("Guns and swords will do a fixed amount of damage while spells vary.");
+						puts("Fire does a fixed amount, thunder does double of fire's amount but has a 50% chance of failing, heal does 0 damage but you heal 10 hp (max of 20 hp), and reflect sends back enemy damage while taking half of the damage.");
+						puts("Enemies have a weakness to certain weapons or spells so try to find them to deal more damage to the enemy.");
+						puts("When casting a spell, cast it calmly or else you'll lose focus. (lower case letters)");
+
+						enemyhp = 20; w = 3; hp = 20;
+						while (choice != 99 && enemyhp > 0)
+						{
+							printf("You have %d hp and the enemy has %d hp\nWhat is your next move?(1:gun, 2:sword, 3:spell, 99:return to facility or else:nothing)\n", hp, enemyhp);
+							scanf("%d", &choice);
+							if (choice>0 && choice<4)
+							{
+								dam = ((choice == 3) ? room12Spells(&hp, 1) : 4) * ((choice == w) ? 2 : 1);
+							}
+							else
+							{
+								dam = 0;
+							}
+							enemyhp -= dam;
+							if (enemyhp <= 0)
+							{
+								break;
+							}
+							enDam = 1;
+							if (dam % 2 == 1 || (int)(dam / 2.0 + .5) % 2 == 1)		//checks for reflect spell
+							{
+								enDam /= 2;
+							}
+							hp -= enDam;
+							printf("You dealt %d damage and the enemy dealt %d damage.\n", dam, enDam);
+						}
+						if (hp <= 0 && enemyhp>0 && choice != 99)
+						{
+							puts("You lost you will now be sent to the facility.");
+						}
+						if (hp > 0 && enemyhp <= 0 && choice != 99)
+						{
+							puts("Congratulations you won, you will now be sent to the facility.");
+						}
+						if (choice == 99)
+						{
+							puts("Returning to the facility.");
+						}
+						choice = -2;
 					}
-					choice = -2;
+					else if (choice == 0)
+					{
+						rewind(fptr);
+						fprintf(fptr, "%d %d %d", b[0], b[1], b[2]);
+						puts("Your progress has been saved, you will now return to the facility.");
+						printf("So far chapter 1 is%scomplete, chapter 2 is%scomplete, and chapter 3 is%scomplete.", (b[0]) ? " " : " in", (b[1]) ? " " : " in", (b[2]) ? " " : " in");
+						choice = -2;
+					}
+					else if (choice == 1)
+					{
+						puts("Chapter 1: Fall of a Republic");
+						puts("Once the new chancellor was elected he implemented new laws throughout the galaxy.");
+						puts("The laws strengthened the military, but rather than being used to protect the Milky Way Republic from the Andromeda Empire it was used to keep the people in line.");
+						puts("Former military, local militias, and people fleeing the laws from the center of the galaxy formed a rebellion force around the edges of the Milky Way.");
+						puts("We managed to deceive the enemy into sending their main force to our \"secret base\" now we sent our force for an all out attack towards the center.");
+						printf("Here we are, facing the force stationed at the capital... - %s - January 24, 3018\n", name);
+						enemyhp = 20; w = 2; hp = 20;
+						while (choice != 99 && enemyhp > 0 && hp > 0)
+						{
+							printf("You have %d hp and the enemy has %d hp\nWhat is your next move?(1:gun, 2:sword, 3:spell, 99:return to facility or else:nothing)\n", hp, enemyhp);
+							scanf("%d", &choice);
+							if (choice>0 && choice<4)
+							{
+								dam = ((choice == 3) ? room12Spells(&hp, 5) : 4) * ((choice == w) ? 2 : 1);
+							}
+							else
+							{
+								dam = 0;
+							}
+							enemyhp -= dam;
+							if (enemyhp <= 0)
+							{
+								break;
+							}
+							enDam = 5;
+							if (dam % 2 == 1 || (int)(dam / 2.0 + .5) % 2 == 1)		//checks for reflect spell
+							{
+								enDam /= 2;
+							}
+							hp -= enDam;
+							printf("You dealt %d damage and the enemy dealt %d damage.\n", dam, enDam);
+						}
+						b[0] = (hp>0 && enemyhp<1) ? 1 : b[0];
+						if (hp <= 0 && enemyhp>0 && choice != 99)
+						{
+							puts("You lost you will now be sent to the facility.");
+						}
+						if (hp > 0 && enemyhp <= 0 && choice != 99)
+						{
+							puts("Congratulations you won, you will now be sent to the facility.");
+						}
+						if (choice == 99)
+						{
+							puts("Returning to the facility.");
+						}
+						choice = -2;
+					}
+					else if (choice == 2)
+					{
+						puts("Chapter 2: Life in the Center");
+						puts("The chancellor promised everyone jobs once elected and he delivered on his promise... in the most horrible way possible.");
+						puts("Plenty of people were rounded up and experimented on with various chemical substances.");
+						puts("The chancellor's goal was to make a mindless population that will obey any order given to them by him directly.");
+						puts("Many people never survived the experiments because the drug made unnatural changes to the human brain.");
+						puts("Those that survived suffer from symptoms such as rotting flesh and fits of rage, some even resort to cannabalism. Rumors suggest it's to ease their pain.");
+						printf("Here we are, facing the citizins attempting to put them out of their misery... - %s - February 1, 3018\n", name);
+						enemyhp = 30; w = 1; hp = 20;
+						while (choice != 99 && enemyhp > 0 && hp > 0)
+						{
+							printf("You have %d hp and the enemy has %d hp\nWhat is your next move?(1:gun, 2:sword, 3:spell, 99:return to facility or else:nothing)\n", hp, enemyhp);
+							scanf("%d", &choice);
+							if (choice>0 && choice<4)
+							{
+								dam = ((choice == 3) ? room12Spells(&hp, 3) : 4) * ((choice == w) ? 2 : 1);
+							}
+							else
+							{
+								dam = 0;
+							}
+							enemyhp -= dam;
+							if (enemyhp <= 0)
+							{
+								break;
+							}
+							enDam = 3;
+							if (dam % 2 == 1 || (int)(dam / 2.0 + .5) % 2 == 1)		//checks for reflect spell
+							{
+								enDam /= 2;
+							}
+							hp -= enDam;
+							printf("You dealt %d damage and the enemy dealt %d damage.\n", dam, enDam);
+						}
+						b[1] = (hp>0 && enemyhp<1) ? 1 : b[1];
+						if (hp <= 0 && enemyhp>0 && choice != 99)
+						{
+							puts("You lost you will now be sent to the facility.");
+						}
+						if (hp > 0 && enemyhp <= 0 && choice != 99)
+						{
+							puts("Congratulations you won, you will now be sent to the facility.");
+						}
+						if (choice == 99)
+						{
+							puts("Returning to the facility.");
+						}
+						choice = -2;
+					}
+					else if (choice == 3)
+					{
+						puts("Chapter 3: End of the Milky Way Government");
+						puts("The chancellor is now confronting us directly along with his corrupt officials.");
+						puts("People believe the restricting of magic to the general population helped the chancellor rise to power.");
+						puts("Other corrupt officials proceeded to use spells to manipulate the population and due to a lack of knowledge on magic nobody could counter their charm spells.");
+						puts("This will be our most difficult fight and we must finish this quickly before the main force returns to the capital.");
+						puts("If the rumors hold true then the chancellor has a powerful ability that could destroy armies, there must be a way to counter it.");
+						printf("This is it, our last stand and the stakes can't be any higher - %s - February 3, 3018\n", name);
+						enemyhp = 40; w = 0; hp = 20;
+						int timeStop = 1, reflectDial = 1;
+						while (choice != 99 && enemyhp > 0 && hp > 0)
+						{
+							printf("You have %d hp and the enemy has %d hp\nWhat is your next move?(1:gun, 2:sword, 3:spell, 99:return to facility or else:nothing)\n", hp, enemyhp);
+							scanf("%d", &choice);
+							if (choice>0 && choice<4)
+							{
+								dam = ((choice == 3) ? room12Spells(&hp, 7) : 4) * ((choice == w) ? 2 : 1);
+							}
+							else
+							{
+								dam = 0;
+							}
+							if (dam % 2 == 0 && (int)(dam / 2.0 + .5) % 2 == 0)		//checks for reflect spell
+							{
+								dam = 0;		//time warp makes every attack fail except reflect and heal
+								if (timeStop)
+								{
+									puts("Your attempts are useless with my time warping spell!");
+									timeStop = 0;
+								}
+							}
+							enemyhp -= dam;
+							if (enemyhp <= 0)
+							{
+								break;
+							}
+							enDam = 7;
+							if (dam % 2 == 1 || (int)(dam / 2.0 + .5) % 2 == 1)		//checks for reflect spell
+							{
+								enDam /= 2;
+							}
+							hp -= enDam;
+							printf("You dealt %d damage and the enemy dealt %d damage.\n", dam, enDam);
+							if (reflectDial && dam == 7)
+							{
+								puts("Impossible your skills resemble ");
+								reflectDial = 0;
+							}
+						}
+						b[2] = (hp>0 && enemyhp<1) ? 1 : b[2];
+						if (hp <= 0 && enemyhp>0 && choice != 99)
+						{
+							puts("You lost you will now be sent to the facility.");
+						}
+						if (hp > 0 && enemyhp <= 0 && choice != 99)
+						{
+							puts("Congratulations you won, you will now be sent to the facility.");
+						}
+						if (choice == 99)
+						{
+							puts("Returning to the facility.");
+						}
+						choice = -2;
+					}
+					else if (choice == 4 && (*(p + 0) + *(p + 1) + *(p + 2)) == 3)
+					{
+						puts("Chapter 4: Return of the Republic");
+						puts("After the final battle everyone celebrated our victory it became a holiday.");
+						puts("The Milky Way was at peace for a time but then the Andromeda Empire invaded.");
+						puts("We discovered that the chancellor was a puppet of the Andromeda Emperor.");
+						puts("What the chancellor said scared me apparently the emperor and I share similar abilities.");
+						printf("Looks like the final confrontation with the emperor and his army will determine the fate of the Milky Way.... - %s - April 27, 3058\n", name);
+						enemyhp = 50; w = 0; hp = 20;
+						while (choice != 99 && enemyhp > 0 && hp > 0)
+						{
+							printf("You have %d hp and the enemy has %d hp\nWhat is your next move?(1:gun, 2:sword, 3:spell, 99:return to facility or else:nothing)\n", hp, enemyhp);
+							scanf("%d", &choice);
+							if (choice>0 && choice<4)
+							{
+								dam = ((choice == 3) ? room12Spells(&hp, 7) : 4) * ((choice == w) ? 2 : 1);
+							}
+							else
+							{
+								dam = 0;
+							}
+							enemyhp -= (dam <= 7) ? dam : dam / 2;
+							if (enemyhp <= 0)
+							{
+								break;
+							}
+							enDam = (dam < 7) ? 7 : dam;
+							if (dam % 2 == 1 || (int)(dam / 2.0 + .5) % 2 == 1)		//checks for reflect spell
+							{
+								enDam /= 2;
+							}
+							hp -= enDam;
+							printf("You dealt %d damage and the enemy dealt %d damage.\n", (dam <= 7) ? dam : dam / 2, enDam);
+						}
+						if (hp <= 0 && choice != 99 && enemyhp>0)	//bad end
+						{
+							printf("The Milky Way has fallen I fear everyone will become slaves for Andromeda.\nI have not seen the outside world in days after being imprisoned.\nNow I await for my execution in an hour on charges of war crimes.... %s - May 8, 3058\n", name);
+						}
+						if (hp > 0 && choice != 99 && enemyhp <= 0)		//good end
+						{
+							puts("Impossible, is this why my right hand man lost to you!? You share my ability!");
+							puts("No my empire will fall without me, my right hand man may have been cruel but promise me you won't torment my people.\n He held a grudge after the Milky Way attacked us a century ago we didn't want any repeats so we decided to take over.\nHis methods were cruel but I never intended to harm the inhabitants of the Milky Way....");
+							puts("Those were the emperor's final words. It's finally over!\nAfter the fall of the Andromeda Empire the Milky Way took over.\nWe implemented laws to benefit the Andromeda people while being unintrusive to their way of life.");
+							printf("There were many orpahns so I took in a few including the former chancellor's and emperor's kids.\nNow we have entered a true era of peace and may it last forever, here I am at a ripe age of 100 awaiting rest..... %s - May 9, 3092\n", name);
+							printf("And thus the final entry in the journal of captain %s comes to an end. You will now return to the facility.\n", name);
+						}
+						if (choice == 99)
+						{
+							puts("Returning to the facility.");
+						}
+						choice = -2;
+					}
 				}
-				else if (choice == 2)
-				{
-					puts("Chapter 2: Life in the Center");
-					puts("The chancellor promised everyone jobs once elected and he delivered on his promise... in the most horrible way possible.");
-					puts("Plenty of people were rounded up and experimented on with various chemical substances.");
-					puts("The chancellor's goal was to make a mindless population that will obey any order given to them by him directly.");
-					puts("Many people never survived the experiments because the drug made unnatural changes to the human brain.");
-					puts("Those that survived suffer from symptoms such as rotting flesh and fits of rage, some even resort to cannabalism. Rumors suggest it's to ease their pain.");
-					printf("Here we are, facing the citizins attempting to put them out of their misery... - %s - February 1, 3018\n", name);
-					enemyhp = 20; w = 1; hp = 30;
-					while (choice != 99 && enemyhp > 0)
-					{
-						printf("You have %d hp and the enemy has %d hp\nWhat is your next move?(1:gun, 2:sword, 3:spell, or else:nothing)\n", hp, enemyhp);
-						scanf("%d", &choice);
-						if (choice>0 && choice<4)
-						{
-							dam = ((choice == 3) ? room12Spells(&hp,1) : 4) * ((choice==w)?2:1);
-						}
-						else
-						{
-							dam = 0;
-						}
-						enemyhp -= dam;
-						puts("err");
-						if (enemyhp <= 0)
-						{
-							break;
-						}
-						enDam = 1;
-						if(dam % 2 == 1 || (int)(dam/2.0+.5) % 2 == 1)		//checks for reflect spell
-						{
-							enDam /= 2;
-						}
-						hp -= enDam;
-						printf("You dealt %d damage and the enemy dealt %d damage.\n", dam,enDam);
-					}
-					b[1] = (hp>0) ? 1 : b[1];
-					if (hp <= 0)
-					{
-						puts("You lost you will now be sent to the facility.");
-					}
-					choice = -2;
-				}
-				else if (choice == 3)
-				{
-					puts("Chapter 3: End of the Milky Way Government");
-					puts("The chancellor is now confronting us directly along with his corrupt officials.");
-					puts("People believe the restricting of magic to the general population helped the chancellor rise to power.");
-					puts("Other corrupt officials proceeded to use spells to manipulate the population and due to a lack of knowledge on magic nobody could counter their charm spells.");
-					puts("This will be our most difficult fight and we must finish this quickly before the main force returns to the capital.");
-					puts("If the rumors hold true then the chancellor has a powerful ability that could destroy armies, there must be a way to counter it.");
-					printf("This is it, our last stand and the stakes can't be any higher - %s - February 3, 3018\n", name);
-					enemyhp = 40; w = 3; hp = 20;
-					int timeStop = 0, timeReset = 0;
-					while (choice != 99 && enemyhp > 0)
-					{
-						printf("You have %d hp and the enemy has %d hp\nWhat is your next move?(1:gun, 2:sword, 3:spell, or else:nothing)\n", hp, enemyhp);
-						scanf("%d", &choice);
-						if (choice>0 && choice<4)
-						{
-							dam = ((choice == 3) ? room12Spells(&hp,1) : 4) * ((choice==w)?2:1);
-						}
-						else
-						{
-							dam = 0;
-						}
-						enemyhp -= dam;
-						puts("err");
-						if (enemyhp <= 0)
-						{
-							break;
-						}
-						enDam = 1;
-						if(dam % 2 == 1 || (int)(dam/2.0+.5) % 2 == 1)		//checks for reflect spell
-						{
-							enDam /= 2;
-						}
-						hp -= enDam;
-						printf("You dealt %d damage and the enemy dealt %d damage.\n", dam,enDam);
-					}
-					b[2] = (hp>0) ? 1 : b[2];
-					if (hp <= 0)
-					{
-						puts("You lost you will now be sent to the facility.");
-					}
-					choice = -2;
-				}
-				else if (choice == 4 && (*(p + 0) + *(p + 1) + *(p + 2)) == 3)
-				{
-					puts("Chapter 4: Return of the Republic");
-					puts("After the final battle everyone celebrated our victory it became a holiday.");
-					puts("The Milky Way was at peace for a time but then the Andromeda Empire invaded.");
-					puts("We discovered that the chancellor was a puppet of the Andromeda Emperor.");
-					printf("Looks like the final confrontation with the emperor and his army will determine the fate of the Milky Way.... - %s - April 27, 3058\n", name);
-					
-					while (choice != 99 && enemyhp > 0)
-					{
-						printf("You have %d hp and the enemy has %d hp\nWhat is your next move?(1:gun, 2:sword, 3:spell, or else:nothing)\n", hp, enemyhp);
-						scanf("%d", &choice);
-						if (choice>0 && choice<4)
-						{
-							dam = ((choice == 3) ? room12Spells(&hp,1) : 4) * ((choice==w)?2:1);
-						}
-						else
-						{
-							dam = 0;
-						}
-						enemyhp -= dam;
-						puts("err");
-						if (enemyhp <= 0)
-						{
-							break;
-						}
-						enDam = 1;
-						if(dam % 2 == 1 || (int)(dam/2.0+.5) % 2 == 1)		//checks for reflect spell
-						{
-							enDam /= 2;
-						}
-						hp -= enDam;
-						printf("You dealt %d damage and the enemy dealt %d damage.\n", dam,enDam);
-					}
-					choice = -2;
-					if (hp <= 0 && choice != 99)	//bad end
-					{
-						printf("The Milky Way has fallen I fear everyone will become slaves for Andromeda.\n Now I await for my execution in an hour on charges of war crimes.... %s - May 8, 3058",name);
-					}
-					if (hp > 0 && choice != 99)		//good end
-					{
-						printf("After the fall of the Andromeda Empire the Milky Way took over.\n Now we have entered a true era of peace and may it last forever..... %s - May 9, 3092");
-						printf("And thus the final entry in the journal of captain %s comes to an end.",name);
-					}
-				}
-			}
+				fclose(fptr);
 			break;
 		}
             case 13:
@@ -2804,12 +3761,124 @@ void main(void)
                 }
             case 15:
                 {
-                    while(choice != 99)
-                    {
-                        puts("You approach the door clearly marked 15.\n As you pass through the doorway you find yourself a room unlike anything you've experience before. In the distance you see a small dimly lit table occupied by only the outline of what you make out to be a man.\n The door behind you has vanished into the blac void.\n Your attention is set back on the mysterious man as he grumbles a request to take a seat at his table.\n You find yourself in a situation of two choices:\n1. Proceed to the table.\n2. Run away."); 
-                        scanf("%d",&choice);
-                    }
-                    break;
+                        while(choice != 99)
+                        {
+				int fire = 1, water = 2, grass = 3;
+    				int i;
+				int death = 1, win = 0;  
+    				int playerScore = 0, enemyScore = 0;
+    				int choice;
+    				srand(time(NULL));
+				puts("                888\n""                888\n""                888\n""88888b.  .d88b. 888  888 .d88b. 88888b.d88b.  .d88b. 88888b.\n""888 *88bd88**88b888 .88Pd8P  Y8b888 *888 *88bd88**88b888 *88b\n""888  888888  888888888K 88888888888  888  888888  888888  888\n""888 d88PY88..88P888 *88bY8b.    888  888  888Y88..88P888  888\n""88888P*  *Y88P* 888  888 *Y8888 888  888  888 *Y88P* 888  888\n""888\n""888              Welcome To Pokemone Battle Hell\n""888");
+				//Sorry for annoying ASCII art.
+				printf("\nCongratulations %s, you've escaped one watery hell only to emerge in a new hell.\n",name); 
+				puts("*Confused* You look around wondering who is talking to you.");
+				puts("Coming to your senses you recongnize the man before you.");
+				puts("\nThe man is oddly remensicent of Proffesor Oak from a childhood favorite Pokemon game.");
+				puts("The resemblence is uncanny, but equally as creepy like any cartoon live action film.");
+				puts("Prof. Oak explains you have transcended time and space and the only way home is to win a battle.");
+				puts("\nThe rules are elementary, you choose a pokemon in hopes its stronger. Best of three wins.");
+				puts("To further explain the rules: Fire>Grass, Water>Fire, Grass>Water.");
+				puts("He then asks you to choose your Pokemon.\n");        
+    				printf("1. Charmander (Fire type)\n2. Squirtle (Water Type)\n3. Bulbasaur (Grass Type)\n");
+				while(win != 1)
+				{
+					for(i=0;i<3;i++)
+					{
+						printf("\nChoose your pokemon: ");
+						scanf("%d",&choice);
+						int enemy = rand() % 3 + 1;
+						if(choice == 1)
+						{
+							if(enemy == 1)
+							{
+								puts("Charmander vs Charmander"); 
+								printf("Draw, neighter Charmanders flame will ever extinguish.\n");
+							}
+							if(enemy == 2)
+							{
+								puts("Charmander vs Squirtle"); 
+								printf("Oak Wins! Squirtle soaks Charmanders tail.\n");
+								enemyScore = enemyScore + 1;
+							}
+							if(enemy == 3)
+							{
+								puts("Charmander vs Bulbasaur"); 
+								printf("%s Wins! Charmander set Bulbasaur ablaze!\n",name);
+								playerScore = playerScore + 1;
+							}
+						}
+						else  if(choice == 2)
+						{
+							if(enemy == 2)
+							{	puts("Squirtle vs Squirtle"); 
+								printf("Draw, the Squirtles ditch you and form the Squirtle squad.\n");
+							}
+							if(enemy == 3)
+							{	
+								puts("Squirtle vs Bulbasaur"); 
+								printf("Oak Wins! Squirtles water gun had no effect on Bulbasaur .\n");
+								enemyScore = enemyScore + 1;
+							}
+							if(enemy == 1)
+							{	
+								puts("Squirtle vs Charmander"); 
+								printf("%s Wins! Squirtle extinguished Charmander\n",name);
+								playerScore = playerScore + 1;
+							}
+						}
+						else if(choice == 3)
+						{
+							if(enemy == 3)
+							{
+								puts("Bulbasaur vs Bulbasaur"); 
+								printf("Draw, Both Bulbasaur beaming eachother got us nowhere.\n");
+							}
+							if(enemy == 2)
+							{
+								puts("Bulbasaur vs Squirtle"); 
+								printf("%s Wins! All Squirtles watering nearly evolved our Bulbasaur.\n",name);
+								playerScore = playerScore + 1;
+							}
+							if(enemy == 1)
+							{
+								puts("Bulbasaur vs Charmander"); 
+								printf("Oak Wins! Bulbasaur was burned to a crisp by Charmander.\n");
+								enemyScore = enemyScore + 1;
+							}
+						}
+						else
+						{
+							printf("Please choose a pokemone\n");
+						}
+					}
+					if(enemyScore > playerScore )
+					{
+						printf("Oak explains he beat you %d to %d...\n",enemyScore,playerScore);
+						puts("In a sudden flash you black out only to be awoken again.");
+						puts("You wake up to an alarm turning over to 6:00am and you hear I Got You Babe playing."); 
+						puts("You again are standing face to face with oak. You are trapped here until you win.");
+						printf("You realize this is the %d time you've lost and died... You must leave this place.",death);   
+						playerScore = 0; 
+						enemyScore = 0; 
+						death = death + 1; 
+					}
+					else if(enemyScore < playerScore )
+					{
+						printf("%s, You've bested me %d to %d. It's time you return home.\n",name,playerScore,enemyScore);
+						puts("He steps aside revealing another door similar to the one that brought you here.");
+ 						puts("Do you dare open it?..."); 
+						puts("Find out next week on POKEMON!");
+					}
+					else if(enemyScore = playerScore )
+					{
+						printf("Oak explains no winner, and it's a draw!\n");
+						puts("Explaining someone has to win the battle continues!"); 
+					}
+				} 
+    				return 0;			     
+                        }
+                        break;
                 }
             case 16:
                 {
@@ -2820,44 +3889,167 @@ void main(void)
                 }
             case 17:
                 {
-                    //modyfied November 7, 2018
-                    puts("You open the door and find.......");
-                    puts("A poorly lit room with a single box on the floor...");
+                    int cor = 0;
+			int *p;
+			int chances = 3;
+			int guess = 0;
+			int choice = 0;
+			int magicNum = rand()%16;
+			int scaleWeight = rand()%50;
+			int totWeight = 0;
 
-                    while(choice != 99)
-                    {
+			int correctSlots[2] = {magicNum, scaleWeight};
+
+			p = correctSlots;
+
+
+		    puts("You open the door and walk in to find");
+		    puts("a dark room with a dim spotlight on a machine at the end of the room");
+		    puts("The door locks behind you...");
 
 
 
-                        puts("1.Inspect the box");
-                        puts("2.Flick the light switch");
-                        scanf("%d",&choice);
-                        if(choice == 1)
-                        {
-                            puts("You pick up the box and look inside....");
-                            puts("There is nothing inside...");
-                            puts("You are highly disappointed and your day is ruined");
-                        }
-                        else if(choice ==2)
-                        {
-                            puts("You flick the light switch and hear a scream from the box");
-                            puts(" Turn off the light ");
-                        }
-                        else
-                        {
-                            puts("You walk away...");
-                        }
-                    }
+		    printf("MN: %d\n", magicNum );
+		    printf("SW: %d\n", scaleWeight );
+
+		    while(choice != 99)
+		    {
+
+		            puts("1. Approach spotlight");
+		            puts("2. Guess number");
+		            puts("3. Balance Scale");
+		            puts("4. Write down the answers");
+		            puts("5. Check Answers");
+		            puts("Enter 99 to quit");
+
+		            scanf("%d",&choice);
+
+		            switch(choice)
+		            {
+		                case 1:
+
+		                    puts("There are 2 slots on the wall");
+		                    puts("There is something written on the wall..");
+		                    puts("ANSWER THE EACH QUESTION CORRECTLY AND BECOME CLOSER TO ESCAPING WITH YOUR LIFE!");
+		                    puts("1. GUESS THE MAGIC NUMBER BETWEEN 0 - 16");
+		                    puts("2. BALANCE THE SCALE");
+		                    puts("ENTER YOUR ANSWERS IN THE MACHINE AND PRAY YOU ARE CORRECT...");
+
+
+		                    break;
+		                case 2:
+		                    printf("You have %d chances", chances );
+		                    puts("Enter your guess: ");
+		                    scanf("%d",&guess);
+
+		                    if(guess == magicNum)
+		                    {
+		                        puts("YOU ARE CLOSER");
+		                    }
+
+		                        if(guess > magicNum)
+		                        {
+		                            puts("Lower");
+		                        }
+		                        else if(guess < magicNum){
+		                            puts("Higher");
+		                        }
+
+		                    break;
+		                case 3:
+		                        choice =0;
+
+		                        while(choice != 3)
+		                        {
+		                            puts("1. Add rocks to scale");
+		                            puts("2. Remove rocks from scale");
+		                            puts("3. Done with scale");
+		                            scanf("%d", &choice);
+
+		                            switch(choice)
+		                            {
+		                                case 1:
+		                                    puts("How many rocks to add: ");
+		                                    scanf("%d", &guess);
+
+		                                    totWeight += guess;
+
+		                                    if(totWeight > scaleWeight)
+		                                    {
+		                                        puts("LESS WEIGHT");
+		                                    }
+		                                    else if(totWeight < scaleWeight)
+		                                    {
+		                                        puts("MORE WEIGHT");
+		                                    }
+		                                    else if(totWeight == scaleWeight)
+		                                    {
+		                                        puts("YOU ARE CLOSER!");
+		                                    }
+
+
+		                                    break;
+		                                case 2:
+		                                    puts("How many rocks to remove: ");
+		                                    scanf("%d", &guess);
+		                                    totWeight -= guess;
+
+		                                    if(totWeight < 0)
+		                                    {
+		                                        puts("MORE WEIGHT");
+		                                        totWeight = 0;
+		                                    }
+		                                    else if(totWeight > scaleWeight)
+		                                    {
+		                                        puts("LESS WEIGHT");
+		                                    }
+		                                    else if(totWeight == scaleWeight)
+		                                    {
+		                                        puts("YOU ARE CLOSER!");
+		                                    }
+
+		                                    break;
+
+		                                default:
+		                                    break;
+
+
+		                            }
+
+		                        }
+
+		                    break;
+		                case 4:
+		                    writeAnswers();
+		                    break;
+		                case 5:
+		                    cor = checkAnswers(p);
+
+		                    if(cor == 2)
+		                    {
+		                        puts("YOU MAY LIVE");
+		                    }
+		                    else("You are INCORRCET...The walls begin to close in...RIP");
+		                    break;
+		                default :
+		                         puts("The walls begin to close in...RIP");
+		                    break;
+		            }
+
+
+		    }
                     break;
                 }
-            case 18:
+            case 18: //Fernando Ochoa
                 {
                     while(choice != 99)
                     {
                         FILE *inptr;
                         char ranstring[256];
+			char entString[256];
+			char *ptr = entString;
 			int randints[10];
-                        int sides, numguess, randnum, i, k, numrolls, roll;
+                        int uChoice,sides, numguess, randnum, i, k, numrolls, roll;
                         puts("You open the door and find ...... ");
                         puts("An s2000 that is currently fixed with airbag suspension");
                         puts("An s2000 completely modified with all authentic JDM parts");
@@ -2867,8 +4059,8 @@ void main(void)
                         puts("Choice 2: throw away all of these cars and save your money for a worse car");
                         puts("Choice 3: Make these cars all bone stock");
 			puts("Choice 4: Do nothing to the cars and just test your luck...");
-                        scanf("%d", &choice);
-                        switch(choice)
+                        scanf("%d", &uChoice);
+                        switch(uChoice)
                         {
                             case 1:
                                 puts("Okay so this was a pretty good choice, but i can tell you're a purist. Yuck");
@@ -2883,10 +4075,8 @@ void main(void)
                                 {
                                     puts("Bro it is literally so easy but that was your last chance, bye");
                                 }
-
                                 break;
-
-                            case 2:
+                            case 2: //this case will eventually take in a string and then maniuplate but not randomly i just said that to make it look cooler
                                 puts("Why the heck would you make this choice? Literally this is the best car you can ever drive. Pleb");
                                 puts("Since you chose this i have a riddle for you, you walk into a room with 5 people, they all die, how many people are left in the room?");
                                 scanf("%d", &numguess);
@@ -2899,9 +4089,13 @@ void main(void)
                                 {
                                     puts("Okay so, look at your answer and then think really hard about the riddle.");
                                 }
+				puts("Bet you thought it was over huh? Nah okay so now i'm going to manipulate a string you enter >:)");
+				puts("So now you can just enter a random string and i will randomly do something to it");
+				getchar();
+				fgets(entString,256, stdin);
+				stringStuff(ptr);
                                 break;
-
-                            case 3:
+                            case 3: //this case just creates a file in the same directory lmao, but still go find it
                                 puts("Okay this is probably the safest choice you can make, but you are still no fun");
                                 puts("So since you are no fun, i am goin to try and make this fun by taking a huge twist on the story line. What i am going to do is create a file you're going to write to but your job is to tell me where the file is");
                                 inptr = fopen("here_is_Your_file_lol.txt", "a");
@@ -2912,7 +4106,7 @@ void main(void)
                                 fclose(inptr);
 				puts("Now go find your file!");
                                 break;
-			    case 4:
+			    case 4: //this case will just choose a random sub case to execute :) 
 				puts("Okay so you decided to have a random function chosen for you, cheeky person.");
 				puts("So here's your random function:");
 				int r = rando();
@@ -2951,18 +4145,17 @@ void main(void)
 							roll = (rand() % sides) + 1;
 							printf("You randomly rolled a: %d\n", roll);
 						}
-						break;
-					
+						break;	
 				}
 				break;
-
                             default:
                                 puts("Okay so i gave you like three options and you decided to be a little Rebel. No. Don't. This code would work fine if you did not try messing it up pls k thx.");
                                 break;
-
-                        }
-                        break;
+			}
+			break;
                     }
+		    break;
+		}
                     case 19:
                     {
                         while(choice != 99)
@@ -3018,7 +4211,7 @@ void main(void)
                     }
                     case 20:
                     {
-			#define BOLDBLACK "\033[1m\033[30m"
+		  	#define BOLDBLACK "\033[1m\033[30m"
 				#define BOLDGREEN "\033[1m\033[32m"
 				#define RED "\x1b[31m"
 				#define BLUE "\x1b[34m"
@@ -3369,10 +4562,10 @@ void main(void)
                 }
         }
 }
-}
+
 int rando(void)
 {
-	int r = (rand() % 4) + 1;
+	int r = (rand() % 2) + 1;
 	return r;
 }
 void shuffle(int *a, int *b, int SIZE)
@@ -3386,6 +4579,52 @@ void shuffle(int *a, int *b, int SIZE)
 		*(a + i + 1) = hold;
 	}
 }
+
+
+
+void stringStuff(char *ptr)
+{
+	printf("Here is your string before any manipulation: %s\n", ptr);
+
+	int i;
+	for(i = 0; i < 256; i++)	
+	{
+		if(isupper(*(ptr + i)))
+		{
+			*(ptr + i) = tolower(*(ptr+i));
+		}
+		else if(islower(*(ptr+i)))
+		{
+			*(ptr + i) = toupper(*(ptr + i));
+		}
+		else
+		{
+			continue;
+		}
+		ptr + i;
+	}
+	printf("Here is your string after i messed with it: %s\n", ptr);
+	
+}
+
+
+void combine(int *a, int *b, int *c, int *d, int *all)
+{
+	int i;
+	int j;
+	int k;
+	int l;
+	int m;
+	
+	for(i = 0; i < 52; i++)
+	{
+		all[j++] = a[i++];
+		all[k++] = b[i++];
+		all[l++] = c[i++];
+		all[m++] = d[i++];
+	}
+}
+
 
 void combine(int *a, int *b, int *c, int *d, int *all)
 {
@@ -3412,10 +4651,10 @@ int room12Spells(int *hp, int enDam)	//spell chanting
 	char ref[] = "reflect";
 	char spell[9] = "";
 	puts("Enter any of the following spells: fire, thunder, heal, or reflect");
-	scanf("%s",spell);
+	scanf("%s", spell);
 	char *ch = spell;
 	int i = 0, spellC = 0;
-	for (i = 0, spellC = 0; i<6; i++)
+	for (i = 0, spellC = 0; i<4; i++)
 	{
 		if (*(ch + i) == fire[i])
 		{
@@ -3426,11 +4665,12 @@ int room12Spells(int *hp, int enDam)	//spell chanting
 			break;
 		}
 	}
-	if (spellC == 4 || spellC == 5)
+	if (spellC == 4)
 	{
+		puts("You casted the fire spell succesfully!");
 		return 4;	//guarunteed 4 damage
 	}
-	for (i = 0, spellC = 0; i<6; i++)
+	for (i = 0, spellC = 0; i<4; i++)
 	{
 		if (*(ch + i) == heal[i])
 		{
@@ -3441,7 +4681,7 @@ int room12Spells(int *hp, int enDam)	//spell chanting
 			break;
 		}
 	}
-	if (spellC == 4 || spellC == 5)
+	if (spellC == 4)
 	{
 		if (*hp + 10>20)
 		{
@@ -3451,9 +4691,10 @@ int room12Spells(int *hp, int enDam)	//spell chanting
 		{
 			*hp += 10;
 		}
+		puts("You casted the heal spell succesfully!");
 		return 0;	//heal 10 hp
 	}
-	for (i = 0, spellC = 0; i<9; i++)
+	for (i = 0, spellC = 0; i<7; i++)
 	{
 		if (*(ch + i) == thun[i])
 		{
@@ -3464,19 +4705,21 @@ int room12Spells(int *hp, int enDam)	//spell chanting
 			break;
 		}
 	}
-	if (spellC == 7 || spellC == 8)
+	if (spellC == 7)
 	{
-		
-		if(rand() % 2 == 1) 
+
+		if (rand() % 2 == 1)
 		{		//50% chance of hitting
+			puts("You casted the thunder spell succesfully!");
 			return 8;
-		}	
+		}
 		else
 		{
+			puts("You casted the thunder spell unsuccesfully!");
 			return 0;
 		}
 	}
-	for (i = 0, spellC = 0; i<9; i++)
+	for (i = 0, spellC = 0; i<7; i++)
 	{
 		if (*(ch + i) == ref[i])
 		{
@@ -3487,13 +4730,70 @@ int room12Spells(int *hp, int enDam)	//spell chanting
 			break;
 		}
 	}
-	if (spellC == 7 || spellC == 8)
+	if (spellC == 7)
 	{
+		puts("You casted the reflect spell succesfully!");
 		return enDam;	//reflect enemy damage
 	}
+	puts("You failed to cast any spell!");
 	return 0;		//failed spell
 }
+void writeAnswers()
+{
+    int input = 0;
+	FILE *wptr;
 
+    wptr = fopen("output.txt", "w");
+
+
+        puts("Enter the magicNumber: ");
+        scanf("%d", &input);
+
+        fprintf(wptr, "%d\n", input);
+
+        puts("Enter the weight Balance: ");
+        scanf("%d", &input);
+
+        fprintf(wptr, "%d\n", input);
+
+	fclose(wptr);
+}
+
+
+int checkAnswers(int *ptr)
+{
+    FILE *rptr;
+    int i;
+	int ptrInt = 0;
+	int correct = 0;
+
+	if((rptr = fopen("output.txt", "r")) == NULL)
+	{
+		puts("File could not be opened");
+	}
+	else
+    {
+        while(!feof(rptr))
+		{
+            fscanf(rptr, "%d", ptrInt);
+
+            for(i = 0; i < 2; i++)
+            {
+                if(ptrInt == *ptr)
+                {
+                    correct++;
+                    ptr++;
+                }
+            }
+			//compare reader with ptr
+
+		}
+    }
+    rewind(rptr);
+    fclose(rptr);
+    return correct;
+
+}
 void printUpper(char *arr, int size)
 {
 	int i;
@@ -3508,4 +4808,13 @@ void printUpper(char *arr, int size)
 }
 
 
+
+
+
+int RolltheDiceman(void)
+{
+	int a;
+	a = (rand() % 6) + 1;
+	return a;
+}
 
