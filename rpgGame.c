@@ -5,7 +5,11 @@
 //Thomas Jones (Tommiiie) #15
 //Brian Godoy room 12
 //Hugo Rodriguez Room #10
+
+//Fernando ochoa room #18
+
 //Edgar Bahena Room #4
+
 
 
 // Justin Do Room #2
@@ -30,12 +34,16 @@ int usleep(suseconds_t usec);
 
 int rando(void);
 int room12Spells(int *hp, int enDam);
+
+void stringStuff(char *ptr);
+
 void printUpper(char *arr, int size);
 
 void writeAnswers(void);
 int checkAnswers(int *ptr);
 
 int RolltheDiceman(void);
+
 
 
 void main(void)
@@ -3475,14 +3483,16 @@ void main(void)
 		    }
                     break;
                 }
-            case 18:
+            case 18: //Fernando Ochoa
                 {
                     while(choice != 99)
                     {
                         FILE *inptr;
                         char ranstring[256];
+			char entString[256];
+			char *ptr = entString;
 			int randints[10];
-                        int sides, numguess, randnum, i, k, numrolls, roll;
+                        int uChoice,sides, numguess, randnum, i, k, numrolls, roll;
                         puts("You open the door and find ...... ");
                         puts("An s2000 that is currently fixed with airbag suspension");
                         puts("An s2000 completely modified with all authentic JDM parts");
@@ -3492,8 +3502,8 @@ void main(void)
                         puts("Choice 2: throw away all of these cars and save your money for a worse car");
                         puts("Choice 3: Make these cars all bone stock");
 			puts("Choice 4: Do nothing to the cars and just test your luck...");
-                        scanf("%d", &choice);
-                        switch(choice)
+                        scanf("%d", &uChoice);
+                        switch(uChoice)
                         {
                             case 1:
                                 puts("Okay so this was a pretty good choice, but i can tell you're a purist. Yuck");
@@ -3508,10 +3518,8 @@ void main(void)
                                 {
                                     puts("Bro it is literally so easy but that was your last chance, bye");
                                 }
-
                                 break;
-
-                            case 2:
+                            case 2: //this case will eventually take in a string and then maniuplate but not randomly i just said that to make it look cooler
                                 puts("Why the heck would you make this choice? Literally this is the best car you can ever drive. Pleb");
                                 puts("Since you chose this i have a riddle for you, you walk into a room with 5 people, they all die, how many people are left in the room?");
                                 scanf("%d", &numguess);
@@ -3524,9 +3532,13 @@ void main(void)
                                 {
                                     puts("Okay so, look at your answer and then think really hard about the riddle.");
                                 }
+				puts("Bet you thought it was over huh? Nah okay so now i'm going to manipulate a string you enter >:)");
+				puts("So now you can just enter a random string and i will randomly do something to it");
+				getchar();
+				fgets(entString,256, stdin);
+				stringStuff(ptr);
                                 break;
-
-                            case 3:
+                            case 3: //this case just creates a file in the same directory lmao, but still go find it
                                 puts("Okay this is probably the safest choice you can make, but you are still no fun");
                                 puts("So since you are no fun, i am goin to try and make this fun by taking a huge twist on the story line. What i am going to do is create a file you're going to write to but your job is to tell me where the file is");
                                 inptr = fopen("here_is_Your_file_lol.txt", "a");
@@ -3537,7 +3549,7 @@ void main(void)
                                 fclose(inptr);
 				puts("Now go find your file!");
                                 break;
-			    case 4:
+			    case 4: //this case will just choose a random sub case to execute :) 
 				puts("Okay so you decided to have a random function chosen for you, cheeky person.");
 				puts("So here's your random function:");
 				int r = rando();
@@ -3576,18 +3588,17 @@ void main(void)
 							roll = (rand() % sides) + 1;
 							printf("You randomly rolled a: %d\n", roll);
 						}
-						break;
-					
+						break;	
 				}
 				break;
-
                             default:
                                 puts("Okay so i gave you like three options and you decided to be a little Rebel. No. Don't. This code would work fine if you did not try messing it up pls k thx.");
                                 break;
-
-                        }
-                        break;
+			}
+			break;
                     }
+		    break;
+		}
                     case 19:
                     {
                         while(choice != 99)
@@ -3874,10 +3885,10 @@ void main(void)
                 }
         }
 }
-}
+
 int rando(void)
 {
-	int r = (rand() % 4) + 1;
+	int r = (rand() % 2) + 1;
 	return r;
 }
 void shuffle(int *a, int *b, int SIZE)
@@ -3891,6 +3902,33 @@ void shuffle(int *a, int *b, int SIZE)
 		*(a + i + 1) = hold;
 	}
 }
+
+
+void stringStuff(char *ptr)
+{
+	printf("Here is your string before any manipulation: %s\n", ptr);
+
+	int i;
+	for(i = 0; i < 256; i++)	
+	{
+		if(isupper(*(ptr + i)))
+		{
+			*(ptr + i) = tolower(*(ptr+i));
+		}
+		else if(islower(*(ptr+i)))
+		{
+			*(ptr + i) = toupper(*(ptr + i));
+		}
+		else
+		{
+			continue;
+		}
+		ptr + i;
+	}
+	printf("Here is your string after i messed with it: %s\n", ptr);
+	
+}
+
 
 void combine(int *a, int *b, int *c, int *d, int *all)
 {
@@ -3908,6 +3946,7 @@ void combine(int *a, int *b, int *c, int *d, int *all)
 		all[m++] = d[i++];
 	}
 }
+
 
 int room12Spells(int *hp, int enDam)	//spell chanting
 {
