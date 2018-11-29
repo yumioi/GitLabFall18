@@ -1,5 +1,0 @@
-Hello Kendrick below is a recap of your adventure.
-You opened a chest.
-You rolled the dice.
-Lucky you! You rolled a 5 which is added to your strength. Your strength is now 10.
-You open the door and escape the dungeon. Congratulations you win.
