@@ -2,7 +2,7 @@
 
 //Brandon LaNuevo Room #1
 //Ivan Khaffaji Room #19
-
+//Thomas Jones (Tommiiie) #15
 //Hugo Rodriguez Room #10
 
 
@@ -20,14 +20,23 @@
 
 //Prototypes
 void sleep(unsigned int seconds);
+int usleep(suseconds_t usec);
 int rando(void);
 int room12Spells(int *hp, int enDam);
+
 void warning(int count);
 char uppercase(char *str);
 
+void printUpper(char *arr, int size);
+
+
 void main(void)
 {
-    int x,y,z,i,h,g,k,choice=0;
+
+    int x,y,z,i,h,g,k,choice=0,pin=0;
+
+  
+
     char name[256];
     int boxNum=0;
     int num = 6, guess= 0, a;
@@ -58,13 +67,339 @@ void main(void)
                 {
                     while(choice != 99)
                     {
+                        char ch;
+                        char hostname[256];
+                        char name2[256];
+                        FILE *fp;
+                        puts("You open the door and you quickly turn arround to find the door quickly disappearing behind you.");
+                        puts("In front of you, you now notice a long hallway leading to a room that is completely white.");
+                        puts("At this point you have two choices.");
+                        puts("1. Walk down the dark hallway.");
+                        puts("2. Scream in panic.");
+                        scanf("%d", &choice);
+                        if(choice == 1)
+                        {
+                            puts("You begin to wall down the dark hallway.");
+                            puts("As you walk, you notice that the room is actually a lot brighter than you thought it was.");
+                            puts("You now are inside the white room and it looks like a office cubicle.");
+                            puts("In the far right corner you see a old computer");
+                            sleep(4);
+                            puts("[  675.362959] Kernel panic - not syncing: Watchdog detected hard LOCKUP on cpu 8");
+                            usleep(1800);
+                            puts("[  675.363355] Pid: 3457, comm: lve_tag_thread veid: 0 Not tainted 2.6.32-673.8.1.lve1.4.3.el6.x86_64 #1");
+                            usleep(1800);
+                            puts("[  675.363748] Call Trace:");
+                            usleep(1800);
+                            puts("[  675.363972]  <NMI>  [<ffffffff81546288>] ? panic+0xa7/0x16f");
+                            usleep(1800);
+                            puts("[  675.364284]  [<ffffffff81015039>] ? sched_clock+0x9/0x10");
+                            usleep(1800);
+                            puts("[  675.364520]  [<ffffffff81105fdd>] ? watchdog_overflow_callback+0xcd/0xd0");
+                            usleep(1800);
+                            puts("[  675.364757]  [<ffffffff8113ed17>] ? __perf_event_overflow+0xa7/0x240");
+                            usleep(1800);
+                            puts("[  675.364993]  [<ffffffff8101ee24>] ? x86_perf_event_set_period+0xf4/0x180");
+                            usleep(1800);
+                            puts("[  675.365230]  [<ffffffff8113f364>] ? perf_event_overflow+0x14/0x20");
+                            usleep(1800);
+                            puts("[  675.365464]  [<ffffffff81025bd2>] ? intel_pmu_handle_irq+0x202/0x3f0");
+                            usleep(1800);
+                            puts("[  675.365703]  [<ffffffff8154bd49>] ? perf_event_nmi_handler+0x39/0xb0");
+                            usleep(1800);
+                            puts("[  675.365937]  [<ffffffff8154d805>] ? notifier_call_chain+0x55/0x80");
+                            usleep(1800);
+                            puts("[  675.366171]  [<ffffffff8154d86a>] ? atomic_notifier_call_chain+0x1a/0x20");
+                            usleep(1800);
+                            puts("[  675.366408]  [<ffffffff810b239e>] ? notify_die+0x2e/0x30");
+                            usleep(1800);
+                            puts("[  675.366640]  [<ffffffff8154b30b>] ? do_nmi+0x1cb/0x370");
+                            usleep(1800);
+                            puts("[  675.366870]  [<ffffffff8154ad20>] ? nmi+0x20/0x30");
+                            usleep(1800);
+                            puts("[  675.367111]  [<ffffffff8154a58e>] ? _spin_lock+0x1e/0x30");
+                            usleep(1800);
+                            puts("[  675.367343]  <<EOE>>  <IRQ>  [<ffffffffa0283c7d>] ? tag_free_delayed+0x1d/0x60 [kmodlve]");
+                            usleep(1800);
+                            puts("[  675.367873]  [<ffffffffa0288c53>] ? lve_free_task_hook+0x73/0x110 [kmodlve]");
+                            usleep(1800);
+                            puts("[  675.368112]  [<ffffffff81084742>] ? delayed_put_task_struct+0x42/0x80");
+                            usleep(1800);
+                            puts("[  675.368349]  [<ffffffff8110c015>] ? __rcu_process_callbacks+0x135/0x350");
+                            usleep(1800);
+                            puts("[  675.368583]  [<ffffffff81015089>] ? read_tsc+0x9/0x10");
+                            usleep(1800);
+                            puts("[  675.368815]  [<ffffffff8110c25b>] ? rcu_process_callbacks+0x2b/0x50");
+                            usleep(1800);
+                            puts("[  675.369049]  [<ffffffff81087a2d>] ? __do_softirq+0x10d/0x250");
+                            usleep(1800);
+                            puts("[  675.369285]  [<ffffffff8100c4cc>] ? call_softirq+0x1c/0x30");
+                            usleep(1800);
+                            puts("[  675.369518]  [<ffffffff810102f5>] ? do_softirq+0x65/0xa0");
+                            usleep(1800);
+                            puts("[  675.369749]  [<ffffffff8108784d>] ? irq_exit+0xcd/0xd0");
+                            usleep(1800);
+                            puts("[  675.369981]  [<ffffffff8155139a>] ? smp_apic_timer_interrupt+0x4a/0x60");
+                            usleep(1800);
+                            puts("[  675.370216]  [<ffffffff8100bcd3>] ? apic_timer_interrupt+0x13/0x20");
+                            usleep(1800);
+                            puts("[  675.370448]  <EOI>  [<ffffffff8154a582>] ? _spin_lock+0x12/0x30");
+                            usleep(1800);
+                            puts("[  675.370750]  [<ffffffffa0283e08>] ? tag_list_handle+0x28/0xc0 [kmodlve]");
+                            usleep(1800);
+                            puts("[  675.370988]  [<ffffffffa0283ee2>] ? tag_list_handler+0x42/0xe0 [kmodlve]");
+                            usleep(1800);
+                            puts("[  675.371223]  [<ffffffff810ab910>] ? autoremove_wake_function+0x0/0x40");
+                            usleep(1800);
+                            puts("[  675.371460]  [<ffffffffa0283ea0>] ? tag_list_handler+0x0/0xe0 [kmodlve]");
+                            usleep(1800);
+                            puts("[  675.371694]  [<ffffffff810ab51e>] ? kthread+0x9e/0xc0");
+                            usleep(1800);
+                            puts("[  675.371926]  [<ffffffff8100c3ca>] ? child_rip+0xa/0x20");
+                            usleep(1800);
+                            puts("[  675.372158]  [<ffffffff810ab480>] ? kthread+0x0/0xc0");
+                            usleep(1800);
+                            puts("[  238.954555] [<8010ffd8>] (unwind_backtrace) from [<8010c240>] (show_stack+0x20/0x24)");
+                            usleep(1800);
+                            puts("[  238.962413] [<8010c240>] (show_stack) from [<807840a4>] (dump_stack+0xd4/0x118)");
+                            usleep(1800);
+                            puts("[  238.969832] [<807840a4>] (dump_stack) from [<8011dc34>] (panic+0xf0/0x274)");
+                            usleep(1800);
+                            puts("[  238.976805] [<8011dc34>] (panic) from [<801225c4>] (complete_and_exit+0x0/0x2c)");
+                            usleep(1800);
+                            puts("[  238.984218] [<801225c4>] (complete_and_exit) from [<8012265c>] (do_group_exit+0x4c/0xe4)");
+                            usleep(1800);
+                            puts("[  238.992426] [<8012265c>] (do_group_exit) from [<8012da40>] (get_signal+0x36c/0x6bc)");
+                            usleep(1800);
+                            puts("[  239.000195] [<8012da40>] (get_signal) from [<8010b2f4>] (do_signal+0xc4/0x3e4)");
+                            usleep(1800);
+                            puts("[  239.007522] [<8010b2f4>] (do_signal) from [<8010b7fc>] (do_work_pending+0xb8/0xd0)");
+                            usleep(1800);
+                            puts("[  239.015201] [<8010b7fc>] (do_work_pending) from [<80108094>] (slow_work_pending+0xc/0x20)");
+                            usleep(1800);
+                            puts("[  239.023497] CPU0: stopping");
+                            usleep(1800);
+                            puts("[  239.026239] CPU: 0 PID: 0 Comm: swapper/0 Tainted: G         C      4.14.34-v7+ #1110");
+                            usleep(1800);
+                            puts("[  239.034177] Hardware name: BCM2835");
+                            usleep(1800);
+                            puts("[  239.037626] [<8010ffd8>] (unwind_backtrace) from [<8010c240>] (show_stack+0x20/0x24)");
+                            usleep(1800);
+                            puts("[  239.045480] [<8010c240>] (show_stack) from [<807840a4>] (dump_stack+0xd4/0x118)");
+                            usleep(1800);
+                            puts("[  239.052895] [<807840a4>] (dump_stack) from [<8010e458>] (handle_IPI+0x2bc/0x33c)");
+                            usleep(1800);
+                            puts("[  239.060398] [<8010e458>] (handle_IPI) from [<801014d8>] (bcm2836_arm_irqchip_handle_irq+0x7c/0xac)");
+                            usleep(1800);
+                            puts("[  239.069490] [<801014d8>] (bcm2836_arm_irqchip_handle_irq) from [<8079fcbc>] (__irq_svc+0x5c/0x7c)");
+                            usleep(1800);
+                            puts("[  239.078486] Exception stack(0x80c01ef0 to 0x80c01f38)");
+                            usleep(1800);
+                            puts("[  239.083605] 1ee0:                                     00000000 00e7df50 397c4000 00000000");
+                            usleep(1800);
+                            puts("[  239.091899] 1f00: 80c00000 80c03dcc 80c03d68 80c88172 00000001 80b60a30 babffa00 80c01f4c");
+                            usleep(1800);
+                            puts("[  239.100192] 1f20: 80c04174 80c01f40 80108a4c 80108a50 60000013 ffffffff");
+                            usleep(1800);
+                            puts("[  239.106902] [<8079fcbc>] (__irq_svc) from [<80108a50>] (arch_cpu_idle+0x34/0x4c)");
+                            usleep(1800);
+                            puts("[  239.114405] [<80108a50>] (arch_cpu_idle) from [<8079f434>] (default_idle_call+0x34/0x48)");
+                            usleep(1800);
+                            puts("[  239.122613] [<8079f434>] (default_idle_call) from [<801611cc>] (do_idle+0xd8/0x150)");
+                            usleep(1800);
+                            puts("[  239.130379] [<801611cc>] (do_idle) from [<801614e0>] (cpu_startup_entry+0x28/0x2c)");
+                            usleep(1800);
+                            puts("[  239.138058] [<801614e0>] (cpu_startup_entry) from [<80799184>] (rest_init+0xbc/0xc0)");
+                            usleep(1800);
+                            puts("[  239.145915] [<80799184>] (rest_init) from [<80b00df8>] (start_kernel+0x3d4/0x3e0)");
+                            usleep(1800);
+                            puts("[  239.153503] CPU3: stopping");
+                            usleep(1800);
+                            puts("[  239.156245] CPU: 3 PID: 0 Comm: swapper/3 Tainted: G         C      4.14.34-v7+ #1110");
+                            usleep(1800);
+                            puts("[  239.164182] Hardware name: BCM2835");
+                            usleep(1800);
+                            puts("[  239.167631] [<8010ffd8>] (unwind_backtrace) from [<8010c240>] (show_stack+0x20/0x24)");
+                            usleep(1800);
+                            puts("[  239.175486] [<8010c240>] (show_stack) from [<807840a4>] (dump_stack+0xd4/0x118)");
+                            usleep(1800);
+                            puts("[  239.182901] [<807840a4>] (dump_stack) from [<8010e458>] (handle_IPI+0x2bc/0x33c)");
+                            usleep(1800);
+                            puts("[  239.190402] [<8010e458>] (handle_IPI) from [<801014d8>] (bcm2836_arm_irqchip_handle_irq+0x7c/0xac)");
+                            usleep(1800);
+                            puts("[  239.199492] [<801014d8>] (bcm2836_arm_irqchip_handle_irq) from [<8079fcbc>] (__irq_svc+0x5c/0x7c)");
+                            usleep(1800);
+                            puts("[  239.208487] Exception stack(0xb9d27f38 to 0xb9d27f80)");
+                            usleep(1800);
+                            puts("[  239.213606] 7f20:                                                       00000000 00062a7c");
+                            usleep(1800);
+                            puts("[  239.221900] 7f40: 397f7000 00000000 b9d26000 80c03dcc 80c03d68 80c88172 00000001 410fd034");
+                            usleep(1800);
+                            puts("[  239.230193] 7f60: 00000000 b9d27f94 80c04174 b9d27f88 80108a4c 80108a50 60000013 ffffffff");
+                            usleep(1800);
+                            puts("[  239.238490] [<8079fcbc>] (__irq_svc) from [<80108a50>] (arch_cpu_idle+0x34/0x4c)");
+                            usleep(1800);
+                            puts("[  239.245992] [<80108a50>] (arch_cpu_idle) from [<8079f434>] (default_idle_call+0x34/0x48)");
+                            usleep(1800);
+                            puts("[  239.254199] [<8079f434>] (default_idle_call) from [<801611cc>] (do_idle+0xd8/0x150)");
+                            usleep(1800);
+                            puts("[  239.261964] [<801611cc>] (do_idle) from [<801614e0>] (cpu_startup_entry+0x28/0x2c)");
+                            usleep(1800);
+                            puts("[  239.269641] [<801614e0>] (cpu_startup_entry) from [<8010df50>] (secondary_start_kernel+0x130/0x13c)");
+                            usleep(1800);
+                            puts("[  239.278819] [<8010df50>] (secondary_start_kernel) from [<0010196c>] (0x10196c)");
+                            usleep(1800);
+                            puts("[  239.286140] CPU1: stopping");
+                            usleep(1800);
+                            puts("[  239.288881] CPU: 1 PID: 0 Comm: swapper/1 Tainted: G         C      4.14.34-v7+ #1110");
+                            usleep(1800);
+                            puts("[  239.296819] Hardware name: BCM2835");
+                            usleep(1800);
+                            puts("[  239.300268] [<8010ffd8>] (unwind_backtrace) from [<8010c240>] (show_stack+0x20/0x24)");
+                            usleep(1800);
+                            puts("[  239.308122] [<8010c240>] (show_stack) from [<807840a4>] (dump_stack+0xd4/0x118)");
+                            usleep(1800);
+                            puts("[  239.315536] [<807840a4>] (dump_stack) from [<8010e458>] (handle_IPI+0x2bc/0x33c)");
+                            usleep(1800);
+                            puts("[  239.323038] [<8010e458>] (handle_IPI) from [<801014d8>] (bcm2836_arm_irqchip_handle_irq+0x7c/0xac)");
+                            usleep(1800);
+                            puts("[  239.332126] [<801014d8>] (bcm2836_arm_irqchip_handle_irq) from [<8079fcbc>] (__irq_svc+0x5c/0x7c)");
+                            usleep(1800);
+                            puts("[  239.341121] Exception stack(0xb9d23f38 to 0xb9d23f80)");
+                            usleep(1800);
+                            puts("[  239.346240] 3f20:                                                       00000000 007f534c");
+                            usleep(1800);
+                            puts("[  239.354533] 3f40: 397d5000 00000000 b9d22000 80c03dcc 80c03d68 80c88172 00000001 410fd034");
+                            usleep(1800);
+                            puts("[  239.362826] 3f60: 00000000 b9d23f94 80c04174 b9d23f88 80108a4c 80108a50 60000013 ffffffff");
+                            usleep(1800);
+                            puts("[  239.371122] [<8079fcbc>] (__irq_svc) from [<80108a50>] (arch_cpu_idle+0x34/0x4c)");
+                            usleep(1800);
+                            puts("[  239.378624] [<80108a50>] (arch_cpu_idle) from [<8079f434>] (default_idle_call+0x34/0x48)");
+                            usleep(1800);
+                            puts("[  239.386831] [<8079f434>] (default_idle_call) from [<801611cc>] (do_idle+0xd8/0x150)");
+                            usleep(1800);
+                            puts("[  239.394597] [<801611cc>] (do_idle) from [<801614e0>] (cpu_startup_entry+0x28/0x2c)");
+                            usleep(1800);
+                            puts("[  239.402273] [<801614e0>] (cpu_startup_entry) from [<8010df50>] (secondary_start_kernel+0x130/0x13c)");
+                            usleep(1800);
+                            puts("[  239.411448] [<8010df50>] (secondary_start_kernel) from [<0010196c>] (0x10196c)");
+                            usleep(1800);
+                            puts("[  239.418781] ---[ end Kernel panic - not syncing: Attempted to kill init! exitcode=0x0000000b");
+                            sleep(3);
+                            system("clear");
+                            puts("they're watching.");
+                            sleep(1);
+                            system("clear");
+                            printf("Please confirm your name is %s (Y/N)", name);
+                            scanf(" %c", &ch);
+                            while(tolower(ch) != 'y' && tolower(ch) != 'n')
+                            {
+                                puts("invalid input");
+                                printf("Please confirm your name is %s (Y/N)", name);
+                                // lazy, program loops forever if invalid input
+                                break;
+                            }
+                            if(tolower(ch) == 'n')
+                            {
+                                int choice2;
+                                printf("Oh, then what is your name? \n");
+                                fflush(stdout);
+                                scanf("%s", name2);
+                                puts("So you lied.");
+                                puts("1. Yes.");
+                                puts("2. No.");
+                                scanf(" %d", &choice2);
+                                switch(choice2)
+                                {
+                                    case 1:
+                                        puts("Ah, What a shame.");
+                                        puts("Atleast you ended up saying the ");
+                                        sleep(2);
+                                        system("clear");
+                                        puts("truth.");
+                                        sleep(1);
+                                        //32*2^2
+                                        puts("YVxbn6u3UoRcj+HFeuuQ/oMYRrg6BWU1ZF+lfBQKzfUBdfyOt31uSbGLdKPP4X7ZIwwU0HTveMi5VtZOTwd0ctCvx31P4ZZW6U5XmUKzGP+tbqQ4/bS0fW4/E4rD6FVJtNMU+R9NlMhxnn2UKYjFPws4r8TWRvT0tePtZZRYf05jry9J8nZDabjD4tLYt9D/PTJN2Ltvtg8y0RtWR77xhqBBchBfRYJiZF9irSpTGuAEy4mjAr7SBCG1i1Lr16i0");
+                                        sleep(1);
+                                        system("clear");
+                                        exit(0);
+                                    case 2:
+                                        puts("Yes you did.");
+                                        // Get Hostname and print it
+                                        fp = popen("whoami", "r");
+                                        // lazy error handling for fp
+                                        if(fp == NULL)
+                                        {
+                                            puts("error in popen (whoami). exiting");
+                                            exit(0);
+                                        }
+                                        fgets(hostname, 256, fp);
+                                        // remove endline character
+                                        hostname[strlen(hostname)-1]='\0';
+                                        // Print hostname
+                                        printf("%s", hostname);
+                                        pclose(fp);
 
+                                        puts(" why would you lie?");
+                                        sleep(2);
+                                        printf("1. How did you");
+                                        for(i = 0; i < 3; i++)
+                                        {
+                                            printf(".");
+                                            fflush(stdout);
+                                            sleep(1);
+                                        }
+                                        system("clear");
+                                        break;
+                                    default:
+                                        puts("not a choice. goodbye.");
+                                        exit(0);
+                                }
+                            }
+                            if(tolower(ch) == 'y')
+                            {
+                                printf("No, ");
+
+                                // Get Hostname and print it
+                                fp = popen("whoami", "r");
+                                // lazy error handling for fp
+                                if(fp == NULL)
+                                {
+                                    puts("error in popen (whoami). exiting");
+                                    exit(0);
+                                }
+                                fgets(hostname, 256, fp);
+                                // remove endline character
+                                hostname[strlen(hostname)-1]='\0';
+                                // Print hostname
+                                printf("%s", hostname);
+                                pclose(fp);
+
+                                puts(" why would you lie?");
+                                sleep(2);
+                                printf("1. How did you");
+                                for(i = 0; i < 3; i++)
+                                {
+                                    printf(".");
+                                    fflush(stdout);
+                                    sleep(1);
+                                }
+                                system("clear");
+                                break;
+                            }
+                            //puts("Press Control + c to exit.");
+                        }
+                        if(choice == 2)
+                        {
+                            puts("you feel hopeless.");
+                            puts("");
+                        }
                     }
                     break;
                 }
             case 2: // Justin Do Room 2
                 {
-                    while(choice != 99)
+                  while(choice != 99)
                     {
                         puts("Welcome to room 2. Glad you didn't drown. \n");
                         puts("You open the door and find a wolf that looks intimidating.\n");
@@ -98,15 +433,101 @@ void main(void)
                     }
                     break;
                 }
-            case 3:
+             case 3:
                 {
-                    while(choice != 99)
-                    {
-                        puts("you open the door and find ........");
-                        scanf("%d",&choice);
-                    }
-                    break;
-                }
+                	int playerHp = 10;
+			int playerInv[10];
+			int playerGold = 0;
+			int hitChance = 0;
+			while(choice != 99)
+			{
+				puts("You open the door and find some strange looking creatures. ");
+				puts("The creatures look like walking cactuses. One of them appears to have a flower on it's head. They see you but do nothing. ");
+				puts("The cactus creatures wiggle their bodies, as if they are dancing. They look harmless, but you feel as though they are looking at you menacing. ");
+				puts("You also notice a treasure chest not too far away from the creatures, completely unguarded.\n");
+				puts("You have three choices:\n");
+				puts("1. Interact with the cactuses creatures.\n");
+				puts("2. Go and open the treasure chest.\n");
+				puts("3. Continue to the next room.\n");
+				scanf("%d",&choice);
+				if(choice == 1)
+				{
+					puts("You approach the cactus creatures cautiously. The creatures notice your presense again and circle around you. ");
+					puts("Their constant wiggling makes you dance with them. What do you want to do?");
+					puts("1. Dance with them. \n");
+					puts("2. Attack them. \n");
+					scanf("%d",&choice);
+					if(choice == 1)
+					{
+						puts("You move your body just like the cactus creatures. They seem happy that you decided to dance with them.");
+						puts("One of them offers you a flower. You take the nice gift.");
+						puts("You got the Cactus Flower!");
+						playerInv[0] = 1;
+						puts("The cactus creatures wave good bye as you leave the room.\n");
+					}
+					else if(choice == 2)
+					{
+						puts("You try to attack the cactus creatures. Surprisingly, they nimbly avoid your attacks.");
+						puts("The cactus creatures point their arms toward you and suddenly shoot their thorns at you!");
+						puts("You try to dodge, but you lose your balance and get hit!");
+						x = (rand() % 9) + 1;
+						printf("You take %d damage!",x);
+						puts("You run out of the room covered in cactus thorns.\n");
+					}
+					else if(choice == 2)
+					{
+						puts("You ignore the creatures and head toward the treasure chest.");
+						x = (rand() % 100) + 1;
+						playerGold = x;
+						printf("You open it and find %d gold inside! You put the gold into your bag.",playerGold);
+						puts("You hear something hit the top of the chest and notice cactus thorns have pierced the chest.");
+						puts("The cactus creatures have fired their thorns at you and readying to fire again! What do you do?");
+						puts("1. Run away!");
+						puts("2. Fight back!");
+						scanf("%d",&choice);
+						if(choice == 1)
+						{
+							puts("You make a mad dash to the exit as cactus thorns fly by your head.");
+							puts("You narrowly avoid getting hit as the jump through the door.");
+							puts("You feel your bag and notice some gold fell out!");
+							playerGold = playerGold - x;
+							printf("You lost %d gold!",playerGold);
+							puts("At least you made it out alive.\n");
+						}
+						else if(choice == 2)
+						{
+							puts("You take one of the nearby cactus thorns and throw it back at the cactus creatures!");
+							hitChance = x;
+							if(hitChance >= 50)
+							{
+								puts("You hit one of cactus creatures! It runs away in pain, followed by the others.");
+								puts("You see that the cactus creatures left behind a flower.");
+								puts("You take it as a trophy");
+								puts("You got the Cactus Flower!");
+								playerInv[0] = 1;
+								puts("You leave the room, happy and full of spoils.");
+							}
+							else if(hitChance < 50)
+							{
+								puts("You miss and get hit by another thorn!");
+								y = (rand() % 10) + 1;
+								playerHp = playerHp - y;
+								if(playerHp <= 0)
+								{
+									puts("You die, full of cactus thorns.");
+								}
+							}
+						}
+					}
+					else if(choice == 3)
+					{
+						puts("You decide that this room is not worth your time and leave.\n");
+					}
+					break;
+				}
+				break;
+			}
+		}
             case 4:
                 {
                     while(choice != 99)
@@ -1163,31 +1584,118 @@ void main(void)
                     }
                     break;
                 }
-            case 11:
-                {
-                    while(choice != 99)
+
+            case 11: 
                     {
-                        printf("Enter a number between 1 and 10: ");
-
-                        scanf("%d", &guess);
-
-
-                        printf("%d + magic number =%d\n",guess, (num + guess) );
-                        printf("%d * magic number=%d\n", guess, (num * guess));
-                        printf("%d - magic number=%d\n", guess, (num - guess));
-                        printf("what is your guess?\n");
-                        scanf("%d", &a);
-                        if(a==num)
+                        while(choice != 99)
                         {
-                            printf("You are correct! You win\n");
+                            puts("\n Welcome to room 11");
+                            puts("The door is locked, you are now in a maze ");
+                            puts("you keep walking though the maze searching your way out");
+                            puts("The light suddenly goes off and you dont know what to do.");
+                            puts("you can see a small beam of light far away in the maze");
+                            puts("you work your way as quick as you can to get to that light.");
+                            puts("on your way there you see words written on the wall of each section of the maze on your way");
+                            puts("the words you see so far are (shall, course, must, pass, he, be, in, the, enrolled, who, course");//who he shall pass must be enrolled in the course "course number"
+                            puts("you wonder what the words you saw on your way to the light means?");
+                            puts("Finally you made it to the light beam and find a big door your so excited to finally leave this maze with all its words and none sense"); 
+                            puts("you approach to open the door but the door seems to be locked.");
+                            puts("on the wall next to door there is a 3 digit pin pad");
+                            puts("you must guess the pin in order to escape the maze and gain back your freedom!");
+                            int i;    
+                            FILE *inptr;
+                            for(i = 1; i<4; i++)
+                            {
+                                scanf("%d", &pin);
+                                if(pin != 251)
+                                {
+                                    printf("\nYou guessed wrong. Attempt %d failed.\n", i);
+                                    if(i == 3)
+                                    {
+                                        inptr = fopen("failed.txt", "w");
+                                        fprintf(inptr, "sorry you reached maximum attempts your locked in for life");
+                                        fclose(inptr);
+                                        puts("\n You reached maximum tries you lost.");
+                                        
+                                        pin = 99; 
+                                        break;
+                                    }
+                                    
+                                }
+                                else if(pin == 251)
+                                {
+                                    puts("\n door unlocked.");
+                                    
+                                    puts("You are so happy you finally escaped this maze");
+                                    puts("all of a sudden the door shuts behind you and a steel cage with blades keep rolling down on you from the ceiling");
+                                    puts("you find some dice and a not next to it");
+                                    puts("the note says ( Welcome to death trap you have 5 chances to guess if you fail the cage drops and kills you!");
+                                    srand(time(NULL));
+                                    int x;    
+                                    int guess;    
+                                    puts("you may begin guessing");
+                                    for(i = 1; i < 6; i++)
+                                    {
+                                        scanf("%d", &guess);
+                                        x = 1 + (rand()%6);
+                                        printf("You guessed  %d. You rolled  %d.\n", guess, x);
+                                        
+                                        if(guess != x)
+                                        {
+                                            printf("\nYou guessed wrong. guess %d failed.\n", i);
+                                            if(i == 5)
+                                            {
+                                                inptr = fopen("failedAgain.txt", "w");
+                                                fprintf(inptr, "if your reading this message you must be dead already :( ");
+                                                fclose(inptr);
+                                                puts("You lose see you in hell ");
+                                                pin = 99; 
+                                            }
+                                        }
+                                        else if(guess == x)
+                                        {
+                                            char answer[100] = {0};
+                                            puts("you must be feeling lucky today you guessed right");
+                                            puts("A new door appears and is unlocked you walk out of the room");
+                                            puts("you find yourself inside another room with bright lights");
+                                            puts("you find a chest with letter combination lock on it");
+                                            puts("there is questions engraved on the chest that appears to be the key to unlock it");
+                                            puts("first question is (WHO TAUGHT YOU THIS LANGUAGE");
+                                            scanf("%s", answer);
+                                            if(strcmp(answer, "poppe") == 0 || strcmp(answer, "POPPE") == 0)
+                                            {
+                                               
+                                                        inptr = fopen("SUCCESS.txt", "w");
+                                                        fprintf(inptr, "you are now free!.");
+                                                        fclose(inptr);
+                                                        puts("the chest is unlocked.");
+                                                        puts("a bright light hits you once you open the chest");
+                                                        puts("you wake up and realize this was all just a dream ;) ");
+                                                        pin = 99;     
+                                                        break;
+                                                        return 0;
+                                                    }
+                                            
+                                            
+                                                    else
+                                                    {
+                                                        inptr = fopen("Fail3.txt", "w");
+                                                        fprintf(inptr, "you lost chest is locked forever.");
+                                                        fclose(inptr);
+                                                        puts("Chest locked forever");
+                                                        pin = 99; 
+                                                    }
+                                                }
+                                               
+                                            
+                                            break;
+                                        }
+                                    return 0;
+                                }
+                            }
                         }
-                        else
-                        {
-                            printf("sorry wrong guess");
-                        }
-                    }
-                    break;
-                }
+}
+
             case 12:	//room 12 overhall
 		{
 			puts("you open the door and find a machine that proceeds to teleport you to a distant facility");
@@ -1532,10 +2040,15 @@ void main(void)
                 
             case 14:
                 {
-                    int num, j, winning;
+                    int num, i, j, winning;
+		    char g[20];
+		    FILE *wptr;
+		    wptr = fopen("output.txt","w");
                     while(choice != 99)
                     {
                         puts("You enter and close the door behind you.");
+			puts("Welcome to Case 14: The opportunity is great here to win some money");
+			puts("Play smart and you will be a winner today");
                         puts("You see two doors one on your left and one on your right");
                         puts("There is also a tunnel straight ahead");
                         puts("You can either enter door 1 of 2 of go to the tunnel (choice 3)");
@@ -1546,7 +2059,7 @@ void main(void)
                             case 1:
                                 puts("You enter and close the door behind you");
                                 puts("You find a table straight ahead with a duffel bag on top");
-                                puts("You can either open the bag (Option 1) or take $500 and leave (Option 2");
+                                puts("You can either open the bag (Option 1) or take $500 and leave (Option 2)");
                                 puts("What do you choose?");
                                 scanf("%d",&choice);
                                 switch(choice)
@@ -1554,7 +2067,10 @@ void main(void)
                                     case 1:
                                         {
                                             puts("You have chosen to open the bag");
-                                            puts("You win NOTHING, should've taken the money");
+                                            puts("Enter a number of you desire");
+					    scanf("%d",&num);
+					    puts("Check the output file to see how much you have won!");
+					    fprintf(wptr,"You have won $%d000000! Congrats!",num);
                                             break;
                                         }
                                     case 2:
@@ -1571,7 +2087,12 @@ void main(void)
                             case 2:
                                 {
                                     puts("You have entered door 2");
-                                    puts("You have won the lottery!");
+                                    puts("Enter a string less than 20 characters");
+				    puts("I will change your string to all uppercase letters");
+				    getchar();
+				    fgets(g, 20, stdin);
+				    printUpper(g,20);
+				    puts("Thank you for playing along. You don't win anything, should have chosen a different door :p");
                                     break;
                                 }
                                 break;
@@ -1593,7 +2114,6 @@ void main(void)
                                             puts("Keep in mind it can be multiplied by 0");
                                             scanf("%d",&num);
                                             j = rand() %6;
-                                            printf("%d\n",j);
                                             winning = (num*j) * 2000000;
                                             printf("You have won $%d, congratulations!\n",winning);
                                             break;
@@ -1619,9 +2139,7 @@ void main(void)
                 {
                     while(choice != 99)
                     {
-                        puts("you open the door, but something prevents you from entering. ");
-                        puts("Through the door you hear someone shouting \"HOLD THE DOOR\"");
-                        puts("Despite your effort, the mass opposite from you keeps the door closed.");
+                        puts("You approach the door clearly marked 15.\n As you pass through the doorway you find yourself a room unlike anything you've experience before. In the distance you see a small dimly lit table occupied by only the outline of what you make out to be a man.\n The door behind you has vanished into the blac void.\n Your attention is set back on the mysterious man as he grumbles a request to take a seat at his table.\n You find yourself in a situation of two choices:\n1. Proceed to the table.\n2. Run away."); 
                         scanf("%d",&choice);
                     }
                     break;
@@ -2160,4 +2678,17 @@ int room12Spells(int *hp, int enDam)	//spell chanting
 		return enDam;	//reflect enemy damage
 	}
 	return 0;		//failed spell
+}
+
+void printUpper(char *arr, int size)
+{
+	int i;
+	for(i=0;i<size;i++)
+	{
+		if(islower(arr[i]))
+		{
+			*(arr+i) = toupper(*(arr+i));
+		}
+	}
+	printf("%s",arr);
 }
