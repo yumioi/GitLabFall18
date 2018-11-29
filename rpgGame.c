@@ -3316,12 +3316,124 @@ void main(void)
                 }
             case 15:
                 {
-                    while(choice != 99)
-                    {
-                        puts("You approach the door clearly marked 15.\n As you pass through the doorway you find yourself a room unlike anything you've experience before. In the distance you see a small dimly lit table occupied by only the outline of what you make out to be a man.\n The door behind you has vanished into the blac void.\n Your attention is set back on the mysterious man as he grumbles a request to take a seat at his table.\n You find yourself in a situation of two choices:\n1. Proceed to the table.\n2. Run away."); 
-                        scanf("%d",&choice);
-                    }
-                    break;
+                        while(choice != 99)
+                        {
+				int fire = 1, water = 2, grass = 3;
+    				int i;
+				int death = 1, win = 0;  
+    				int playerScore = 0, enemyScore = 0;
+    				int choice;
+    				srand(time(NULL));
+				puts("                888\n""                888\n""                888\n""88888b.  .d88b. 888  888 .d88b. 88888b.d88b.  .d88b. 88888b.\n""888 *88bd88**88b888 .88Pd8P  Y8b888 *888 *88bd88**88b888 *88b\n""888  888888  888888888K 88888888888  888  888888  888888  888\n""888 d88PY88..88P888 *88bY8b.    888  888  888Y88..88P888  888\n""88888P*  *Y88P* 888  888 *Y8888 888  888  888 *Y88P* 888  888\n""888\n""888              Welcome To Pokemone Battle Hell\n""888");
+				//Sorry for annoying ASCII art.
+				printf("\nCongratulations %s, you've escaped one watery hell only to emerge in a new hell.\n",name); 
+				puts("*Confused* You look around wondering who is talking to you.");
+				puts("Coming to your senses you recongnize the man before you.");
+				puts("\nThe man is oddly remensicent of Proffesor Oak from a childhood favorite Pokemon game.");
+				puts("The resemblence is uncanny, but equally as creepy like any cartoon live action film.");
+				puts("Prof. Oak explains you have transcended time and space and the only way home is to win a battle.");
+				puts("\nThe rules are elementary, you choose a pokemon in hopes its stronger. Best of three wins.");
+				puts("To further explain the rules: Fire>Grass, Water>Fire, Grass>Water.");
+				puts("He then asks you to choose your Pokemon.\n");        
+    				printf("1. Charmander (Fire type)\n2. Squirtle (Water Type)\n3. Bulbasaur (Grass Type)\n");
+				while(win != 1)
+				{
+					for(i=0;i<3;i++)
+					{
+						printf("\nChoose your pokemon: ");
+						scanf("%d",&choice);
+						int enemy = rand() % 3 + 1;
+						if(choice == 1)
+						{
+							if(enemy == 1)
+							{
+								puts("Charmander vs Charmander"); 
+								printf("Draw, neighter Charmanders flame will ever extinguish.\n");
+							}
+							if(enemy == 2)
+							{
+								puts("Charmander vs Squirtle"); 
+								printf("Oak Wins! Squirtle soaks Charmanders tail.\n");
+								enemyScore = enemyScore + 1;
+							}
+							if(enemy == 3)
+							{
+								puts("Charmander vs Bulbasaur"); 
+								printf("%s Wins! Charmander set Bulbasaur ablaze!\n",name);
+								playerScore = playerScore + 1;
+							}
+						}
+						else  if(choice == 2)
+						{
+							if(enemy == 2)
+							{	puts("Squirtle vs Squirtle"); 
+								printf("Draw, the Squirtles ditch you and form the Squirtle squad.\n");
+							}
+							if(enemy == 3)
+							{	
+								puts("Squirtle vs Bulbasaur"); 
+								printf("Oak Wins! Squirtles water gun had no effect on Bulbasaur .\n");
+								enemyScore = enemyScore + 1;
+							}
+							if(enemy == 1)
+							{	
+								puts("Squirtle vs Charmander"); 
+								printf("%s Wins! Squirtle extinguished Charmander\n",name);
+								playerScore = playerScore + 1;
+							}
+						}
+						else if(choice == 3)
+						{
+							if(enemy == 3)
+							{
+								puts("Bulbasaur vs Bulbasaur"); 
+								printf("Draw, Both Bulbasaur beaming eachother got us nowhere.\n");
+							}
+							if(enemy == 2)
+							{
+								puts("Bulbasaur vs Squirtle"); 
+								printf("%s Wins! All Squirtles watering nearly evolved our Bulbasaur.\n",name);
+								playerScore = playerScore + 1;
+							}
+							if(enemy == 1)
+							{
+								puts("Bulbasaur vs Charmander"); 
+								printf("Oak Wins! Bulbasaur was burned to a crisp by Charmander.\n");
+								enemyScore = enemyScore + 1;
+							}
+						}
+						else
+						{
+							printf("Please choose a pokemone\n");
+						}
+					}
+					if(enemyScore > playerScore )
+					{
+						printf("Oak explains he beat you %d to %d...\n",enemyScore,playerScore);
+						puts("In a sudden flash you black out only to be awoken again.");
+						puts("You wake up to an alarm turning over to 6:00am and you hear I Got You Babe playing."); 
+						puts("You again are standing face to face with oak. You are trapped here until you win.");
+						printf("You realize this is the %d time you've lost and died... You must leave this place.",death);   
+						playerScore = 0; 
+						enemyScore = 0; 
+						death = death + 1; 
+					}
+					else if(enemyScore < playerScore )
+					{
+						printf("%s, You've bested me %d to %d. It's time you return home.\n",name,playerScore,enemyScore);
+						puts("He steps aside revealing another door similar to the one that brought you here.");
+ 						puts("Do you dare open it?..."); 
+						puts("Find out next week on POKEMON!");
+					}
+					else if(enemyScore = playerScore )
+					{
+						printf("Oak explains no winner, and it's a draw!\n");
+						puts("Explaining someone has to win the battle continues!"); 
+					}
+				} 
+    				return 0;			     
+                        }
+                        break;
                 }
             case 16:
                 {
