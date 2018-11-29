@@ -2027,7 +2027,7 @@ void main(void)
 
 int rando(void)
 {
-	int r = (rand() % 4) + 1;
+	int r = (rand() % 2) + 1;
 	return r;
 }
 
