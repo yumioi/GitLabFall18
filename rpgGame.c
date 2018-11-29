@@ -4,6 +4,7 @@
 //Ivan Khaffaji Room #19
 //Thomas Jones (Tommiiie) #15
 //Hugo Rodriguez Room #10
+//Edgar Bahena Room #4
 
 
 // Justin Do Room #2
@@ -23,6 +24,7 @@ void sleep(unsigned int seconds);
 int rando(void);
 int room12Spells(int *hp, int enDam);
 void printUpper(char *arr, int size);
+int RolltheDiceman(void);
 
 void main(void)
 {
@@ -196,15 +198,324 @@ void main(void)
 				break;
 			}
 		}
-            case 4:
-                {
-                    while(choice != 99)
-                    {
-                        puts("you open the door and find ........");
-                        scanf("%d",&choice);
-                    }
-                    break;
-                }
+            case 4: // Edgar Baheha
+			{
+					while(choice != 99)
+					{
+							puts("You decided to open the 4th door,"
+								" and you are given 3 more choice."
+								" The door closes behind you leaving you"
+								" alone to forcably choose a door in order to continue."
+								" Each door states a given possiblity"
+								" if chosen. The choices are as follow: \n"
+								"1. This Door with give you the ability to"
+								" understand the 'Truth' of all things\n" 
+								"2. This Door will give you the ability to"
+								" become 'Untouchable'\n"
+								"3. This Door will offer you a chance to 'Redo'"
+								" any event you encounter.\n");
+							puts("You seem to be hesitant as you decide to choose a door,"
+							"but are overwhelmed by the reward that you ignore any consequence");
+							puts("Enter the door you choose to continue: ");							
+							scanf("%d",&choice);
+							if(choice == 1)
+							{
+								puts("You know everyone and everything."
+									"You understand the knowledge of the universe "
+									"and humanities purpose, "
+									"however it came with a price. "
+									"You lose your own benevolence and emotions.\n");
+								puts("As you become an emotionless human-being, you understand what you must do, "
+									"and in order to fulfill your existance you must exit this place.");
+								puts("You continue into the darkness and encounter several beings, some which seem "
+									"to be attracted toward you. You have two choices that you may choose from: \n");
+								puts("1- Communicate with the group in order to gain allies to help on your journey.\n"
+									"2- Offer salvation and destory them.\n");
+								scanf("%d",&choice);
+								
+								if(choice == 1)
+								{
+									puts("you have gained two allies, a Skeleton Soldier and a Wolf. \n");
+									puts("You talk with your aillies, learning more about their existance "
+										"and daily attributes"); 
+									puts("As you continue on your journey you finally encounter the final door. ");
+									puts("you are given 2 more choices: \n");
+									puts("1 - kill off your allies to exit\n"
+										"2 - Offer your intellect instead\n");
+									scanf("%d",&choice);
+								
+									if(choice == 1)
+									{
+										puts("You now have to play a game and win.");
+										int start;
+										puts("Guess my riddle right and you live, however, if you fail, you will be defeated");
+										puts("Enter 1 to continue: ");
+										scanf("%d",&start);
+										
+										if(start == 1)
+										{
+											puts("Never resting, never still.");
+											puts("Moving silently from hill to hill.");
+											puts("It does not walk, run or trot, All is cool where it is not.");
+											puts("What is it?"); 
+											puts("Hint:(No spaces and capitals, example: sun)");
+											puts("Enter the answer in 10 or less characters: ");
+											char guess[11];
+											char answer[20] = "sunshine";
+											scanf("%s", guess);
+											int i;
+											
+											
+											for(i = 0; i < 8; i++)
+											{
+												
+											
+												if(guess[i] == answer[i])
+												{
+													puts("You have passed, you escaped!");
+													break;
+												}
+												else
+												{
+													puts("you failed, you have died");
+													break;
+												}
+											}
+										}
+										else
+										{
+											puts("Wrong input, try again");
+										}
+										
+									}
+									else if(choice == 2)
+									{
+										puts("You gave up knowledge in exchange for friendship. "
+											"Although you know you did the right thing, you can't "
+											"help but think that knowlege was greater than friendship. ");
+										puts("YOu face the final door and must accept the challenge in order to leave.");
+										srand(time(NULL));
+										int i, j, x;
+										int count = 0;
+												
+										puts("You will begin to roll a dice 3 times.");
+										puts("You must get 4 or greater twice in order to win.");
+										puts("Enter 1 to begin: ");
+										scanf("%d",&x);
+											
+											if(x == 1)
+											{
+												for(i = 0; i < 3; i++)
+												{
+													j = RolltheDiceman();
+													if(j >=4)
+													{
+														count++;
+													}
+												}
+												if(count < 2)
+												{
+													puts("You couldn't get 4 or greater twice, you failed!");
+													puts("You died an incredibility painful death.");
+												}
+												else
+												{
+													puts("You managed to win, congratz you're free!");
+												}
+											}
+											else
+											{
+											puts("You have died due to failing to follow orders");
+											}
+									}
+								}
+								else if(choice == 2)
+								{
+									puts("The mysteries group has been defeated");
+									puts("You begin to organize a team");
+									puts("You want to make sure you have everyone organized and ready");
+									unsigned int num;
+									unsigned int rank;
+									double power;
+									char name[30];
+									FILE *reads;
+									FILE *writes;
+									
+									puts("Create a file called input.txt");
+									puts("Write the rank, name, and power level of any characters you can think of.");
+									puts("Ranks are from 1-10, power is from 1.0 - 10.0");
+
+									writes = fopen("output.txt", "w");
+									if(writes == NULL)
+									{
+										puts("Error reading file!");
+										exit(0);
+									}
+									reads = fopen("input.txt", "r");
+									if(reads == NULL)
+									{
+										puts("File could not be opened!");
+									}
+									else
+									{
+										puts("You are viewing your teams power level.");
+										printf("%s", "Enter a choice to do the following: \n"
+											"1 - List the characters LOWER rank (4 OR LESS).\n"
+											"2 - List the characters in terms of HIGH power (5 OR GREATER).\n"
+											"3 - who cares\n");
+										scanf("%u", &num);
+										
+										while(num != 3)
+										{
+											fscanf(reads,"%d%s%lf",&rank, name,&power);
+
+											switch (num)
+											{
+												case 1:
+													puts("List the characters in terms of rank: \n");
+													while(!feof(reads))
+													{
+														if(rank < 5)
+														{
+															printf("%d%s\n",rank,name);
+															fprintf(writes, "%d%s\n",rank,name);
+														}
+														fscanf(reads,"%d%s\n",&rank,name);
+													}
+												break;
+											
+												case 2:
+													puts("Listing the characters in terms of power: \n");
+													while(!feof(reads))
+													{
+														if(power > 4)
+														{
+															printf("%f%s\n",power,name);
+															fprintf(writes,"%f%s\n",power,name);
+														}
+														fscanf(reads,"%lf%s\n",&power,name);
+													}
+												break;
+											}
+										rewind(reads);
+										puts("Enter another choice: ");
+										scanf("%d",&num);
+										}
+										puts("You have listed what you wanted");
+										puts("You may leave now, you are free!");
+										fprintf(writes, "%d", num);
+										fclose(reads);
+										fclose(writes);
+									}
+																	
+								} 
+								else
+								{
+									puts("Wrong choice");
+									
+								}								
+							}
+							else if(choice == 2)
+							{
+								puts("You became a being with pure energy."
+									"You lost your phyical body and transcended "
+									"into a higher plane. "
+									"You lost the feeling of touch ,but gained "
+									"unreachable power ");
+								puts("As you continue on your jorney, you come unto a cross-road "
+									"where yuo can decide to choose which one to take: \n");
+								puts("1- the left path\n"
+									"2- the right path\n");
+					  			scanf("%d",&choice);
+								if(choice == 1)
+								{
+									puts("You came upon a lake, you decided to absorb the water with ur new found power. "
+										"You soon realize that your only weakness is water.");
+									puts("The consequence of your actions led to your death");
+									puts("The End."	);
+								}
+								if(choice == 2)
+								{
+									puts("You approach a light. It gazes upon you ever so brightly.");
+									puts("It's brighter than your own self, and a voice slowly let's you know");
+									puts("You have dead the moment you turned into this being and now you must suffer the 											consequences");
+									puts("You have already died");
+									puts("The End");
+								}
+			
+								
+							}
+							else if(choice == 3)
+							{
+								puts("You have the power to reverse time."
+									"You gained an increable ability, however as you soon"
+									"come to understand, each time you"
+									"reverse time, someone close to you dies."
+									"You start to question why you chose this door"
+									"and begin to feel extreemly guilty for killing"
+									"these people");
+								puts("You start walking toward a river");
+								puts("You decide two choices:");
+								puts("1-Follow the river\n" "2-camp for the night\n");
+								scanf("%d",&choice);
+								if(choice == 1)
+								{
+									puts("you decided to follow the river.");
+									puts("You hear something strange and suddenly the river begins to flood");
+									puts("you slowly drown and are faced with a dilemma");
+									puts("You have died due to drowing");
+									puts("The End");
+								}
+								if(choice == 2)
+								{
+									puts("You decided to camp for the night");
+									puts("You began to read your book and slowly hear sounds coming from outside the tent");
+									puts("You soon discover a dragon has appeared!");
+									puts("As you combat it with your redo power, the dragon asks a riddle");
+									puts("It asks to guess a number and if correct, he will leave you alone");
+									int x, mult, add, sub, y;
+									int magic = 5;	
+									puts("Pick a number from 1-4 in order to defeat the dragon");
+									scanf("%d",&x);
+									
+										if(x < 5 && x > 0)
+										{
+										mult = x * magic;
+										printf("%d * magicnum = %d \n", x, mult);
+										add = x + magic;
+										printf("%d + magicnum = %d\n", x, add);
+										sub = x - magic;
+										printf("%d - magicnum = %d\n", x, sub);
+										
+										puts("Guess my number or else: ");
+										scanf("%d",&y);
+											if(y == magic)
+											{
+												puts("You win! Next time you wont be lucky");
+											}
+											else
+											{
+												puts("You have died!");
+											}
+										}
+										else
+										{
+											puts("You can't follow rules huh, guess you died");
+										}
+								}
+							}
+							else
+							{
+								puts("You failed to follow orders, By the power bestowed upon me by the "
+									"Great Garrett Poppe you will DIE!!!!\n");
+								printf("%s",name);
+								puts(" has died.");
+						
+							}
+					choice = 99;
+					}
+					break;
+			}
             case 5:
                 {
                     srand(time(NULL));
@@ -2319,4 +2630,10 @@ void printUpper(char *arr, int size)
 		}
 	}
 	printf("%s",arr);
+}
+int RolltheDiceman(void)
+{
+	int a;
+	a = (rand() % 6) + 1;
+	return a;
 }
