@@ -6,9 +6,13 @@
 //Brian Godoy room 12
 //Hugo Rodriguez Room #10
 
+//Timothy Phung #room 6
+
+
 //Fernando ochoa room #18
 
 //Edgar Bahena Room #4
+
 
 
 
@@ -33,6 +37,7 @@ void combine(int *a, int *b, int *c, int *d, int *all);
 int usleep(suseconds_t usec);
 
 int rando(void);
+int gambleRandom(void);
 int room12Spells(int *hp, int enDam);
 
 void stringStuff(char *ptr);
@@ -1056,36 +1061,388 @@ void main(void)
                 }
             case 6:
                 {
-                    while(choice != 99)
-                    {
-                        puts("you open the door to find a man wearing sunglasses, track pants, and a blue shirt with a ravioli stain on his shirt pocket.");
+		int chinchinmeter = 0, chinchinprox = 50, random = 0, prometheus = 0, newChoice = 0, gamVal = 0, gbVal = 0, vodka = 0, cookbook = 0,skip = 0;
+		char userInput[20], userAnswer[20] = "number",paper[20],papaAsked[20] = "fakefrank";
+		FILE *fptr;
+		srand(time(NULL));
+               	while(choice != 99)
+		{
+			puts("You open the door to find a man wearing sunglasses, track pants, and a blue shirt with a ravioli stain on his shirt pocket standing in a very small small room.");
+			puts("There also seems to be a man with eyes drawn over his eyelids wearing a black skin suit sitting in the corner of the room reading smut magazines");
+			puts(" ");
                         puts("Welcome to the filthy frank show! Where everything is filthy and filled with terrible pop culture references.");
-                        puts("If you want to make it out alive, just answer my questions and stuff and you'll be safe from dark lord chin chin");
+			puts("My name is Franis of the Filth and I will be the only thing you will be interacting from now on");
+                        puts("If you want to make it out alive, just answer my questions and you'll be safe from dark lord chin chin");
+			puts(" ");
+			puts("OH YEA! Here's a little twist for you! Being the perfectionist I am, if you end up making mistakes the dark lord chin chin will be following you one step closer.");
+			puts("And if he gets close to you then that means......");
+			puts(" ");
+			puts("*he dabs in japanese*");
+			puts(" ");
+			puts("THE DEATH PENALTY");
+			puts(" ");
+			puts("BUT IF YOU DON'T FOLLOW MY INSTRUCTIONS THEN YOU JUST DIE MAN");
+			puts("So without further ado, lets get it started!");
+			puts(" ");
                         puts("Question:  If Pewdiepie reached 80 million subscribers, will the ravioli stick to the ceiling?");
                         puts("1. Wait what?");
                         puts("2. Youtube's reccomended algorithm is garbage!");
                         puts("3. 34 chromonsones");
                         scanf("%d",&choice);
                         if (choice == 1)
-                        {
-                            puts("YOU OBVIOUSLY WEREN'T LISTENING!!! BACK TO THE RICEFIELDS FOR YOU!!!......GAME OVER.");
-                            break;
+		       	{
+                            puts("YOU OBVIOUSLY WEREN'T LISTENING!!! BACK TO THE RICEFIELDS FOR YOU!!!");
                         }
                         else if (choice == 2)
                         {
-                            puts("Yes, youtubes algorithm is pretty bad and they do demonetize my content, BUT IT ISN'T THE RIGHT ANSWER PUNK!!!......GAME OVER.");
-                            break;
+                            puts("Yes, youtubes algorithm is pretty bad and they do demonetize my content, BUT IT ISN'T THE RIGHT ANSWER PUNK!!!");
                         }
                         else if (choice == 3)
                         {
                             puts("I can't believe you try bribing me. You should be so damn ashamed.  Lucky for you though, I take bribes!");
                             puts("He pockets the chromosones");
+			    chinchinmeter = chinchinmeter + 10;
+			    puts("So now that you have correctly bri.....er I mean answered my trivia, I will set up another stage to test your worth.");
                         }
                         else
                         {
-                            puts("TRY AGAIN YOU DUNCE");
+                            puts("YOU DIDN'T FOLLOW MY INSTRUCTIONS FOOL!!");
+			    break;
                         }
-                    }
+			puts("What I have in my hand is a fragment of Prometheus's chromosones.");
+			puts("The poor idiot lent it to me for safekeeping, but I think im gonna use it as a bargaining chip");
+			puts("I bet you're asking what do I need to do to get that?");
+			puts("WELL GUESS WHAT NERD! YOU NEED TO COMPLETE A CERTAIN PROBLEM IN ORDER TO GET THIS");
+			puts("HERE IS THE PROBLEM");
+			puts("Enter number. from 1 to 10");
+			scanf("%s",userInput);
+			if(strcmp(userInput, userAnswer) == 0)
+			{
+				puts("Wow You saw right through me you pervert!!");
+				puts(" ");
+				puts("BUT STILL! I am impressed that you figured it out");
+				puts("*You obtain prometheus's chromosones");
+				prometheus = prometheus + 1;
+			}
+			else
+			{
+				puts("I don't blame you if this one is too hard and I feel sorry, but chinchin is evil incarnate and probably doens't care about your wimpy feelings");
+				chinchinmeter = chinchinmeter - 5;
+			}
+			puts(" ");
+			puts("Alright you stupid idiot, I kinda feel bad for confusing you like i confuse my right hand for my left one");
+			puts("So here's the deal!  I will give you kanye's yeezys which will slow down lord chin chin from catching up to you.");
+			puts("However, all you gotta do is guess what number what I'm thinking of from 1 to 10.  HOwever you get only one shot at this.  SOUNDS GOOD RIGHT??");
+			puts("Don't worry, I won't trick you again like last time");
+			puts("......");
+			puts("What? what do you need yeezys for? WELL TO RUN OF COURSE YOU IDIOT");
+			puts(".......");
+			puts("Whats that now? This makes no sense since chin chin is actually sitting in the corner of the room reading dirty magazines?");
+			puts("..........");
+			puts("and you're saying that this particular room 6 has no meaningful plot or storytelling and seems like something a college student would write up a day before the assignments due??");
+			puts("..............");
+			puts("Look buddy, you need to shut the hell up or lord chin chin will walk 3 steps over here and whoop your ass. So do you want the yeezys or not?");
+			puts("...");
+			puts("That's what I thought you stupid eggplant");
+			puts(" ");
+			puts("What number am I guess as of right now?");
+			scanf("%d", &newChoice);
+			random = 1 + (rand() % 9);
+			if(random == newChoice)
+			{
+				puts("Good job you awkward thing you.  Now Lord chin chin will move his chair a few feet away from you now");
+				puts("*Chin chin scoots his chair a few feet away from you*");
+				puts("oh and here's your yeezy's too I guess");
+				puts("*he hands you a pair of used garbage(its a joke you yeezy loving snowflakes)*");
+				chinchinmeter = chinchinmeter - 5;
+			}
+			else
+			{
+				puts("YOU WIN SOME YOU LOSE SOME PAL!! THATS HOW THE REAL WORLD WORKS");
+			}
+			puts(" ");
+			puts("Don't feel too bad you loser");
+			puts("You know what lets make this more fun");
+			puts("I will offer 2 more items in your quest to avoid the dark lord chin chin");
+			puts("One is a japanese cookbook written entirely in japanese subtitles.");
+			puts("The other is a bottle of vodka");
+			puts("There will be 2 objects, I will judge how you will interact with them. Do it right and I will reward you the items.");
+			puts(" ");
+			puts("*You wonder what the bottle of vodka is for and hope that you win it because you are really thirsty right now (really?)*");
+			puts(" ");
+			puts("Here's another I should tell you. You'll find that there will be an option to GAMBLE from here on out!");
+			puts("What it effectively does is that you can actually increase your chance of avoiding chin chin");
+			puts("HOWEVER! Since it is gambling, there is a chance to increase your chance of running into chin chin");
+			puts(" ");
+			puts("Enough talk! Lets go boyeeeee");
+			puts(" ");
+			puts("*There is a box in front of you. Francis beckons you to do something to it");
+			puts("1.Observe the box");
+			puts("2.Kick the box");
+			puts("3.GAMBLE *This action will skip out on the current mission and any items associated with the mission*");
+			scanf("%d", &newChoice);
+			if(newChoice == 1)
+			{
+				puts("You took a good look at the box");
+				puts("You conclude that the box is pretty well made");
+				puts("Francis decides to reward you for your good observations");
+				chinchinmeter = chinchinmeter + 10;
+				puts("You also earned the cookbook as well");
+				cookbook = cookbook + 1;
+
+			}
+			else if(newChoice == 2)
+			{
+				puts("You kicked the box");
+				puts("You injured your leg while doing so");
+				puts("Apparently there is something hard in the box");
+				puts("Since you injured your leg, chin chin may catch up to you");
+				chinchinmeter = chinchinmeter - 5;
+			}
+			else if(newChoice == 3)
+			{
+				puts("You ignored the box and tried to gamble!");
+				gamVal = gambleRandom();
+				gbVal = 1 + (rand() % 9);
+				if(gbVal >= 6)
+				{
+					puts("Wow getting a bit lucky are we!");
+					puts("*chin chin looks at you with disgust*");
+					chinchinmeter = chinchinmeter + gamVal;
+				}
+				else if(gbVal < 6)
+				{
+					puts("You're a terrible gambler!");
+					puts("*chin chin scoots his chair a little closer to you with a triumphant look in his eyes*");
+					chinchinmeter = chinchinmeter - gamVal;
+				}
+
+			}
+			else
+			{
+				puts("Chin Chin attackd you while offguard and you died of Swine Flu.......GAME OVER");
+			}
+			puts(" ");
+			puts("Alright now for this last item, I want you to pick up this crumpled up paper.");
+			puts(" ");
+			puts("Francis throws a piece of paper in front of you");
+			puts(" ");
+			puts("Pick that up.............or are you a coward?");
+			puts("1. Pick up the wad of paper because you're not a coward");
+			puts("2. You are actually extremely scared of wad up papers");
+			puts("3. GAMBLE");
+			scanf("%d",&newChoice);
+			if(newChoice == 1)
+			{
+				puts("You decide to pick up the piece of paper because you realized a bottle of vodka is on the line");
+				if ((fptr = fopen("wadofpaper.txt", "r")) == NULL)
+				{
+					puts("file is nonexistent");
+					exit(1);
+				}
+
+				fscanf(fptr, "%s", paper);
+				printf("The word %s was written hastily on it",paper);
+				fclose(fptr);
+			}
+			else if(newChoice == 2)
+			{
+				puts("You almost wussed out but then you realized a bottle of vodka is on the line");
+				puts("...........");
+				puts("However you still couldn't bring yourself to do it.");
+			}
+			else if(newChoice == 3)
+			{
+				puts("Against your better judgement, you ignored the vodka and tried to gamble");
+				gamVal = gambleRandom();
+				gbVal = 1 + (rand() % 9);
+				if(gbVal >= 6)
+				{
+					puts("Ehhhh I would have chose the alcohol but eh whatever");
+					puts("Chin Chin gave you a look full of pity");
+					chinchinmeter = chinchinmeter - gamVal;
+				}
+				else if(gbVal < 6)
+				{
+					puts("I guess you're just plain stupid huh?");
+					puts("Chin Chin gleefully looks at you with malice");
+					chinchinmeter = chinchinmeter - gamVal;
+				}
+				skip = skip + 1;
+			}
+			else
+			{
+				puts("Chin Chin attacked you while offguard and you died of food poisoning.....GAME OVER");
+				break;
+			}
+			if(skip == 0)
+			{
+				puts(" ");
+				puts("SO.......what did the paper say?");
+				scanf("%s",userInput);
+				if(strcmp(userInput,papaAsked) == 0)
+				{
+					puts("NYESSSS very impressive");
+					vodka = vodka + 1;
+				}
+				else
+				{
+					puts("Guess you wussied out huh???");
+					puts("NO VODKA FOR YOU");
+				}
+			}
+			puts(" ");
+			puts("OH MAN, ITS TIME FOR OUR EPIC SHOWDOWN");
+			puts("...........");
+			puts("What? You thought this was a race?");
+			puts("Did you actually scroll all the way up to check the dialogue?");
+			puts("What a NERD!!!");
+			puts("Have you already forgotten that this room is hella small");
+			puts("DON'T FORGET THAT I MAKE THE RULES HERE SO WHATEVER I SAY GOES");
+			puts("EVEN IF WHAT I SAY NOW IS INCONSISTENT WITH WHAT I SAID BEFORE!");
+			puts("So here is some final bit of information for you");
+			puts(" ");
+			puts("Everything I been asking you so far has been either adding points or subtracting points");
+			puts("Chin Chin also has points but his is fixed at a specific unknown value");
+			puts("To put it simply, to beat this him and this room overall, you need to have at least 1 point higher than his");
+			puts("So the more points you have the higher chance you have at beating Lord Chin Chin");
+			puts("Oh yea, the items and stuff you obtained along the way can increase your points or lower Chin Chin's points so you better hope you obtained those items");
+			puts(" ");
+			puts("SO ARE YOU READY!");
+			puts("ITS TIME TO DO THIS!");
+			puts(" ");
+			printf("*Your current points is %d, while Chin Chin has %d*\n",chinchinmeter,chinchinprox);
+			printf("*You need %d points to beat him*\n",chinchinprox - chinchinmeter);
+			if(prometheus == 1 || vodka == 1 || cookbook == 1)
+			{
+				puts("*You remembered that you had items in your inventory*");
+				if(cookbook == 1)
+				{
+					puts("Do you want to use the cookbook?");
+					puts("1. Yes");
+					puts("2. No");
+					scanf("%d",&newChoice);
+					if(newChoice == 1)
+					{
+						puts("You decide to cook yourself some Japanese Cuisine witht the cookbook");
+						puts("you gained 10 points!");
+						chinchinmeter = chinchinmeter + 10;
+						cookbook = cookbook + 1;
+					}
+					else if(newChoice == 2)
+					{
+						puts("You decided to not use it");
+					}
+					else
+					{
+						puts("Chin Chin attacks you while offguard and you die of brain hemmorage......GAME OVER");
+						break;
+					}
+				}
+				if(vodka == 1)
+				{
+					puts("Chin Chin is eyeing your bottle of vodka");
+					puts("Do you want to give him your vodka??");
+					puts("1. Hell no");
+					puts("2. Absolutely Not");
+					puts("3. WHy is this an option");
+					puts("4. I can't believe I'm doing this!");
+					scanf("%d", &newChoice);
+					if(newChoice == 1 || newChoice == 2 || newChoice == 3)
+					{
+						puts("You greedily opened the bottle and drank the whole thing!");
+						puts("You felt really proud and satisfied");
+						puts("Chin Chin actually looks at you with intense admiration");
+						puts("However you're too drunk to focus so you lose 15 points");
+						puts(" ");
+						chinchinmeter = chinchinmeter - 15;
+						vodka = vodka + 1;
+					}
+					else if(newChoice == 4)
+					{
+						puts("You reluctantly give the vodka to Chin Chin");
+						puts("Instead of drinking it, he turns it into a molotov");
+						puts("But he got the butterfingers and burned himself");
+						puts("Chin Chin loses 15 points");
+						puts(" ");
+						chinchinprox = chinchinprox - 15;
+					}
+					else
+					{
+						puts("Chin Chin attacks you while offguard and you die of a stroke.......GAME OVER");
+						break;
+					}
+				}
+				if(prometheus == 1)
+				{
+					puts("Chin Chin looks fearful of Prometheus's chromosones");
+					puts("Do you want to use it?");
+					puts("1. Yes");
+					puts("2. No");
+					scanf("%d", &newChoice);
+					if(newChoice == 1)
+					{
+						puts("You consumed the chromosones and you gained the awesome power of prometheus!");
+						puts("You gained 15 points");
+						puts(" ");
+						chinchinmeter = chinchinmeter + 15;
+						prometheus = prometheus - 1;
+					}
+					else if(newChoice == 2)
+					{
+						puts("You decided not to use the chromosones");
+						puts(" ");
+					}
+					else
+					{
+						puts("Chin Chin attack you while offguard and you died of Cancer......GAME OVER");
+						break;
+					}
+
+				}
+			}
+			if(prometheus == 0 && cookbook == 2 && vodka == 2)
+			{
+				puts("*Chin Chin after seeing you cook food, down a bottle of vodka and take on the form of Prometheus.*");
+				puts("*He has gained a newfound respect for you*");
+				puts(" ");
+				puts("*Francis stands there stunned*");
+				puts(" ");
+				puts("What? Are you kidding me? No one has every impressed Chin Chin in over 9000 chromosones.(Apparently chromosones is also a measurement of time)");
+				puts("I see now.  You have shown your worth stranger who's named I did not bother to rememeber");
+				puts("By the power invested in me as a Peace Lord, I hereby let you go");
+				puts("Be honored for you have impressed a mighty dark lord and lived to tell the tale");
+				puts("*You walked out of the room and as you closed the door, you heard Francis say 'Well that was boring'");
+				puts("RESPECTED END");
+				break;
+			}
+			printf("You have %d while Chin Chin has %d",chinchinmeter,chinchinprox);
+			if(chinchinmeter > chinchinprox)
+			{
+				puts(" ");
+				puts("You triumphantly won against the dark lord");
+				puts(" ");
+				puts("OH MAN, I CAN'T BELIEVE YOU BEAT CHIN CHIN THE ALMIGHTY DARK LORD");
+				puts("By the cancer invested in me, I hereby let you go on your merry way");
+				puts(" ");
+				puts("You noddded at Francis and triumphantly walked out, however you feel that this was all a big waste of time");
+				puts("NORMAL END");
+				break;
+			}
+			if(chinchinmeter < chinchinprox)
+			{
+				puts(" ");
+				puts("You tragistically lost against the dark lord");
+				puts(" ");
+				puts("OH BOY, I KNEW YOU WOULD LOSE YOU STUPID VEGAN");
+				puts("NOW CHIN CHIN WILL ABSORB YOUR CHROMOSONES AND WE WILL BE UNSTOPPABLE");
+				puts(" ");
+				puts("As Chin Chin absorbed your chromosones, in your last thoughts, you couldn't believe that you lost against some guy wearing a tight skin suit");
+				puts("BAD END");
+				break;
+			}
+
+                    }	
                     break;
                 }
             case 7:
@@ -4059,6 +4416,11 @@ void combine(int *a, int *b, int *c, int *d, int *all)
 	}
 }
 
+int gambleRandom(void)
+{
+	int r = (rand() % 14) + 1;
+	return r;
+}
 
 int room12Spells(int *hp, int enDam)	//spell chanting
 {
