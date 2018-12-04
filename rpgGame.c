@@ -1,4 +1,8 @@
-﻿//Contributors
+
+
+//Contributors
+
+
 
 //Brandon LaNuevo Room #1
 //Ivan Khaffaji Room #19
@@ -2244,6 +2248,450 @@ void main(void)
 														for(j = 5; j >= 0; j--)
 														{
 
+
+														i = (rand()% 13) + 1;
+														
+														PC1 = *(ptr3 + i);
+														PC2 = *(ptr4 + i);
+														COM1 = *(ptr2 + i);
+														COM2 = *(ptr3 + i);
+						
+														if(PC1 == 1 || PC2 == 1)
+														{
+															if(PC1 == 1 && PC2 != 1)
+															{
+																PC1 = PC1 + 10;
+															}
+															if(PC1 == 1 && PC1 != 1)
+															{
+																PC2 = PC2 + 10;
+															}
+															if(PC1 == 1 && PC2 == 1)
+															{
+																PC1 = PC1 + 10;
+															}
+														}	
+														
+														if(COM1 == 1 || COM2 == 1)
+														{
+															if(COM1 == 1 && COM2 == 10)
+															{
+																COM1 = COM1 + 10;
+																
+																printf("Dealer have a ace with a %d, dealer wins.. you have %d left", PC2,j);
+															}
+															if(COM2 == 1 && COM1 == 10)
+															{
+																COM2 = COM2 + 10;
+																printf("You have a ace with a %d, dealer wins.. you have %d left", PC2,j);
+															}
+															if(COM1 == 1 && COM2 != 1)
+															{
+																COM1 = COM1 + 10;
+															}
+															if(COM2 == 1 && COM1 != 1)
+															{
+																COM2 = COM2 + 10;
+															}
+															if(COM1 == 1 && COM2 == 1)
+															{
+																COM1 = COM1 + 10;
+															}
+															
+														}
+														PT = PC1 + PC2;
+														CT = COM1 + COM2;
+														printf("You are presented with %d and %d. A %d total card value. ", PC1, PC2, PT);
+														printf("Dealer has a %d faced up. \n", COM1);
+														
+														move:
+														printf("What is your move?\n");
+														printf(GREEN "Decision>" RESET);
+														scanf("%s", option);
+
+														
+														if(strcasecmp(option, "hit") == 0)
+														{
+															hit:
+															
+															i = rand()% 13;
+															
+															PC3 = *(ptr3 + i);
+															
+															PT = PT + PC3;
+															
+															if(PT > 21)
+															{
+																bust:
+																lose++;
+																printf("A %d card flips\n", PC3);
+																printf("Your cards values at %d. You busted, you lose this hand.\n", PT);
+																if(lose == 3)
+																{
+																	goto lost;
+																}
+																printf("Type '"GREEN" deal "RESET"' to continue. \n");
+																scanf("%s", option);
+
+															}
+															else if(PT == 21)
+															{
+																win++;
+																left = 3 - win;
+																printf("A %d card flip which makes your total cards value %d\n", PC3, PT);
+																printf("BLACKJACK! Congrats!\n");
+																printf("That's %d,%d to go!\n", win, left);
+																if(win == 3)
+																{
+																	goto winner;
+																}
+																printf("Type '"GREEN" deal "RESET"' to continue. \n");
+																scanf("%s", option);
+															}
+															else if(PT < 21)
+															{
+																printf("A %d card flips \n", PC3);
+																printf("Your new total is %d, what is your next move?\n", PT);
+																printf(GREEN "Decision>" RESET);
+																scanf("%s", option);
+
+																
+																	if(strcasecmp(option, "hit") == 0)
+																	{
+																		goto hit;
+																	}
+																	
+																	if(strcasecmp(option, "stand") == 0 || strcasecmp(option, "stay") == 0)
+																	{
+																		goto stand;
+																	}
+	
+															}
+															
+														}
+														
+														if(strcasecmp(option, "double") == 0)
+														{
+															
+															i = rand()% 13;
+															
+															PC3 = *(ptr4 + i);
+															
+															PT = PT + PC3;
+															
+															if(PT > 21)
+															{
+																goto bust;
+															}
+															else if(PT == 21)
+															{
+																win++;
+																left = win - 3;
+																printf("BLACKJACK! Congrats!\n");
+																printf("That's %d,%d to go!\n", win, left);
+																if(win == 3)
+																{
+																	goto winner;
+																}
+																printf("Type '"GREEN" deal "RESET"' to continue. \n");
+																scanf("%s", option);
+															}
+															else if (PT < 21)
+															{
+																printf("A %d card flips.", PC3);
+																printf("Your new total is %d", PT);
+																goto stand;
+															}
+														}
+														if(strcasecmp(option, "split") == 0)
+														{
+															if(PC1 != PC2)
+															{
+																printf("You cannot split your cards.\n");
+																goto move;
+															}
+															
+															if(PC1 == PC2)
+															{
+																i = rand()% 13;
+																
+																PC3 = *(ptr4 + i);
+																
+																int PT1 = PC1 + PC3;
+																
+																printf("You're first hand shows a %d and %d. Total card value of %d. What is your move?\n", PC1, PC3, PT1);
+																do
+																{	
+																	printf(GREEN"Decision>"RESET);
+																	scanf("%s", option);
+																	
+																	if(strcasecmp(option, "hit") == 0)
+																	{
+																	i = rand()% 13;
+																
+																	PC3 = *(ptr3 + i);
+																
+																	PT1 = PT1 + PC3;
+																	
+																	printf("Next card is a %d. Giving you %d total value.\n", PC3, PT1);
+																		if(PT1 > 21)
+																		{
+																			lose++;
+																			printf("A %d card flips\n", PC3);
+																			printf("Your cards values at %d. You busted, you lose this hand. You have %d tries left\n", PT, j);
+																			if(lose == 3)
+																			{
+																				goto lost;
+																			}
+																			printf("Type '"GREEN" stand "RESET"' to continue. \n");
+																			scanf("%s", option);
+																			continue;
+																		}
+																	}
+																}
+																while(!strcasecmp(option, "stand") == 0);
+																
+																i = rand()% 13;
+																
+																int PC4 = *(ptr4 + i);
+																
+																int PT2 = PC1 + PC4;
+																
+																printf("You're second hand shows a %d and %d. Total card value of %d. What is your move?\n", PC1, PC4, PT2);
+																do
+																{	
+																	printf(GREEN"Decision>"RESET);
+																	scanf("%s", option);
+																	
+																	if(strcasecmp(option, "hit") == 0)
+																	{
+																	i = rand()% 13;
+																
+																	PC4 = *(ptr3 + i);
+																
+																	PT2 = PT2 + PC4;
+																	
+																	printf("Next card is a %d. Giving you %d total value.\n", PC4, PT2);
+																	if(PT2 > 21)
+																		{
+																			lose++;
+																			printf("A %d card flips\n", PC3);
+																			printf("Your cards values at %d. You busted, you lose this hand.\n", PT);
+																			if(lose == 3)
+																			{
+																				goto lost;
+																			}
+																			printf("Type '"GREEN" continue "RESET"' to continue. \n");
+																			scanf("%s", option);
+																			continue;
+																		}
+																	}
+																}
+																while(!strcasecmp(option, "stand") == 0);
+																
+																printf("Dealer's cards are %d and %d. Total of %d card value.\n", COM1, COM2, CT);
+																
+																while(CT < 17)
+																{
+																	i = rand()% 13;
+																	
+																	COM3 = *(ptr3 + i);
+																	
+																	CT = CT + COM3;
+																	
+																	printf("Dealer hits a %d.\n", COM3);
+																	printf("Dealer has a %d in total.\n", CT);
+																	
+																}
+																if(CT > 21)
+																{
+																	win++;
+																	printf("Your first card present a total card value of %d. \n", PT);
+																	printf("Dealer presents a %d. Dealer bust, you win this hand!. \n", CT);
+																	printf("That's %d,%d to go!\n", win, left);
+																	if(win == 3)
+																	{
+																	  goto winner;
+																	}
+																	printf("Type '"GREEN" Deal "RESET"' to continue. \n");
+																	scanf("%s", option);
+																}
+																else if(CT > PT1)
+																{
+																	lose++;
+																	printf("Your first card present total card value of %d. \n", PT1);
+																	printf("Dealer wins this hand...\n");
+																	if(lose == 3)
+																	{
+																		goto lost;
+																	}
+																	
+																}
+																else if(PT1 > CT)
+																{
+																	win++;
+																	left = 3 - win;
+																	printf("Your first card present total card value of %d. \n", PT1);
+																	printf("Dealer presents a %d. You won this hand!\n", CT);
+																	if(win == 3)
+																	{
+																		goto winner;
+																	}
+																	printf("That's %d,%d to go!\n", win, left);
+
+																	
+																}
+																else if(PT1 == CT)
+																{
+																	j++;
+																	printf("You present total card value of %d. \n", PT1);
+																	printf("Dealer presents a %d. This is a push.\n", CT);
+																	
+																}
+																else if(CT > PT2)
+																{
+																	printf("Your first card present total card value of %d. \n", PT2);
+																	printf("Dealer wins this hand...\n");
+																	lose++;
+																	if(lose == 3)
+																	{
+																		goto lost;
+																	}
+																	printf("Type '"GREEN" deal "RESET"' to continue. \n");
+																	scanf("%s", option);
+																	
+																	
+																}
+																else if(PT2 > CT)
+																{
+																	win++;
+																	if(win == 3)
+																	{
+																		goto winner;
+																	}
+																	left = 3 - win;
+																	printf("You present total card value of %d. \n", PT2);
+																	printf("Dealer presents a %d. You won this hand!\n", CT);
+																	printf("That's %d,%d to go!\n", win, left);
+																	printf("Type '"GREEN" deal "RESET"' to continue. \n");
+																	scanf("%s", option);
+																	
+																	
+																}
+																else if(PT2 == CT)
+																{
+																	j++;
+																	printf("You present total card value of %d. \n", PT2);
+																	printf("Dealer presents a %d. This is a push. \n", CT);
+																	printf("Type '"GREEN" deal "RESET"' to continue. \n");
+																	scanf("%s", option);
+																}
+																
+																
+															}
+																	
+																	
+														}
+														
+														if(strcasecmp(option, "stand") == 0 || strcasecmp(option, "stay") == 0)
+														{
+							
+																stand:
+																printf("Dealer's cards are %d and %d. Total of %d card value.\n", COM1, COM2, CT);
+																
+																while(CT < 17)
+																{
+																	i = rand()% 13;
+																	
+																	COM3 = *(ptr3 + i);
+																	
+																	CT = CT + COM3;
+																	
+																	printf("Dealer hits a %d.\n", COM3);
+																	printf("Dealer has a %d in total.\n", CT);
+																	
+																}
+																if(CT > 21)
+																{
+																	win++;
+																	left = 3 - win;
+																	printf("You present a total card value of %d. \n", PT);
+																	printf("Dealer presents a %d. Dealer bust, you win this hand!. \n", CT);
+																	if(win == 3)
+																		{
+																			goto winner;
+																		}
+																	printf("That's %d,%d to go!\n", win, left);
+																	printf("Type '"GREEN" deal "RESET"' to continue. \n");
+																	scanf("%s", option);
+																}
+																else if(CT > PT)
+																{
+																	lose++;
+																	printf("You present total card value of %d. \n", PT);
+																	printf("Dealer presents a %d, dealer wins...\n", CT);
+																	if(lose == 3)
+																	{
+																		lost:
+																		printf("You've lost three times. It seems lady luck wasn't on your side.\n");
+																		printf("You can have another shot once we restart this chapter or you could take and alternate path\n");
+																		printf("You'll now go back to the menu\n");
+																		printf("-------------------------------\n");
+																		goto Menu;
+																	}
+																	
+																	printf("Type '"GREEN" deal "RESET"' to continue. \n");
+																	scanf("%s", option);
+																	
+																}
+																else if(PT > CT)
+																{
+																	win++;
+																	left = 3 - win;
+																	printf("You present total card value of %d. \n", PT);
+																	printf("Dealer presents a %d. You won this hand!\n", CT);
+																	printf("That's %d,%d to go!\n", win, left);
+																	if(win == 3)
+																		{
+																			winner:
+																			printf("You beat the man for the sheriff's key. \"Well if you still think I'm giving it, forget it!\" the man assertively tells you.\n");
+																			printf("\"Just hand 'em the key! The stranger won fair and square!\" the man on the left shouts at the man you beat.\n");
+																			printf("With a mad grin on his face, the man you beat puts the key on the table. All three out laws start walking out the bar but before they walk out, you shout \"hey!\".\n");
+																			printf("As they turn, you toss three-hundred of your money toward the men. That's more than half of your award! \"I don't need this much, you men take it and clean yourself up. Don't worry, I will never rat ya'll wrongful doings.\", you tell the men.\n");
+																			printf("With all three men in shocking in despair, one of them thanks you. Your great generosity will certainly keep those men out of town. Now lets get the sheriff out of jail and put an end to MadDog for good!\n");
+																			printf("--------- END OF THIS CHAPTER ---------\n");
+																			key = true;
+																			chp2 = true;
+																			goto Menu;
+																		}
+																	printf("Type '"GREEN" deal "RESET"' to continue. \n");
+																	scanf("%s", option);
+							
+																}
+																else if(PT == CT)
+																{
+																	j++;
+																	printf("You present total card value of %d. \n", PT);
+																	printf("Dealer presents a %d. This is a push.\n", CT);
+																	printf("Type '"GREEN" deal "RESET"' to continue. \n");
+																	scanf("%s", option);
+																}
+														}
+														}
+													}
+													
+													else if(strcasecmp(option, "back") == 0)
+													{
+														puts("You've decided to go back. \n");
+														puts("-------------------------- \n");
+														
+														goto Menu;
+													}
+													}
+												
+												}
+
+
 														i = (rand()% 13) + 1;
 														
 														PC1 = *(ptr3 + i);
@@ -4320,43 +4768,47 @@ void main(void)
                     }
                     case 20:
                     {
-			
-				#define BOLDBLACK "\033[1m\033[30m"
+		  	#define BOLDBLACK "\033[1m\033[30m"
 				#define BOLDGREEN "\033[1m\033[32m"
 				#define RED "\x1b[31m"
 				#define BLUE "\x1b[34m"
 				#define BOLDBLUE "\033[1m\033[34m"
 				#define BOLDRED "\033[1m\033[31m"
-
-				puts(BOLDBLACK "\n\nWelcome to Karina's Spanish 101 class!"  BOLDGREEN " \u263A\n" RESET);
+				
+				system("clear");
+				puts(BOLDBLACK "\n\t\t\t\t\t\t WELCOME!! WELCOME!! WELCOME!!\n");
+				puts("\n\t\t\t\t\t     BIENVENIDO!! BIENVENIDA!! BIENVENIDOS!!\n");
+				puts(BOLDBLACK "\n\t\t\t\t\t     Welcome to Karina's Spanish 101 class!\n"  BOLDGREEN " \u263A\n" RESET);
 				puts("I have created 3 exams for you to take, so the end of this adventure you should be able to express yourself in spanish.\n");
-				puts("You have the choice to challenge me if you don't want to start from level 1.\n");
-				puts("You may choose a level above level 1 and if you pass the chosen level with a 90% or above then you automatically pass levels below the chosen level!\n");
-				puts("BUT if you do not pass the chosen level with a 90% or above then you will restart from level 1, so CHALLENGE ME! :P\n");
-				puts("If you choose to start from level 1 then you can work your way up to the next 2 levels.\n");
+	
+				
 				puts("The average of the 3 exams will be taken at the end. If you pass with an 80% then you pass the class otherwise you will retake the class.\n");
 				puts(BOLDBLACK"Let the challenge begin! Enjoy! :D"RESET);
 				puts("You may quit anytime by selecting option 99, but I recommend you not to quit!");					
-
+			
                         while(choice != 99)
                         {
                             	
 				puts(BOLDBLACK"\nHere are your choices. You may work on your way up or challenge me:\n"RESET);
-				puts(BOLDBLACK"Level 1"RESET);
-				puts(BOLDBLACK"Level 2"RESET);
-				puts(BOLDBLACK"Level 3\n"RESET);
+				puts(BOLDBLACK"Level 1 --> press 1"RESET);
+				puts(BOLDBLACK"Level 2 --> press 2"RESET);
+				puts(BOLDBLACK"Level 3 --> press 3\n"RESET);
 
 				scanf("%d",&choice);
 				switch(choice)
 				{
 					
 					case 1: 
+					system("clear");
+					srand(time(NULL));
 					puts(BOLDBLUE"\n**** Welcome to level 1! ****\n"RESET);
 				
 				int score = 0;
 				char input;
 				char n[30];
-				choice = (rand() %10) + 1;
+				srand(time(NULL));
+				//int arrayA[SIZE];
+				//choice = (rand() %10) + 1;
 				gets(name);
 				puts(BOLDBLACK"\n1. Please choose the correct translation for:"RESET BOLDBLUE" goodmorning"RESET);
 				puts(" A. buenas noches\n B. buenos días\n C. buenas tardes\n D. buen días\n");
@@ -4420,15 +4872,19 @@ void main(void)
 
 				}
 
-				break;	
+				break;		
 			
 				case 2: 
 
-				puts(BOLDBLUE"\n**** Welcome to level 2! ****\n"RESET);
-
-				puts(BOLDBLACK"\n1. Please choose the correct translation for:"RESET BOLDBLUE" Monday"RESET);
+				system("clear");
+				int random = rand()%5+1;
+				puts(BOLDBLUE"\n**** Welcome to level 2! ****\n");
+				
+				puts(BOLDBLACK"\n1. Please choose the correct translation for:" BOLDBLUE" Monday");
+				//randomize(arrayA);
+				//printer(arrayA);
 				puts(" A. Viernes\n B. Martes\n C. Lunes\n D. Miércoles\n E. Jueves\n");
-				printf(BOLDBLACK"Answer:\n"RESET);
+				printf(BOLDBLACK"Answer:\n");
 				scanf(" %c" ,&input);
 				if((input=='C') || (input == 'c'))
 				{
@@ -4436,41 +4892,153 @@ void main(void)
 					
 				}
 
-				puts(BOLDBLACK"\n2. Please choose the correct translation for:"RESET BOLDBLUE" Tuesday"RESET);
+				puts(BOLDBLACK"\n2. Please choose the correct translation for:" BOLDBLUE" Wednesday");
 				puts(" A. Viernes\n B. Martes\n C. Lunes\n D. Miércoles\n E. Jueves\n");
-				printf(BOLDBLACK"Answer:\n"RESET);
+				printf(BOLDBLACK"Answer:\n");
+				scanf(" %c" ,&input);
+				if((input=='D') || (input == 'd'))
+				{
+					score = score+2; 
+				}
+			
+				puts(BOLDBLACK"\n3. Please choose the correct translation for:" BOLDBLUE" Sunday");
+				puts(" A. Viernes\n B. Domingo\n C. Lunes\n D. Miércoles\n E. Jueves\n");
+				printf(BOLDBLACK"Answer:\n");
 				scanf(" %c" ,&input);
 				if((input=='B') || (input == 'b'))
 				{
 					score = score+2; 
 				}				
-
+				
+				{
 				puts("------------------------");
-				printf(BOLDBLACK"%s You scored %d out of 10\n"RESET, n, score);
+				printf(BOLDBLACK"%s You scored %d out of 16\n", n, score);
 				puts("------------------------");
-
-				puts(BOLDBLUE"\nHere are the rest of the week days that you should know\n"RESET);
+				}
+				puts(BOLDBLUE"\nHere are the rest of the week days that you should know\n");
 				puts("Jueves = Thursday");
+				puts("Martes = Tuesday");
+				puts("Viernes = Friday");
+				puts("Sabado = Saturday");
 
-				if (score >= 8)
+				if (score >= 14)
 
-				puts(BOLDGREEN"\nGood Job!! I'm so proud of you! :')"RESET);
+				puts(BOLDGREEN"\nKeep going!!Good Job!! I'm so proud of you! :')");
 
 				else
 
 				{
 					
-					printf(BOLDRED "\nCome on! You are better than this!! -.- \n" RESET);
+					printf(BOLDRED "\nCome on! You are better than this!! -.- \n");
 
 				}
 
+				break;
+				case 3:
+				
+
+				system("clear");
+				puts(BOLDBLUE"\n**** Welcome to level 3! ****\n");
+				puts(BOLDBLACK"\n1. Please input the correct translation for:" BOLDBLUE" thank you\n");
+				char nu[30];
+				char in[10];
+				char string[1000];
+				
+				scanf("%s", in);
+				
+				
+					if(strcmp("gracias", in) == 0)
+					
+					{
+					score = score+2;
+					puts(BOLDGREEN"Correct!!\n");
+					}
+					else
+					{
+					puts(BOLDRED"wrong!\n");
+					
+					}
+					
+
+				puts(BOLDBLACK"\n2. Please choose the correct translation for:" BOLDBLUE" today?");
+				puts(" A. noy\n B. hoy\n C. hoya\n D. hoy es\n");
+				printf(BOLDBLACK"Answer:\n");
+				scanf(" %c" ,&input);
+				if((input=='A') || (input == 'a'))
+				{
+					score = score+2; 
+					
+				}				
+
+				puts(BOLDBLACK"\n3. Please choose the correct translation for:" BOLDBLUE" I am mean");
+				puts(" A. Yo soy malo(a)\n B. Yo estoy malo(a)\n C. Yo es malo(a)\n D. Yo hay malo(a)\n");
+				printf(BOLDBLACK"Answer:\n");
+				scanf(" %c" ,&input);
+				if((input=='A') || (input == 'a'))
+				{
+					score = score+2; 
+					
+				}
+
+			
+				
+				puts(BOLDBLACK"\n4. Please choose the correct translation for:" BOLDBLUE" How old are you?");
+				puts(" A. cuantos anos tienes\n B. Cuantos años tienes\n C. Cuatas años\n D. Cuatas años tengo\n");
+				printf(BOLDBLACK"Answer:\n");
+				scanf(" %c" ,&input);
+				if((input=='B') || (input == 'b'))
+				{
+					score = score+2; 
+					
+				}
+
+
+
+				{
+				puts("------------------------");
+				printf(BOLDBLACK"%s You scored %d out of 24\n", n, score);
+				puts("------------------------");
+				}
+				
+
+				if (score >= 20)
+
+				puts(BOLDGREEN"\nGood Job!! I'm so proud of you! :')");
+
+				else
+
+				{
+					
+					printf(BOLDRED "\nCome on! You are better than this!! -.- \n");
+
+
+
+					
+					}
+				if(score >= 22)
+				puts("Congratulations you have passed the class!!!");
+				else
+				{
+				puts("WOW!!! You are a LOSER!!");
+
+
+			
+				}
+
+
+				
 				}
 					
 				if(choice == 99)
 				{
-					puts(BOLDRED"\nW H Y\nA R E\nY O U\n  A\nQ U I T T E R?!!"RESET);
+					puts(BOLDRED"\nW H Y\nA R E\nY O U\n  A\nQ U I T T E R?!"RESET);
 				
 				}
+
+                        }
+
+				
+	
                         }
                         break;
                     }
@@ -4570,6 +5138,7 @@ void shuffle(int *a, int *b, int SIZE)
 }
 
 
+
 void stringStuff(char *ptr)
 {
 	printf("Here is your string before any manipulation: %s\n", ptr);
@@ -4617,6 +5186,23 @@ int gambleRandom(void)
 {
 	int r = (rand() % 14) + 1;
 	return r;
+}
+
+void combine(int *a, int *b, int *c, int *d, int *all)
+{
+	int i;
+	int j;
+	int k;
+	int l;
+	int m;
+	
+	for(i = 0; i < 52; i++)
+	{
+		all[j++] = a[i++];
+		all[k++] = b[i++];
+		all[l++] = c[i++];
+		all[m++] = d[i++];
+	}
 }
 
 int room12Spells(int *hp, int enDam)	//spell chanting
@@ -4782,12 +5368,18 @@ void printUpper(char *arr, int size)
 	}
 	printf("%s",arr);
 }
+
+
+
+
+
 int RolltheDiceman(void)
 {
 	int a;
 	a = (rand() % 6) + 1;
 	return a;
 }
+
 
 void casecheck(void)
 {
