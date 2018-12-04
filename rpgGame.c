@@ -39,9 +39,6 @@ int usleep(suseconds_t usec);
 int rando(void);
 int gambleRandom(void);
 int room12Spells(int *hp, int enDam);
-int room7DiceRoll(int side);
-void room7RandomNum(int *ptr, int size);
-void room7SortNum(int *ptr, int size);
 
 void stringStuff(char *ptr);
 
@@ -1450,29 +1447,6 @@ void main(void)
                 }
             case 7:
                 {
-					srand(time(NULL));
-					int randomNum[5]={0};
-					int i;
-					char ch;
-					int *ptrnum = randomNum;
-					int endings[11] = {0};
-					FILE *rptr;
-					FILE *wptr;
-					int trueEnding =0;
-					wptr = fopen("Room7Endings.txt","w+");
-					if((rptr = fopen("Room7Endings.txt","r+")) == NULL)
-					{
-						for(i=0;i<11;i++)
-						fprintf(wptr,"%d ",endings[i]);
-					}
-					if((rptr = fopen("Room7Endings.txt","r+")) != NULL)
-					{
-						for (i = 0; i < 11; i++)
-						{
-							fscanf(rptr, "%1d", &endings[i]);
-						}
-					}
-					
                     while(choice != 99)
                     {
                         puts("you open the door and find ........");
@@ -1484,7 +1458,6 @@ void main(void)
                         puts("4.Leave the old man to die.");
 						puts("What do you do?");
                         scanf("%d",&choice);
-						
                         if(choice == 1)
                         {
                             puts("As you approach the old man he notices you. You have two choices: ");
@@ -1501,21 +1474,13 @@ void main(void)
                                 scanf("%d",&choice);
                                 if(choice == 1)
                                 {
-                                    puts("The old man dodges your attacks. He swings his arm at you. ");
-									puts("He hits you. You take 999 damage.");
-									puts("You are dead \nGame over\n");
-									endings[0]=1;
-									for(i=0;i<11;i++)
-										fprintf(wptr,"%d ",endings[i]);
+                                    puts("The old man is too strong for you. He beats you. You are dead Game over");
                                     break;
                                 }
                                 if(choice == 2)
                                 {
                                     puts("As you begin to run the old man stands up. He catches up to you in a split second.");
-                                    puts("Your vision goes blury. You are dead. \nGame over\n");
-									endings[1]=1;
-									for(i=0;i<11;i++)
-										fprintf(wptr,"%d ",endings[i]);
+                                    puts("Your vision goes blury. You are dead Game over");
                                     break;
                                 }
                             }
@@ -1524,10 +1489,7 @@ void main(void)
                                 puts("The old man sees your attempt to leave and visibly angers");
                                 puts("As soon as you turn around you hear the old man breathing behind you");
                                 puts("The last thing you see is your lower body being strown accross the floor");
-                                puts("You are dead. \nGame over.\n");
-								endings[2]=1;
-								for(i=0;i<11;i++)
-									fprintf(wptr,"%d ",endings[i]);
+                                puts("You are dead. Game over.");
                                 break;
                             }
                             break;
@@ -1543,8 +1505,8 @@ void main(void)
 							{
 								puts("You look around the room for a stick to poke the old man.");
 								puts("You spot a stick by the chair the old man was sitting. Pick it up?");
-								puts("1. Yes.");
-								puts("2. No.");
+								puts("1. Yes");
+								puts("2. No");
 								scanf("%d",&choice);
 								if(choice == 1)
 								{
@@ -1558,60 +1520,12 @@ void main(void)
 									if(choice == 1)
 									{
 										puts("You decide that you would rather make the nobler choice of disposing of the evidence");
-										puts(" than be responsible for the untimely death of this old fogey. You can: ");
-										puts("1. Find a rug to cover his boddy.");
-										puts("2. Hide his body behind the chair.");
-										scanf("%d",&choice);
-										if(choice == 1)
-										{
-											puts("You search the room for a rug but are unable to find one.");
-											puts("So you decide the best way to hide him is to throw a coat over him. ");
-											puts("It is not the best cover, but it's at least something and you feel ");
-											puts("quite satisfied with your work. Now you feel it is time to leave the ");
-											puts("scene of the crime. As you leave you notice the old man's corpse begins to stir. ");
-											puts("You scream at the old man \"Stay dead you foul beast!\", but he continues by rising from ");
-											puts("his impromptu resting place. He looks quite grotesque like the most disgusting thing you have ");
-											puts("ever layed your eyes on. He is so ugly that you die. ");
-											puts("Game over. \n\"But I wasn't really dead you just covered me with a coat\"\n");
-											endings[3] =1;
-											for(i=0;i<11;i++)
-												fprintf(wptr,"%d ",endings[i]);
-											break;
-										}
-										if(choice == 2)
-										{
-											puts("You decide the best way to hide his body is to stash it behind the chair. ");
-											puts("After you stashed his body you step back to observe your crafty work and decide ");
-											puts("that it was a shitty idea. The chair did nothing to hide his body. You hear sirens in ");
-											puts("the distance. The police arrive and take you to jail. You are charged with the murder of ");
-											puts("a senior citizen. You are given life in prison and wait out the rest of your life in prison.");
-											puts("Game over.\nBut the old man's corpse was never found.\n");
-											endings[4] = 1;
-											for(i=0;i<11;i++)
-												fprintf(wptr,"%d ",endings[i]);
-											break;
-										}
+										puts("than be responsible for the untimely death of this old fogey. ");
 										break;
 									}
 									if(choice == 2)
 									{
-										puts("You decide that you would rather leave than have to deal with this hot mess. ");
-										puts("You do a complete 180 and head back for the exit. On the door there is a keypad with ");
-										puts("a note saying to enter 5 numbers: ");
-										puts("Just as your about to enter the numbers the old man types in");
-										room7RandomNum(ptrnum,5);
-										room7SortNum(ptrnum,5);
-										puts("You hear the old man behind you scream \"The numbers from biggest to smallest are ");
-										for(i=0;i<5;i++)
-										{
-											printf("%d!\n",randomNum[i]);
-										}
-										puts("You are shocked you thought the old man had died. You sudenly feel a tightness in your chest ");
-										puts("begin to overwelm you. You had a heart attack. You are dead.");
-										puts("Game over\n");
-										endings[5] = 1;
-										for(i=0;i<11;i++)
-											fprintf(wptr,"%d ",endings[i]);
+										
 										break;
 									}
 									
@@ -1619,86 +1533,17 @@ void main(void)
 								}
 								if(choice == 2)
 								{
-									puts("You decide not to pick up the stick. You approach the old man ");
-									puts("and kneel down. You decide the best course of actions is to poke him ");
-									puts("with your finger. Then the old man moves and says \"I'm not dead! Stop poking me!\"");
-									puts("You can: ");
-									puts("1. Keep poking.");
-									puts("2. Stop");
-									scanf("%d",&choice);
-									if(choice == 1)
-									{
-										puts("How many times do you poke?");
-										puts("a. 1");
-										puts("b. 2");
-										puts("c. 5");
-										puts("d. 100000");
-										scanf(" %c",&ch);
-										switch(ch)
-										{
-											case 'a':
-											case 'A':
-											{
-												puts("Why would you poke me? I told you i'm not dead.");
-												break;
-											}
-											case 'b':
-											case 'B':
-											{
-												puts("Why would you poke me twice? I told you i'm not dead.");
-												break;
-											}
-											case 'c':
-											case 'C':
-											{
-												puts("Why would you poke five times? thats a little excesive.");
-												break;
-											}
-											case 'd':
-											case 'D':
-											{
-												puts("The old man yells \"STOP IT!\"");
-												break;
-											}
-											default:
-											{
-												puts("The old man is visibly confused");
-												break;
-											}
-										}
-										puts("The old man grabs your finger. The events that follow are too gruesome to describe ");
-										puts("but it ends with you dead.");
-										puts("Game over\n");
-										endings[6] = 1;
-										for(i=0;i<11;i++)
-											fprintf(wptr,"%d ",endings[i]);
-										break;
-									}
-									if(choice == 2)
-									{
-										puts("The old man says \"Thank you for not poking me despite the desire I saw burning in your eyes. ");
-										puts("However I have the same desire, but I don't have as much self control.\" He then begins poking ");
-										puts(" you with such fervor. He pokes you so much you begin to bleed. He continues his onslaught.");
-										puts("You are dead");
-										puts("Game over\n");
-										endings[7] = 1;
-										for(i=0;i<11;i++)
-											fprintf(wptr,"%d ",endings[i]);
-										break;
-									}
+									puts("You decide not to pick up the stick.");
 									break;
 								}
 								break;
 							}
 							if(choice == 2)
 							{
-								puts("As you contemplate suicide over the guilt of killing an old man you notice him stand up.");
-								puts("He becomes infuriated by your actions and bring down his fury upon you. He completely decimates you.");
-								puts("You are dead. Game over");
-								endings[8] = 1;
-								for(i=0;i<11;i++)
-									fprintf(wptr,"%d ",endings[i]);
-								break;
+							puts("As you contemplate suicide over the guilt of killing an old man you notice him stand up.");
+							puts("He becomes infuriated by your actions and bring down his fury upon you. He completely decimates you.");
+							puts("You are dead. Game over");
+							break;
 							}
                             break;
                         }
@@ -1709,9 +1554,6 @@ void main(void)
                             puts("As you look up the old man is nowhere to be found. The next sensation");
 							puts("you feel is a heavy hit in the back of the head.");
                             puts("You are dead. Game over");
-							endings[9] = 1;
-							for(i=0;i<11;i++)
-								fprintf(wptr,"%d ",endings[i]);
                             break;
                         }
                         if(choice == 4)
@@ -1719,15 +1561,10 @@ void main(void)
                             puts("As you walk away the old man screams at you. He says \"Why would you just leave me?\"");
                             puts("You turn around and notice that the old man has taken all your belongings.");
                             puts("He screams \"You will pay with your life!\" You are dead. Game over");
-							endings[10] = 1;
-							for(i=0;i<11;i++)
-								fprintf(wptr,"%d ",endings[i]);
                             break;
                         }
                     }
                     break;
-					fclose(rptr);
-					fclose(wptr);
                 }
             case 8:
                 {
@@ -4876,44 +4713,6 @@ int room12Spells(int *hp, int enDam)	//spell chanting
 	puts("You failed to cast any spell!");
 	return 0;		//failed spell
 }
-
-
-int room7DiceRoll(int side)
-{
-	int roll = (rand() % side) +1;
-	return roll;
-}
-
-void room7RandomNum(int *ptr, int size)
-{
-	int i;
-	for(i=0;i<5;i++)
-	{
-		for(i=0;i<size;i++)
-		{
-			*ptr = (rand()%100)+1;
-			ptr++;
-		}
-	}
-}
-
-void room7SortNum(int *ptr, int size)
-{
-	int i, j;
-	int temp;
-	for(i=0;i<size;i++)
-	{
-		for(j=i+1;j<size;j++)
-		{
-			if(*(ptr+i)<=*(ptr+j))
-			{
-				temp = *(ptr+i);
-				*(ptr+i) = *(ptr+j);
-				*(ptr+j) = temp;
-			}
-		}
-	}
-=======
 void writeAnswers()
 {
     int input = 0;
@@ -4987,5 +4786,4 @@ int RolltheDiceman(void)
 	int a;
 	a = (rand() % 6) + 1;
 	return a;
-
 }
